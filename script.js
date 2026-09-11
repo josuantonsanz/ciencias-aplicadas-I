@@ -60,7 +60,20 @@
 
       var tituloSeccion = document.createElement("a");
       tituloSeccion.className = "toc__seccion-titulo";
-      tituloSeccion.href = "#" + section.id;
+
+      // Las portadas-resumen solo se muestran en el visor de diapositivas.
+      // En la lectura normal, el título del índice enlaza al primer apartado
+      // visible de la sección en vez de al resumen oculto.
+      var destino = section;
+      if (section.classList.contains("slide--seccion")
+          && !section.classList.contains("slide--seccion--titulo-necesario")) {
+        var posicion = sections.indexOf(section);
+        destino = sections.slice(posicion + 1).find(function (candidata) {
+          return candidata.getAttribute("data-seccion") === seccion
+            && !candidata.classList.contains("slide--seccion");
+        }) || section;
+      }
+      tituloSeccion.href = "#" + destino.id;
       tituloSeccion.textContent = seccion;
       grupo.appendChild(tituloSeccion);
 

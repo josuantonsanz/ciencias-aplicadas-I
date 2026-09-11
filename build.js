@@ -201,7 +201,13 @@ function renderarCapitulo(md, cap, serie, num) {
     const listaSubtitulos = principal.subtitulos.map(function (subtitulo) {
       return "    <li>" + renderarMarkdownConLatex(subtitulo, true) + "</li>";
     }).join("\n");
-    return '<section class="slide slide--seccion" data-materia="' + escaparHTML(cap.materia)
+    const tieneContenidoPropio = secciones.some(function (sec) {
+      return sec.nivel === 2 && sec.seccion === principal.titulo;
+    });
+    const clasePortada = "slide slide--seccion"
+      + (tieneContenidoPropio ? "" : " slide--seccion--titulo-necesario");
+
+    return '<section class="' + clasePortada + '" data-materia="' + escaparHTML(cap.materia)
       + '" data-seccion="' + escaparHTML(principal.titulo) + '" data-nivel="2">\n'
       + "  <h2>" + renderarMarkdownConLatex(principal.titulo, true) + "</h2>\n"
       + "  <ul class=\"slide__indice-seccion\">\n" + listaSubtitulos + "\n  </ul>\n"

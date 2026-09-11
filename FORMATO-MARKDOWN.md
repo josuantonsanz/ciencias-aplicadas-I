@@ -12,7 +12,7 @@ diapositivas ya incluidos.
 - El **título** del capítulo y su **materia** se escriben en `capitulos/lista.json`
   (no en el `.md`).
 - Dentro del `.md`, cada sección principal empieza con `## Título de la sección`.
-- Cada `##` genera una **diapositiva de sección** con su título y la lista de sus subtítulos `###`. Cada `###` con contenido crea después su propia diapositiva y muestra solo el título de ese apartado.
+- Cada `##` genera, **solo en el modo diapositivas**, una portada de sección con su título y la lista de sus subtítulos `###`. Esa portada no aparece en la lectura normal ni al imprimir; si el `##` no tiene texto propio antes de los `###`, se conserva únicamente su título para mantener la jerarquía. Cada `###` con contenido crea después su propia diapositiva y muestra solo el título de ese apartado.
 - Usa `###` para dividir una sección larga en diapositivas más breves; el índice lateral las agrupa bajo su encabezado `##`, que enlaza a su diapositiva de sección. Para subapartados o actividades dentro de ellos, usa `####`.
 
 > Un solo archivo Markdown puede contener todas las secciones de un capítulo. En `lista.json` debe haber **una sola entrada** para ese archivo; el campo opcional `secciones` permite mostrar su número en el índice general.

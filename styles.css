@@ -187,7 +187,15 @@ img { max-width: 100%; }
   font-size: .86rem;
 }
 
-.slide.slide--seccion {
+/* Estas portadas resumen los ### de cada ##. Se conservan en el DOM para
+   el visor de diapositivas, pero no forman parte de la lectura ni la impresión.
+   Si el ## no tiene texto propio, se muestra únicamente su título para no
+   perder la jerarquía del documento; la lista sigue siendo exclusiva del visor. */
+.content .slide.slide--seccion { display: none; }
+.content .slide.slide--seccion--titulo-necesario { display: block; }
+.content .slide--seccion--titulo-necesario .slide__indice-seccion { display: none; }
+
+.slide-view .slide--seccion {
   margin-top: 24px;
   padding: 32px;
   background: var(--azul-suave);
@@ -661,8 +669,11 @@ tbody tr:nth-child(even) { background: #f8f9fb; }
     padding: 2cm 0;
   }
   .slide:first-of-type { page-break-before: auto; }
-  /* En impresión se conserva el espaciado vertical común de las secciones. */
-  .slide.slide--seccion { padding: 2cm 0; }
+  /* Las portadas-resumen de sección son exclusivas del visor de diapositivas.
+     Solo se conserva el título de los ## que no tienen texto propio. */
+  .slide.slide--seccion { display: none !important; }
+  .slide.slide--seccion--titulo-necesario { display: block !important; }
+  .slide--seccion--titulo-necesario .slide__indice-seccion { display: none; }
 
   .slide h2, .slide h3 { page-break-after: avoid; break-after: avoid; color: #000; }
   .slide h3 { border-left-color: #000; }
