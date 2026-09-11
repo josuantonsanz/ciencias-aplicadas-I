@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ciencias Aplicadas I · Índice</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="pagina-indice">
+  <header class="topbar">
+    <div class="topbar__title">
+      <span class="topbar__brand">Ciencias Aplicadas I</span>
+    </div>
+    <div class="topbar__actions">
+      <button class="btn btn--outline" id="btn-print" title="Imprimir o guardar como PDF">🖨️ <span class="btn__label">Imprimir / PDF</span></button>
+    </div>
+  </header>
+
+  <main class="indice">
+    <header class="cover indice__portada">
+      <p class="cover__kicker">Formación Básica</p>
+      <h1 class="cover__title">Ciencias Aplicadas I</h1>
+      <p class="cover__subtitle">Matemáticas · Biología · Física · Química</p>
+      <div class="cover__meta"><span>Curso 2026 – 2027</span><span>1 capítulo · 5 secciones</span></div>
+    </header>
+
+    <nav class="chapter-grid" aria-label="Capítulos">
+<a class="chapter-card" href="capitulos/01-fundamentos-ciencias-aplicadas.html">
+  <span class="tag tag--mat">Ciencias aplicadas</span>
+  <h2>Fundamentos de las ciencias aplicadas</h2>
+  <p>Un único capítulo organizado en cinco secciones: matemáticas, laboratorio, medida, trabajo experimental y repaso.</p>
+</a>
+    </nav>
+  </main>
+
+  <script>
+    document.getElementById("btn-print").addEventListener("click", function () { window.print(); });
+  </script>
+</body>
+</html>

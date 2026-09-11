@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fundamentos de las ciencias aplicadas · Ciencias Aplicadas I</title>
+  <meta name="description" content="Fundamentos de las ciencias aplicadas — Ciencias Aplicadas I">
+  <link rel="stylesheet" href="../styles.css">
+  <!-- KaTeX se sirve localmente: el capítulo sigue funcionando sin Internet. -->
+  <link rel="stylesheet" href="../lib/katex/katex.min.css">
+</head>
+<body>
+
+  <!-- ======================= BARRA SUPERIOR ======================= -->
+  <header class="topbar">
+    <div class="topbar__title">
+      <button class="btn btn--ghost topbar__menu" id="btn-menu" aria-label="Abrir índice">☰</button>
+      <span class="topbar__brand">Ciencias Aplicadas I</span>
+    </div>
+    <div class="topbar__actions">
+      <a class="btn btn--outline" href="../index.html" title="Volver al índice general">⌂ <span class="btn__label">Índice</span></a>
+      <button class="btn btn--outline" id="btn-print" title="Imprimir o guardar como PDF (Ctrl+P)">
+        🖨️ <span class="btn__label">Imprimir / PDF</span>
+      </button>
+      <button class="btn btn--primary" id="btn-slides" title="Ver el contenido como diapositivas">
+        ▶ <span class="btn__label">Diapositivas</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="layout">
+
+    <!-- ======================= ÍNDICE LATERAL ======================= -->
+    <nav class="sidebar" id="sidebar" aria-label="Índice del capítulo">
+      <p class="sidebar__title">Índice del capítulo</p>
+      <ol class="toc" id="toc"><!-- se genera con JS --></ol>
+      <p class="sidebar__hint">Pulsa <kbd>Ctrl</kbd>+<kbd>P</kbd> para imprimir / guardar como PDF.</p>
+    </nav>
+
+    <!-- ======================= CONTENIDO ======================= -->
+    <main class="content" id="content">
+
+      <header class="cover" id="portada">
+  <p class="cover__kicker">Ciencias Aplicadas I · Capítulo 1</p>
+  <h1 class="cover__title">Fundamentos de las ciencias aplicadas</h1>
+  <p class="cover__subtitle"><span class="tag tag--mat">Ciencias aplicadas</span></p>
+  <div class="cover__meta"><span>Curso 2026 – 2027</span><span>Formación Básica</span></div>
+</header>
+
+      <section class="slide slide--seccion" data-materia="ciencias" data-seccion="Matemáticas: números, operaciones y proporcionalidad" data-nivel="2">
+  <h2>Matemáticas: números, operaciones y proporcionalidad</h2>
+  <ul class="slide__indice-seccion">
+    <li>Los números que usamos</li>
+    <li>El sistema decimal y las operaciones</li>
+    <li>Operaciones combinadas</li>
+    <li>Magnitudes y proporcionalidad</li>
+  </ul>
+</section>
+<section class="slide" data-materia="ciencias" data-seccion="Matemáticas: números, operaciones y proporcionalidad" data-nivel="3">
+  <h2>Los números que usamos</h2>
+<p>Los números sirven para <strong>contar</strong>, <strong>medir</strong>, ordenar y comparar. No todos son iguales: cada grupo incluye al anterior y añade números nuevos.</p>
+<ul>
+<li>Los <strong>números naturales</strong> ($\mathbb{N}$) se usan para contar: 1, 2, 3, 4…</li>
+<li>Los <strong>números enteros</strong> ($\mathbb{Z}$) incluyen los naturales, el cero y los negativos: … −3, −2, −1, 0, 1, 2, 3…</li>
+<li>Los <strong>números racionales</strong> ($\mathbb{Q}$) se pueden escribir como una fracción. Por ejemplo, $\frac{1}{2} = 0{,}5$ y $\frac{3}{4} = 0{,}75$. Los decimales exactos y los periódicos son racionales.</li>
+<li>Los <strong>números irracionales</strong> tienen infinitas cifras decimales sin repetirse siguiendo un patrón. No se pueden escribir como fracción: $\pi = 3{,}14159\ldots$ o $\sqrt{3} = 1{,}73205\ldots$</li>
+<li>Los <strong>números reales</strong> ($\mathbb{R}$) reúnen todos los anteriores. Son los números que podemos colocar en una recta numérica.</li>
+</ul>
+
+<div class="box box--resumen">
+<p class="box__title">Resumen</p>
+<p>$\mathbb{N}$ está dentro de $\mathbb{Z}$; $\mathbb{Z}$ está dentro de $\mathbb{Q}$; y los racionales e irracionales forman $\mathbb{R}$.</p>
+<p>Cuando te pidan clasificar un número, indica el conjunto <strong>más pequeño</strong> al que pertenece.</p>
+
+</div>
+<h4>La recta numérica</h4>
+<p>En una recta numérica, los números pequeños están a la izquierda y los grandes, a la derecha. El <strong>cero</strong> es el origen. Los negativos quedan a su izquierda y los positivos a su derecha.</p>
+<p>Para comparar números negativos, piensa en la recta: $-8 < -3$ porque $-8$ está más a la izquierda. En los decimales, conviene igualar el número de cifras: $2{,}5 = 2{,}50$, así que $2{,}50 > 2{,}47$.</p>
+<h4>Actividades</h4>
+<ol>
+<li>Indica el conjunto más pequeño al que pertenece cada número: $12$; $-7$; $0{,}25$; $\frac{5}{3}$; $\pi$; $0$.</li>
+<li>Ordena de menor a mayor: 3,2; −1; 0; −3,5; 3,02; 2,9.</li>
+<li>Dibuja una recta numérica y sitúa: −2,5; −1; 0,75; 2; 3,5.</li>
+<li>Escribe un ejemplo de número natural, entero negativo, racional e irracional.</li>
+</ol>
+
+</section>
+<section class="slide" data-materia="ciencias" data-seccion="Matemáticas: números, operaciones y proporcionalidad" data-nivel="3">
+  <h2>El sistema decimal y las operaciones</h2>
+<p>Nuestro sistema de numeración es <strong>decimal</strong> porque usa diez cifras: 0, 1, 2, 3, 4, 5, 6, 7, 8 y 9. También es <strong>posicional</strong>: una misma cifra vale cosas distintas según el lugar que ocupa.</p>
+<p>Por ejemplo:</p>
+
+<div class="box box--example">
+<p class="box__title">Descomponer un número</p>
+<p>En 51 268, el 5 vale 50 000; el 1 vale 1 000; el 2 vale 200; el 6 vale 60 y el 8 vale 8.</p>
+<p>$$51\,268 = 50\,000 + 1\,000 + 200 + 60 + 8$$</p>
+
+</div>
+<p>Al sumar o restar por escrito, coloca cada cifra en su columna: unidades debajo de unidades, decenas debajo de decenas y así sucesivamente. Multiplicar equivale a sumar varias veces la misma cantidad. Dividir es repartir una cantidad en partes iguales.</p>
+<p>En una división, el <strong>dividendo</strong> es la cantidad que se reparte; el <strong>divisor</strong>, el número de partes; el <strong>cociente</strong>, lo que corresponde a cada parte; y el <strong>resto</strong>, lo que sobra si la división no es exacta.</p>
+
+<div class="box">
+<p class="box__title">Nota</p>
+<p>Una calculadora suele mostrar decimales en vez del resto. Por ejemplo, $17 \div 5 = 3{,}4$: el cociente entero es $3$ y sobran $2$ unidades.</p>
+
+</div>
+<h4>Actividades</h4>
+<ol>
+<li>Descompón: a) 7 304; b) 42 090; c) 305 018.</li>
+<li>Calcula: a) $2\,458 + 679$; b) $9\,003 - 4\,786$; c) $326 \times 7$; d) $148 \times 24$.</li>
+<li>Haz las divisiones e indica el cociente y el resto: a) $96 \div 8$; b) $157 \div 6$; c) $425 \div 12$.</li>
+<li>En una caja hay 144 tornillos. Se guardan en bolsas de 10. ¿Cuántas bolsas completas se llenan? ¿Cuántos tornillos sobran?</li>
+</ol>
+
+</section>
+<section class="slide" data-materia="ciencias" data-seccion="Matemáticas: números, operaciones y proporcionalidad" data-nivel="3">
+  <h2>Operaciones combinadas</h2>
+<p>Cuando una expresión tiene varias operaciones, no se puede calcular de cualquier manera. Sigue siempre este orden:</p>
+<ol>
+<li><strong>Paréntesis</strong> y corchetes.</li>
+<li><strong>Multiplicaciones</strong> y divisiones, de izquierda a derecha.</li>
+<li><strong>Sumas</strong> y restas, de izquierda a derecha.</li>
+</ol>
+
+<div class="box box--example">
+<p class="box__title">Paso a paso</p>
+<p>Calcula $6 + 4 \times (2 + 3) - 10$.</p>
+<ol>
+<li>Paréntesis: $6 + 4 \times 5 - 10$</li>
+<li>Multiplicación: $6 + 20 - 10$</li>
+<li>Suma y resta: $26 - 10 = 16$</li>
+</ol>
+
+</div>
+<p>Los paréntesis cambian el orden habitual. Por eso $3 + 4 \times 2 = 11$, mientras que $(3 + 4) \times 2 = 14$.</p>
+<h4>Actividades</h4>
+<ol>
+<li>Calcula: a) $18 - 3 \times 4$; b) $(18 - 3) \times 4$; c) $36 \div 6 + 5 \times 3$.</li>
+<li>Calcula: a) $40 + 20 \div 5 - 2$; b) $7 \times (12 - 8) + 9$; c) $48 \div (3 \times 4)$.</li>
+<li>Escribe los paréntesis necesarios para que $6 + 2 \times 5$ dé como resultado $40$.</li>
+<li>Inventa una operación combinada cuyo resultado sea 25 y explica el orden que has seguido.</li>
+</ol>
+
+</section>
+<section class="slide" data-materia="ciencias" data-seccion="Matemáticas: números, operaciones y proporcionalidad" data-nivel="3">
+  <h2>Magnitudes y proporcionalidad</h2>
+<p>Una <strong>magnitud</strong> es una propiedad que se puede medir y expresar con un número y una unidad: una longitud, una masa, un tiempo o una temperatura.</p>
+<p>Dos magnitudes son <strong>directamente proporcionales</strong> cuando cambian en el mismo sentido y en la misma proporción. Si se duplica una, se duplica la otra. Por ejemplo, si para 4 personas se necesitan 200 g de arroz, para 8 personas se necesitan 400 g.</p>
+<table>
+<thead>
+<tr>
+<th align="right">Personas</th>
+<th align="right">Arroz</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">2</td>
+<td align="right">100 g</td>
+</tr>
+<tr>
+<td align="right">4</td>
+<td align="right">200 g</td>
+</tr>
+<tr>
+<td align="right">8</td>
+<td align="right">400 g</td>
+</tr>
+</tbody></table>
+<p>Dos magnitudes son <strong>inversamente proporcionales</strong> cuando una aumenta y la otra disminuye en la misma proporción. Por ejemplo, para realizar el mismo trabajo, cuantos más trabajadores hay, menos tiempo se necesita.</p>
+
+<div class="box box--example">
+<p class="box__title">Proporcionalidad directa</p>
+<p>3 kg de naranjas cuestan 7,50 €. ¿Cuánto cuestan 5 kg?</p>
+<p>Primero comprobamos que más kilos implican más precio. Después:</p>
+<p>$$5 \times 7{,}50 \div 3 = 12{,}50\,\text{euros}$$</p>
+
+</div>
+<div class="box box--example">
+<p class="box__title">Proporcionalidad inversa</p>
+<p>4 personas tardan 6 horas en limpiar un espacio. Si trabajan 8 personas al mismo ritmo, ¿cuánto tardan?</p>
+<p>Hay el doble de personas, así que tardarán la mitad: <strong>3 horas</strong>. También se puede calcular: $4 \times 6 \div 8 = 3$.</p>
+
+</div>
+<h4>Actividades</h4>
+<ol>
+<li>Indica si la relación es directa o inversa: a) número de cuadernos y precio; b) velocidad y tiempo para recorrer la misma distancia; c) horas trabajadas y sueldo, si se cobra por hora.</li>
+<li>Para 6 bocadillos se usan 450 g de pan. ¿Cuántos gramos se necesitan para 10 bocadillos?</li>
+<li>Una máquina fabrica un pedido en 12 horas. Si se usan 3 máquinas iguales trabajando a la vez, ¿cuánto tardarán?</li>
+<li>Un grifo llena 80 L en 4 minutos. ¿Cuántos litros llenará en 15 minutos al mismo ritmo?</li>
+</ol>
+
+<div class="box box--resumen">
+<p class="box__title">Resumen</p>
+<ul>
+<li>Los números se clasifican en naturales, enteros, racionales, irracionales y reales.</li>
+<li>En el sistema decimal, el valor de una cifra depende de su posición.</li>
+<li>En las operaciones combinadas: paréntesis → multiplicaciones y divisiones → sumas y restas.</li>
+<li>En una proporcionalidad directa, las dos magnitudes aumentan o disminuyen juntas; en una inversa, una aumenta cuando la otra disminuye.</li>
+</ul>
+
+</div>
+</section>
+<section class="slide slide--seccion" data-materia="ciencias" data-seccion="Biología: seguridad y observación en el laboratorio" data-nivel="2">
+  <h2>Biología: seguridad y observación en el laboratorio</h2>
+  <ul class="slide__indice-seccion">
+    <li>Antes de empezar una práctica</li>
+    <li>Riesgos, pictogramas y accidentes</li>
+    <li>Observar con lupa y microscopio</li>
+  </ul>
+</section>
+<section class="slide" data-materia="ciencias" data-seccion="Biología: seguridad y observación en el laboratorio" data-nivel="3">
+  <h2>Antes de empezar una práctica</h2>
+<p>Un laboratorio es un lugar preparado para observar, medir y realizar experimentos. En él puede haber aparatos frágiles, fuentes de calor y sustancias que requieren cuidado. La seguridad no consiste en tener miedo: consiste en <strong>trabajar con atención y seguir las indicaciones</strong>.</p>
+<p>Antes de tocar el material, lee la práctica completa y escucha las instrucciones. Localiza la salida, el extintor, el botiquín, el lavaojos o la ducha de seguridad si existen, y el lugar indicado para cada residuo.</p>
+
+<div class="box box--dato">
+<p class="box__title">Importante</p>
+<p>Nunca hagas un experimento por tu cuenta ni mezcles sustancias «para ver qué pasa». Usa únicamente el material, las cantidades y el procedimiento que indique el profesorado.</p>
+
+</div>
+<h4>Normas básicas</h4>
+<ul>
+<li>Lleva la <strong>bata abrochada</strong> y las <strong>gafas de seguridad</strong> cuando la práctica lo requiera.</li>
+<li>Si tienes el pelo largo, recógelo. Evita bufandas, pulseras, colgantes o ropa que pueda engancharse.</li>
+<li>Mantén la mesa despejada, limpia y ordenada. Las mochilas y objetos personales deben quedar fuera de la zona de trabajo.</li>
+<li>No comas, bebas ni pruebes ninguna sustancia. Tampoco pipetees nunca con la boca.</li>
+<li>No corras, no juegues y no distraigas a quien está manejando material.</li>
+<li>Lee las etiquetas antes de usar un producto y no inhales directamente sus vapores.</li>
+<li>Al terminar, limpia y seca el material, deja el puesto recogido y lávate las manos.</li>
+</ul>
+<h4>Actividades</h4>
+<ol>
+<li>Explica por qué no se debe comer ni beber en el laboratorio.</li>
+<li>Escribe cuatro objetos o prendas que convenga retirar o controlar antes de una práctica y explica el riesgo de cada uno.</li>
+<li>Una compañera lleva gafas de protección en la frente y el pelo suelto mientras calienta un líquido. Indica dos cosas que debería corregir.</li>
+<li>Ordena estas acciones: recoger el material, leer el guion de la práctica, lavarse las manos, localizar el material de seguridad.</li>
+</ol>
+
+</section>
+<section class="slide" data-materia="ciencias" data-seccion="Biología: seguridad y observación en el laboratorio" data-nivel="3">
+  <h2>Riesgos, pictogramas y accidentes</h2>
+<p>Los envases de productos químicos llevan una etiqueta. En ella aparecen el nombre, indicaciones de uso y, si hace falta, <strong>pictogramas de peligro</strong>. Estos símbolos avisan de riesgos concretos; no significan que se pueda manipular el producto sin instrucciones.</p>
+<table>
+<thead>
+<tr>
+<th>Pictograma o aviso</th>
+<th>Qué indica</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Llama</td>
+<td>Producto inflamable: puede arder con facilidad.</td>
+</tr>
+<tr>
+<td>Bomba explotando</td>
+<td>Riesgo de explosión.</td>
+</tr>
+<tr>
+<td>Llama sobre un círculo</td>
+<td>Producto oxidante: puede favorecer un incendio.</td>
+</tr>
+<tr>
+<td>Botella</td>
+<td>Gas bajo presión.</td>
+</tr>
+<tr>
+<td>Líquido sobre una mano o metal</td>
+<td>Producto corrosivo.</td>
+</tr>
+<tr>
+<td>Calavera</td>
+<td>Producto tóxico.</td>
+</tr>
+<tr>
+<td>Silueta con estrella en el pecho</td>
+<td>Riesgo grave para la salud.</td>
+</tr>
+<tr>
+<td>Pez y árbol</td>
+<td>Peligroso para el medio ambiente.</td>
+</tr>
+</tbody></table>
+
+<div class="box">
+<p class="box__title">Qué hacer si ocurre algo</p>
+<p>Mantén la calma y <strong>avisa inmediatamente al profesor o profesora</strong>. No intentes resolver un accidente importante por tu cuenta.</p>
+<p>Si una sustancia salpica la piel o los ojos, se aclara con abundante agua siguiendo las indicaciones del centro. Ante un corte, quemadura, derrame o rotura de vidrio, aléjate de la zona y avisa.</p>
+
+</div>
+<p>Los residuos no se tiran automáticamente por el fregadero ni por la papelera. Cada práctica indica en qué recipiente debe depositarse cada tipo de residuo. Así se protege a las personas y al medio ambiente.</p>
+<h4>Actividades</h4>
+<ol>
+<li>Relaciona cada situación con un riesgo: a) un líquido puede dañar la piel y el metal; b) un producto puede prender con facilidad; c) un residuo puede perjudicar a peces y plantas.</li>
+<li>Explica por qué se debe leer una etiqueta incluso cuando el frasco parece conocido.</li>
+<li>¿Qué harías, en este orden, si se rompe un vaso de precipitados en el suelo?</li>
+<li>Razona por qué no es correcto tirar cualquier resto de una práctica por el desagüe.</li>
+</ol>
+
+</section>
+<section class="slide" data-materia="ciencias" data-seccion="Biología: seguridad y observación en el laboratorio" data-nivel="3">
+  <h2>Observar con lupa y microscopio</h2>
+<p>Para estudiar muestras pequeñas usamos instrumentos ópticos. Hay que moverlos con suavidad, mantener las lentes limpias y no forzar ninguna pieza.</p>
+<p>La <strong>lupa binocular</strong> sirve para observar objetos opacos o relativamente grandes: partes de un insecto, arena, moho o detalles de una flor. La luz se refleja en la muestra. Suele ofrecer aumentos moderados, por ejemplo $20\times$ o $40\times$.</p>
+<p>El <strong>microscopio óptico</strong> permite observar muestras muy pequeñas y finas, colocadas sobre un portaobjetos para que la luz pueda atravesarlas. Sus partes más importantes son:</p>
+<ul>
+<li><strong>Ocular:</strong> lente por la que miramos.</li>
+<li><strong>Objetivos y revólver:</strong> permiten escoger el aumento.</li>
+<li><strong>Platina y pinzas:</strong> sostienen la preparación.</li>
+<li><strong>Tornillos de enfoque:</strong> hacen que la imagen se vea nítida.</li>
+</ul>
+<p>Los aumentos totales se obtienen multiplicando el aumento del ocular por el del objetivo. Por ejemplo, un ocular de $10\times$ y un objetivo de $40\times$ dan $400\times$.</p>
+
+<div class="box box--example">
+<p class="box__title">Elegir el instrumento</p>
+<p>Para ver la cabeza de un alfiler o los estambres de una flor suele bastar una lupa binocular. Para observar células de una hoja o un glóbulo rojo se necesita un microscopio óptico.</p>
+
+</div>
+<h4>Actividades</h4>
+<ol>
+<li>Indica si usarías lupa binocular o microscopio óptico para observar: a) las patas de una hormiga; b) un grano de polen; c) células de cebolla; d) los detalles de una moneda.</li>
+<li>Un microscopio tiene ocular de $10\times$ y objetivo de $4\times$. ¿Cuál es su aumento total? ¿Y con el objetivo de $40\times$?</li>
+<li>Explica por qué una preparación para microscopio debe ser muy fina.</li>
+<li>Nombra tres partes del microscopio e indica para qué sirve cada una.</li>
+</ol>
+
+<div class="box box--resumen">
+<p class="box__title">Resumen</p>
+<ul>
+<li>En el laboratorio se trabaja con orden, protección y atención.</li>
+<li>Las etiquetas y los pictogramas informan de riesgos; se leen antes de usar un producto.</li>
+<li>En un accidente, se avisa de inmediato y se siguen las instrucciones del centro.</li>
+<li>La lupa sirve para objetos relativamente grandes; el microscopio, para muestras mucho más pequeñas.</li>
+</ul>
+
+</div>
+</section>
+<section class="slide slide--seccion" data-materia="ciencias" data-seccion="Física: magnitudes y unidades de medida" data-nivel="2">
+  <h2>Física: magnitudes y unidades de medida</h2>
+  <ul class="slide__indice-seccion">
+    <li>Medir y usar el Sistema Internacional</li>
+    <li>Longitud y cambios de unidad</li>
+    <li>Volumen y capacidad</li>
+  </ul>
+</section>
+<section class="slide" data-materia="ciencias" data-seccion="Física: magnitudes y unidades de medida" data-nivel="3">
+  <h2>Medir y usar el Sistema Internacional</h2>
+<p>Medir es comparar una magnitud con una unidad. El resultado de una medida siempre debe incluir <strong>un número y una unidad</strong>: no basta decir «mide 4»; hay que decir «mide $4\,\mathrm{m}$» o «mide $4\,\mathrm{cm}$».</p>
+<p>Para que las medidas se entiendan en cualquier lugar se utiliza el <strong>Sistema Internacional de Unidades (SI)</strong>. Estas son algunas de sus magnitudes básicas:</p>
+<table>
+<thead>
+<tr>
+<th>Magnitud</th>
+<th>Símbolo de la magnitud</th>
+<th>Unidad del SI</th>
+<th>Símbolo de la unidad</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Longitud</td>
+<td>l</td>
+<td>metro</td>
+<td>m</td>
+</tr>
+<tr>
+<td>Masa</td>
+<td>m</td>
+<td>kilogramo</td>
+<td>kg</td>
+</tr>
+<tr>
+<td>Tiempo</td>
+<td>t</td>
+<td>segundo</td>
+<td>s</td>
+</tr>
+<tr>
+<td>Temperatura</td>
+<td>T</td>
+<td>kelvin</td>
+<td>K</td>
+</tr>
+<tr>
+<td>Intensidad de corriente</td>
+<td>I</td>
+<td>amperio</td>
+<td>A</td>
+</tr>
+<tr>
+<td>Intensidad luminosa</td>
+<td>I<sub>v</sub></td>
+<td>candela</td>
+<td>cd</td>
+</tr>
+<tr>
+<td>Cantidad de sustancia</td>
+<td>n</td>
+<td>mol</td>
+<td>mol</td>
+</tr>
+</tbody></table>
+
+<div class="box">
+<p class="box__title">Masa y peso no son lo mismo</p>
+<p>La <strong>masa</strong> indica la cantidad de materia de un cuerpo y se mide en kilogramos. El <strong>peso</strong> es una fuerza: depende de la gravedad y se mide en newtons (N).</p>
+
+</div>
+<p>Para evitar números enormes o diminutos se usan prefijos. Los más habituales son kilo- ($\mathrm{k}$, mil veces), hecto- ($\mathrm{h}$, cien veces), deca- ($\mathrm{da}$, diez veces), deci- ($\mathrm{d}$, una décima), centi- ($\mathrm{c}$, una centésima) y mili- ($\mathrm{m}$, una milésima).</p>
+<h4>Actividades</h4>
+<ol>
+<li>Indica la magnitud y una unidad adecuada para medir: a) la duración de una carrera; b) la masa de una mochila; c) la temperatura de una habitación.</li>
+<li>Completa: a) 1 km = ___ m; b) 1 m = ___ cm; c) 1 kg = ___ g; d) 1 mL = ___ L.</li>
+<li>Corrige estas medidas incompletas: «La mesa mide 120»; «La botella contiene 1,5».</li>
+<li>¿Qué unidad elegirías para el grosor de una moneda: km, m, cm o mm? Justifica tu respuesta.</li>
+</ol>
+
+</section>
+<section class="slide" data-materia="ciencias" data-seccion="Física: magnitudes y unidades de medida" data-nivel="3">
+  <h2>Longitud y cambios de unidad</h2>
+<p>La <strong>longitud</strong> expresa la distancia entre dos puntos. La unidad del SI es el metro (m), pero elegimos múltiplos y submúltiplos según el tamaño de lo que medimos.</p>
+<table>
+<thead>
+<tr>
+<th align="right">km</th>
+<th align="right">hm</th>
+<th align="right">dam</th>
+<th align="right">m</th>
+<th align="right">dm</th>
+<th align="right">cm</th>
+<th align="right">mm</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">× 10</td>
+<td align="right">× 10</td>
+<td align="right">× 10</td>
+<td align="right"></td>
+<td align="right">× 10</td>
+<td align="right">× 10</td>
+<td align="right">× 10</td>
+</tr>
+</tbody></table>
+<p>Al avanzar una casilla hacia la derecha, multiplicamos por 10. Al avanzar hacia la izquierda, dividimos por 10. Con decimales, esto equivale a desplazar la coma una posición por cada salto.</p>
+
+<div class="box box--example">
+<p class="box__title">Dos conversiones</p>
+<p>$$2{,}5\,\mathrm{km} = 2\,500\,\mathrm{m}$$</p>
+<p>De $\mathrm{km}$ a $\mathrm{m}$ hay tres saltos a la derecha.</p>
+<p>$$384\,\mathrm{cm} = 3{,}84\,\mathrm{m}$$</p>
+<p>De $\mathrm{cm}$ a $\mathrm{m}$ hay dos saltos a la izquierda.</p>
+
+</div>
+<p>Antes de calcular, escribe la equivalencia que vas a usar y revisa si el resultado tiene sentido. Una puerta no puede medir $2\,000\,\mathrm{m}$: seguramente mide $2\,000\,\mathrm{mm}$ o $2\,\mathrm{m}$.</p>
+<h4>Actividades</h4>
+<ol>
+<li>Convierte: a) 4,7 km a m; b) 325 cm a m; c) 0,86 m a mm; d) 12 500 mm a m.</li>
+<li>Convierte: a) 3,45 hm a cm; b) 68 dm a m; c) 0,009 km a m.</li>
+<li>El largo de una mesa es 1,20 m y su ancho 65 cm. Expresa las dos medidas en centímetros.</li>
+<li>Elige una unidad razonable para: a) la distancia entre dos ciudades; b) el ancho de un cuaderno; c) el diámetro de un cable fino.</li>
+</ol>
+
+</section>
+<section class="slide" data-materia="ciencias" data-seccion="Física: magnitudes y unidades de medida" data-nivel="3">
+  <h2>Volumen y capacidad</h2>
+<p>El <strong>volumen</strong> es el espacio que ocupa un cuerpo. En el SI se mide en metros cúbicos ($\mathrm{m}^{3}$). La <strong>capacidad</strong> indica cuánto puede contener un recipiente. Para la vida diaria se usa mucho el litro ($\mathrm{L}$), una unidad aceptada junto al SI.</p>
+<p>Un litro equivale al volumen de un cubo de un decímetro de lado:</p>
+
+<div class="math formula">
+$$1\,\mathrm{L} = 1\,\mathrm{dm}^{3}$$
+</div>
+<p>En capacidad usamos una escalera parecida a la de longitud:</p>
+<table>
+<thead>
+<tr>
+<th align="right">kL</th>
+<th align="right">hL</th>
+<th align="right">daL</th>
+<th align="right">L</th>
+<th align="right">dL</th>
+<th align="right">cL</th>
+<th align="right">mL</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">× 10</td>
+<td align="right">× 10</td>
+<td align="right">× 10</td>
+<td align="right"></td>
+<td align="right">× 10</td>
+<td align="right">× 10</td>
+<td align="right">× 10</td>
+</tr>
+</tbody></table>
+
+<div class="box box--example">
+<p class="box__title">Cambiar de unidad de capacidad</p>
+<p>$$6{,}3\,\mathrm{L} = 630\,\mathrm{cL}$$</p>
+<p>De $\mathrm{L}$ a $\mathrm{cL}$ hay dos saltos a la derecha.</p>
+<p>$$4\,835\,\mathrm{mL} = 4{,}835\,\mathrm{L}$$</p>
+<p>De $\mathrm{mL}$ a $\mathrm{L}$ hay tres saltos a la izquierda.</p>
+
+</div>
+<p>No confundas volumen y capacidad: una piscina ocupa un volumen, mientras que también decimos que tiene una capacidad determinada de agua. En ambos casos se usan unidades relacionadas, pero describen ideas distintas.</p>
+<h4>Actividades</h4>
+<ol>
+<li>Convierte: a) 3,5 L a mL; b) 850 mL a L; c) 2,4 kL a L; d) 75 cL a L.</li>
+<li>Una botella contiene 1,5 L de agua. ¿Cuántos vasos de 250 mL se pueden llenar por completo?</li>
+<li>Indica la unidad más adecuada: a) la dosis de un jarabe; b) el contenido de una lata; c) el agua de una piscina.</li>
+<li>Explica con tus palabras la diferencia entre volumen y capacidad.</li>
+</ol>
+
+<div class="box box--resumen">
+<p class="box__title">Resumen</p>
+<ul>
+<li>Una medida se expresa con un número y una unidad.</li>
+<li>El SI fija unidades comunes para las magnitudes físicas.</li>
+<li>En las conversiones entre unidades consecutivas se multiplica o divide por 10.</li>
+<li>La unidad de longitud es el metro; la del volumen es el metro cúbico; el litro se usa habitualmente para expresar capacidad.</li>
+</ul>
+
+</div>
+</section>
+<section class="slide slide--seccion" data-materia="ciencias" data-seccion="Química: material y trabajo experimental" data-nivel="2">
+  <h2>Química: material y trabajo experimental</h2>
+  <ul class="slide__indice-seccion">
+    <li>Reconocer el material de vidrio</li>
+    <li>Material de sujeción y de calentamiento</li>
+    <li>Medir, observar y comunicar</li>
+  </ul>
+</section>
+<section class="slide" data-materia="ciencias" data-seccion="Química: material y trabajo experimental" data-nivel="3">
+  <h2>Reconocer el material de vidrio</h2>
+<p>El material de laboratorio no se elige por su nombre o por su forma: cada pieza tiene una función. Antes de usarla, comprueba que está limpia, que no tiene grietas y que sabes para qué sirve. El vidrio caliente puede parecer igual que el frío: no lo toques directamente después de calentarlo.</p>
+<table>
+<thead>
+<tr>
+<th>Material</th>
+<th>Uso principal</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Vaso de precipitados</td>
+<td>Contener, mezclar o calentar líquidos; sus marcas dan una medida aproximada.</td>
+</tr>
+<tr>
+<td>Matraz de Erlenmeyer</td>
+<td>Contener y agitar líquidos o preparar disoluciones; se puede calentar si el procedimiento lo permite.</td>
+</tr>
+<tr>
+<td>Matraz aforado</td>
+<td>Preparar disoluciones con un volumen exacto marcado. No se calienta.</td>
+</tr>
+<tr>
+<td>Tubo de ensayo</td>
+<td>Realizar pequeñas reacciones o calentar pequeñas cantidades.</td>
+</tr>
+<tr>
+<td>Probeta</td>
+<td>Medir volúmenes de líquidos con bastante precisión.</td>
+</tr>
+<tr>
+<td>Pipeta</td>
+<td>Medir y trasladar pequeños volúmenes con precisión usando un dispositivo de pipeteo.</td>
+</tr>
+<tr>
+<td>Bureta</td>
+<td>Añadir cantidades variables de líquido de forma controlada.</td>
+</tr>
+<tr>
+<td>Embudo</td>
+<td>Trasvasar líquidos o filtrar con papel de filtro.</td>
+</tr>
+<tr>
+<td>Vidrio de reloj</td>
+<td>Depositar, cubrir u observar pequeñas cantidades de sustancia.</td>
+</tr>
+<tr>
+<td>Varilla agitadora</td>
+<td>Mezclar disoluciones y ayudar en los trasvases.</td>
+</tr>
+<tr>
+<td>Placa de Petri</td>
+<td>Colocar y observar muestras o cultivos en prácticas autorizadas.</td>
+</tr>
+<tr>
+<td>Cristalizador</td>
+<td>Favorecer la formación de cristales a partir de una disolución.</td>
+</tr>
+</tbody></table>
+
+<div class="box box--dato">
+<p class="box__title">Importante</p>
+<p>No se usan recipientes de medida precisa, como una probeta o un matraz aforado, para calentar. Si tienes una duda, pregunta antes de empezar.</p>
+
+</div>
+<h4>Actividades</h4>
+<ol>
+<li>Elige el material más adecuado: a) medir 25 mL de agua; b) pasar un líquido a una botella de boca estrecha; c) hacer una reacción con poca cantidad de líquido.</li>
+<li>Explica una diferencia entre un vaso de precipitados y una probeta.</li>
+<li>¿Para qué sirve un matraz aforado? ¿Por qué no se debe calentar?</li>
+<li>Busca en el laboratorio, con autorización, tres materiales de la tabla y dibuja su forma aproximada junto a su nombre.</li>
+</ol>
+
+</section>
+<section class="slide" data-materia="ciencias" data-seccion="Química: material y trabajo experimental" data-nivel="3">
+  <h2>Material de sujeción y de calentamiento</h2>
+<p>Además del vidrio, se usan piezas para recoger sólidos, sujetar recipientes y aplicar calor de forma segura.</p>
+<ul>
+<li>La <strong>espátula</strong> sirve para tomar pequeñas cantidades de sustancias sólidas.</li>
+<li>La <strong>gradilla</strong> mantiene los tubos de ensayo en posición vertical.</li>
+<li>El <strong>soporte universal</strong> con pinzas permite sujetar buretas, embudos u otros materiales.</li>
+<li>El <strong>trípode</strong> y la <strong>rejilla</strong> sostienen recipientes cuando se calientan.</li>
+<li>Las <strong>pinzas de madera</strong> ayudan a sujetar un tubo de ensayo caliente.</li>
+<li>El <strong>mortero</strong> permite triturar sustancias sólidas.</li>
+<li>La <strong>balanza</strong> mide la masa y el <strong>termómetro</strong> mide la temperatura.</li>
+</ul>
+<p>Al calentar un tubo de ensayo, se sujeta inclinado y con la boca dirigida hacia un lugar donde no haya personas. No se calienta un recipiente cerrado y no se mira nunca dentro de un tubo mientras se calienta.</p>
+
+<div class="box box--example">
+<p class="box__title">Preparar y calentar con seguridad</p>
+<p>Si una práctica pide calentar una pequeña cantidad de líquido, se puede usar un tubo de ensayo sujeto con pinzas adecuadas. Antes hay que ponerse las gafas, comprobar que el tubo no tiene grietas y seguir exactamente el método indicado.</p>
+
+</div>
+<h4>Actividades</h4>
+<ol>
+<li>Indica qué material usarías para: a) sostener varios tubos de ensayo; b) coger una pequeña cantidad de sal sólida; c) medir la temperatura de un líquido.</li>
+<li>Explica por qué la boca de un tubo de ensayo no debe apuntar hacia una persona al calentarlo.</li>
+<li>¿Qué tres comprobaciones harías antes de calentar un recipiente de vidrio?</li>
+<li>Relaciona cada instrumento con la magnitud que mide: balanza, termómetro, probeta.</li>
+</ol>
+
+</section>
+<section class="slide" data-materia="ciencias" data-seccion="Química: material y trabajo experimental" data-nivel="3">
+  <h2>Medir, observar y comunicar</h2>
+<p>Una práctica científica no termina al hacer un experimento. Hay que anotar lo que se ha hecho y lo que se ha observado para que otra persona pueda entender el resultado.</p>
+<p>En una tabla de datos escribe siempre:</p>
+<ul>
+<li>Qué magnitud se ha medido.</li>
+<li>El valor obtenido y su <strong>unidad</strong>.</li>
+<li>El instrumento utilizado.</li>
+<li>Las observaciones importantes: cambio de color, aparición de burbujas, temperatura, etc.</li>
+</ul>
+
+<div class="box box--example">
+<p class="box__title">Anotar una medida</p>
+<p>En vez de escribir «había bastante agua», escribe «el volumen medido fue 125 mL con una probeta». La segunda frase se puede comprobar y comunicar mejor.</p>
+
+</div>
+<p>Si un resultado parece extraño, no lo cambies para que quede «bonito». Revísalo: quizá se leyó mal una marca de medida, se confundió una unidad o hubo un error en el procedimiento. Explicar un error también forma parte del trabajo científico.</p>
+<h4>Actividades</h4>
+<ol>
+<li>Mejora estas anotaciones para que sean medidas científicas: a) «el tubo estaba muy caliente»; b) «echamos un poco de líquido»; c) «la muestra pesaba 20».</li>
+<li>Diseña una tabla con columnas para registrar la masa de tres objetos. Incluye la unidad y el instrumento.</li>
+<li>¿Por qué es útil anotar también los resultados inesperados?</li>
+<li>Durante una práctica, una persona lee 18 mL en una probeta y otra anota 18 L. Explica el error y por qué es importante.</li>
+</ol>
+
+<div class="box box--resumen">
+<p class="box__title">Resumen</p>
+<ul>
+<li>Cada instrumento tiene un uso concreto; usarlo bien evita accidentes y errores.</li>
+<li>El vidrio se revisa antes de usarlo y se manipula con especial cuidado al calentarlo.</li>
+<li>Las medidas se registran con valor, unidad, instrumento y observaciones.</li>
+<li>En un experimento, trabajar con seguridad y anotar con precisión es tan importante como obtener un resultado.</li>
+</ul>
+
+</div>
+</section>
+<section class="slide slide--seccion" data-materia="ciencias" data-seccion="Actividades de repaso" data-nivel="2">
+  <h2>Actividades de repaso</h2>
+  <ul class="slide__indice-seccion">
+    <li>Matemáticas</li>
+    <li>Física: unidades y conversiones</li>
+    <li>Laboratorio y trabajo experimental</li>
+  </ul>
+</section>
+<section class="slide" data-materia="ciencias" data-seccion="Actividades de repaso" data-nivel="3">
+  <h2>Matemáticas</h2>
+<ol>
+<li>Indica el conjunto más pequeño al que pertenece cada número: a) $-15$; b) $8$; c) $0{,}125$; d) $\sqrt{3}$; e) $0$.</li>
+<li>Ordena de menor a mayor: $4{,}05$; $-2$; $0$; $4{,}5$; $-2{,}7$; $3{,}99$.</li>
+<li>Descompón el número 608 047 según el valor de sus cifras.</li>
+<li>Calcula: a) $3\,457 + 896$; b) $8\,000 - 3\,764$; c) $245 \times 16$; d) $385 \div 7$. En la división, indica cociente y resto.</li>
+<li>Resuelve respetando la jerarquía: a) $12 + 4 \times 3$; b) $(12 + 4) \times 3$; c) $48 \div 6 + 7 \times 2$; d) $50 - (8 + 2) \times 4$.</li>
+<li>Para hacer 5 batidos se necesitan 750 mL de leche. ¿Cuántos mililitros se necesitan para 8 batidos?</li>
+<li>Se tardan 9 horas en revisar un almacén con 2 personas. Si trabajan 6 personas al mismo ritmo, ¿cuánto tiempo tardarán? Indica si la proporcionalidad es directa o inversa.</li>
+</ol>
+
+<div class="box">
+<p class="box__title">Nota</p>
+<p>En los problemas, escribe los datos, la operación y una respuesta final con unidad.</p>
+
+</div>
+</section>
+<section class="slide" data-materia="ciencias" data-seccion="Actividades de repaso" data-nivel="3">
+  <h2>Física: unidades y conversiones</h2>
+<ol>
+<li>Indica la unidad más adecuada para medir: a) la longitud de una carretera; b) el grosor de un folio; c) la masa de una persona; d) el tiempo de una película.</li>
+<li>Convierte: a) 6,25 km a m; b) 0,45 m a cm; c) 3 750 mm a m; d) 2,8 hm a dm.</li>
+<li>Un pasillo mide 18,6 m. Exprésalo en centímetros y milímetros.</li>
+<li>Convierte: a) 2,75 L a mL; b) 1 250 mL a L; c) 4,5 kL a L; d) 36 cL a mL.</li>
+<li>Una garrafa tiene 5 L de agua. ¿Cuántas botellas de 330 mL se pueden llenar por completo? ¿Cuánta agua sobra?</li>
+<li>Explica la diferencia entre masa y peso.</li>
+<li>Una medida aparece escrita como «250». Escribe dos preguntas que necesitarías hacer antes de interpretar ese dato.</li>
+</ol>
+
+</section>
+<section class="slide" data-materia="ciencias" data-seccion="Actividades de repaso" data-nivel="3">
+  <h2>Laboratorio y trabajo experimental</h2>
+<ol>
+<li>Elabora una lista de cinco normas que seguirías antes, durante y después de una práctica. Explica por qué has elegido cada una.</li>
+<li>Indica el significado general de estos avisos: inflamable, corrosivo, tóxico y peligroso para el medio ambiente.</li>
+<li>Describe qué debes hacer si se rompe material de vidrio o si una sustancia salpica los ojos. Incluye siempre el aviso inmediato al profesor o profesora.</li>
+<li>Relaciona cada tarea con el material más adecuado: a) medir 50 mL de agua; b) trasvasar un líquido; c) sujetar varios tubos; d) recoger una pequeña cantidad de sólido; e) medir una masa.</li>
+<li>Explica dos normas de seguridad específicas al calentar un tubo de ensayo.</li>
+<li>Completa una tabla con tres columnas: «observación», «medida» e «instrumento». Añade dos ejemplos de una práctica imaginaria.</li>
+<li>Elige lupa binocular o microscopio óptico para observar: una hoja completa, los detalles de una semilla, células de la mejilla y un insecto pequeño. Justifica tus elecciones.</li>
+</ol>
+
+<div class="box box--resumen">
+<p class="box__title">Antes de entregar</p>
+<p>Revisa que has contestado a todo, que las operaciones están visibles y que cada medida incluye su unidad. En las actividades de laboratorio, la seguridad es siempre la primera respuesta.</p>
+
+</div>
+</section>
+
+
+      <footer class="page-footer">
+        <p><a href="../index.html">← Volver al índice</a> · Ciencias Aplicadas I · Material de aula</p>
+      </footer>
+    </main>
+  </div>
+
+  <!-- ======================= VISOR DE DIAPOSITIVAS ======================= -->
+  <div class="slideshow" id="slideshow" hidden>
+    <div class="slideshow__progress"><div class="slideshow__bar" id="slides-bar"></div></div>
+    <button class="slideshow__close" id="slides-close" title="Salir (Esc)">✕</button>
+    <div class="slideshow__stage" id="slides-stage"></div>
+    <div class="slideshow__controls">
+      <button class="slideshow__nav" id="slides-prev" title="Anterior (←)">←</button>
+      <span class="slideshow__counter" id="slides-counter">1 / 1</span>
+      <button class="slideshow__nav" id="slides-next" title="Siguiente (→)">→</button>
+    </div>
+  </div>
+
+  <script src="../lib/katex/katex.min.js"></script>
+  <script src="../lib/katex/auto-render.min.js"></script>
+  <script>
+    // $...$ para expresiones en línea y $$...$$ para fórmulas centradas.
+    renderMathInElement(document.getElementById("content"), {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "\\[", right: "\\]", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false }
+      ],
+      throwOnError: false,
+      strict: "warn"
+    });
+  </script>
+  <script src="../script.js"></script>
+</body>
+</html>

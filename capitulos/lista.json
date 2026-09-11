@@ -1,0 +1,14 @@
+{
+  "serie": "Ciencias Aplicadas I",
+  "subtitulo": "Matemáticas · Biología · Física · Química",
+  "curso": "Curso 2026 – 2027",
+  "capitulos": [
+    {
+      "archivo": "capitulos/01-fundamentos-ciencias-aplicadas.md",
+      "titulo": "Fundamentos de las ciencias aplicadas",
+      "materia": "ciencias",
+      "secciones": 5,
+      "descripcion": "Un único capítulo organizado en cinco secciones: matemáticas, laboratorio, medida, trabajo experimental y repaso."
+    }
+  ]
+}
