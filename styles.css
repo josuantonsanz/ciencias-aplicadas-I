@@ -40,6 +40,13 @@ body {
 
 img { max-width: 100%; }
 
+/* Las imágenes insertadas desde Markdown se muestran centradas. */
+.slide img {
+  display: block;
+  height: auto;
+  margin: 16px auto;
+}
+
 /* ============================================================
    BARRA SUPERIOR
    ============================================================ */

@@ -12,6 +12,10 @@ Los números sirven para **contar**, **medir**, ordenar y comparar. No todos son
 - Los **números irracionales** tienen infinitas cifras decimales sin repetirse siguiendo un patrón. No se pueden escribir como fracción: $\pi = 3{,}14159\ldots$ o $\sqrt{3} = 1{,}73205\ldots$
 - Los **números reales** ($\mathbb{R}$) reúnen todos los anteriores. Son los números que podemos colocar en una recta numérica.
 
+
+![image](rectareal.png)
+
+
 ::: resumen
 $\mathbb{N}$ está dentro de $\mathbb{Z}$; $\mathbb{Z}$ está dentro de $\mathbb{Q}$; y los racionales e irracionales forman $\mathbb{R}$.
 
@@ -22,7 +26,7 @@ Cuando te pidan clasificar un número, indica el conjunto **más pequeño** al q
 
 En una recta numérica, los números pequeños están a la izquierda y los grandes, a la derecha. El **cero** es el origen. Los negativos quedan a su izquierda y los positivos a su derecha.
 
-Para comparar números negativos, piensa en la recta: $-8 < -3$ porque $-8$ está más a la izquierda. En los decimales, conviene igualar el número de cifras: $2{,}5 = 2{,}50$, así que $2{,}50 > 2{,}47$.
+
 
 #### Actividades
 
@@ -38,7 +42,7 @@ Nuestro sistema de numeración es **decimal** porque usa diez cifras: 0, 1, 2, 3
 Por ejemplo:
 
 ::: ejemplo Descomponer un número
-En 51 268, el 5 vale 50 000; el 1 vale 1 000; el 2 vale 200; el 6 vale 60 y el 8 vale 8.
+En $51 268$, el 5 vale 50 000; el 1 vale 1 000; el 2 vale 200; el 6 vale 60 y el 8 vale 8.
 
 $$51\,268 = 50\,000 + 1\,000 + 200 + 60 + 8$$
 :::
@@ -48,7 +52,7 @@ Al sumar o restar por escrito, coloca cada cifra en su columna: unidades debajo 
 En una división, el **dividendo** es la cantidad que se reparte; el **divisor**, el número de partes; el **cociente**, lo que corresponde a cada parte; y el **resto**, lo que sobra si la división no es exacta.
 
 ::: nota
-Una calculadora suele mostrar decimales en vez del resto. Por ejemplo, $17 \div 5 = 3{,}4$: el cociente entero es $3$ y sobran $2$ unidades.
+Una calculadora suele mostrar decimales en vez del resto. Por ejemplo, $17 \div 5 = 3{,}4$: el cociente entero es $3$ y sobran $2$ unidades, porque $5 \times 3 + 2 = 17$
 :::
 
 #### Actividades
@@ -81,7 +85,6 @@ Los paréntesis cambian el orden habitual. Por eso $3 + 4 \times 2 = 11$, mientr
 1. Calcula: a) $18 - 3 \times 4$; b) $(18 - 3) \times 4$; c) $36 \div 6 + 5 \times 3$.
 2. Calcula: a) $40 + 20 \div 5 - 2$; b) $7 \times (12 - 8) + 9$; c) $48 \div (3 \times 4)$.
 3. Escribe los paréntesis necesarios para que $6 + 2 \times 5$ dé como resultado $40$.
-4. Inventa una operación combinada cuyo resultado sea 25 y explica el orden que has seguido.
 
 ### Magnitudes y proporcionalidad
 
@@ -102,13 +105,16 @@ Dos magnitudes son **inversamente proporcionales** cuando una aumenta y la otra 
 
 Primero comprobamos que más kilos implican más precio. Después:
 
-$$5 \times 7{,}50 \div 3 = 12{,}50\,\text{euros}$$
+$$ 3 \rightarrow 7,50 \\ 5 \rightarrow x \\ x = 5\times 7,50 \div 3 \\ x = 12{,}50\,\text{euros}$$
 :::
 
 ::: ejemplo Proporcionalidad inversa
 4 personas tardan 6 horas en limpiar un espacio. Si trabajan 8 personas al mismo ritmo, ¿cuánto tardan?
 
 Hay el doble de personas, así que tardarán la mitad: **3 horas**. También se puede calcular: $4 \times 6 \div 8 = 3$.
+
+$$ 4 \rightarrow 6 \\ 8 \rightarrow x \\ x = 4 \times 6 \div 8 \\ x = 3 $$
+
 :::
 
 #### Actividades

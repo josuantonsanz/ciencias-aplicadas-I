@@ -211,8 +211,14 @@ Materias disponibles en `lista.json`:
 
 ## 6. Trucos
 
-- Para **imágenes**, usa HTML directo: `<img src="imagen.jpg" alt="...">` y
-  guarda la imagen junto al capítulo.
+- Para **imágenes**, usa la sintaxis Markdown y guarda el archivo junto al
+  capítulo. Aparecerán centradas automáticamente:
+
+  ```markdown
+  ![Descripción de la imagen](imagen.jpg)
+  ```
+
+  También se admite HTML directo: `<img src="imagen.jpg" alt="...">`.
 - Para un **salto de página** forzado al imprimir, usa:
   `<div style="break-before: page"></div>`.
 - Los enlaces a una sección del mismo capítulo pueden usar su ancla, por ejemplo:

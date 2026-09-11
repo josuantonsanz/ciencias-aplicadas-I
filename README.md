@@ -29,6 +29,7 @@ escribes Markdown  →  node build.js  →  HTML estático listo para usar
 | `plantilla.html`       | Plantilla que da forma a cada capítulo.            |
 | `build.js`             | Conversor Markdown → HTML.                         |
 | `construir.bat`        | Ejecuta el build con doble clic (Windows).         |
+| `subir-github.bat`     | Construye, crea un commit y sube los cambios a GitHub. |
 | `lib/marked.min.js`    | Conversor de Markdown (ya incluido, no requiere instalar nada). |
 | `lib/katex/`           | Renderizador local de fórmulas LaTeX y sus fuentes (funciona sin conexión). |
 | `styles.css` / `script.js` | Diseño y comportamiento (índice, diapositivas, impresión). |
@@ -40,6 +41,10 @@ escribes Markdown  →  node build.js  →  HTML estático listo para usar
 2. Mantén una entrada en `capitulos/lista.json` por cada capítulo (título, materia, número de secciones y descripción).
 3. Ejecuta `node build.js` o haz doble clic en **`construir.bat`**.
 4. Abre `index.html`.
+
+Para publicar los cambios, haz doble clic en **`subir-github.bat`**. Primero
+construye las páginas, te pide el mensaje del *commit* y después las sube a la
+rama `main` del repositorio de GitHub.
 
 No hace falta conexión a internet para usar el resultado: todo es HTML estático
 que puedes abrir con doble clic o subir a **GitHub Pages** (o cualquier hosting)
