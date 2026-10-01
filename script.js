@@ -3,7 +3,8 @@
    1) Índice automático con scroll-spy
    2) Menú lateral en móvil
    3) Botón Imprimir/PDF
-   4) Modo diapositivas (navegación por botones, teclado y táctil)
+   4) Temporizadores de actividades (cuenta atrás y aviso sonoro)
+   5) Modo diapositivas (navegación por botones, teclado y táctil)
    ============================================================ */
 
 (function () {
@@ -138,7 +139,150 @@
   });
 
   /* ----------------------------------------------------------
-     4) MODO DIAPOSITIVAS
+     4) TEMPORIZADORES DE ACTIVIDADES
+     El sonido se genera con Web Audio: no requiere ningún archivo y
+     solo se activa al pulsar «Iniciar», respetando el navegador.
+     ---------------------------------------------------------- */
+  var contextoAudio = null;
+
+  function formatearTiempo(segundos) {
+    var minutos = Math.floor(segundos / 60);
+    var resto = segundos % 60;
+    return minutos + ":" + String(resto).padStart(2, "0");
+  }
+
+  function emitirAviso(final) {
+    var AudioContext = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContext) return;
+
+    try {
+      if (!contextoAudio) contextoAudio = new AudioContext();
+      if (contextoAudio.state === "suspended") contextoAudio.resume();
+
+      var oscilador = contextoAudio.createOscillator();
+      var ganancia = contextoAudio.createGain();
+      oscilador.type = "sine";
+      oscilador.frequency.value = final ? 1046 : 784;
+      ganancia.gain.setValueAtTime(.0001, contextoAudio.currentTime);
+      ganancia.gain.exponentialRampToValueAtTime(.07, contextoAudio.currentTime + .01);
+      ganancia.gain.exponentialRampToValueAtTime(.0001, contextoAudio.currentTime + (final ? .24 : .09));
+      oscilador.connect(ganancia);
+      ganancia.connect(contextoAudio.destination);
+      oscilador.start();
+      oscilador.stop(contextoAudio.currentTime + (final ? .25 : .1));
+    } catch (error) {
+      // Si el dispositivo o el navegador no permite audio, la cuenta atrás sigue funcionando.
+    }
+  }
+
+  function pintarTemporizador(timer, estado, mensaje) {
+    var restante = estado.restante;
+    var pantalla = timer.querySelector(".timer__display");
+    var inicio = timer.querySelector('[data-timer-action="start"]');
+    var anuncio = timer.querySelector(".timer__announcement");
+
+    pantalla.textContent = formatearTiempo(restante);
+    timer.style.setProperty("--timer-progress", (restante / estado.total * 100) + "%");
+    timer.classList.toggle("is-ending", restante > 0 && restante <= 5);
+    timer.classList.toggle("is-finished", restante === 0);
+    inicio.disabled = estado.enMarcha;
+    inicio.textContent = estado.enMarcha ? "En marcha" : (restante === 0 ? "Iniciar de nuevo" : (restante < estado.total ? "Reanudar" : "Iniciar"));
+    if (mensaje !== undefined) anuncio.textContent = mensaje;
+  }
+
+  function pausarTemporizador(timer, silencioso) {
+    var estado = timer._timerState;
+    if (!estado || !estado.enMarcha) return;
+    estado.restante = Math.max(0, Math.ceil((estado.terminaEn - Date.now()) / 1000));
+    clearInterval(estado.intervalo);
+    estado.enMarcha = false;
+    pintarTemporizador(timer, estado, silencioso ? undefined : "Temporizador en pausa.");
+  }
+
+  function terminarTemporizador(timer) {
+    var estado = timer._timerState;
+    clearInterval(estado.intervalo);
+    estado.restante = 0;
+    estado.enMarcha = false;
+    pintarTemporizador(timer, estado, "¡Tiempo terminado!");
+    emitirAviso(true);
+  }
+
+  function iniciarTemporizador(timer) {
+    var estado = timer._timerState;
+    if (!estado || estado.enMarcha) return;
+    if (estado.restante === 0) estado.restante = estado.total;
+
+    estado.enMarcha = true;
+    estado.terminaEn = Date.now() + estado.restante * 1000;
+    estado.ultimoAviso = null;
+    pintarTemporizador(timer, estado, "");
+
+    // Si se inicia directamente con cinco segundos o menos, también se avisa.
+    if (estado.restante <= 5) {
+      estado.ultimoAviso = estado.restante;
+      emitirAviso(false);
+    }
+
+    estado.intervalo = setInterval(function () {
+      var nuevoRestante = Math.max(0, Math.ceil((estado.terminaEn - Date.now()) / 1000));
+      if (nuevoRestante === estado.restante) return;
+
+      estado.restante = nuevoRestante;
+      if (nuevoRestante === 0) {
+        terminarTemporizador(timer);
+        return;
+      }
+      if (nuevoRestante <= 5 && estado.ultimoAviso !== nuevoRestante) {
+        estado.ultimoAviso = nuevoRestante;
+        emitirAviso(false);
+      }
+      pintarTemporizador(timer, estado);
+    }, 200);
+  }
+
+  function reiniciarTemporizador(timer) {
+    var estado = timer._timerState;
+    if (!estado) return;
+    clearInterval(estado.intervalo);
+    estado.restante = estado.total;
+    estado.enMarcha = false;
+    estado.ultimoAviso = null;
+    pintarTemporizador(timer, estado, "");
+  }
+
+  function inicializarTemporizadores(contenedor) {
+    Array.prototype.slice.call(contenedor.querySelectorAll(".timer")).forEach(function (timer) {
+      if (timer._timerState) return;
+      var total = Number(timer.getAttribute("data-timer-seconds"));
+      if (!total) return;
+      timer._timerState = { total: total, restante: total, enMarcha: false, intervalo: null, terminaEn: 0, ultimoAviso: null };
+      pintarTemporizador(timer, timer._timerState, "");
+    });
+  }
+
+  function pausarTemporizadores(contenedor) {
+    Array.prototype.slice.call(contenedor.querySelectorAll(".timer")).forEach(function (timer) {
+      pausarTemporizador(timer, true);
+    });
+  }
+
+  document.addEventListener("click", function (evento) {
+    var boton = evento.target.closest("[data-timer-action]");
+    if (!boton) return;
+    var timer = boton.closest(".timer");
+    if (!timer || !timer._timerState) return;
+
+    var accion = boton.getAttribute("data-timer-action");
+    if (accion === "start") iniciarTemporizador(timer);
+    if (accion === "pause") pausarTemporizador(timer);
+    if (accion === "reset") reiniciarTemporizador(timer);
+  });
+
+  inicializarTemporizadores(document);
+
+  /* ----------------------------------------------------------
+     5) MODO DIAPOSITIVAS
      ---------------------------------------------------------- */
   var slideshow   = document.getElementById("slideshow");
   var stage       = document.getElementById("slides-stage");
@@ -175,6 +319,7 @@
       vistas.push(vista);
     });
 
+    inicializarTemporizadores(stage);
     indice = 0;
     actualizar();
   }
@@ -204,6 +349,7 @@
   }
 
   function cerrar() {
+    pausarTemporizadores(slideshow);
     slideshow.hidden = true;
     document.body.style.overflow = "";
   }

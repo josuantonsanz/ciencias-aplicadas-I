@@ -69,6 +69,10 @@ contenido...
 ::: formula                     → fórmula centrada con LaTeX
 $$v = \\frac{d}{t}$$
 :::
+
+::: temporizador 3 min          → cuenta atrás visual con aviso sonoro final
+Resuelve la actividad por parejas.
+:::
 ```
 
 Para matemáticas, usa `$...$` en línea o `$$...$$` como fórmula centrada;

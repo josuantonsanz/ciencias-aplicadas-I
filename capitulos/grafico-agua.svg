@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" width="760" height="420" role="img" aria-label="Gráfica de calentamiento del agua: temperatura frente a la energía aportada">
+  <title>Calentamiento del agua</title>
+
+  <text x="80" y="30" font-family="sans-serif" font-size="18" font-weight="700" fill="#16324f">Calentamiento del agua</text>
+
+  <!-- Ejes -->
+  <line x1="80" y1="360" x2="720" y2="360" stroke="#475569" stroke-width="2"/>
+  <line x1="80" y1="360" x2="80" y2="50" stroke="#475569" stroke-width="2"/>
+
+  <!-- Líneas guía a 0 y 100 grados -->
+  <line x1="80" y1="250" x2="705" y2="250" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="6 6"/>
+  <line x1="80" y1="110" x2="705" y2="110" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="6 6"/>
+
+  <!-- Etiquetas del eje vertical -->
+  <text x="68" y="116" text-anchor="end" font-family="sans-serif" font-size="15" fill="#334155">100</text>
+  <text x="68" y="256" text-anchor="end" font-family="sans-serif" font-size="15" fill="#334155">0</text>
+  <text x="24" y="210" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#334155" transform="rotate(-90 24 210)">Temperatura (°C)</text>
+  <text x="400" y="400" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#334155">Energía aportada</text>
+
+  <!-- Curva de calentamiento -->
+  <polyline points="90,278 170,250 250,250 430,110 560,110 700,54"
+            fill="none" stroke="#2563eb" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+
+  <!-- Nombres de los tramos -->
+  <text x="120" y="302" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#2563eb">Hielo</text>
+  <text x="210" y="274" text-anchor="middle" font-family="sans-serif" font-size="14" font-style="italic" fill="#ea7317">fusión</text>
+  <text x="300" y="158" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#0e9f6e">Agua</text>
+  <text x="495" y="134" text-anchor="middle" font-family="sans-serif" font-size="14" font-style="italic" fill="#ea7317">ebullición</text>
+  <text x="640" y="44" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#ea7317">Vapor</text>
+</svg>

@@ -70,9 +70,61 @@ function renderarMarkdownConLatex(md, enLinea) {
 
 /* Convierte un bloque ::: en el HTML correspondiente.
    match: resultado de /^:::\s*([^\s:]+)(?:\s+(.*))?\s*$/ */
+/* Convierte duraciones sencillas a segundos: 5 min, 90 s o 1:30.
+   Un número sin unidad se interpreta como minutos. */
+function parsearDuracionTemporizador(texto) {
+  const valor = String(texto || "").trim().toLowerCase();
+  let match = valor.match(/^(\d+):(\d{1,2})$/);
+  if (match && Number(match[2]) < 60) return Number(match[1]) * 60 + Number(match[2]);
+
+  match = valor.match(/^(\d+)\s*(?:min(?:uto)?s?|m)?$/);
+  if (match) return Number(match[1]) * 60;
+
+  match = valor.match(/^(\d+)\s*(?:s|seg(?:undo)?s?)$/);
+  if (match) return Number(match[1]);
+
+  return 0;
+}
+
+function formatearDuracion(segundos) {
+  const minutos = Math.floor(segundos / 60);
+  const resto = segundos % 60;
+  return minutos + ":" + String(resto).padStart(2, "0");
+}
+
+function renderarTemporizador(especificacion, inner) {
+  const segundos = parsearDuracionTemporizador(especificacion);
+  if (!segundos || segundos > 35999) {
+    return '<div class="box"><p class="box__title">Temporizador</p>'
+      + '<p>Indica una duración, por ejemplo: <code>::: temporizador 3 min</code>.</p></div>';
+  }
+
+  const etiqueta = inner.trim()
+    ? renderarMarkdownConLatex(inner.trim(), true)
+    : "Tiempo para la actividad";
+  const duracion = formatearDuracion(segundos);
+  return '<div class="timer" data-timer-seconds="' + segundos + '" role="group"'
+    + ' aria-label="Temporizador de ' + escaparHTML(duracion) + '">\n'
+    + '  <div class="timer__dial" aria-hidden="true"><span class="timer__display">' + duracion + '</span></div>\n'
+    + '  <div class="timer__body">\n'
+    + '    <p class="timer__eyebrow">Tiempo restante</p>\n'
+    + '    <div class="timer__label">' + etiqueta + '</div>\n'
+    + '    <div class="timer__controls">\n'
+    + '      <button class="timer__button timer__button--start" type="button" data-timer-action="start">Iniciar</button>\n'
+    + '      <button class="timer__button" type="button" data-timer-action="pause">Pausar</button>\n'
+    + '      <button class="timer__button timer__button--reset" type="button" data-timer-action="reset">Reiniciar</button>\n'
+    + '    </div>\n'
+    + '    <output class="timer__announcement" aria-live="polite"></output>\n'
+    + '  </div>\n'
+    + '</div>';
+}
+
 function renderarContenedor(match, inner) {
   const tipo = match[1].toLowerCase();
   const titulo = match[2] ? match[2].trim() : null;
+  if (tipo === "temporizador" || tipo === "timer") {
+    return renderarTemporizador(titulo, inner);
+  }
   const conf = CONTENEDORES[tipo];
 
   // Tipo desconocido → se convierte en una cita normal

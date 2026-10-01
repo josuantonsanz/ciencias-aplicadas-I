@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Combinar la materia · Ciencias Aplicadas I</title>
+  <meta name="description" content="Combinar la materia — Ciencias Aplicadas I">
+  <link rel="stylesheet" href="../styles.css">
+  <!-- KaTeX se sirve localmente: el capítulo sigue funcionando sin Internet. -->
+  <link rel="stylesheet" href="../lib/katex/katex.min.css">
+</head>
+<body>
+
+  <!-- ======================= BARRA SUPERIOR ======================= -->
+  <header class="topbar">
+    <div class="topbar__title">
+      <button class="btn btn--ghost topbar__menu" id="btn-menu" aria-label="Abrir índice">☰</button>
+      <span class="topbar__brand">Ciencias Aplicadas I</span>
+    </div>
+    <div class="topbar__actions">
+      <a class="btn btn--outline" href="../index.html" title="Volver al índice general">⌂ <span class="btn__label">Índice</span></a>
+      <button class="btn btn--outline" id="btn-print" title="Imprimir o guardar como PDF (Ctrl+P)">
+        🖨️ <span class="btn__label">Imprimir / PDF</span>
+      </button>
+      <button class="btn btn--primary" id="btn-slides" title="Ver el contenido como diapositivas">
+        ▶ <span class="btn__label">Diapositivas</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="layout">
+
+    <!-- ======================= ÍNDICE LATERAL ======================= -->
+    <nav class="sidebar" id="sidebar" aria-label="Índice del capítulo">
+      <p class="sidebar__title">Índice del capítulo</p>
+      <ol class="toc" id="toc"><!-- se genera con JS --></ol>
+      <p class="sidebar__hint">Pulsa <kbd>Ctrl</kbd>+<kbd>P</kbd> para imprimir / guardar como PDF.</p>
+    </nav>
+
+    <!-- ======================= CONTENIDO ======================= -->
+    <main class="content" id="content">
+
+      <header class="cover" id="portada">
+  <p class="cover__kicker">Ciencias Aplicadas I · Capítulo 2</p>
+  <h1 class="cover__title">Combinar la materia</h1>
+  <p class="cover__subtitle"><span class="tag tag--mat">Ciencias aplicadas</span></p>
+  <div class="cover__meta"><span>Curso 2026 – 2027</span><span>Formación Básica</span></div>
+</header>
+
+      <section class="slide" data-materia="ciencias" data-seccion="¿Qué vamos a aprender?" data-nivel="2">
+  <h2>¿Qué vamos a aprender?</h2>
+<p>En este tema trabajaremos tres bloques que están conectados:</p>
+<ul>
+<li><strong>Matemáticas:</strong> las potencias y sus propiedades.</li>
+<li><strong>Física y química:</strong> la masa y sus unidades, las propiedades de la materia y los estados de agregación.</li>
+<li><strong>Biología:</strong> la materia viva, la célula y la función de relación.</li>
+</ul>
+
+<div class="box box--resumen">
+<p class="box__title">Lo esencial</p>
+<p>Al terminar el tema deberías ser capaz de:</p>
+<ul>
+<li>Escribir y calcular potencias, y usar sus propiedades básicas.</li>
+<li>Cambiar unidades de masa y usar la relación $1\,\mathrm{kg} = 1\,\mathrm{L} = 1\,\mathrm{dm}^3$ para el agua.</li>
+<li>Calcular una densidad con $d = m/V$.</li>
+<li>Explicar los tres estados de agregación y los cambios de estado.</li>
+<li>Distinguir bioelementos y biomoléculas, y ordenar los niveles de organización de la materia viva.</li>
+<li>Explicar cómo funcionan la función de relación y los sentidos.</li>
+</ul>
+
+</div>
+</section>
+<section class="slide slide--seccion slide--seccion--titulo-necesario" data-materia="ciencias" data-seccion="Matemáticas: potencias" data-nivel="2">
+  <h2>Matemáticas: potencias</h2>
+  <ul class="slide__indice-seccion">
+    <li>¿Qué es una potencia?</li>
+    <li>Potencias de base 10</li>
+    <li>Las propiedades de las potencias</li>
+  </ul>
+</section>
+<section class="slide" data-materia="ciencias" data-seccion="Matemáticas: potencias" data-nivel="3">
+  <h2>¿Qué es una potencia?</h2>
+<p>Una <strong>potencia</strong> es una forma abreviada de escribir un producto en el que se repite el mismo número:</p>
+
+<div class="math formula">
+$$a^n = \underbrace{a \times a \times \cdots \times a}_{n\ \text{veces}}$$
+</div>
+<ul>
+<li>La <strong>base</strong> ($a$) es el número que se multiplica.</li>
+<li>El <strong>exponente</strong> ($n$) indica cuántas veces se multiplica la base.</li>
+</ul>
+
+<div class="box box--example">
+<p class="box__title">Leer y calcular potencias</p>
+<p>$$5^4 = 5 \times 5 \times 5 \times 5 = 625$$</p>
+<ul>
+<li>$5^4$ se lee «cinco elevado a cuatro» o «cinco a la cuarta».</li>
+<li>$4^2$ se lee «cuatro al cuadrado» y $4^3$ se lee «cuatro al cubo».</li>
+</ul>
+
+</div>
+<p>Para calcular potencias con la calculadora se usa la tecla $x^y$: se escribe la base, se pulsa $x^y$, se escribe el exponente y se pulsa «=».</p>
+<h4>Actividades</h4>
+<ol>
+<li>Indica la base y el exponente: a) $7^3$; b) $2^{10}$; c) $12^2$; d) $9^1$.</li>
+<li>Escribe como potencia: a) $3 \times 3 \times 3 \times 3$; b) $5 \times 5$; c) $7 \times 7 \times 7 \times 7 \times 7$.</li>
+<li>Calcula: a) $2^4$; b) $4^3$; c) $6^2$; d) $10^5$.</li>
+<li>¿Cómo se leen? a) $8^3$; b) $15^2$; c) $2^6$.</li>
+</ol>
+
+<div class="timer" data-timer-seconds="240" role="group" aria-label="Temporizador de 4:00">
+  <div class="timer__dial" aria-hidden="true"><span class="timer__display">4:00</span></div>
+  <div class="timer__body">
+    <p class="timer__eyebrow">Tiempo restante</p>
+    <div class="timer__label">En vuestro cuaderno, resolvemos los tres primeros ejercicios, escribiendo las operaciones. Luego, corregimos con la persona de al lado.</div>
+    <div class="timer__controls">
+      <button class="timer__button timer__button--start" type="button" data-timer-action="start">Iniciar</button>
+      <button class="timer__button" type="button" data-timer-action="pause">Pausar</button>
+      <button class="timer__button timer__button--reset" type="button" data-timer-action="reset">Reiniciar</button>
+    </div>
+    <output class="timer__announcement" aria-live="polite"></output>
+  </div>
+</div>
+</section>
+<section class="slide" data-materia="ciencias" data-seccion="Matemáticas: potencias" data-nivel="3">
+  <h2>Potencias de base 10</h2>
+<p>Una potencia de base 10 es igual a la <strong>unidad seguida de tantos ceros como indica el exponente</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Potencia</th>
+<th>Desarrollo</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$10^0$</td>
+<td>—</td>
+<td>$1$</td>
+</tr>
+<tr>
+<td>$10^1$</td>
+<td>$10$</td>
+<td>$10$</td>
+</tr>
+<tr>
+<td>$10^2$</td>
+<td>$10 \times 10$</td>
+<td>$100$</td>
+</tr>
+<tr>
+<td>$10^3$</td>
+<td>$10 \times 10 \times 10$</td>
+<td>$1\,000$</td>
+</tr>
+<tr>
+<td>$10^6$</td>
+<td>$10 \times 10 \times 10 \times 10 \times 10 \times 10$</td>
+<td>$1\,000\,000$</td>
+</tr>
+</tbody></table>
+<p>Las potencias de base 10 sirven para escribir <strong>números grandes</strong> de forma corta:</p>
+
+<div class="box box--example">
+<p class="box__title">Descomponer un número</p>
+<p>$$24\,598 = 2 \times 10^4 + 4 \times 10^3 + 5 \times 10^2 + 9 \times 10^1 + 8$$</p>
+<p>$$2\,000\,000 = 2 \times 1\,000\,000 = 2 \times 10^6$$</p>
+
+</div>
+<p>Esto se llama <strong>descomposición polinómica</strong> y se usa mucho en ciencias para escribir medidas muy grandes o muy pequeñas.</p>
+<h4>Actividades</h4>
+<ol>
+<li>Escribe con números: a) $10^3$; b) $10^5$; c) $10^7$.</li>
+<li>Escribe como potencia de 10: a) 100; b) 10 000; c) 1 000 000.</li>
+<li>Completa: a) $3\,000 = 3 \times 10^{?}$; b) $45\,000 = 4{,}5 \times 10^{?}$.</li>
+<li>Descompón el número 67 304 como suma de potencias de 10.</li>
+</ol>
+
+<div class="timer" data-timer-seconds="240" role="group" aria-label="Temporizador de 4:00">
+  <div class="timer__dial" aria-hidden="true"><span class="timer__display">4:00</span></div>
+  <div class="timer__body">
+    <p class="timer__eyebrow">Tiempo restante</p>
+    <div class="timer__label">En vuestro cuaderno, resolvemos los ejercicios 2, 3 y 4.</div>
+    <div class="timer__controls">
+      <button class="timer__button timer__button--start" type="button" data-timer-action="start">Iniciar</button>
+      <button class="timer__button" type="button" data-timer-action="pause">Pausar</button>
+      <button class="timer__button timer__button--reset" type="button" data-timer-action="reset">Reiniciar</button>
+    </div>
+    <output class="timer__announcement" aria-live="polite"></output>
+  </div>
+</div>
+</section>
+<section class="slide" data-materia="ciencias" data-seccion="Matemáticas: potencias" data-nivel="3">
+  <h2>Las propiedades de las potencias</h2>
+<p>No siempre hace falta calcular el resultado: podemos dejar el resultado <strong>como una sola potencia</strong>. Estas son las propiedades que más se usan:</p>
+<table>
+<thead>
+<tr>
+<th>Propiedad</th>
+<th>Se escribe</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Potencia de un producto</td>
+<td>$(a \times b)^n = a^n \times b^n$</td>
+<td>$(5 \times 4)^2 = 5^2 \times 4^2$</td>
+</tr>
+<tr>
+<td>Potencia de un cociente</td>
+<td>$(a : b)^n = a^n : b^n$</td>
+<td>$(12 : 4)^3 = 12^3 : 4^3$</td>
+</tr>
+<tr>
+<td>Potencia de una potencia</td>
+<td>$(a^m)^n = a^{m \times n}$</td>
+<td>$(5^4)^2 = 5^8$</td>
+</tr>
+<tr>
+<td>Producto de potencias de la misma base</td>
+<td>$a^m \times a^n = a^{m+n}$</td>
+<td>$3^6 \times 3^5 = 3^{11}$</td>
+</tr>
+<tr>
+<td>Cociente de potencias de la misma base</td>
+<td>$a^m : a^n = a^{m-n}$</td>
+<td>$12^5 : 12^3 = 12^2$</td>
+</tr>
+<tr>
+<td>Exponente cero</td>
+<td>$a^0 = 1$</td>
+<td>$7^0 = 1$</td>
+</tr>
+</tbody></table>
+
+<div class="box box--dato">
+<p class="box__title">Importante</p>
+<p>En las tres primeras propiedades el exponente es <strong>común</strong> y afecta a los dos números. En las dos siguientes la <strong>base es común</strong> y los exponentes se suman o se restan.</p>
+
+</div>
+<h4>Actividades</h4>
+<ol>
+<li>Escribe como una sola potencia: a) $2^3 \times 2^4$; b) $5^7 : 5^2$; c) $(3^2)^4$; d) $9^0$.</li>
+<li>Aplica la propiedad y calcula: a) $(2 \times 5)^3$; b) $(20 : 4)^2$; c) $10^4 \times 10^2$; d) $7^5 : 7^3$.</li>
+<li>¿Verdadero o falso? Corrige los enunciados falsos: a) $2^4 \times 2^5 = 2^{20}$; b) $6^7 : 6^7 = 1$; c) $(10^5)^2 = 10^7$; d) $3^0 = 1$.</li>
+</ol>
+
+<div class="timer" data-timer-seconds="360" role="group" aria-label="Temporizador de 6:00">
+  <div class="timer__dial" aria-hidden="true"><span class="timer__display">6:00</span></div>
+  <div class="timer__body">
+    <p class="timer__eyebrow">Tiempo restante</p>
+    <div class="timer__label">Resolved individualmente las actividades 1 y 2. Cuando acabe el tiempo, corregimos en la pizarra entre todos.</div>
+    <div class="timer__controls">
+      <button class="timer__button timer__button--start" type="button" data-timer-action="start">Iniciar</button>
+      <button class="timer__button" type="button" data-timer-action="pause">Pausar</button>
+      <button class="timer__button timer__button--reset" type="button" data-timer-action="reset">Reiniciar</button>
+    </div>
+    <output class="timer__announcement" aria-live="polite"></output>
+  </div>
+</div>
+<div class="box box--resumen">
+<p class="box__title">Resumen</p>
+<ul>
+<li>Una potencia es una multiplicación repetida: $a^n$.</li>
+<li>Las potencias de base 10 permiten escribir números grandes terminados en ceros.</li>
+<li>Las propiedades nos dejan escribir el resultado <strong>como una sola potencia</strong>.</li>
+</ul>
+
+</div>
+<h4>Practica online</h4>
+<ul>
+<li><a href="https://www.cokitos.com/ecuaciones-con-potencias/play/" target="_blank" rel="noopener">Carrera de potencias (Arcademics)</a></li>
+</ul>
+<blockquote>
+<p>Los enlaces se abren en el navegador. Si no hay conexión, las actividades del cuaderno son suficientes.</p>
+</blockquote>
+
+</section>
+<section class="slide slide--seccion slide--seccion--titulo-necesario" data-materia="ciencias" data-seccion="Física y química: la masa y sus unidades" data-nivel="2">
+  <h2>Física y química: la masa y sus unidades</h2>
+  <ul class="slide__indice-seccion">
+    <li>Masa y peso no son lo mismo</li>
+    <li>Cambio de unidades de masa</li>
+    <li>La relación entre masa, capacidad y volumen</li>
+  </ul>
+</section>
+<section class="slide" data-materia="ciencias" data-seccion="Física y química: la masa y sus unidades" data-nivel="3">
+  <h2>Masa y peso no son lo mismo</h2>
+<p>La <strong>masa</strong> mide la cantidad de materia de un cuerpo. Su unidad en el Sistema Internacional es el <strong>kilogramo</strong> ($\mathrm{kg}$), aunque en el día a día usamos mucho el <strong>gramo</strong> ($\mathrm{g}$).</p>
+<p>El <strong>peso</strong> es la fuerza con la que la gravedad atrae a un cuerpo y se mide en <strong>newtons</strong> ($\mathrm{N}$). Un mismo cuerpo tiene la misma masa en la Tierra y en la Luna, pero pesa distinto.</p>
+
+<div class="box box--example">
+<p class="box__title">Ejemplo</p>
+<p>Un objeto de $6{,}13\,\mathrm{kg}$ pesa unos $60\,\mathrm{N}$ en la Tierra, unos $9{,}9\,\mathrm{N}$ en la Luna y unos $152\,\mathrm{N}$ en Júpiter. Su masa no cambia: siempre es $6{,}13\,\mathrm{kg}$.</p>
+
+</div>
+<p><img src="masa_peso.png" alt="image"></p>
+<h4>Actividades</h4>
+<ol>
+<li>Di si es una medida de masa o de peso: a) $70\,\mathrm{kg}$; b) $700\,\mathrm{N}$; c) $250\,\mathrm{g}$; d) $9{,}8\,\mathrm{N}$.</li>
+<li>¿Por qué un astronauta pesa menos en la Luna pero su masa es la misma?</li>
+<li>Pon tres ejemplos de objetos que midas en gramos y tres que midas en kilogramos.</li>
+</ol>
+
+</section>
+<section class="slide" data-materia="ciencias" data-seccion="Física y química: la masa y sus unidades" data-nivel="3">
+  <h2>Cambio de unidades de masa</h2>
+<p>Para pasar de una unidad a otra multiplicamos o dividimos por 10 en cada salto:</p>
+<p><img src="escalera_masa.png" alt="image"></p>
+
+<div class="box box--example">
+<p class="box__title">Dos conversiones</p>
+<p>$$3{,}25\,\mathrm{kg} = 3\,250\,\mathrm{g} \qquad \text{(tres saltos a la derecha)}$$</p>
+<p>$$2\,415\,\mathrm{mg} = 2{,}415\,\mathrm{g} \qquad \text{(tres saltos a la izquierda)}$$</p>
+
+</div>
+<p>Existen otras unidades de masa:</p>
+<ul>
+<li>La <strong>tonelada</strong> ($\mathrm{t}$) equivale a $1\,000\,\mathrm{kg}$.</li>
+<li>El <strong>quintal</strong> ($\mathrm{q}$) equivale a $100\,\mathrm{kg}$.</li>
+</ul>
+<h4>Actividades</h4>
+<ol>
+<li>Copia y completa: a) $1\,\mathrm{kg} = \_\_\_\,\mathrm{g}$; b) $1\,\mathrm{g} = \_\_\_\,\mathrm{mg}$; c) $1\,\mathrm{t} = \_\_\_\,\mathrm{kg}$; d) $1\,\mathrm{q} = \_\_\_\,\mathrm{kg}$.</li>
+<li>Convierte: a) $2{,}5\,\mathrm{kg} \to \mathrm{g}$; b) $3\,500\,\mathrm{g} \to \mathrm{kg}$; c) $4{,}2\,\mathrm{g} \to \mathrm{mg}$; d) $850\,\mathrm{mg} \to \mathrm{g}$.</li>
+<li>Expresa en kilogramos: a) $250\,\mathrm{g}$; b) $1{,}5\,\mathrm{t}$; c) $3\,\mathrm{q}$; d) $12\,000\,\mathrm{g}$.</li>
+<li>Una vaca lechera tiene una masa de 5 quintales. ¿Cuántos kilogramos son?</li>
+</ol>
+
+<div class="timer" data-timer-seconds="300" role="group" aria-label="Temporizador de 5:00">
+  <div class="timer__dial" aria-hidden="true"><span class="timer__display">5:00</span></div>
+  <div class="timer__body">
+    <p class="timer__eyebrow">Tiempo restante</p>
+    <div class="timer__label">En parejas, resolved las actividades 2 y 3. Recordad escribir siempre el resultado con su unidad.</div>
+    <div class="timer__controls">
+      <button class="timer__button timer__button--start" type="button" data-timer-action="start">Iniciar</button>
+      <button class="timer__button" type="button" data-timer-action="pause">Pausar</button>
+      <button class="timer__button timer__button--reset" type="button" data-timer-action="reset">Reiniciar</button>
+    </div>
+    <output class="timer__announcement" aria-live="polite"></output>
+  </div>
+</div>
+</section>
+<section class="slide" data-materia="ciencias" data-seccion="Física y química: la masa y sus unidades" data-nivel="3">
+  <h2>La relación entre masa, capacidad y volumen</h2>
+<p>Para el <strong>agua pura</strong> existe una relación muy útil entre estas tres magnitudes:</p>
+<table>
+<thead>
+<tr>
+<th>Masa</th>
+<th>Capacidad</th>
+<th>Volumen</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$1\,\mathrm{t}$</td>
+<td>$1\,\mathrm{kL}$</td>
+<td>$1\,\mathrm{m}^3$</td>
+</tr>
+<tr>
+<td>$1\,\mathrm{kg}$</td>
+<td>$1\,\mathrm{L}$</td>
+<td>$1\,\mathrm{dm}^3$</td>
+</tr>
+<tr>
+<td>$1\,\mathrm{g}$</td>
+<td>$1\,\mathrm{mL}$</td>
+<td>$1\,\mathrm{cm}^3$</td>
+</tr>
+</tbody></table>
+<p>Por eso decimos que $1\,\mathrm{L}$ de agua tiene una masa de $1\,\mathrm{kg}$, y que $1\,\mathrm{m}^3$ de agua tiene una masa de $1$ tonelada.</p>
+<h4>Actividades</h4>
+<ol>
+<li>Completa: a) $6\,\mathrm{L}$ de agua tiene una masa de $\_\_\_\,\mathrm{kg}$; b) $250\,\mathrm{mL}$ de agua tienen una masa de $\_\_\_\,\mathrm{g}$; c) $0.5\,\mathrm{m}^3$ de agua tiene una masa de $\_\_\_\,\mathrm{t}$.</li>
+<li>Una garrafa contiene $5\,\mathrm{L}$ de agua. ¿Cuál es su masa en kilogramos?</li>
+<li>Un depósito tiene $2\,\mathrm{m}^3$ de agua. ¿Cuántos litros son? ¿Cuántas toneladas son?</li>
+</ol>
+
+<div class="timer" data-timer-seconds="240" role="group" aria-label="Temporizador de 4:00">
+  <div class="timer__dial" aria-hidden="true"><span class="timer__display">4:00</span></div>
+  <div class="timer__body">
+    <p class="timer__eyebrow">Tiempo restante</p>
+    <div class="timer__label">Resolved individualmente las actividades 2 y 3. Cuando acabe el tiempo, corregimos en la pizarra entre todos.</div>
+    <div class="timer__controls">
+      <button class="timer__button timer__button--start" type="button" data-timer-action="start">Iniciar</button>
+      <button class="timer__button" type="button" data-timer-action="pause">Pausar</button>
+      <button class="timer__button timer__button--reset" type="button" data-timer-action="reset">Reiniciar</button>
+    </div>
+    <output class="timer__announcement" aria-live="polite"></output>
+  </div>
+</div>
+<div class="box box--resumen">
+<p class="box__title">Resumen</p>
+<ul>
+<li>La masa mide la cantidad de materia ($\mathrm{kg}$, $\mathrm{g}$); el peso es una fuerza ($\mathrm{N}$).</li>
+<li>Para cambiar de unidad de masa multiplicamos o dividimos por 10 en cada salto.</li>
+<li>$1\,\mathrm{t} = 1\,000\,\mathrm{kg}$ y $1\,\mathrm{q} = 100\,\mathrm{kg}$.</li>
+<li>Para el agua: $1\,\mathrm{kg} = 1\,\mathrm{L} = 1\,\mathrm{dm}^3$.</li>
+</ul>
+
+</div>
+</section>
+<section class="slide slide--seccion slide--seccion--titulo-necesario" data-materia="ciencias" data-seccion="Física y química: la materia y sus propiedades" data-nivel="2">
+  <h2>Física y química: la materia y sus propiedades</h2>
+  <ul class="slide__indice-seccion">
+    <li>¿Qué es la materia?</li>
+    <li>Propiedades generales: masa y volumen</li>
+    <li>Propiedades específicas: la densidad</li>
+    <li>Temperatura, calor y presión</li>
+  </ul>
+</section>
+<section class="slide" data-materia="ciencias" data-seccion="Física y química: la materia y sus propiedades" data-nivel="3">
+  <h2>¿Qué es la materia?</h2>
+<p>La <strong>materia</strong> es todo lo que ocupa un lugar en el espacio y tiene masa. Un <strong>sistema material</strong> es una porción de materia que estudiamos (un trozo de pan, una piedra, el aire de una botella). Todo lo que rodea al sistema es el <strong>entorno</strong> o ambiente.</p>
+<p>La materia está formada por partículas cada vez más pequeñas, que se organizan por <strong>niveles</strong>:</p>
+<ol>
+<li><strong>Nivel subatómico:</strong> los <em>quarks</em> forman protones y neutrones.</li>
+<li><strong>Nivel atómico:</strong> el núcleo (protones y neutrones) y los electrones forman los <strong>átomos</strong>.</li>
+<li><strong>Nivel molecular:</strong> los átomos se unen y forman <strong>moléculas</strong> (agua, oxígeno, dióxido de carbono…).</li>
+</ol>
+<p><img src="niveles_materia.png" alt="image"></p>
+<h4>Actividades</h4>
+<p>Encuentra los distintos niveles que hemos visto en esta gráfica <a href="https://scaleofuniverse.com/es-es" target="_blank" rel="noopener">La escala del universo</a></p>
+
+</section>
+<section class="slide" data-materia="ciencias" data-seccion="Física y química: la materia y sus propiedades" data-nivel="3">
+  <h2>Propiedades generales: masa y volumen</h2>
+<p>Las propiedades <strong>generales</strong> son comunes a toda la materia:</p>
+<ul>
+<li>La <strong>masa</strong>, que ya hemos estudiado.</li>
+<li>El <strong>volumen</strong>, que es el espacio que ocupa un cuerpo. Se mide en $\mathrm{m}^3$ o en $\mathrm{cm}^3$.</li>
+</ul>
+<p>El volumen de una caja se calcula multiplicando sus tres dimensiones:</p>
+
+<div class="math formula">
+$$V = \text{alto} \times \text{ancho} \times \text{largo}$$
+</div>
+<div class="box box--example">
+<p class="box__title">Dos cajas con el mismo volumen</p>
+<p>Una caja de $6 \times 6 \times 6\,\mathrm{cm}$: $V = 216\,\mathrm{cm}^3$.</p>
+<p>Otra caja de $4{,}5 \times 6 \times 8\,\mathrm{cm}$: $V = 216\,\mathrm{cm}^3$.</p>
+<p>Tienen formas distintas, pero el mismo volumen.</p>
+
+</div>
+<p>La <strong>capacidad</strong> es la cantidad de materia que puede contener un recipiente. Un depósito hueco de $1\,\mathrm{m}^3$ tiene capacidad para $1\,000\,\mathrm{L}$.</p>
+<h4>Actividades</h4>
+<ol>
+<li>Calcula el volumen de una caja de $5\,\mathrm{cm} \times 4\,\mathrm{cm} \times 3\,\mathrm{cm}$.</li>
+<li>¿Qué caja ocupa más: una de $10 \times 2 \times 2\,\mathrm{cm}$ o una de $4 \times 4 \times 4\,\mathrm{cm}$?</li>
+<li>¿Pueden dos cuerpos tener el mismo volumen y masas distintas? Explícalo con un ejemplo.</li>
+</ol>
+
+</section>
+<section class="slide" data-materia="ciencias" data-seccion="Física y química: la materia y sus propiedades" data-nivel="3">
+  <h2>Propiedades específicas: la densidad</h2>
+<p>Las propiedades <strong>específicas</strong> son características de cada sustancia: el color, el olor, el sabor, el punto de fusión o la densidad.</p>
+<p>La <strong>densidad</strong> ($d$) relaciona la masa de un cuerpo con el volumen que ocupa:</p>
+
+<div class="math formula">
+$$d = \frac{m}{V}$$
+</div>
+<p>Se mide en $\mathrm{kg/m}^3$ o, en el laboratorio, en $\mathrm{g/cm}^3$ (que es lo mismo que $\mathrm{g/mL}$).</p>
+
+<div class="box box--example">
+<p class="box__title">Densidad del oro</p>
+<p>Un anillo de oro tiene una masa de $40\,\mathrm{g}$ y ocupa un volumen de $2{,}07\,\mathrm{mL}$. ¿Cuál es su densidad?</p>
+<p>$$d = \frac{m}{V} = \frac{40\,\mathrm{g}}{2{,}07\,\mathrm{mL}} \approx 19{,}3\,\mathrm{g/mL}$$</p>
+
+</div>
+<p>Un cuerpo <strong>flota</strong> en el agua si su densidad es <strong>menor</strong> que $1\,\mathrm{g/cm}^3$, y se <strong>hunde</strong> si es mayor. Por eso el corcho flota y el hierro se hunde.</p>
+<h4>Actividades</h4>
+<ol>
+<li>¿Qué volumen ocupan $250\,\mathrm{g}$ de mercurio? ($d_{\text{mercurio}} = 13{,}6\,\mathrm{g/mL}$)</li>
+<li>¿Qué masa tienen $125\,\mathrm{mL}$ de mercurio?</li>
+<li>Un trozo de corcho tiene una masa de $12\,\mathrm{g}$ y un volumen de $50\,\mathrm{cm}^3$. Calcula su densidad. ¿Flotará en el agua?</li>
+<li>Ordena de menor a mayor densidad estas sustancias: corcho, agua, hierro y aceite.</li>
+</ol>
+
+<div class="timer" data-timer-seconds="360" role="group" aria-label="Temporizador de 6:00">
+  <div class="timer__dial" aria-hidden="true"><span class="timer__display">6:00</span></div>
+  <div class="timer__body">
+    <p class="timer__eyebrow">Tiempo restante</p>
+    <div class="timer__label">Resolved las actividades 1 y 2. Escribid la fórmula, sustituid los datos y expresad el resultado con su unidad.</div>
+    <div class="timer__controls">
+      <button class="timer__button timer__button--start" type="button" data-timer-action="start">Iniciar</button>
+      <button class="timer__button" type="button" data-timer-action="pause">Pausar</button>
+      <button class="timer__button timer__button--reset" type="button" data-timer-action="reset">Reiniciar</button>
+    </div>
+    <output class="timer__announcement" aria-live="polite"></output>
+  </div>
+</div>
+</section>
+<section class="slide" data-materia="ciencias" data-seccion="Física y química: la materia y sus propiedades" data-nivel="3">
+  <h2>Temperatura, calor y presión</h2>
+<ul>
+<li>La <strong>temperatura</strong> mide la energía térmica de las partículas. En el Sistema Internacional se mide en <strong>kelvin</strong> ($\mathrm{K}$), aunque usamos los <strong>grados Celsius</strong> ($^\circ\mathrm{C}$).</li>
+</ul>
+
+<div class="math formula">
+$$T(\mathrm{K}) = 273 + T(^\circ\mathrm{C})$$
+</div>
+<ul>
+<li>El <strong>calor</strong> es la energía que pasa de un cuerpo caliente a otro más frío. Se mide en <strong>julios</strong> ($\mathrm{J}$) o en <strong>calorías</strong> ($\mathrm{cal}$).</li>
+<li>La <strong>presión</strong> mide la fuerza que ejerce un cuerpo sobre una superficie. Se mide en <strong>pascales</strong> ($\mathrm{Pa}$) o en <strong>atmósferas</strong> ($\mathrm{atm}$).</li>
+</ul>
+
+<div class="box box--dato">
+<p class="box__title">¿Sabías que…?</p>
+<p>$1\,\mathrm{cal} = 4{,}18\,\mathrm{J}$ y $1\,\mathrm{atm} = 101\,300\,\mathrm{Pa}$. Cuando calentamos un gas en un recipiente cerrado, aumentan la temperatura y la presión.</p>
+
+</div>
+<h4>Actividades</h4>
+<ol>
+<li>Transforma: a) $298\,\mathrm{K} \to {}^\circ\mathrm{C}$; b) $0\,\mathrm{K} \to {}^\circ\mathrm{C}$; c) $25^\circ\mathrm{C} \to \mathrm{K}$; d) $85^\circ\mathrm{C} \to \mathrm{K}$.</li>
+<li>Una hamburguesa aporta $86\,\mathrm{kJ}$. ¿Cuántas kilocalorías son? ($1\,\mathrm{kcal} = 4{,}18\,\mathrm{kJ}$)</li>
+<li>¿Qué indica la temperatura de un cuerpo? ¿Y el calor?</li>
+</ol>
+
+<div class="box box--resumen">
+<p class="box__title">Resumen</p>
+<ul>
+<li>La materia ocupa un espacio y tiene masa; está formada por partículas organizadas en niveles.</li>
+<li>Las propiedades generales (masa, volumen) son comunes a toda la materia; las específicas (densidad, color, punto de fusión…) identifican cada sustancia.</li>
+<li>La densidad se calcula con $d = m / V$.</li>
+<li>La temperatura se mide en $^\circ\mathrm{C}$ o $\mathrm{K}$; el calor, en $\mathrm{J}$ o $\mathrm{cal}$.</li>
+</ul>
+
+</div>
+<h4>Practica online</h4>
+<p>Simulación <strong>«Densidad»</strong> de PhET: <a href="https://phet.colorado.edu/es/simulations/density" target="_blank" rel="noopener">phet.colorado.edu/es/simulations/density</a></p>
+<p>Puedes cambiar la masa y el volumen de un bloque y comprobar cuándo flota o se hunde en el agua.</p>
+
+</section>
+<section class="slide slide--seccion slide--seccion--titulo-necesario" data-materia="ciencias" data-seccion="Física y química: los estados de la materia" data-nivel="2">
+  <h2>Física y química: los estados de la materia</h2>
+  <ul class="slide__indice-seccion">
+    <li>Los estados de agregación</li>
+    <li>Los cambios de estado</li>
+    <li>Puntos de fusión y ebullición</li>
+  </ul>
+</section>
+<section class="slide" data-materia="ciencias" data-seccion="Física y química: los estados de la materia" data-nivel="3">
+  <h2>Los estados de agregación</h2>
+<p>Según cómo estén unidas y separadas sus partículas, la materia se encuentra en distintos estados:</p>
+<table>
+<thead>
+<tr>
+<th>Estado</th>
+<th>Partículas</th>
+<th>Forma y volumen</th>
+<th>¿Fluye?</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Sólido</strong></td>
+<td>Muy juntas y ordenadas</td>
+<td>Fijos</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>Líquido</strong></td>
+<td>Juntas, pero pueden deslizarse</td>
+<td>Volumen fijo; adopta la forma del recipiente</td>
+<td>Sí</td>
+</tr>
+<tr>
+<td><strong>Gaseoso</strong></td>
+<td>Muy separadas</td>
+<td>Ocupa todo el recipiente</td>
+<td>Sí</td>
+</tr>
+</tbody></table>
+<p><img src="estados-materia.svg" alt="Los tres estados de agregación y la disposición de sus partículas"></p>
+<p>Existe un cuarto estado, el <strong>plasma</strong>, que se forma al calentar mucho un gas: los átomos pierden electrones y se convierten en iones. Es el estado más abundante del universo: las estrellas, los rayos y las auroras contienen plasma.</p>
+<h4>Actividades</h4>
+<ol>
+<li>Indica en qué estado está: a) el hielo; b) el aceite; c) el vapor de agua; d) una piedra.</li>
+<li>¿Por qué un gas ocupa todo el recipiente y un sólido no?</li>
+<li>Explica con tus palabras por qué los gases se pueden comprimir y los líquidos casi no.</li>
+<li>¿Dónde encontramos plasma en la naturaleza? Cita dos ejemplos.</li>
+</ol>
+
+<div class="timer" data-timer-seconds="240" role="group" aria-label="Temporizador de 4:00">
+  <div class="timer__dial" aria-hidden="true"><span class="timer__display">4:00</span></div>
+  <div class="timer__body">
+    <p class="timer__eyebrow">Tiempo restante</p>
+    <div class="timer__label">En parejas, resolved las actividades 1 y 2 y explicad las respuestas usando el modelo de partículas.</div>
+    <div class="timer__controls">
+      <button class="timer__button timer__button--start" type="button" data-timer-action="start">Iniciar</button>
+      <button class="timer__button" type="button" data-timer-action="pause">Pausar</button>
+      <button class="timer__button timer__button--reset" type="button" data-timer-action="reset">Reiniciar</button>
+    </div>
+    <output class="timer__announcement" aria-live="polite"></output>
+  </div>
+</div>
+</section>
+<section class="slide" data-materia="ciencias" data-seccion="Física y química: los estados de la materia" data-nivel="3">
+  <h2>Los cambios de estado</h2>
+<p>Cuando cambia la temperatura, la materia pasa de un estado a otro. Son <strong>cambios físicos</strong>: la sustancia sigue siendo la misma.</p>
+<table>
+<thead>
+<tr>
+<th>Cambio</th>
+<th>De… a…</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Fusión</strong></td>
+<td>Sólido → líquido</td>
+</tr>
+<tr>
+<td><strong>Solidificación</strong></td>
+<td>Líquido → sólido</td>
+</tr>
+<tr>
+<td><strong>Vaporización</strong></td>
+<td>Líquido → gas</td>
+</tr>
+<tr>
+<td><strong>Condensación</strong></td>
+<td>Gas → líquido</td>
+</tr>
+<tr>
+<td><strong>Sublimación</strong></td>
+<td>Sólido → gas</td>
+</tr>
+<tr>
+<td><strong>Sublimación inversa</strong></td>
+<td>Gas → sólido</td>
+</tr>
+</tbody></table>
+<p><img src="grafico-agua.svg" alt="Gráfica de calentamiento del agua"></p>
+<p>Al calentar, las partículas se mueven más deprisa y se separan; al enfriar, pierden energía y se acercan. El cambio de estado no es inmediato: mientras dura, la temperatura se mantiene constante.</p>
+<h4>Actividades</h4>
+<ol>
+<li>Nombra el cambio de estado: a) hielo → agua; b) agua → vapor; c) vapor → agua líquida; d) agua → hielo.</li>
+<li>Al sacar un helado del congelador aparece «niebla» a su alrededor. ¿Qué cambio de estado ocurre?</li>
+<li>En la gráfica del agua, ¿qué está pasando mientras la temperatura se mantiene en $0^\circ\mathrm{C}$? ¿Y en $100^\circ\mathrm{C}$?</li>
+<li>Copia y completa: «Al aumentar la temperatura, las partículas se mueven ________ y la sustancia pasa de ________ a ________».</li>
+</ol>
+
+<div class="timer" data-timer-seconds="300" role="group" aria-label="Temporizador de 5:00">
+  <div class="timer__dial" aria-hidden="true"><span class="timer__display">5:00</span></div>
+  <div class="timer__body">
+    <p class="timer__eyebrow">Tiempo restante</p>
+    <div class="timer__label">Resolved las actividades 1 y 3. Para la actividad 3, mirad la gráfica y explicad qué ocurre en cada tramo plano.</div>
+    <div class="timer__controls">
+      <button class="timer__button timer__button--start" type="button" data-timer-action="start">Iniciar</button>
+      <button class="timer__button" type="button" data-timer-action="pause">Pausar</button>
+      <button class="timer__button timer__button--reset" type="button" data-timer-action="reset">Reiniciar</button>
+    </div>
+    <output class="timer__announcement" aria-live="polite"></output>
+  </div>
+</div>
+</section>
+<section class="slide" data-materia="ciencias" data-seccion="Física y química: los estados de la materia" data-nivel="3">
+  <h2>Puntos de fusión y ebullición</h2>
+<p>Cada <strong>sustancia pura</strong> tiene un punto de fusión y un punto de ebullición característicos. Sirven para identificarla y para saber si una sustancia es pura.</p>
+<table>
+<thead>
+<tr>
+<th>Sustancia</th>
+<th>Punto de fusión</th>
+<th>Punto de ebullición</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Agua</td>
+<td>$0^\circ\mathrm{C}$</td>
+<td>$100^\circ\mathrm{C}$</td>
+</tr>
+<tr>
+<td>Oro</td>
+<td>$1\,064^\circ\mathrm{C}$</td>
+<td>$2\,700^\circ\mathrm{C}$</td>
+</tr>
+<tr>
+<td>Cobre</td>
+<td>$1\,085^\circ\mathrm{C}$</td>
+<td>$2\,562^\circ\mathrm{C}$</td>
+</tr>
+<tr>
+<td>Cuarzo</td>
+<td>$1\,713^\circ\mathrm{C}$</td>
+<td>$2\,230^\circ\mathrm{C}$</td>
+</tr>
+</tbody></table>
+
+<div class="box box--dato">
+<p class="box__title">¿Sabías que…?</p>
+<p>El agua pura, al nivel del mar, congela a $0^\circ\mathrm{C}$ y hierve a $100^\circ\mathrm{C}$. Los anticongelantes de los coches congelan por debajo de $0^\circ\mathrm{C}$ y hierven por encima de $100^\circ\mathrm{C}$ porque no son agua pura.</p>
+
+</div>
+<h4>Actividades</h4>
+<ol>
+<li>¿A qué temperatura se funde el oro? ¿Y a qué temperatura hierve?</li>
+<li>Ordena de menor a mayor punto de fusión: agua, cuarzo, cobre y oro.</li>
+<li>Una sustancia desconocida funde a $0^\circ\mathrm{C}$ y hierve a $100^\circ\mathrm{C}$. ¿Qué sustancia crees que es?</li>
+<li>¿Qué diferencia hay entre ebullición y evaporación? (Pista: piensa en lo que ocurre en un charco.)</li>
+</ol>
+
+<div class="box box--resumen">
+<p class="box__title">Resumen</p>
+<ul>
+<li>Los estados de agregación son sólido, líquido, gaseoso y plasma.</li>
+<li>Los cambios de estado son cambios físicos: fusión, solidificación, vaporización, condensación, sublimación y sublimación inversa.</li>
+<li>Cada sustancia pura tiene unos puntos de fusión y de ebullición característicos.</li>
+</ul>
+
+</div>
+<h4>Practica online</h4>
+<p>Simulación <strong>«Estados de la materia: básico»</strong> de PhET: <a href="https://phet.colorado.edu/es/simulations/states-of-matter-basics" target="_blank" rel="noopener">phet.colorado.edu/es/simulations/states-of-matter-basics</a></p>
+<p>Calienta y enfría distintos materiales y observa cómo se mueven sus partículas al cambiar de estado.</p>
+
+</section>
+<section class="slide slide--seccion slide--seccion--titulo-necesario" data-materia="ciencias" data-seccion="Biología: la materia viva" data-nivel="2">
+  <h2>Biología: la materia viva</h2>
+  <ul class="slide__indice-seccion">
+    <li>Bioelementos y biomoléculas</li>
+    <li>Los niveles de organización de la materia viva</li>
+    <li>La célula, unidad básica de la vida</li>
+  </ul>
+</section>
+<section class="slide" data-materia="ciencias" data-seccion="Biología: la materia viva" data-nivel="3">
+  <h2>Bioelementos y biomoléculas</h2>
+<p>La materia viva también está formada por átomos, pero organizados de una forma muy especial. Los elementos químicos que forman los seres vivos se llaman <strong>bioelementos</strong>. Los más abundantes son el <strong>carbono</strong> (C), el <strong>hidrógeno</strong> (H), el <strong>oxígeno</strong> (O) y el <strong>nitrógeno</strong> (N); junto con el fósforo (P) y el azufre (S) forman la mayoría de nuestras moléculas.</p>
+<p>Las moléculas de los seres vivos se llaman <strong>biomoléculas</strong> y se clasifican en dos grupos:</p>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Ejemplos</th>
+<th>¿Exclusivas de la vida?</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Inorgánicas</strong></td>
+<td>Agua, gases, sales minerales</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>Orgánicas</strong></td>
+<td>Glúcidos, lípidos, proteínas y ácidos nucleicos</td>
+<td>Sí</td>
+</tr>
+</tbody></table>
+<p>El <strong>ADN</strong> es el ácido nucleico que guarda la información que se hereda de padres a hijos.</p>
+<h4>Actividades</h4>
+<ol>
+<li>Escribe el nombre de los cuatro bioelementos más abundantes y su símbolo químico.</li>
+<li>Clasifica en orgánica o inorgánica: agua, glucosa, proteína, sal mineral, ADN y grasa.</li>
+<li>¿Qué biomolécula contiene la información hereditaria?</li>
+<li>¿Por qué decimos que el agua es una biomolécula inorgánica?</li>
+</ol>
+
+</section>
+<section class="slide" data-materia="ciencias" data-seccion="Biología: la materia viva" data-nivel="3">
+  <h2>Los niveles de organización de la materia viva</h2>
+<p>Las biomoléculas se unen y forman estructuras cada vez más complejas. En los seres vivos encontramos estos <strong>niveles de organización</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Nivel</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Átomo</td>
+<td>Carbono</td>
+</tr>
+<tr>
+<td>Molécula</td>
+<td>Agua</td>
+</tr>
+<tr>
+<td>Macromolécula</td>
+<td>Proteína</td>
+</tr>
+<tr>
+<td>Orgánulo</td>
+<td>Mitocondria</td>
+</tr>
+<tr>
+<td><strong>Célula</strong></td>
+<td>Neurona</td>
+</tr>
+<tr>
+<td>Tejido</td>
+<td>Tejido muscular</td>
+</tr>
+<tr>
+<td>Órgano</td>
+<td>Corazón</td>
+</tr>
+<tr>
+<td>Aparato o sistema</td>
+<td>Aparato digestivo</td>
+</tr>
+<tr>
+<td>Individuo u organismo</td>
+<td>Ser humano</td>
+</tr>
+</tbody></table>
+<h4>Actividades</h4>
+<ol>
+<li>Ordena de menor a mayor complejidad: tejido, átomo, órgano, célula, molécula, individuo y orgánulo.</li>
+<li>¿Qué nivel de organización va justo después de la célula?</li>
+<li>Pon un ejemplo de tejido, uno de órgano y uno de aparato del cuerpo humano.</li>
+</ol>
+
+</section>
+<section class="slide" data-materia="ciencias" data-seccion="Biología: la materia viva" data-nivel="3">
+  <h2>La célula, unidad básica de la vida</h2>
+<p>La <strong>célula</strong> es la unidad más pequeña que tiene vida propia. Todos los seres vivos están formados por células:</p>
+<ul>
+<li>Los <strong>organismos unicelulares</strong> tienen una sola célula que realiza todas las funciones (una bacteria, una levadura).</li>
+<li>Los <strong>organismos pluricelulares</strong> tienen muchas células (el ser humano, un árbol).</li>
+</ul>
+<p>En una célula distinguimos tres partes básicas:</p>
+<ul>
+<li>La <strong>membrana plasmática</strong>, que la rodea y le da forma.</li>
+<li>El <strong>citoplasma</strong>, el espacio interior donde están los orgánulos.</li>
+<li>El <strong>material genético (ADN)</strong>, protegido en el <strong>núcleo</strong>.</li>
+</ul>
+
+<div class="box box--dato">
+<p class="box__title">¿Sabías que…?</p>
+<p>Nuestro cuerpo empieza siendo <strong>una sola célula</strong>, el cigoto, que se divide una y otra vez. Grupos de células se especializan y forman tejidos; los tejidos forman órganos; y los órganos, aparatos y sistemas.</p>
+
+</div>
+<p>Estudiaremos la célula y sus orgánulos con más detalle en la próxima hoja de trabajo.</p>
+<h4>Actividades</h4>
+<ol>
+<li>¿Qué diferencia hay entre un organismo unicelular y uno pluricelular? Pon un ejemplo de cada uno.</li>
+<li>Nombra las tres partes básicas de una célula.</li>
+<li>¿Por qué decimos que la célula es la unidad básica de la vida?</li>
+<li>Ordena este recorrido: órgano → célula → aparato → tejido → individuo.</li>
+</ol>
+
+<div class="timer" data-timer-seconds="240" role="group" aria-label="Temporizador de 4:00">
+  <div class="timer__dial" aria-hidden="true"><span class="timer__display">4:00</span></div>
+  <div class="timer__body">
+    <p class="timer__eyebrow">Tiempo restante</p>
+    <div class="timer__label">Resolved las actividades 1 y 2 por parejas. Después, cada pareja explica una de las respuestas a la clase.</div>
+    <div class="timer__controls">
+      <button class="timer__button timer__button--start" type="button" data-timer-action="start">Iniciar</button>
+      <button class="timer__button" type="button" data-timer-action="pause">Pausar</button>
+      <button class="timer__button timer__button--reset" type="button" data-timer-action="reset">Reiniciar</button>
+    </div>
+    <output class="timer__announcement" aria-live="polite"></output>
+  </div>
+</div>
+<div class="box box--resumen">
+<p class="box__title">Resumen</p>
+<ul>
+<li>Los bioelementos más comunes son C, H, O y N.</li>
+<li>Las biomoléculas pueden ser inorgánicas (agua, sales minerales) u orgánicas (glúcidos, lípidos, proteínas y ácidos nucleicos).</li>
+<li>La materia viva se organiza en niveles: átomo → … → célula → tejido → órgano → aparato → individuo.</li>
+</ul>
+
+</div>
+</section>
+<section class="slide slide--seccion slide--seccion--titulo-necesario" data-materia="ciencias" data-seccion="Biología: la función de relación" data-nivel="2">
+  <h2>Biología: la función de relación</h2>
+  <ul class="slide__indice-seccion">
+    <li>Estímulo, receptor y respuesta</li>
+    <li>El sistema nervioso</li>
+    <li>Los órganos de los sentidos</li>
+  </ul>
+</section>
+<section class="slide" data-materia="ciencias" data-seccion="Biología: la función de relación" data-nivel="3">
+  <h2>Estímulo, receptor y respuesta</h2>
+<p>La <strong>función de relación</strong> es la capacidad de los seres vivos de detectar cambios en el entorno y responder a ellos. Es esencial para buscar alimento o huir de los peligros.</p>
+<p>En ella intervienen tres elementos:</p>
+<ol>
+<li><strong>Receptores:</strong> captan los cambios o <strong>estímulos</strong>. Pueden ser externos (los sentidos) o internos.</li>
+<li><strong>Sistemas de coordinación:</strong> interpretan la información y deciden la respuesta. El más importante es el <strong>sistema nervioso</strong>.</li>
+<li><strong>Órganos efectores:</strong> ejecutan la respuesta. Los <strong>músculos</strong> producen movimiento y las <strong>glándulas</strong> secretan sustancias.</li>
+</ol>
+
+<div class="box box--example">
+<p class="box__title">Poner la mano en una roca caliente</p>
+<ol>
+<li>El calor es el <strong>estímulo</strong>.</li>
+<li>Los receptores de la piel lo detectan y envían la información al sistema nervioso.</li>
+<li>El sistema nervioso elabora la respuesta.</li>
+<li>Los músculos del brazo (<strong>efectores</strong>) retiran la mano.</li>
+</ol>
+
+</div>
+<h4>Actividades</h4>
+<ol>
+<li>Identifica el estímulo, el receptor y el efector: «hueles comida y se te hace la boca agua».</li>
+<li>¿Qué órganos actúan como efectores? Cita dos tipos.</li>
+<li>Explica por qué la función de relación es importante para sobrevivir.</li>
+</ol>
+
+</section>
+<section class="slide" data-materia="ciencias" data-seccion="Biología: la función de relación" data-nivel="3">
+  <h2>El sistema nervioso</h2>
+<p>El sistema nervioso es una gran red de células llamadas <strong>neuronas</strong>, especializadas en transmitir una señal eléctrica muy rápida: el <strong>impulso nervioso</strong>.</p>
+<p>Cada neurona tiene:</p>
+<ul>
+<li>El <strong>cuerpo neuronal</strong>, que contiene el núcleo.</li>
+<li>Las <strong>dendritas</strong>, prolongaciones cortas que reciben el impulso.</li>
+<li>El <strong>axón</strong>, prolongación larga que transmite el impulso a otras células.</li>
+</ul>
+<p>Se organiza en dos partes:</p>
+<ul>
+<li><strong>Sistema nervioso central (SNC):</strong> formado por el <strong>encéfalo</strong> y la <strong>médula espinal</strong>. Recibe la información, la interpreta y elabora la respuesta.</li>
+<li><strong>Sistema nervioso periférico (SNP):</strong> formado por los <strong>nervios</strong>, que conectan el SNC con el resto del cuerpo.</li>
+</ul>
+
+<div class="box box--dato">
+<p class="box__title">¿Sabías que…?</p>
+<p>El <strong>nervio ciático</strong> es el más largo y ancho del cuerpo: va desde la parte inferior de la columna hasta la base del pie.</p>
+
+</div>
+<h4>Actividades</h4>
+<ol>
+<li>Dibuja una neurona y señala sus tres partes.</li>
+<li>¿Qué función tienen las dendritas? ¿Y el axón?</li>
+<li>¿Qué órganos forman el sistema nervioso central?</li>
+<li>¿Qué son los nervios?</li>
+</ol>
+
+</section>
+<section class="slide" data-materia="ciencias" data-seccion="Biología: la función de relación" data-nivel="3">
+  <h2>Los órganos de los sentidos</h2>
+<p>Los receptores sensoriales se agrupan en los <strong>órganos de los sentidos</strong>. Captan información del exterior y la envían al sistema nervioso central.</p>
+<table>
+<thead>
+<tr>
+<th>Sentido</th>
+<th>Órgano</th>
+<th>Qué capta</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Vista</strong></td>
+<td>Ojo (retina)</td>
+<td>Luz, colores, formas y distancias</td>
+</tr>
+<tr>
+<td><strong>Oído</strong></td>
+<td>Oído</td>
+<td>Sonido, orientación y equilibrio</td>
+</tr>
+<tr>
+<td><strong>Olfato</strong></td>
+<td>Fosas nasales</td>
+<td>Sustancias químicas del aire (olores)</td>
+</tr>
+<tr>
+<td><strong>Gusto</strong></td>
+<td>Lengua (papilas gustativas)</td>
+<td>Sustancias químicas disueltas (sabores)</td>
+</tr>
+<tr>
+<td><strong>Tacto</strong></td>
+<td>Piel</td>
+<td>Texturas, presión y temperatura</td>
+</tr>
+</tbody></table>
+<p>Los sabores básicos son cuatro: <strong>dulce, salado, amargo y ácido</strong>.</p>
+
+<div class="box box--dato">
+<p class="box__title">¿Sabías que…?</p>
+<p>El <strong>olor</strong> y el <strong>sabor</strong> trabajan juntos: por eso, cuando estamos resfriados y no olemos bien, la comida nos sabe distinta. Los sentidos del gusto, el olfato y la vista participan al percibir el sabor.</p>
+
+</div>
+<h4>Actividades</h4>
+<ol>
+<li>Relaciona cada sentido con su órgano y con lo que capta.</li>
+<li>¿Qué receptores están en la piel? ¿Qué información envían?</li>
+<li>Explica por qué una comida fría sabe distinta que esa misma comida caliente.</li>
+<li>¿Qué órgano se encarga del equilibrio?</li>
+</ol>
+
+<div class="timer" data-timer-seconds="300" role="group" aria-label="Temporizador de 5:00">
+  <div class="timer__dial" aria-hidden="true"><span class="timer__display">5:00</span></div>
+  <div class="timer__body">
+    <p class="timer__eyebrow">Tiempo restante</p>
+    <div class="timer__label">Resolved las actividades 1 y 3. Para la actividad 3, pensad en lo que habéis aprendido sobre el olfato y el gusto.</div>
+    <div class="timer__controls">
+      <button class="timer__button timer__button--start" type="button" data-timer-action="start">Iniciar</button>
+      <button class="timer__button" type="button" data-timer-action="pause">Pausar</button>
+      <button class="timer__button timer__button--reset" type="button" data-timer-action="reset">Reiniciar</button>
+    </div>
+    <output class="timer__announcement" aria-live="polite"></output>
+  </div>
+</div>
+<div class="box box--resumen">
+<p class="box__title">Resumen</p>
+<ul>
+<li>La función de relación permite detectar estímulos y responder: receptores → coordinación → efectores.</li>
+<li>El sistema nervioso se divide en central (encéfalo y médula espinal) y periférico (nervios).</li>
+<li>Los cinco sentidos captan información y la envían al sistema nervioso central.</li>
+</ul>
+
+</div>
+<h4>Practica online</h4>
+<ul>
+<li><a href="https://biologia-geologia.com/juegos/laboratoriosensorial.html" target="_blank" rel="noopener">Laboratorio sensorial virtual</a></li>
+</ul>
+
+</section>
+<section class="slide" data-materia="ciencias" data-seccion="Reto: fabrica tus propias gominolas" data-nivel="2">
+  <h2>Reto: fabrica tus propias gominolas</h2>
+<p>Este reto consiste en <strong>combinar sustancias</strong> en distintos estados y observar cómo se transforman. Vais a fabricar gominolas y a grabar un vídeo explicando el proceso.</p>
+
+</section>
+<section class="slide" data-materia="ciencias" data-seccion="Reto: fabrica tus propias gominolas" data-nivel="3">
+  <h2>El experimento</h2>
+<p><strong>Material:</strong> gelatina neutra en polvo, gelatina de sabor, azúcar, agua, un recipiente, una cuchara, un termómetro de cocina y moldes de silicona.</p>
+<p><strong>Pasos:</strong></p>
+<ol>
+<li>Pon a remojo la gelatina neutra en un poco de agua.</li>
+<li>En un recipiente, mezcla el azúcar con el agua y calienta hasta que se disuelva.</li>
+<li>Añade la gelatina neutra y calienta removiendo durante 5 minutos a unos $70^\circ\mathrm{C}$.</li>
+<li>Incorpora la gelatina de sabor y remueve otros 5 minutos a $70^\circ\mathrm{C}$.</li>
+<li>Vierte la mezcla en los moldes de silicona.</li>
+<li>Deja enfriar hasta que cuaje.</li>
+</ol>
+
+<div class="box box--dato">
+<p class="box__title">Importante</p>
+<p>Trabaja en una zona limpia y con todos los ingredientes a mano. Usa guantes y gafas de protección, mantén el ambiente ventilado y ten cuidado con el calor. No pruebes la mezcla hasta que esté terminada.</p>
+
+</div>
+</section>
+<section class="slide" data-materia="ciencias" data-seccion="Reto: fabrica tus propias gominolas" data-nivel="3">
+  <h2>La explicación científica</h2>
+<ul>
+<li>Al calentar, el <strong>azúcar</strong> y la <strong>gelatina</strong> se <strong>disuelven</strong> en el agua: se forma una <strong>mezcla homogénea</strong>.</li>
+<li>Al enfriar, la gelatina forma una red que atrapa el agua y la mezcla se <strong>solidifica</strong>; así se forman las gominolas.</li>
+<li>La temperatura es clave: por debajo de $70^\circ\mathrm{C}$ la gelatina no se disuelve bien; si se calienta demasiado, pierde sus propiedades.</li>
+<li>El <strong>sabor</strong> lo percibimos sobre todo con el <strong>olfato</strong> y el <strong>gusto</strong>; por eso el color y el olor también influyen en si algo nos parece rico.</li>
+</ul>
+<h4>Actividades</h4>
+<ol>
+<li>¿En qué estado está la mezcla al principio? ¿Y al final?</li>
+<li>¿Qué cambio de estado tiene lugar al enfriar la gelatina?</li>
+<li>¿Por qué se calienta la mezcla? ¿Qué pasaría si no se calentara?</li>
+<li>¿Qué sentidos intervienen cuando comes una gominola?</li>
+</ol>
+
+</section>
+<section class="slide" data-materia="ciencias" data-seccion="Reto: fabrica tus propias gominolas" data-nivel="3">
+  <h2>El vídeo</h2>
+<p>Grabad un vídeo de <strong>máximo 3 minutos</strong> explicando el experimento. Debe incluir:</p>
+<ul>
+<li>Qué vais a hacer y el material necesario.</li>
+<li>Los pasos que habéis seguido.</li>
+<li>La explicación científica.</li>
+</ul>
+
+<div class="box">
+<p class="box__title">Consejos para grabar</p>
+<ul>
+<li>Graba en <strong>horizontal</strong> y con buena luz.</li>
+<li>Limpia la lente y cuida el sonido (no tapes el micrófono).</li>
+<li>Haz una prueba antes de la grabación definitiva.</li>
+<li>No hace falta subirlo a Internet: puedes entregarlo al profesorado.</li>
+</ul>
+
+</div>
+</section>
+<section class="slide slide--seccion slide--seccion--titulo-necesario" data-materia="ciencias" data-seccion="Actividades de repaso" data-nivel="2">
+  <h2>Actividades de repaso</h2>
+  <ul class="slide__indice-seccion">
+    <li>Matemáticas: potencias</li>
+    <li>Física y química: masa, materia y estados</li>
+    <li>Biología: materia viva y función de relación</li>
+  </ul>
+</section>
+<section class="slide" data-materia="ciencias" data-seccion="Actividades de repaso" data-nivel="3">
+  <h2>Matemáticas: potencias</h2>
+<ol>
+<li>Calcula: a) $3^4$; b) $10^6$; c) $2^5$; d) $7^2$.</li>
+<li>Escribe como una sola potencia: a) $4^3 \times 4^5$; b) $9^6 : 9^2$; c) $(2^3)^4$; d) $6^0$.</li>
+<li>Aplica la propiedad y calcula: a) $(3 \times 10)^2$; b) $(100 : 25)^2$.</li>
+<li>Descompón el número 5 070 como suma de potencias de 10.</li>
+</ol>
+
+</section>
+<section class="slide" data-materia="ciencias" data-seccion="Actividades de repaso" data-nivel="3">
+  <h2>Física y química: masa, materia y estados</h2>
+<ol>
+<li>Convierte: a) $4{,}5\,\mathrm{kg} \to \mathrm{g}$; b) $2\,300\,\mathrm{g} \to \mathrm{kg}$; c) $0{,}75\,\mathrm{g} \to \mathrm{mg}$; d) $640\,\mathrm{mg} \to \mathrm{g}$.</li>
+<li>Un bidón contiene $20\,\mathrm{L}$ de agua. ¿Cuál es su masa en kilogramos?</li>
+<li>Calcula la densidad de un cuerpo de $300\,\mathrm{g}$ que ocupa $150\,\mathrm{cm}^3$. ¿Flotará en el agua?</li>
+<li>Transforma: a) $300\,\mathrm{K} \to {}^\circ\mathrm{C}$; b) $40^\circ\mathrm{C} \to \mathrm{K}$.</li>
+<li>Nombra los tres estados de agregación y dos cambios de estado.</li>
+<li>¿Qué diferencia hay entre fusión y solidificación?</li>
+</ol>
+
+</section>
+<section class="slide" data-materia="ciencias" data-seccion="Actividades de repaso" data-nivel="3">
+  <h2>Biología: materia viva y función de relación</h2>
+<ol>
+<li>¿Cuáles son los cuatro bioelementos más abundantes?</li>
+<li>Clasifica: agua, ADN, sal mineral, proteína, oxígeno y grasa.</li>
+<li>Ordena: órgano, átomo, individuo, célula, tejido y molécula.</li>
+<li>¿Qué diferencia hay entre un organismo unicelular y uno pluricelular?</li>
+<li>Nombra las partes de una neurona y explica la función del sistema nervioso.</li>
+<li>Relaciona: vista–ojo; oído–<strong><strong>; gusto–</strong></strong>; olfato–<strong><strong>; tacto–</strong></strong>.</li>
+</ol>
+
+<div class="box box--resumen">
+<p class="box__title">Antes de entregar</p>
+<p>Revisa que has contestado a todo, que las operaciones están visibles y que cada medida incluye su unidad. Repasa los resúmenes de cada sección: si los entiendes, ya tienes lo esencial de este tema.</p>
+
+</div>
+</section>
+
+
+      <footer class="page-footer">
+        <p><a href="../index.html">← Volver al índice</a> · Ciencias Aplicadas I · Material de aula</p>
+      </footer>
+    </main>
+  </div>
+
+  <!-- ======================= VISOR DE DIAPOSITIVAS ======================= -->
+  <div class="slideshow" id="slideshow" hidden>
+    <div class="slideshow__progress"><div class="slideshow__bar" id="slides-bar"></div></div>
+    <button class="slideshow__close" id="slides-close" title="Salir (Esc)">✕</button>
+    <div class="slideshow__stage" id="slides-stage"></div>
+    <div class="slideshow__controls">
+      <button class="slideshow__nav" id="slides-prev" title="Anterior (←)">←</button>
+      <span class="slideshow__counter" id="slides-counter">1 / 1</span>
+      <button class="slideshow__nav" id="slides-next" title="Siguiente (→)">→</button>
+    </div>
+  </div>
+
+  <script src="../lib/katex/katex.min.js"></script>
+  <script src="../lib/katex/auto-render.min.js"></script>
+  <script>
+    // $...$ para expresiones en línea y $$...$$ para fórmulas centradas.
+    renderMathInElement(document.getElementById("content"), {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "\\[", right: "\\]", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false }
+      ],
+      throwOnError: false,
+      strict: "warn"
+    });
+  </script>
+  <script src="../script.js"></script>
+</body>
+</html>

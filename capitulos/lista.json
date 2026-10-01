@@ -9,6 +9,13 @@
       "materia": "ciencias",
       "secciones": 5,
       "descripcion": "Un único capítulo organizado en cinco secciones: matemáticas, laboratorio, medida, trabajo experimental y repaso."
+    },
+    {
+      "archivo": "capitulos/02-combinar-la-materia.md",
+      "titulo": "Combinar la materia",
+      "materia": "ciencias",
+      "secciones": 9,
+      "descripcion": "Potencias, masa y unidades, propiedades y estados de la materia, la materia viva y la función de relación. Termina con el reto de las gominolas y actividades de repaso."
     }
   ]
 }

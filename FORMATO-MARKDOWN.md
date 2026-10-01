@@ -91,6 +91,7 @@ escribe, se usa un título por defecto.
 | `nota` | — | gris (nota) | *Nota* |
 | `math` | — | fórmula en línea, sin título | — |
 | `formula` | `ecuacion` | fórmula centrada, sin título | — |
+| `temporizador` | `timer` | temporizador visual con controles y aviso sonoro final | duración |
 
 ### Ejemplos
 
@@ -135,6 +136,25 @@ v = d / t
 Entrega las actividades con los pasos y las unidades.
 :::
 ```
+
+### Temporizador para una actividad
+
+Coloca este bloque justo después de la instrucción o actividad a la que se
+refiere. Se mantiene en la misma diapositiva (salvo que insertes un nuevo
+encabezado `###`) y muestra una cuenta atrás visual con botones para iniciar,
+pausar y reiniciar:
+
+```markdown
+::: temporizador 3 min
+Resuelve los ejercicios 1 y 2 por parejas.
+:::
+```
+
+También se admiten `90 s` y el formato `1:30`; un número solo, como
+`::: temporizador 5`, se interpreta como minutos. Durante los cinco últimos
+segundos suena un aviso breve; no necesita archivos de audio ni conexión.
+El navegador puede bloquear el sonido hasta que se pulse **Iniciar**, por lo
+que el temporizador no arranca automáticamente.
 
 ---
 
