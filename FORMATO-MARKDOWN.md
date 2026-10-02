@@ -13,7 +13,7 @@ diapositivas ya incluidos.
   (no en el `.md`).
 - Dentro del `.md`, cada sección principal empieza con `## Título de la sección`.
 - Cada `##` genera, **solo en el modo diapositivas**, una portada de sección con su título y la lista de sus subtítulos `###`. Esa portada no aparece en la lectura normal ni al imprimir; si el `##` no tiene texto propio antes de los `###`, se conserva únicamente su título para mantener la jerarquía. Cada `###` con contenido crea después su propia diapositiva y muestra solo el título de ese apartado.
-- Usa `###` para dividir una sección larga en diapositivas más breves; el índice lateral las agrupa bajo su encabezado `##`, que enlaza a su diapositiva de sección. Para subapartados o actividades dentro de ellos, usa `####`.
+- Usa `###` para dividir una sección larga en diapositivas más breves; el índice lateral las agrupa bajo su encabezado `##`, que enlaza a su diapositiva de sección. Para las actividades usa el entorno `::: actividades` (apartado 3).
 
 > Un solo archivo Markdown puede contener todas las secciones de un capítulo. En `lista.json` debe haber **una sola entrada** para ese archivo; el campo opcional `secciones` permite mostrar su número en el índice general.
 
@@ -92,6 +92,7 @@ escribe, se usa un título por defecto.
 | `math` | — | fórmula en línea, sin título | — |
 | `formula` | `ecuacion` | fórmula centrada, sin título | — |
 | `temporizador` | `timer` | temporizador visual con controles y aviso sonoro final | duración |
+| `actividades` | `actividad` | caja de actividades con numeración automática; admite otros bloques `:::` dentro | *Actividades* + número |
 
 ### Ejemplos
 
@@ -155,6 +156,31 @@ También se admiten `90 s` y el formato `1:30`; un número solo, como
 segundos suena un aviso breve; no necesita archivos de audio ni conexión.
 El navegador puede bloquear el sonido hasta que se pulse **Iniciar**, por lo
 que el temporizador no arranca automáticamente.
+
+### Entorno de actividades
+
+El bloque `::: actividades` agrupa una lista de ejercicios en una caja propia
+con **numeración automática**: la primera es *Actividades 1*, la segunda
+*Actividades 2*, y así sucesivamente dentro de cada capítulo. Admite otros
+bloques `:::` en su interior, como el temporizador:
+
+```markdown
+::: actividades
+1. Resuelve los ejercicios 1 y 2.
+2. Explica el resultado con tus palabras.
+
+::: temporizador 4 min
+En parejas, resolved los dos ejercicios y corregidlos.
+:::
+:::
+```
+
+En el **modo diapositivas**, cada entorno de actividades se muestra en una
+diapositiva propia con la letra ampliada al máximo y el temporizador en la
+esquina inferior derecha, pensado para proyectar desde lejos.
+
+El título es opcional y permite personalizar el nombre; el número se sigue
+mostrando: `::: actividades Repaso del tema`.
 
 ---
 

@@ -28,12 +28,12 @@ En una recta numérica, los números pequeños están a la izquierda y los grand
 
 
 
-#### Actividades
-
+::: actividades
 1. Indica el conjunto más pequeño al que pertenece cada número: $12$; $-7$; $0{,}25$; $\frac{5}{3}$; $\pi$; $0$.
 2. Ordena de menor a mayor: 3,2; −1; 0; −3,5; 3,02; 2,9.
 3. Dibuja una recta numérica y sitúa: −2,5; −1; 0,75; 2; 3,5.
 4. Escribe un ejemplo de número natural, entero negativo, racional e irracional.
+:::
 
 ### El sistema decimal y las operaciones
 
@@ -55,12 +55,12 @@ En una división, el **dividendo** es la cantidad que se reparte; el **divisor**
 Una calculadora suele mostrar decimales en vez del resto. Por ejemplo, $17 \div 5 = 3{,}4$: el cociente entero es $3$ y sobran $2$ unidades, porque $5 \times 3 + 2 = 17$
 :::
 
-#### Actividades
-
+::: actividades
 1. Descompón: a) 7 304; b) 42 090; c) 305 018.
 2. Calcula: a) $2\,458 + 679$; b) $9\,003 - 4\,786$; c) $326 \times 7$; d) $148 \times 24$.
 3. Haz las divisiones e indica el cociente y el resto: a) $96 \div 8$; b) $157 \div 6$; c) $425 \div 12$.
 4. En una caja hay 144 tornillos. Se guardan en bolsas de 10. ¿Cuántas bolsas completas se llenan? ¿Cuántos tornillos sobran?
+:::
 
 ### Operaciones combinadas
 
@@ -80,11 +80,11 @@ Calcula $6 + 4 \times (2 + 3) - 10$.
 
 Los paréntesis cambian el orden habitual. Por eso $3 + 4 \times 2 = 11$, mientras que $(3 + 4) \times 2 = 14$.
 
-#### Actividades
-
+::: actividades
 1. Calcula: a) $18 - 3 \times 4$; b) $(18 - 3) \times 4$; c) $36 \div 6 + 5 \times 3$.
 2. Calcula: a) $40 + 20 \div 5 - 2$; b) $7 \times (12 - 8) + 9$; c) $48 \div (3 \times 4)$.
 3. Escribe los paréntesis necesarios para que $6 + 2 \times 5$ dé como resultado $40$.
+:::
 
 ### Magnitudes y proporcionalidad
 
@@ -117,12 +117,12 @@ $$ 4 \rightarrow 6 \\ 8 \rightarrow x \\ x = 4 \times 6 \div 8 \\ x = 3 $$
 
 :::
 
-#### Actividades
-
+::: actividades
 1. Indica si la relación es directa o inversa: a) número de cuadernos y precio; b) velocidad y tiempo para recorrer la misma distancia; c) horas trabajadas y sueldo, si se cobra por hora.
 2. Para 6 bocadillos se usan 450 g de pan. ¿Cuántos gramos se necesitan para 10 bocadillos?
 3. Una máquina fabrica un pedido en 12 horas. Si se usan 3 máquinas iguales trabajando a la vez, ¿cuánto tardarán?
 4. Un grifo llena 80 L en 4 minutos. ¿Cuántos litros llenará en 15 minutos al mismo ritmo?
+:::
 
 ::: resumen
 - Los números se clasifican en naturales, enteros, racionales, irracionales y reales.
@@ -155,12 +155,12 @@ La **masa** indica la cantidad de materia de un cuerpo y se mide en kilogramos. 
 
 Para evitar números enormes o diminutos se usan prefijos. Los más habituales son kilo- ($\mathrm{k}$, mil veces), hecto- ($\mathrm{h}$, cien veces), deca- ($\mathrm{da}$, diez veces), deci- ($\mathrm{d}$, una décima), centi- ($\mathrm{c}$, una centésima) y mili- ($\mathrm{m}$, una milésima).
 
-#### Actividades
-
+::: actividades
 1. Indica la magnitud y una unidad adecuada para medir: a) la duración de una carrera; b) la masa de una mochila; c) la temperatura de una habitación.
 2. Completa: a) 1 km = ___ m; b) 1 m = ___ cm; c) 1 kg = ___ g; d) 1 mL = ___ L.
 3. Corrige estas medidas incompletas: «La mesa mide 120»; «La botella contiene 1,5».
 4. ¿Qué unidad elegirías para el grosor de una moneda: km, m, cm o mm? Justifica tu respuesta.
+:::
 
 ### Longitud y cambios de unidad
 
@@ -184,12 +184,12 @@ De $\mathrm{cm}$ a $\mathrm{m}$ hay dos saltos a la izquierda.
 
 Antes de calcular, escribe la equivalencia que vas a usar y revisa si el resultado tiene sentido. Una puerta no puede medir $2\,000\,\mathrm{m}$: seguramente mide $2\,000\,\mathrm{mm}$ o $2\,\mathrm{m}$.
 
-#### Actividades
-
+::: actividades
 1. Convierte: a) 4,7 km a m; b) 325 cm a m; c) 0,86 m a mm; d) 12 500 mm a m.
 2. Convierte: a) 3,45 hm a cm; b) 68 dm a m; c) 0,009 km a m.
 3. El largo de una mesa es 1,20 m y su ancho 65 cm. Expresa las dos medidas en centímetros.
 4. Elige una unidad razonable para: a) la distancia entre dos ciudades; b) el ancho de un cuaderno; c) el diámetro de un cable fino.
+:::
 
 ### Volumen y capacidad
 
@@ -219,12 +219,12 @@ De $\mathrm{mL}$ a $\mathrm{L}$ hay tres saltos a la izquierda.
 
 No confundas volumen y capacidad: una piscina ocupa un volumen, mientras que también decimos que tiene una capacidad determinada de agua. En ambos casos se usan unidades relacionadas, pero describen ideas distintas.
 
-#### Actividades
-
+::: actividades
 1. Convierte: a) 3,5 L a mL; b) 850 mL a L; c) 2,4 kL a L; d) 75 cL a L.
 2. Una botella contiene 1,5 L de agua. ¿Cuántos vasos de 250 mL se pueden llenar por completo?
 3. Indica la unidad más adecuada: a) la dosis de un jarabe; b) el contenido de una lata; c) el agua de una piscina.
 4. Explica con tus palabras la diferencia entre volumen y capacidad.
+:::
 
 ::: resumen
 - Una medida se expresa con un número y una unidad.
@@ -265,6 +265,7 @@ Comprueba que el documento contiene los cuatro datos iniciales, los cuatro apart
 
 ### Matemáticas
 
+::: actividades
 1. Indica el conjunto más pequeño al que pertenece cada número: a) $-15$; b) $8$; c) $0{,}125$; d) $\sqrt{3}$; e) $0$.
 2. Ordena de menor a mayor: $4{,}05$; $-2$; $0$; $4{,}5$; $-2{,}7$; $3{,}99$.
 3. Descompón el número 608 047 según el valor de sus cifras.
@@ -276,9 +277,11 @@ Comprueba que el documento contiene los cuatro datos iniciales, los cuatro apart
 ::: nota
 En los problemas, escribe los datos, la operación y una respuesta final con unidad.
 :::
+:::
 
 ### Física: unidades y conversiones
 
+::: actividades
 1. Indica la unidad más adecuada para medir: a) la longitud de una carretera; b) el grosor de un folio; c) la masa de una persona; d) el tiempo de una película.
 2. Convierte: a) 6,25 km a m; b) 0,45 m a cm; c) 3 750 mm a m; d) 2,8 hm a dm.
 3. Un pasillo mide 18,6 m. Exprésalo en centímetros y milímetros.
@@ -286,6 +289,7 @@ En los problemas, escribe los datos, la operación y una respuesta final con uni
 5. Una garrafa tiene 5 L de agua. ¿Cuántas botellas de 330 mL se pueden llenar por completo? ¿Cuánta agua sobra?
 6. Explica la diferencia entre masa y peso.
 7. Una medida aparece escrita como «250». Escribe dos preguntas que necesitarías hacer antes de interpretar ese dato.
+:::
 
 
 ::: resumen Antes de entregar

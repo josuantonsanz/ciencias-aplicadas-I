@@ -119,11 +119,30 @@ function renderarTemporizador(especificacion, inner) {
     + '</div>';
 }
 
+/* Numeración automática de los entornos ::: actividades de cada capítulo. */
+let numeroActividades = 0;
+
+/* Entorno de actividades: caja propia, numerada y capaz de contener
+   otros bloques ::: (por ejemplo, el temporizador). */
+function renderarActividades(titulo, contenido) {
+  numeroActividades += 1;
+  const nombre = titulo || "Actividades";
+  return '<div class="box box--actividades" data-actividad="' + numeroActividades + '"'
+    + ' aria-label="Actividades ' + numeroActividades + '">\n'
+    + '  <p class="box__title box__title--actividades">'
+    + '<span class="box__numero" aria-hidden="true">' + numeroActividades + "</span>"
+    + "<span>" + renderarMarkdownConLatex(nombre, true) + "</span></p>\n"
+    + contenido + "\n</div>";
+}
+
 function renderarContenedor(match, inner) {
   const tipo = match[1].toLowerCase();
   const titulo = match[2] ? match[2].trim() : null;
   if (tipo === "temporizador" || tipo === "timer") {
     return renderarTemporizador(titulo, inner);
+  }
+  if (tipo === "actividades" || tipo === "actividad") {
+    return renderarActividades(titulo, renderarBloque(inner));
   }
   const conf = CONTENEDORES[tipo];
 
@@ -136,15 +155,19 @@ function renderarContenedor(match, inner) {
   const t = titulo || conf.def;
   if (t) html += '<p class="box__title">' + escaparHTML(t) + "</p>\n";
 
-  // Los bloques de tipo math/formula se renderizan en línea (sin <p>)
-  html += renderarMarkdownConLatex(inner.trim(), conf.def === null);
+  // Los bloques de tipo math/formula se renderizan en línea (sin <p>).
+  // El resto admite a su vez bloques ::: anidados.
+  html += conf.def === null
+    ? renderarMarkdownConLatex(inner.trim(), true)
+    : renderarBloque(inner);
   html += "\n</div>";
   return html;
 }
 
 /* Renderiza un fragmento de Markdown que puede contener bloques :::.
    Se divide en trozos y cada trozo se pasa por marked por separado,
-   para que los <div> de los contenedores no se "rompan". */
+   para que los <div> de los contenedores no se "rompan". Admite bloques
+   anidados (por ejemplo, un temporizador dentro de ::: actividades). */
 function renderarBloque(md) {
   const lineas = md.split("\n");
   const fragmentos = [];
@@ -163,10 +186,23 @@ function renderarBloque(md) {
     if (abierto) {
       volcar();
       const inner = [];
+      let profundidad = 1;
       i++;
-      while (i < lineas.length && lineas[i].trim() !== ":::") {
-        inner.push(lineas[i]);
-        i++;
+      while (i < lineas.length && profundidad > 0) {
+        const actual = lineas[i];
+        if (actual.trim() === ":::") {
+          profundidad--;
+          if (profundidad === 0) break;
+          inner.push(actual);
+          i++;
+        } else if (/^:::\s*[^\s:]/.test(actual)) {
+          profundidad++;
+          inner.push(actual);
+          i++;
+        } else {
+          inner.push(actual);
+          i++;
+        }
       }
       i++; // salta el cierre ":::"
       fragmentos.push(renderarContenedor(abierto, inner.join("\n")));
@@ -196,6 +232,7 @@ function renderarPortada(cap, serie, num) {
    Los encabezados ## marcan las secciones principales y los ### dividen
    también el contenido en diapositivas para que no resulten demasiado largas. */
 function renderarCapitulo(md, cap, serie, num) {
+  numeroActividades = 0; // la numeración de actividades empieza en cada capítulo
   const lineas = md.split("\n");
   const secciones = [];
   const principales = [];

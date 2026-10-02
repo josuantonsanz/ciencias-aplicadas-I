@@ -361,6 +361,36 @@ kbd {
 .box--resumen .box__title { color: var(--bio); }
 .box--dato { border-left-color: var(--fis); background: #fdf3e8; }
 .box--dato .box__title { color: var(--fis); }
+
+/* Entorno de actividades (bloque ::: actividades) con numeración automática */
+.box--actividades {
+  border: 1px solid #f0c9da;
+  border-left: 5px solid var(--act);
+  background: #fdf2f7;
+}
+.box--actividades .box__title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--act);
+}
+.box__numero {
+  display: inline-grid;
+  flex: 0 0 auto;
+  place-items: center;
+  min-width: 1.65em;
+  height: 1.65em;
+  padding: 0 .4em;
+  border-radius: 999px;
+  background: var(--act);
+  color: #fff;
+  font-size: 1em;
+  font-weight: 800;
+  line-height: 1;
+}
+.box--actividades > *:last-child { margin-bottom: 0; }
+.box--actividades .timer { margin-top: 14px; }
+
 .box p { margin: 6px 0; }
 .box ul { margin: 6px 0 0; }
 
@@ -550,6 +580,59 @@ tbody tr:nth-child(even) { background: #f8f9fb; }
 .slide-view table { font-size: 1rem; }
 
 .slide-view--cover { text-align: center; }
+
+/* Entornos de actividades en el visor: letra al máximo tamaño posible y el
+   temporizador abajo a la derecha, pensado para proyectar desde lejos. */
+.slide-view--actividades { padding: 14px 16px 76px; }
+.slide-view__inner--actividades {
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.slide-view--actividades .actividades__contexto {
+  margin: 0;
+  font-size: clamp(.85rem, 1.5vw, 1.15rem);
+  font-weight: 800;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--act);
+}
+.slide-view__inner--actividades .box--actividades {
+  flex: 1 1 auto;
+  min-height: 0;
+  margin: 0;
+  padding: clamp(14px, 2.4vmin, 40px) clamp(18px, 3vmin, 56px);
+  border-radius: 14px;
+  overflow: auto;
+}
+.slide-view__inner--actividades .box--actividades p,
+.slide-view__inner--actividades .box--actividades li,
+.slide-view__inner--actividades .box--actividades ul,
+.slide-view__inner--actividades .box--actividades ol,
+.slide-view__inner--actividades .box--actividades td,
+.slide-view__inner--actividades .box--actividades th,
+.slide-view__inner--actividades .box--actividades blockquote,
+.slide-view__inner--actividades .box--actividades code,
+.slide-view__inner--actividades .box--actividades .math {
+  font-size: inherit;
+}
+.slide-view__inner--actividades .box--actividades .box__title {
+  font-size: 1.2em;
+  margin-bottom: .45em;
+}
+.slide-view__inner--actividades .box--actividades .katex { font-size: 1.05em; }
+.slide-view__inner--actividades .box--actividades li { margin: .5em 0; }
+.slide-view__inner--actividades .timer {
+  align-self: flex-end;
+  margin: 0;
+  max-width: min(780px, 76%);
+  padding: clamp(10px, 1.6vmin, 20px) clamp(14px, 2vmin, 26px);
+}
+.slide-view__inner--actividades .timer__display { font-size: clamp(1.6rem, 3.2vw, 2.7rem); }
+.slide-view__inner--actividades .timer__label { font-size: clamp(1rem, 1.4vw, 1.35rem); }
 .slide-view--cover .slide-view__kicker {
   font-size: .95rem;
   letter-spacing: .18em;
@@ -678,6 +761,8 @@ tbody tr:nth-child(even) { background: #f8f9fb; }
   .btn { padding: 10px 12px; }
   .topbar { padding: 8px 12px; }
   .slide-view { padding: 24px 22px 80px; }
+  .slide-view--actividades { padding: 8px 8px 72px; }
+  .slide-view__inner--actividades .timer { max-width: 100%; }
   .slideshow__stage { padding: 10px 8px 64px; }
   .timer { align-items: flex-start; }
 }
@@ -768,7 +853,9 @@ tbody tr:nth-child(even) { background: #f8f9fb; }
   .tag { color: #000; background: #eee !important; border: 1px solid #999; }
   .math { background: #f2f2f2; }
   .formula { background: #f2f2f2; border: 1px solid #999; color: #000; }
-  .box, .box--example, .box--resumen, .box--dato { background: #f4f4f4; border-left: 3px solid #555; }
+  .box, .box--example, .box--resumen, .box--dato, .box--actividades { background: #f4f4f4; border-left: 3px solid #555; }
+  .box--actividades { border-color: #999; }
+  .box__numero { background: #444; color: #fff; }
   .box__title { color: #000; }
   .timer { box-shadow: none; background: #f4f4f4; border-color: #999; }
 

@@ -296,6 +296,69 @@
   var vistas = [];      // elementos .slide-view
   var indice = 0;
 
+  /* Una sección conserva contenido propio si, además del título, tiene texto,
+     listas, tablas, imágenes o cajas. */
+  function tieneContenidoPropio(nodo) {
+    var elementos = nodo.querySelectorAll("p, ul, ol, table, img, svg, figure, blockquote, pre, .math, .box");
+    return Array.prototype.some.call(elementos, function (elemento) {
+      if (elemento.textContent.trim()) return true;
+      var multimedia = elemento.matches("img, svg")
+        ? elemento
+        : elemento.querySelector("img, svg, .katex");
+      return Boolean(multimedia);
+    });
+  }
+
+  /* Convierte una caja de actividades en una diapositiva a pantalla completa:
+     el texto ocupa todo el espacio y el temporizador queda abajo a la derecha. */
+  function crearVistaActividades(caja, contexto) {
+    var contenido = caja.cloneNode(true);
+    var temporizadores = Array.prototype.slice.call(contenido.querySelectorAll(".timer"));
+    temporizadores.forEach(function (temporizador) {
+      temporizador.parentNode.removeChild(temporizador);
+    });
+
+    var html = "";
+    if (contexto) html += '<p class="actividades__contexto">' + contexto + "</p>";
+    html += '<div class="' + contenido.className + '">' + contenido.innerHTML + "</div>";
+    temporizadores.forEach(function (temporizador) {
+      html += temporizador.outerHTML;
+    });
+
+    var vista = document.createElement("div");
+    vista.className = "slide-view slide-view--actividades";
+    vista.innerHTML = '<div class="slide-view__inner slide-view__inner--actividades">'
+      + html + "</div>";
+    return vista;
+  }
+
+  /* Agranda la letra del entorno de actividades todo lo que quepa en pantalla
+     (búsqueda binaria del tamaño máximo que no desborda la caja). */
+  function ajustarActividad(vista) {
+    if (!vista || !vista.classList.contains("slide-view--actividades")) return;
+    var caja = vista.querySelector(".box--actividades");
+    if (!caja) return;
+
+    caja.style.fontSize = "";
+    if (!caja.clientHeight) return;
+
+    // El límite superior crece con la pantalla para aprovecharla al máximo
+    // sin que un ejercicio corto quede desproporcionado.
+    var maximo = Math.max(80, Math.min(200, vista.clientHeight / 4));
+    var minimo = 13, mejor = minimo;
+    for (var paso = 0; paso < 15; paso++) {
+      var prueba = (minimo + maximo) / 2;
+      caja.style.fontSize = prueba + "px";
+      if (caja.scrollHeight <= caja.clientHeight + 1) {
+        mejor = prueba;
+        minimo = prueba;
+      } else {
+        maximo = prueba;
+      }
+    }
+    caja.style.fontSize = Math.max(13, Math.floor(mejor)) + "px";
+  }
+
   function crearVistas() {
     stage.innerHTML = "";
     vistas = [];
@@ -310,13 +373,31 @@
       vistas.push(vistaPortada);
     }
 
-    // 2) Una diapositiva por cada sección de contenido
+    // 2) Una diapositiva por sección. Los entornos de actividades se extraen
+    //    y se muestran ampliados en su propia diapositiva.
     sections.forEach(function (section) {
-      var vista = document.createElement("div");
-      vista.className = "slide-view";
-      vista.innerHTML = '<div class="slide-view__inner">' + section.innerHTML + "</div>";
-      stage.appendChild(vista);
-      vistas.push(vista);
+      var clon = document.createElement("div");
+      clon.innerHTML = section.innerHTML;
+
+      var cajas = Array.prototype.slice.call(clon.querySelectorAll(".box--actividades"));
+      var encabezado = clon.querySelector("h2");
+      var contexto = encabezado ? encabezado.innerHTML : "";
+
+      cajas.forEach(function (caja) { caja.parentNode.removeChild(caja); });
+
+      if (!cajas.length || tieneContenidoPropio(clon)) {
+        var vista = document.createElement("div");
+        vista.className = "slide-view";
+        vista.innerHTML = '<div class="slide-view__inner">' + clon.innerHTML + "</div>";
+        stage.appendChild(vista);
+        vistas.push(vista);
+      }
+
+      cajas.forEach(function (caja) {
+        var vistaActividad = crearVistaActividades(caja, contexto);
+        stage.appendChild(vistaActividad);
+        vistas.push(vistaActividad);
+      });
     });
 
     inicializarTemporizadores(stage);
@@ -326,7 +407,9 @@
 
   function actualizar() {
     vistas.forEach(function (vista, i) {
-      vista.classList.toggle("is-active", i === indice);
+      var activa = i === indice;
+      vista.classList.toggle("is-active", activa);
+      if (activa) ajustarActividad(vista);
     });
     contador.textContent = (indice + 1) + " / " + vistas.length;
     barra.style.width = ((indice + 1) / vistas.length * 100) + "%";
@@ -343,9 +426,9 @@
   function anterior()  { irA(indice - 1); }
 
   function abrir() {
-    crearVistas();
     slideshow.hidden = false;
     document.body.style.overflow = "hidden"; // bloquea el scroll de fondo
+    crearVistas();
   }
 
   function cerrar() {
@@ -403,4 +486,10 @@
       dx < 0 ? siguiente() : anterior();
     }
   }, { passive: true });
+
+  /* Al cambiar el tamaño de la ventana se vuelve a calcular el tamaño de letra
+     de la actividad que se está proyectando. */
+  window.addEventListener("resize", function () {
+    if (!slideshow.hidden) ajustarActividad(vistas[indice]);
+  });
 })();

@@ -70,8 +70,13 @@ contenido...
 $$v = \\frac{d}{t}$$
 :::
 
-::: temporizador 3 min          → cuenta atrás visual con aviso sonoro final
+::: actividades                → caja de actividades numerada automáticamente
+1. Resuelve los ejercicios 1 y 2.
+2. Compara el resultado con tu compañero.
+
+::: temporizador 3 min        → cuenta atrás visual con aviso sonoro final
 Resuelve la actividad por parejas.
+:::
 :::
 ```
 

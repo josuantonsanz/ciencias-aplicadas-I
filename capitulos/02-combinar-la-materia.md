@@ -41,8 +41,7 @@ $$5^4 = 5 \times 5 \times 5 \times 5 = 625$$
 
 Para calcular potencias con la calculadora se usa la tecla $x^y$: se escribe la base, se pulsa $x^y$, se escribe el exponente y se pulsa «=».
 
-#### Actividades
-
+::: actividades
 1. Indica la base y el exponente: a) $7^3$; b) $2^{10}$; c) $12^2$; d) $9^1$.
 2. Escribe como potencia: a) $3 \times 3 \times 3 \times 3$; b) $5 \times 5$; c) $7 \times 7 \times 7 \times 7 \times 7$.
 3. Calcula: a) $2^4$; b) $4^3$; c) $6^2$; d) $10^5$.
@@ -50,6 +49,7 @@ Para calcular potencias con la calculadora se usa la tecla $x^y$: se escribe la 
 
 ::: temporizador 4 min
 En vuestro cuaderno, resolvemos los tres primeros ejercicios, escribiendo las operaciones. Luego, corregimos con la persona de al lado.
+:::
 :::
 
 ### Potencias de base 10
@@ -74,8 +74,7 @@ $$2\,000\,000 = 2 \times 1\,000\,000 = 2 \times 10^6$$
 
 Esto se llama **descomposición polinómica** y se usa mucho en ciencias para escribir medidas muy grandes o muy pequeñas.
 
-#### Actividades
-
+::: actividades
 1. Escribe con números: a) $10^3$; b) $10^5$; c) $10^7$.
 2. Escribe como potencia de 10: a) 100; b) 10 000; c) 1 000 000.
 3. Completa: a) $3\,000 = 3 \times 10^{?}$; b) $45\,000 = 4{,}5 \times 10^{?}$.
@@ -84,6 +83,7 @@ Esto se llama **descomposición polinómica** y se usa mucho en ciencias para es
 
 ::: temporizador 4 min
 En vuestro cuaderno, resolvemos los ejercicios 2, 3 y 4.
+:::
 :::
 
 ### Las propiedades de las potencias
@@ -103,14 +103,14 @@ No siempre hace falta calcular el resultado: podemos dejar el resultado **como u
 En las tres primeras propiedades el exponente es **común** y afecta a los dos números. En las dos siguientes la **base es común** y los exponentes se suman o se restan.
 :::
 
-#### Actividades
-
+::: actividades
 1. Escribe como una sola potencia: a) $2^3 \times 2^4$; b) $5^7 : 5^2$; c) $(3^2)^4$; d) $9^0$.
 2. Aplica la propiedad y calcula: a) $(2 \times 5)^3$; b) $(20 : 4)^2$; c) $10^4 \times 10^2$; d) $7^5 : 7^3$.
 3. ¿Verdadero o falso? Corrige los enunciados falsos: a) $2^4 \times 2^5 = 2^{20}$; b) $6^7 : 6^7 = 1$; c) $(10^5)^2 = 10^7$; d) $3^0 = 1$.
 
 ::: temporizador 6 min
 Resolved individualmente las actividades 1 y 2. Cuando acabe el tiempo, corregimos en la pizarra entre todos.
+:::
 :::
 
 ::: resumen
@@ -139,11 +139,11 @@ Un objeto de $6{,}13\,\mathrm{kg}$ pesa unos $60\,\mathrm{N}$ en la Tierra, unos
 
 ![image](masa_peso.png)
 
-#### Actividades
-
+::: actividades
 1. Di si es una medida de masa o de peso: a) $70\,\mathrm{kg}$; b) $700\,\mathrm{N}$; c) $250\,\mathrm{g}$; d) $9{,}8\,\mathrm{N}$.
 2. ¿Por qué un astronauta pesa menos en la Luna pero su masa es la misma?
 3. Pon tres ejemplos de objetos que midas en gramos y tres que midas en kilogramos.
+:::
 
 ### Cambio de unidades de masa
 
@@ -162,8 +162,7 @@ Existen otras unidades de masa:
 - La **tonelada** ($\mathrm{t}$) equivale a $1\,000\,\mathrm{kg}$.
 - El **quintal** ($\mathrm{q}$) equivale a $100\,\mathrm{kg}$.
 
-#### Actividades
-
+::: actividades
 1. Copia y completa: a) $1\,\mathrm{kg} = \_\_\_\,\mathrm{g}$; b) $1\,\mathrm{g} = \_\_\_\,\mathrm{mg}$; c) $1\,\mathrm{t} = \_\_\_\,\mathrm{kg}$; d) $1\,\mathrm{q} = \_\_\_\,\mathrm{kg}$.
 2. Convierte: a) $2{,}5\,\mathrm{kg} \to \mathrm{g}$; b) $3\,500\,\mathrm{g} \to \mathrm{kg}$; c) $4{,}2\,\mathrm{g} \to \mathrm{mg}$; d) $850\,\mathrm{mg} \to \mathrm{g}$.
 3. Expresa en kilogramos: a) $250\,\mathrm{g}$; b) $1{,}5\,\mathrm{t}$; c) $3\,\mathrm{q}$; d) $12\,000\,\mathrm{g}$.
@@ -171,6 +170,7 @@ Existen otras unidades de masa:
 
 ::: temporizador 5 min
 En parejas, resolved las actividades 2 y 3. Recordad escribir siempre el resultado con su unidad.
+:::
 :::
 
 ### La relación entre masa, capacidad y volumen
@@ -185,14 +185,14 @@ Para el **agua pura** existe una relación muy útil entre estas tres magnitudes
 
 Por eso decimos que $1\,\mathrm{L}$ de agua tiene una masa de $1\,\mathrm{kg}$, y que $1\,\mathrm{m}^3$ de agua tiene una masa de $1$ tonelada.
 
-#### Actividades
-
+::: actividades
 1. Completa: a) $6\,\mathrm{L}$ de agua tiene una masa de $\_\_\_\,\mathrm{kg}$; b) $250\,\mathrm{mL}$ de agua tienen una masa de $\_\_\_\,\mathrm{g}$; c) $0.5\,\mathrm{m}^3$ de agua tiene una masa de $\_\_\_\,\mathrm{t}$.
 2. Una garrafa contiene $5\,\mathrm{L}$ de agua. ¿Cuál es su masa en kilogramos?
 3. Un depósito tiene $2\,\mathrm{m}^3$ de agua. ¿Cuántos litros son? ¿Cuántas toneladas son?
 
 ::: temporizador 4 min
 Resolved individualmente las actividades 2 y 3. Cuando acabe el tiempo, corregimos en la pizarra entre todos.
+:::
 :::
 
 ::: resumen
@@ -217,11 +217,9 @@ La materia está formada por partículas cada vez más pequeñas, que se organiz
 
 ![image](niveles_materia.png)
 
-#### Actividades
-
-
-
+::: actividades
 Encuentra los distintos niveles que hemos visto en esta gráfica <a href="https://scaleofuniverse.com/es-es" target="_blank" rel="noopener">La escala del universo</a>
+:::
 
 ### Propiedades generales: masa y volumen
 
@@ -246,11 +244,11 @@ Tienen formas distintas, pero el mismo volumen.
 
 La **capacidad** es la cantidad de materia que puede contener un recipiente. Un depósito hueco de $1\,\mathrm{m}^3$ tiene capacidad para $1\,000\,\mathrm{L}$.
 
-#### Actividades
-
+::: actividades
 1. Calcula el volumen de una caja de $5\,\mathrm{cm} \times 4\,\mathrm{cm} \times 3\,\mathrm{cm}$.
 2. ¿Qué caja ocupa más: una de $10 \times 2 \times 2\,\mathrm{cm}$ o una de $4 \times 4 \times 4\,\mathrm{cm}$?
 3. ¿Pueden dos cuerpos tener el mismo volumen y masas distintas? Explícalo con un ejemplo.
+:::
 
 ### Propiedades específicas: la densidad
 
@@ -272,8 +270,7 @@ $$d = \frac{m}{V} = \frac{40\,\mathrm{g}}{2{,}07\,\mathrm{mL}} \approx 19{,}3\,\
 
 Un cuerpo **flota** en el agua si su densidad es **menor** que $1\,\mathrm{g/cm}^3$, y se **hunde** si es mayor. Por eso el corcho flota y el hierro se hunde.
 
-#### Actividades
-
+::: actividades
 1. ¿Qué volumen ocupan $250\,\mathrm{g}$ de mercurio? ($d_{\text{mercurio}} = 13{,}6\,\mathrm{g/mL}$)
 2. ¿Qué masa tienen $125\,\mathrm{mL}$ de mercurio?
 3. Un trozo de corcho tiene una masa de $12\,\mathrm{g}$ y un volumen de $50\,\mathrm{cm}^3$. Calcula su densidad. ¿Flotará en el agua?
@@ -281,6 +278,7 @@ Un cuerpo **flota** en el agua si su densidad es **menor** que $1\,\mathrm{g/cm}
 
 ::: temporizador 6 min
 Resolved las actividades 1 y 2. Escribid la fórmula, sustituid los datos y expresad el resultado con su unidad.
+:::
 :::
 
 ### Temperatura, calor y presión
@@ -298,11 +296,11 @@ $$T(\mathrm{K}) = 273 + T(^\circ\mathrm{C})$$
 $1\,\mathrm{cal} = 4{,}18\,\mathrm{J}$ y $1\,\mathrm{atm} = 101\,300\,\mathrm{Pa}$. Cuando calentamos un gas en un recipiente cerrado, aumentan la temperatura y la presión.
 :::
 
-#### Actividades
-
+::: actividades
 1. Transforma: a) $298\,\mathrm{K} \to {}^\circ\mathrm{C}$; b) $0\,\mathrm{K} \to {}^\circ\mathrm{C}$; c) $25^\circ\mathrm{C} \to \mathrm{K}$; d) $85^\circ\mathrm{C} \to \mathrm{K}$.
 2. Una hamburguesa aporta $86\,\mathrm{kJ}$. ¿Cuántas kilocalorías son? ($1\,\mathrm{kcal} = 4{,}18\,\mathrm{kJ}$)
 3. ¿Qué indica la temperatura de un cuerpo? ¿Y el calor?
+:::
 
 ::: resumen
 - La materia ocupa un espacio y tiene masa; está formada por partículas organizadas en niveles.
@@ -333,8 +331,7 @@ Según cómo estén unidas y separadas sus partículas, la materia se encuentra 
 
 Existe un cuarto estado, el **plasma**, que se forma al calentar mucho un gas: los átomos pierden electrones y se convierten en iones. Es el estado más abundante del universo: las estrellas, los rayos y las auroras contienen plasma.
 
-#### Actividades
-
+::: actividades
 1. Indica en qué estado está: a) el hielo; b) el aceite; c) el vapor de agua; d) una piedra.
 2. ¿Por qué un gas ocupa todo el recipiente y un sólido no?
 3. Explica con tus palabras por qué los gases se pueden comprimir y los líquidos casi no.
@@ -342,6 +339,7 @@ Existe un cuarto estado, el **plasma**, que se forma al calentar mucho un gas: l
 
 ::: temporizador 4 min
 En parejas, resolved las actividades 1 y 2 y explicad las respuestas usando el modelo de partículas.
+:::
 :::
 
 ### Los cambios de estado
@@ -361,8 +359,7 @@ Cuando cambia la temperatura, la materia pasa de un estado a otro. Son **cambios
 
 Al calentar, las partículas se mueven más deprisa y se separan; al enfriar, pierden energía y se acercan. El cambio de estado no es inmediato: mientras dura, la temperatura se mantiene constante.
 
-#### Actividades
-
+::: actividades
 1. Nombra el cambio de estado: a) hielo → agua; b) agua → vapor; c) vapor → agua líquida; d) agua → hielo.
 2. Al sacar un helado del congelador aparece «niebla» a su alrededor. ¿Qué cambio de estado ocurre?
 3. En la gráfica del agua, ¿qué está pasando mientras la temperatura se mantiene en $0^\circ\mathrm{C}$? ¿Y en $100^\circ\mathrm{C}$?
@@ -370,6 +367,7 @@ Al calentar, las partículas se mueven más deprisa y se separan; al enfriar, pi
 
 ::: temporizador 5 min
 Resolved las actividades 1 y 3. Para la actividad 3, mirad la gráfica y explicad qué ocurre en cada tramo plano.
+:::
 :::
 
 ### Puntos de fusión y ebullición
@@ -387,12 +385,12 @@ Cada **sustancia pura** tiene un punto de fusión y un punto de ebullición cara
 El agua pura, al nivel del mar, congela a $0^\circ\mathrm{C}$ y hierve a $100^\circ\mathrm{C}$. Los anticongelantes de los coches congelan por debajo de $0^\circ\mathrm{C}$ y hierven por encima de $100^\circ\mathrm{C}$ porque no son agua pura.
 :::
 
-#### Actividades
-
+::: actividades
 1. ¿A qué temperatura se funde el oro? ¿Y a qué temperatura hierve?
 2. Ordena de menor a mayor punto de fusión: agua, cuarzo, cobre y oro.
 3. Una sustancia desconocida funde a $0^\circ\mathrm{C}$ y hierve a $100^\circ\mathrm{C}$. ¿Qué sustancia crees que es?
 4. ¿Qué diferencia hay entre ebullición y evaporación? (Pista: piensa en lo que ocurre en un charco.)
+:::
 
 ::: resumen
 - Los estados de agregación son sólido, líquido, gaseoso y plasma.
@@ -421,12 +419,12 @@ Las moléculas de los seres vivos se llaman **biomoléculas** y se clasifican en
 
 El **ADN** es el ácido nucleico que guarda la información que se hereda de padres a hijos.
 
-#### Actividades
-
+::: actividades
 1. Escribe el nombre de los cuatro bioelementos más abundantes y su símbolo químico.
 2. Clasifica en orgánica o inorgánica: agua, glucosa, proteína, sal mineral, ADN y grasa.
 3. ¿Qué biomolécula contiene la información hereditaria?
 4. ¿Por qué decimos que el agua es una biomolécula inorgánica?
+:::
 
 ### Los niveles de organización de la materia viva
 
@@ -444,11 +442,11 @@ Las biomoléculas se unen y forman estructuras cada vez más complejas. En los s
 | Aparato o sistema | Aparato digestivo |
 | Individuo u organismo | Ser humano |
 
-#### Actividades
-
+::: actividades
 1. Ordena de menor a mayor complejidad: tejido, átomo, órgano, célula, molécula, individuo y orgánulo.
 2. ¿Qué nivel de organización va justo después de la célula?
 3. Pon un ejemplo de tejido, uno de órgano y uno de aparato del cuerpo humano.
+:::
 
 ### La célula, unidad básica de la vida
 
@@ -469,8 +467,7 @@ Nuestro cuerpo empieza siendo **una sola célula**, el cigoto, que se divide una
 
 Estudiaremos la célula y sus orgánulos con más detalle en la próxima hoja de trabajo.
 
-#### Actividades
-
+::: actividades
 1. ¿Qué diferencia hay entre un organismo unicelular y uno pluricelular? Pon un ejemplo de cada uno.
 2. Nombra las tres partes básicas de una célula.
 3. ¿Por qué decimos que la célula es la unidad básica de la vida?
@@ -478,6 +475,7 @@ Estudiaremos la célula y sus orgánulos con más detalle en la próxima hoja de
 
 ::: temporizador 4 min
 Resolved las actividades 1 y 2 por parejas. Después, cada pareja explica una de las respuestas a la clase.
+:::
 :::
 
 ::: resumen
@@ -505,11 +503,11 @@ En ella intervienen tres elementos:
 4. Los músculos del brazo (**efectores**) retiran la mano.
 :::
 
-#### Actividades
-
+::: actividades
 1. Identifica el estímulo, el receptor y el efector: «hueles comida y se te hace la boca agua».
 2. ¿Qué órganos actúan como efectores? Cita dos tipos.
 3. Explica por qué la función de relación es importante para sobrevivir.
+:::
 
 ### El sistema nervioso
 
@@ -530,12 +528,12 @@ Se organiza en dos partes:
 El **nervio ciático** es el más largo y ancho del cuerpo: va desde la parte inferior de la columna hasta la base del pie.
 :::
 
-#### Actividades
-
+::: actividades
 1. Dibuja una neurona y señala sus tres partes.
 2. ¿Qué función tienen las dendritas? ¿Y el axón?
 3. ¿Qué órganos forman el sistema nervioso central?
 4. ¿Qué son los nervios?
+:::
 
 ### Los órganos de los sentidos
 
@@ -555,8 +553,7 @@ Los sabores básicos son cuatro: **dulce, salado, amargo y ácido**.
 El **olor** y el **sabor** trabajan juntos: por eso, cuando estamos resfriados y no olemos bien, la comida nos sabe distinta. Los sentidos del gusto, el olfato y la vista participan al percibir el sabor.
 :::
 
-#### Actividades
-
+::: actividades
 1. Relaciona cada sentido con su órgano y con lo que capta.
 2. ¿Qué receptores están en la piel? ¿Qué información envían?
 3. Explica por qué una comida fría sabe distinta que esa misma comida caliente.
@@ -564,6 +561,7 @@ El **olor** y el **sabor** trabajan juntos: por eso, cuando estamos resfriados y
 
 ::: temporizador 5 min
 Resolved las actividades 1 y 3. Para la actividad 3, pensad en lo que habéis aprendido sobre el olfato y el gusto.
+:::
 :::
 
 ::: resumen
@@ -604,12 +602,12 @@ Trabaja en una zona limpia y con todos los ingredientes a mano. Usa guantes y ga
 - La temperatura es clave: por debajo de $70^\circ\mathrm{C}$ la gelatina no se disuelve bien; si se calienta demasiado, pierde sus propiedades.
 - El **sabor** lo percibimos sobre todo con el **olfato** y el **gusto**; por eso el color y el olor también influyen en si algo nos parece rico.
 
-#### Actividades
-
+::: actividades
 1. ¿En qué estado está la mezcla al principio? ¿Y al final?
 2. ¿Qué cambio de estado tiene lugar al enfriar la gelatina?
 3. ¿Por qué se calienta la mezcla? ¿Qué pasaría si no se calentara?
 4. ¿Qué sentidos intervienen cuando comes una gominola?
+:::
 
 ### El vídeo
 
@@ -630,28 +628,34 @@ Grabad un vídeo de **máximo 3 minutos** explicando el experimento. Debe inclui
 
 ### Matemáticas: potencias
 
+::: actividades
 1. Calcula: a) $3^4$; b) $10^6$; c) $2^5$; d) $7^2$.
 2. Escribe como una sola potencia: a) $4^3 \times 4^5$; b) $9^6 : 9^2$; c) $(2^3)^4$; d) $6^0$.
 3. Aplica la propiedad y calcula: a) $(3 \times 10)^2$; b) $(100 : 25)^2$.
 4. Descompón el número 5 070 como suma de potencias de 10.
+:::
 
 ### Física y química: masa, materia y estados
 
+::: actividades
 1. Convierte: a) $4{,}5\,\mathrm{kg} \to \mathrm{g}$; b) $2\,300\,\mathrm{g} \to \mathrm{kg}$; c) $0{,}75\,\mathrm{g} \to \mathrm{mg}$; d) $640\,\mathrm{mg} \to \mathrm{g}$.
 2. Un bidón contiene $20\,\mathrm{L}$ de agua. ¿Cuál es su masa en kilogramos?
 3. Calcula la densidad de un cuerpo de $300\,\mathrm{g}$ que ocupa $150\,\mathrm{cm}^3$. ¿Flotará en el agua?
 4. Transforma: a) $300\,\mathrm{K} \to {}^\circ\mathrm{C}$; b) $40^\circ\mathrm{C} \to \mathrm{K}$.
 5. Nombra los tres estados de agregación y dos cambios de estado.
 6. ¿Qué diferencia hay entre fusión y solidificación?
+:::
 
 ### Biología: materia viva y función de relación
 
+::: actividades
 1. ¿Cuáles son los cuatro bioelementos más abundantes?
 2. Clasifica: agua, ADN, sal mineral, proteína, oxígeno y grasa.
 3. Ordena: órgano, átomo, individuo, célula, tejido y molécula.
 4. ¿Qué diferencia hay entre un organismo unicelular y uno pluricelular?
 5. Nombra las partes de una neurona y explica la función del sistema nervioso.
 6. Relaciona: vista–ojo; oído–____; gusto–____; olfato–____; tacto–____.
+:::
 
 ::: resumen Antes de entregar
 Revisa que has contestado a todo, que las operaciones están visibles y que cada medida incluye su unidad. Repasa los resúmenes de cada sección: si los entiendes, ya tienes lo esencial de este tema.
