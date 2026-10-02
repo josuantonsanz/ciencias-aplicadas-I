@@ -560,7 +560,7 @@ tbody tr:nth-child(even) { background: #f8f9fb; }
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px 60px 80px;
+  padding: 20px 24px 76px;
   opacity: 0;
   visibility: hidden;
   transition: opacity .3s ease, visibility .3s ease;
@@ -568,18 +568,44 @@ tbody tr:nth-child(even) { background: #f8f9fb; }
 .slide-view.is-active { opacity: 1; visibility: visible; }
 
 .slide-view__inner {
-  width: min(100%, 920px);
+  width: 100%;
+  max-width: none;
+  height: 100%;
   max-height: 100%;
   overflow: auto;
+  /* Tamaño base que JavaScript ajusta para aprovechar toda la pantalla. */
+  font-size: 20px;
 }
 
-.slide-view h1 { font-size: clamp(2rem, 5vw, 3.4rem); margin: 0 0 10px; line-height: 1.1; }
-.slide-view h2 { font-size: clamp(1.5rem, 3.6vw, 2.3rem); margin: 0 0 16px; line-height: 1.2; }
-.slide-view h3 { font-size: 1.2rem; margin: 20px 0 8px; }
-.slide-view p, .slide-view li { font-size: clamp(1rem, 2vw, 1.2rem); }
-.slide-view table { font-size: 1rem; }
+.slide-view h1 { font-size: 2em; margin: 0 0 .6em; line-height: 1.1; }
+.slide-view h2 { font-size: 1.5em; margin: 0 0 .7em; line-height: 1.2; }
+.slide-view h3 { font-size: 1.15em; margin: 1em 0 .4em; }
+.slide-view h4 { font-size: 1.05em; margin: .9em 0 .4em; }
+.slide-view p, .slide-view li { font-size: 1em; }
+.slide-view table { font-size: .95em; }
+.slide-view caption { font-size: .9em; }
+.slide-view .box__title { font-size: .85em; }
+.slide-view .math { font-size: 1em; }
+.slide-view .math .katex { font-size: 1.1em; }
+.slide-view .tag { font-size: .7em; }
+.slide-view img {
+  display: block;
+  width: auto;
+  height: auto;
+  min-width: min(100%, 480px);
+  max-width: 100%;
+  max-height: 58vh;
+  margin: .6em auto;
+}
 
 .slide-view--cover { text-align: center; }
+.slide-view--cover .slide-view__inner {
+  width: min(100%, 1100px);
+  height: auto;
+  max-height: 100%;
+  overflow: visible;
+  font-size: 20px;
+}
 
 /* Entornos de actividades en el visor: letra al máximo tamaño posible y el
    temporizador abajo a la derecha, pensado para proyectar desde lejos. */
@@ -760,7 +786,7 @@ tbody tr:nth-child(even) { background: #f8f9fb; }
   .btn__label { display: none; }
   .btn { padding: 10px 12px; }
   .topbar { padding: 8px 12px; }
-  .slide-view { padding: 24px 22px 80px; }
+  .slide-view { padding: 14px 14px 72px; }
   .slide-view--actividades { padding: 8px 8px 72px; }
   .slide-view__inner--actividades .timer { max-width: 100%; }
   .slideshow__stage { padding: 10px 8px 64px; }

@@ -359,6 +359,34 @@
     caja.style.fontSize = Math.max(13, Math.floor(mejor)) + "px";
   }
 
+  /* Hace lo mismo con el resto de diapositivas: agranda la letra hasta llenar
+     la pantalla. Si el contenido es muy largo, se queda en un tamaño legible
+     y la diapositiva se puede desplazar hacia abajo. */
+  function ajustarDiapositiva(vista) {
+    if (!vista
+        || vista.classList.contains("slide-view--actividades")
+        || vista.classList.contains("slide-view--cover")) return;
+    var inner = vista.querySelector(".slide-view__inner");
+    if (!inner) return;
+
+    inner.style.fontSize = "";
+    if (!inner.clientHeight) return;
+
+    var maximo = Math.max(26, Math.min(110, vista.clientHeight / 6));
+    var minimo = 15, mejor = minimo;
+    for (var paso = 0; paso < 14; paso++) {
+      var prueba = (minimo + maximo) / 2;
+      inner.style.fontSize = prueba + "px";
+      if (inner.scrollHeight <= inner.clientHeight + 1) {
+        mejor = prueba;
+        minimo = prueba;
+      } else {
+        maximo = prueba;
+      }
+    }
+    inner.style.fontSize = Math.max(15, Math.floor(mejor)) + "px";
+  }
+
   function crearVistas() {
     stage.innerHTML = "";
     vistas = [];
@@ -409,7 +437,10 @@
     vistas.forEach(function (vista, i) {
       var activa = i === indice;
       vista.classList.toggle("is-active", activa);
-      if (activa) ajustarActividad(vista);
+      if (activa) {
+        ajustarActividad(vista);
+        ajustarDiapositiva(vista);
+      }
     });
     contador.textContent = (indice + 1) + " / " + vistas.length;
     barra.style.width = ((indice + 1) / vistas.length * 100) + "%";
@@ -488,8 +519,10 @@
   }, { passive: true });
 
   /* Al cambiar el tamaño de la ventana se vuelve a calcular el tamaño de letra
-     de la actividad que se está proyectando. */
+     de la diapositiva que se está proyectando. */
   window.addEventListener("resize", function () {
-    if (!slideshow.hidden) ajustarActividad(vistas[indice]);
+    if (slideshow.hidden) return;
+    ajustarActividad(vistas[indice]);
+    ajustarDiapositiva(vistas[indice]);
   });
 })();
