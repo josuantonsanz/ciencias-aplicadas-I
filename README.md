@@ -29,6 +29,8 @@ escribes Markdown  →  node build.js  →  HTML estático listo para usar
 | `plantilla.html`       | Plantilla que da forma a cada capítulo.            |
 | `build.js`             | Conversor Markdown → HTML.                         |
 | `construir.bat`        | Ejecuta el build con doble clic (Windows).         |
+| `editar-local.bat`     | Abre el editor visual de Markdown solo en este equipo. |
+| `editor-local.js`      | Servidor local del editor (se enlaza a `127.0.0.1`). |
 | `subir-github.bat`     | Construye, crea un commit y sube los cambios a GitHub. |
 | `lib/marked.min.js`    | Conversor de Markdown (ya incluido, no requiere instalar nada). |
 | `lib/katex/`           | Renderizador local de fórmulas LaTeX y sus fuentes (funciona sin conexión). |
@@ -41,6 +43,28 @@ escribes Markdown  →  node build.js  →  HTML estático listo para usar
 2. Mantén una entrada en `capitulos/lista.json` por cada capítulo (título, materia, número de secciones y descripción).
 3. Ejecuta `node build.js` o haz doble clic en **`construir.bat`**.
 4. Abre `index.html`.
+
+### Editor visual local
+
+Para editar sin abrir los `.md` directamente, haz doble clic en
+**`editar-local.bat`**. Se abrirá `http://127.0.0.1:8765/editor`; deja abierta
+la ventana de consola mientras trabajas. También puedes ejecutarlo desde una
+terminal con `node editor-local.js`.
+
+El editor permite elegir capítulo, navegar por sus `##`, `###` y bloques
+`:::`, insertar plantillas de los bloques disponibles y guardar con
+**Ctrl+S**. La vista previa se actualiza automáticamente mientras escribes,
+sin guardar nada todavía. Al guardar actualiza el `.md` y ejecuta
+automáticamente `build.js`. En las páginas de capítulo servidas por ese editor
+aparece además el botón **Editar Markdown**.
+
+**Seguridad y GitHub:** el editor no forma parte de GitHub Pages. El servidor
+solo escucha en `127.0.0.1` (no en la red), usa una sesión temporal y solo
+acepta guardar los Markdown declarados en `capitulos/lista.json`. Los botones
+permanecen ocultos en los HTML publicados y GitHub no puede ejecutar Node ni
+escribir en tus archivos. El archivo `editor-local.js` puede estar en el
+repositorio como código fuente, pero no ofrece una URL de edición en la web
+publicada.
 
 Para publicar los cambios, haz doble clic en **`subir-github.bat`**. Primero
 construye las páginas, te pide el mensaje del *commit* y después las sube a la

@@ -359,6 +359,8 @@ function renderarIndex(lista) {
     </div>
     <div class="topbar__actions">
       <button class="btn btn--outline" id="btn-print" title="Imprimir o guardar como PDF">🖨️ <span class="btn__label">Imprimir / PDF</span></button>
+      <!-- Solo se activa al servir la web con editor-local.js en 127.0.0.1. -->
+      <a class="btn btn--outline" id="btn-editor" href="/editor" hidden title="Editar el Markdown en este ordenador">✎ <span class="btn__label">Editar Markdown</span></a>
     </div>
   </header>
 
@@ -377,6 +379,7 @@ ${tarjetas}
 
   <script>
     document.getElementById("btn-print").addEventListener("click", function () { window.print(); });
+    if (window.__EDITOR_LOCAL__) document.getElementById("btn-editor").hidden = false;
   </script>
 </body>
 </html>`;
@@ -409,4 +412,11 @@ function main() {
   console.log("\nListo. Abre index.html para ver el índice de capítulos.");
 }
 
-main();
+/* Permite que el editor local reutilice exactamente el mismo renderizado
+   (incluidos los bloques :::) sin generar archivos ni ejecutar main(). */
+module.exports = {
+  renderarCapitulo: renderarCapitulo,
+  renderarPortada: renderarPortada
+};
+
+if (require.main === module) main();

@@ -132,11 +132,21 @@
   });
 
   /* ----------------------------------------------------------
-     3) BOTÓN IMPRIMIR / PDF
+     3) IMPRESIÓN Y ACCESO AL EDITOR LOCAL
+     El servidor editor-local.js inserta __EDITOR_LOCAL__ únicamente en
+     respuestas de 127.0.0.1. En GitHub Pages el enlace permanece oculto
+     y, sobre todo, no existe ningún servidor con permiso de escritura.
      ---------------------------------------------------------- */
   document.getElementById("btn-print").addEventListener("click", function () {
     window.print();
   });
+
+  var btnEditor = document.getElementById("btn-editor");
+  if (btnEditor && window.__EDITOR_LOCAL__) {
+    var archivoMarkdown = window.location.pathname.replace(/\.html$/, ".md").replace(/^\//, "");
+    btnEditor.href = "/editor?archivo=" + encodeURIComponent(archivoMarkdown);
+    btnEditor.hidden = false;
+  }
 
   /* ----------------------------------------------------------
      4) TEMPORIZADORES DE ACTIVIDADES

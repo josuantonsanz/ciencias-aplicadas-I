@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hoja resumen de los temas 1 y 2 · Ciencias Aplicadas I</title>
+  <meta name="description" content="Hoja resumen de los temas 1 y 2 — Ciencias Aplicadas I">
+  <link rel="stylesheet" href="../styles.css">
+  <!-- KaTeX se sirve localmente: el capítulo sigue funcionando sin Internet. -->
+  <link rel="stylesheet" href="../lib/katex/katex.min.css">
+</head>
+<body>
+
+  <!-- ======================= BARRA SUPERIOR ======================= -->
+  <header class="topbar">
+    <div class="topbar__title">
+      <button class="btn btn--ghost topbar__menu" id="btn-menu" aria-label="Abrir índice">☰</button>
+      <span class="topbar__brand">Ciencias Aplicadas I</span>
+    </div>
+    <div class="topbar__actions">
+      <a class="btn btn--outline" href="../index.html" title="Volver al índice general">⌂ <span class="btn__label">Índice</span></a>
+      <button class="btn btn--outline" id="btn-print" title="Imprimir o guardar como PDF (Ctrl+P)">
+        🖨️ <span class="btn__label">Imprimir / PDF</span>
+      </button>
+      <button class="btn btn--primary" id="btn-slides" title="Ver el contenido como diapositivas">
+        ▶ <span class="btn__label">Diapositivas</span>
+      </button>
+      <!-- Solo se muestra cuando editor-local.js sirve la página en 127.0.0.1. -->
+      <a class="btn btn--outline" id="btn-editor" href="/editor" hidden title="Editar el Markdown en este ordenador">
+        ✎ <span class="btn__label">Editar Markdown</span>
+      </a>
+    </div>
+  </header>
+
+  <div class="layout">
+
+    <!-- ======================= ÍNDICE LATERAL ======================= -->
+    <nav class="sidebar" id="sidebar" aria-label="Índice del capítulo">
+      <p class="sidebar__title">Índice del capítulo</p>
+      <ol class="toc" id="toc"><!-- se genera con JS --></ol>
+      <p class="sidebar__hint">Pulsa <kbd>Ctrl</kbd>+<kbd>P</kbd> para imprimir / guardar como PDF.</p>
+    </nav>
+
+    <!-- ======================= CONTENIDO ======================= -->
+    <main class="content" id="content">
+
+      <header class="cover" id="portada">
+  <p class="cover__kicker">Ciencias Aplicadas I · Capítulo 3</p>
+  <h1 class="cover__title">Hoja resumen de los temas 1 y 2</h1>
+  <p class="cover__subtitle"><span class="tag tag--act">Repaso</span></p>
+  <div class="cover__meta"><span>Curso 2026 – 2027</span><span>Formación Básica</span></div>
+</header>
+
+      <section class="slide slide--seccion slide--seccion--titulo-necesario" data-materia="actividades" data-seccion="Matemáticas" data-nivel="2">
+  <h2>Matemáticas</h2>
+  <ul class="slide__indice-seccion">
+    <li>Números y operaciones</li>
+    <li>Potencias</li>
+    <li>Proporcionalidad</li>
+  </ul>
+</section>
+<section class="slide" data-materia="actividades" data-seccion="Matemáticas" data-nivel="3">
+  <h2>Números y operaciones</h2>
+<blockquote>
+<p><strong>Cheatsheet de Matemáticas · Física y Química.</strong> Solo lo esencial: definiciones, fórmulas y datos que hay que memorizar. Para practicar, usa los resúmenes y las actividades de los temas 1 y 2.</p>
+</blockquote>
+<p><strong>Conjuntos de números</strong> (cada uno incluye al anterior):</p>
+<table>
+<thead>
+<tr>
+<th>Conjunto</th>
+<th>Símbolo</th>
+<th>Qué incluye</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Naturales</td>
+<td>$\mathbb{N}$</td>
+<td>Para contar</td>
+<td>$1, 2, 3\ldots$</td>
+</tr>
+<tr>
+<td>Enteros</td>
+<td>$\mathbb{Z}$</td>
+<td>Naturales, el $0$ y los negativos</td>
+<td>$-3, 0, 7$</td>
+</tr>
+<tr>
+<td>Racionales</td>
+<td>$\mathbb{Q}$</td>
+<td>Fracción o decimal exacto/periódico</td>
+<td>$\frac{1}{2} = 0{,}5$</td>
+</tr>
+<tr>
+<td>Irracionales</td>
+<td>—</td>
+<td>Decimales infinitos sin patrón</td>
+<td>$\pi, \sqrt{3}$</td>
+</tr>
+<tr>
+<td>Reales</td>
+<td>$\mathbb{R}$</td>
+<td>Racionales + irracionales</td>
+<td>la recta numérica</td>
+</tr>
+</tbody></table>
+
+<div class="box box--resumen">
+<p class="box__title">Resumen</p>
+<p>Para clasificar un número, indica el conjunto <strong>más pequeño</strong> al que pertenece, y recuerda: $\mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q} \subset \mathbb{R}$.</p>
+
+</div>
+<p><strong>Jerarquía de las operaciones</strong> (en este orden):</p>
+<ol>
+<li><strong>Paréntesis</strong> y corchetes.</li>
+<li><strong>Multiplicaciones y divisiones</strong>, de izquierda a derecha.</li>
+<li><strong>Sumas y restas</strong>, de izquierda a derecha.</li>
+</ol>
+<p>Los paréntesis lo cambian todo: $3 + 4 \times 2 = 11$, pero $(3 + 4) \times 2 = 14$.</p>
+
+</section>
+<section class="slide" data-materia="actividades" data-seccion="Matemáticas" data-nivel="3">
+  <h2>Potencias</h2>
+<div class="math formula">
+$$a^n = \underbrace{a \times a \times \cdots \times a}_{n\ \text{veces}} \qquad 10^0 = 1$$
+</div>
+<ul>
+<li>En $a^n$, la <strong>base</strong> $a$ es el número que se multiplica y el <strong>exponente</strong> $n$ dice cuántas veces.</li>
+<li>Las potencias de base $10$ son la unidad seguida de tantos ceros como indica el exponente: $10^3 = 1\,000$.</li>
+<li><strong>Descomposición polinómica:</strong> $24\,598 = 2 \times 10^4 + 4 \times 10^3 + 5 \times 10^2 + 9 \times 10^1 + 8$.</li>
+</ul>
+<p><strong>Propiedades</strong> (el resultado se deja como una sola potencia):</p>
+<table>
+<thead>
+<tr>
+<th>Propiedad</th>
+<th>Fórmula</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Potencia de un producto</td>
+<td>$(a \times b)^n = a^n \times b^n$</td>
+<td>$(5 \times 4)^2 = 5^2 \times 4^2$</td>
+</tr>
+<tr>
+<td>Potencia de un cociente</td>
+<td>$(a : b)^n = a^n : b^n$</td>
+<td>$(12 : 4)^3 = 12^3 : 4^3$</td>
+</tr>
+<tr>
+<td>Potencia de una potencia</td>
+<td>$(a^m)^n = a^{m \times n}$</td>
+<td>$(5^4)^2 = 5^8$</td>
+</tr>
+<tr>
+<td>Producto de la misma base</td>
+<td>$a^m \times a^n = a^{m+n}$</td>
+<td>$3^6 \times 3^5 = 3^{11}$</td>
+</tr>
+<tr>
+<td>Cociente de la misma base</td>
+<td>$a^m : a^n = a^{m-n}$</td>
+<td>$12^5 : 12^3 = 12^2$</td>
+</tr>
+<tr>
+<td>Exponente cero</td>
+<td>$a^0 = 1$</td>
+<td>$7^0 = 1$</td>
+</tr>
+</tbody></table>
+
+<div class="box box--dato">
+<p class="box__title">Importante</p>
+<p>En las tres primeras propiedades el <strong>exponente es común</strong> y afecta a los dos números. En las dos siguientes la <strong>base es común</strong> y los exponentes se <strong>suman o se restan</strong>.</p>
+
+</div>
+</section>
+<section class="slide" data-materia="actividades" data-seccion="Matemáticas" data-nivel="3">
+  <h2>Proporcionalidad</h2>
+<p>Una <strong>magnitud</strong> es una propiedad que se puede medir y expresar con un número y una unidad.</p>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Cómo cambian</th>
+<th>Fórmula</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Directa</strong></td>
+<td>Las dos aumentan o disminuyen juntas</td>
+<td>$\dfrac{a}{b} = \dfrac{c}{x} \Rightarrow x = \dfrac{b \times c}{a}$</td>
+<td>Más kilos, más precio</td>
+</tr>
+<tr>
+<td><strong>Inversa</strong></td>
+<td>Una sube y la otra baja</td>
+<td>$a \times b = c \times x \Rightarrow x = \dfrac{a \times b}{c}$</td>
+<td>Más obreros, menos tiempo</td>
+</tr>
+</tbody></table>
+
+<div class="box box--example">
+<p class="box__title">Ejemplo</p>
+<p><strong>Directa:</strong> 3 kg cuestan 7,50 € → 5 kg costarán $x = \dfrac{7{,}50 \times 5}{3} = 12{,}50$ €.</p>
+<p><strong>Inversa:</strong> 4 personas tardan 6 h → 8 personas tardarán $x = \dfrac{4 \times 6}{8} = 3$ h.</p>
+
+</div>
+</section>
+<section class="slide slide--seccion slide--seccion--titulo-necesario" data-materia="actividades" data-seccion="Física y química: unidades, masa y medidas" data-nivel="2">
+  <h2>Física y química: unidades, masa y medidas</h2>
+  <ul class="slide__indice-seccion">
+    <li>Magnitudes y Sistema Internacional</li>
+    <li>Cambios de unidad</li>
+    <li>Volumen y capacidad</li>
+  </ul>
+</section>
+<section class="slide" data-materia="actividades" data-seccion="Física y química: unidades, masa y medidas" data-nivel="3">
+  <h2>Magnitudes y Sistema Internacional</h2>
+<p>Medir es comparar una magnitud con una unidad. Toda medida lleva <strong>número + unidad</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Magnitud</th>
+<th>Unidad del SI</th>
+<th>Símbolo</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Longitud</td>
+<td>metro</td>
+<td>$\mathrm{m}$</td>
+</tr>
+<tr>
+<td>Masa</td>
+<td>kilogramo</td>
+<td>$\mathrm{kg}$</td>
+</tr>
+<tr>
+<td>Tiempo</td>
+<td>segundo</td>
+<td>$\mathrm{s}$</td>
+</tr>
+<tr>
+<td>Temperatura</td>
+<td>kelvin</td>
+<td>$\mathrm{K}$</td>
+</tr>
+<tr>
+<td>Intensidad de corriente</td>
+<td>amperio</td>
+<td>$\mathrm{A}$</td>
+</tr>
+<tr>
+<td>Cantidad de sustancia</td>
+<td>mol</td>
+<td>$\mathrm{mol}$</td>
+</tr>
+</tbody></table>
+<p><strong>Prefijos más usados:</strong> kilo- ($\times 1\,000$), hecto- ($\times 100$), deca- ($\times 10$), deci- ($\div 10$), centi- ($\div 100$), mili- ($\div 1\,000$).</p>
+
+<div class="box box--dato">
+<p class="box__title">Masa ≠ peso</p>
+<p>La <strong>masa</strong> es la cantidad de materia y se mide en $\mathrm{kg}$. El <strong>peso</strong> es una fuerza, depende de la gravedad y se mide en <strong>newtons</strong> ($\mathrm{N}$). En la Luna el peso cambia, la masa no.</p>
+
+</div>
+</section>
+<section class="slide" data-materia="actividades" data-seccion="Física y química: unidades, masa y medidas" data-nivel="3">
+  <h2>Cambios de unidad</h2>
+<p>Cada salto a la derecha <strong>multiplica por 10</strong>; cada salto a la izquierda <strong>divide por 10</strong>.</p>
+<ul>
+<li><strong>Longitud:</strong> km – hm – dam – <strong>m</strong> – dm – cm – mm</li>
+<li><strong>Capacidad:</strong> kL – hL – daL – <strong>L</strong> – dL – cL – mL</li>
+<li><strong>Masa:</strong> kg – hg – dag – <strong>g</strong> – dg – cg – mg</li>
+</ul>
+<p>$$2{,}5\,\mathrm{km} = 2\,500\,\mathrm{m} \qquad 384\,\mathrm{cm} = 3{,}84\,\mathrm{m}$$</p>
+
+<div class="box box--resumen">
+<p class="box__title">Equivalencias que hay que saber</p>
+<ul>
+<li>$1\,\mathrm{t} = 1\,000\,\mathrm{kg}$ · $1\,\mathrm{q} = 100\,\mathrm{kg}$</li>
+<li>$1\,\mathrm{L} = 1\,\mathrm{dm}^3$ · $1\,\mathrm{m}^3 = 1\,000\,\mathrm{L}$</li>
+<li><strong>Agua pura:</strong> $1\,\mathrm{kg} = 1\,\mathrm{L} = 1\,\mathrm{dm}^3$ y $1\,\mathrm{g} = 1\,\mathrm{mL} = 1\,\mathrm{cm}^3$</li>
+</ul>
+
+</div>
+</section>
+<section class="slide" data-materia="actividades" data-seccion="Física y química: unidades, masa y medidas" data-nivel="3">
+  <h2>Volumen y capacidad</h2>
+<ul>
+<li>El <strong>volumen</strong> es el espacio que ocupa un cuerpo: en el SI, metros cúbicos ($\mathrm{m}^3$).</li>
+<li>La <strong>capacidad</strong> es lo que puede contener un recipiente: litros ($\mathrm{L}$).</li>
+<li>Volumen de una caja:</li>
+</ul>
+
+<div class="math formula">
+$$V = \text{alto} \times \text{ancho} \times \text{largo}$$
+</div>
+</section>
+<section class="slide slide--seccion slide--seccion--titulo-necesario" data-materia="actividades" data-seccion="Chuleta final" data-nivel="2">
+  <h2>Chuleta final</h2>
+  <ul class="slide__indice-seccion">
+    <li>Fórmulas imprescindibles</li>
+    <li>Errores que hay que evitar</li>
+  </ul>
+</section>
+<section class="slide" data-materia="actividades" data-seccion="Chuleta final" data-nivel="3">
+  <h2>Fórmulas imprescindibles</h2>
+<div class="box box--resumen">
+<p class="box__title">Resumen</p>
+<ul>
+<li>Jerarquía: paréntesis → $\times$ y $\div$ → $+$ y $-$.</li>
+<li>Potencias: $a^m \times a^n = a^{m+n}$ y $a^m : a^n = a^{m-n}$.</li>
+<li>Agua: $1\,\mathrm{kg} = 1\,\mathrm{L} = 1\,\mathrm{dm}^3$.</li>
+</ul>
+
+</div>
+</section>
+<section class="slide" data-materia="actividades" data-seccion="Chuleta final" data-nivel="3">
+  <h2>Errores que hay que evitar</h2>
+<div class="box box--dato">
+<p class="box__title">Importante</p>
+<ul>
+<li>No confundir <strong>masa</strong> ($\mathrm{kg}$) con <strong>peso</strong> ($\mathrm{N}$).</li>
+<li>No confundir <strong>volumen</strong> ($\mathrm{m}^3$) con <strong>capacidad</strong> ($\mathrm{L}$).</li>
+<li>No olvidar la <strong>unidad</strong> en el resultado.</li>
+<li>En potencias, al multiplicar potencias de la misma base se <strong>suman</strong> los exponentes, no se multiplican.</li>
+</ul>
+
+</div>
+</section>
+<section class="slide slide--seccion slide--seccion--titulo-necesario" data-materia="actividades" data-seccion="Ejercicios de Matemáticas" data-nivel="2">
+  <h2>Ejercicios de Matemáticas</h2>
+  <ul class="slide__indice-seccion">
+    <li>Números y operaciones combinadas</li>
+    <li>Potencias</li>
+    <li>Proporcionalidad</li>
+  </ul>
+</section>
+<section class="slide" data-materia="actividades" data-seccion="Ejercicios de Matemáticas" data-nivel="3">
+  <h2>Números y operaciones combinadas</h2>
+<div class="box box--actividades" data-actividad="1" aria-label="Actividades 1">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">1</span><span>Actividades</span></p>
+<ol>
+<li>Clasifica cada número en el conjunto <strong>más pequeño</strong> al que pertenece: a) $-8$; b) $0{,}4$; c) $\sqrt{5}$; d) $25$; e) $0$.</li>
+<li>Calcula respetando la jerarquía de operaciones: a) $5 + 3 \times 4$; b) $(5 + 3) \times 4$; c) $20 - 12 \div 4 + 2 \times 3$; d) $30 - (6 + 4) \times 2$.</li>
+<li>Descompón $30\,507$ como suma de potencias de $10$.</li>
+<li>En una división, el dividendo es $47$ y el divisor es $6$. Indica el cociente y el resto.</li>
+</ol>
+
+</div>
+</section>
+<section class="slide" data-materia="actividades" data-seccion="Ejercicios de Matemáticas" data-nivel="3">
+  <h2>Potencias</h2>
+<div class="box box--actividades" data-actividad="2" aria-label="Actividades 2">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">2</span><span>Actividades</span></p>
+<ol>
+<li>Escribe como una sola potencia: a) $3^2 \times 3^5$; b) $8^7 : 8^3$; c) $(5^2)^3$; d) $4^0$.</li>
+<li>Calcula aplicando las propiedades: a) $(2 \times 10)^3$; b) $(60 : 20)^2$; c) $10^4 \times 10^2$.</li>
+<li>¿Verdadero o falso? Corrige los enunciados falsos: a) $2^3 \times 2^4 = 2^{12}$; b) $9^5 : 9^5 = 1$; c) $(3^2)^4 = 3^8$.</li>
+</ol>
+
+</div>
+</section>
+<section class="slide" data-materia="actividades" data-seccion="Ejercicios de Matemáticas" data-nivel="3">
+  <h2>Proporcionalidad</h2>
+<div class="box box--actividades" data-actividad="3" aria-label="Actividades 3">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">3</span><span>Actividades</span></p>
+<ol>
+<li>Indica si la relación es directa o inversa: a) kilos de manzanas y precio; b) velocidad y tiempo para recorrer el mismo trayecto; c) número de pintores y tiempo en pintar una pared.</li>
+<li>Para 8 bocadillos se usan $600\,\mathrm{g}$ de pan. ¿Cuánto pan se necesita para 12 bocadillos?</li>
+<li>Seis máquinas tardan $10\,\mathrm{h}$ en fabricar un pedido. ¿Cuánto tardarán cuatro máquinas iguales? Indica el tipo de proporcionalidad.</li>
+<li>Un grifo llena $60\,\mathrm{L}$ en $3$ minutos. ¿Cuántos litros llenará en $7$ minutos al mismo ritmo?</li>
+</ol>
+
+</div>
+</section>
+<section class="slide slide--seccion slide--seccion--titulo-necesario" data-materia="actividades" data-seccion="Ejercicios de Física y Química" data-nivel="2">
+  <h2>Ejercicios de Física y Química</h2>
+  <ul class="slide__indice-seccion">
+    <li>Unidades y medidas</li>
+  </ul>
+</section>
+<section class="slide" data-materia="actividades" data-seccion="Ejercicios de Física y Química" data-nivel="3">
+  <h2>Unidades y medidas</h2>
+<div class="box box--actividades" data-actividad="4" aria-label="Actividades 4">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">4</span><span>Actividades</span></p>
+<ol>
+<li>Convierte: a) $4{,}3\,\mathrm{km} \to \mathrm{m}$; b) $275\,\mathrm{cm} \to \mathrm{m}$; c) $0{,}92\,\mathrm{m} \to \mathrm{mm}$; d) $6\,400\,\mathrm{mm} \to \mathrm{m}$.</li>
+<li>Convierte: a) $2{,}8\,\mathrm{L} \to \mathrm{mL}$; b) $1\,450\,\mathrm{mL} \to \mathrm{L}$; c) $3{,}2\,\mathrm{kg} \to \mathrm{g}$; d) $5\,000\,\mathrm{g} \to \mathrm{kg}$.</li>
+<li>Expresa en kilogramos: a) $450\,\mathrm{g}$; b) $2{,}5\,\mathrm{t}$; c) $4\,\mathrm{q}$.</li>
+<li>Un depósito contiene $8\,\mathrm{m}^3$ de agua. ¿Cuántos litros son? ¿Cuántas toneladas?</li>
+<li>Corrige estas medidas incompletas y escribe una unidad adecuada: «la mesa mide 90»; «la botella contiene 2».</li>
+</ol>
+
+</div>
+</section>
+<section class="slide slide--seccion slide--seccion--titulo-necesario" data-materia="actividades" data-seccion="Soluciones" data-nivel="2">
+  <h2>Soluciones</h2>
+  <ul class="slide__indice-seccion">
+    <li>Matemáticas</li>
+    <li>Física y Química</li>
+  </ul>
+</section>
+<section class="slide" data-materia="actividades" data-seccion="Soluciones" data-nivel="3">
+  <h2>Matemáticas</h2>
+<div class="box box--resumen">
+<p class="box__title">Actividades 1</p>
+<ol>
+<li>a) $\mathbb{Z}$; b) $\mathbb{Q}$ (es $0{,}4 = \frac{2}{5}$); c) irracional; d) $\mathbb{N}$; e) $\mathbb{Z}$.</li>
+<li>a) $17$; b) $32$; c) $20 - 3 + 6 = 23$; d) $30 - 10 \times 2 = 10$.</li>
+<li>$30\,507 = 3 \times 10^4 + 5 \times 10^2 + 7$.</li>
+<li>Cociente $7$ y resto $5$ (porque $6 \times 7 + 5 = 47$).</li>
+</ol>
+
+</div>
+<div class="box box--resumen">
+<p class="box__title">Actividades 2</p>
+<ol>
+<li>a) $3^7$; b) $8^4$; c) $5^6$; d) $1$.</li>
+<li>a) $2^3 \times 10^3 = 8\,000$; b) $3^2 = 9$; c) $10^6 = 1\,000\,000$.</li>
+<li>a) Falso: $2^3 \times 2^4 = 2^7$; b) verdadero; c) verdadero.</li>
+</ol>
+
+</div>
+<div class="box box--resumen">
+<p class="box__title">Actividades 3</p>
+<ol>
+<li>a) directa; b) inversa; c) inversa.</li>
+<li>$x = \frac{600 \times 12}{8} = 900\,\mathrm{g}$ (directa).</li>
+<li>$x = \frac{6 \times 10}{4} = 15\,\mathrm{h}$ (inversa).</li>
+<li>$\frac{60}{3} = 20\,\mathrm{L/min} \Rightarrow 20 \times 7 = 140\,\mathrm{L}$ (directa).</li>
+</ol>
+
+</div>
+</section>
+<section class="slide" data-materia="actividades" data-seccion="Soluciones" data-nivel="3">
+  <h2>Física y Química</h2>
+<div class="box box--resumen">
+<p class="box__title">Actividades 4</p>
+<ol>
+<li>a) $4\,300\,\mathrm{m}$; b) $2{,}75\,\mathrm{m}$; c) $920\,\mathrm{mm}$; d) $6{,}4\,\mathrm{m}$.</li>
+<li>a) $2\,800\,\mathrm{mL}$; b) $1{,}45\,\mathrm{L}$; c) $3\,200\,\mathrm{g}$; d) $5\,\mathrm{kg}$.</li>
+<li>a) $0{,}45\,\mathrm{kg}$; b) $2\,500\,\mathrm{kg}$; c) $400\,\mathrm{kg}$.</li>
+<li>$8\,\mathrm{m}^3 = 8\,000\,\mathrm{L}$ y su masa es $8\,\mathrm{t}$.</li>
+<li>Faltan las unidades: «la mesa mide $90\,\mathrm{cm}$»; «la botella contiene $2\,\mathrm{L}$».</li>
+</ol>
+
+</div>
+</section>
+
+
+      <footer class="page-footer">
+        <p><a href="../index.html">← Volver al índice</a> · Ciencias Aplicadas I · Material de aula</p>
+      </footer>
+    </main>
+  </div>
+
+  <!-- ======================= VISOR DE DIAPOSITIVAS ======================= -->
+  <div class="slideshow" id="slideshow" hidden>
+    <div class="slideshow__progress"><div class="slideshow__bar" id="slides-bar"></div></div>
+    <button class="slideshow__close" id="slides-close" title="Salir (Esc)">✕</button>
+    <div class="slideshow__stage" id="slides-stage"></div>
+    <div class="slideshow__controls">
+      <button class="slideshow__nav" id="slides-prev" title="Anterior (←)">←</button>
+      <span class="slideshow__counter" id="slides-counter">1 / 1</span>
+      <button class="slideshow__nav" id="slides-next" title="Siguiente (→)">→</button>
+    </div>
+  </div>
+
+  <script src="../lib/katex/katex.min.js"></script>
+  <script src="../lib/katex/auto-render.min.js"></script>
+  <script>
+    // $...$ para expresiones en línea y $$...$$ para fórmulas centradas.
+    renderMathInElement(document.getElementById("content"), {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "\\[", right: "\\]", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false }
+      ],
+      throwOnError: false,
+      strict: "warn"
+    });
+  </script>
+  <script src="../script.js"></script>
+</body>
+</html>

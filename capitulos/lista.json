@@ -16,6 +16,13 @@
       "materia": "ciencias",
       "secciones": 9,
       "descripcion": "Potencias, masa y unidades, propiedades y estados de la materia, la materia viva y la función de relación. Termina con el reto de las gominolas y actividades de repaso."
+    },
+    {
+      "archivo": "capitulos/03-hoja-resumen.md",
+      "titulo": "Hoja resumen de los temas 1 y 2",
+      "materia": "actividades",
+      "secciones": 7,
+      "descripcion": "Cheatsheet para estudiar el examen, con baterías de ejercicios: números, operaciones y potencias; unidades, masa y medidas; la materia, densidad, temperatura y estados de agregación. Incluye soluciones."
     }
   ]
 }

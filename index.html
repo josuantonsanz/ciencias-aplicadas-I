@@ -13,6 +13,8 @@
     </div>
     <div class="topbar__actions">
       <button class="btn btn--outline" id="btn-print" title="Imprimir o guardar como PDF">🖨️ <span class="btn__label">Imprimir / PDF</span></button>
+      <!-- Solo se activa al servir la web con editor-local.js en 127.0.0.1. -->
+      <a class="btn btn--outline" id="btn-editor" href="/editor" hidden title="Editar el Markdown en este ordenador">✎ <span class="btn__label">Editar Markdown</span></a>
     </div>
   </header>
 
@@ -21,7 +23,7 @@
       <p class="cover__kicker">Formación Básica</p>
       <h1 class="cover__title">Ciencias Aplicadas I</h1>
       <p class="cover__subtitle">Matemáticas · Biología · Física · Química</p>
-      <div class="cover__meta"><span>Curso 2026 – 2027</span><span>2 capítulos · 14 secciones</span></div>
+      <div class="cover__meta"><span>Curso 2026 – 2027</span><span>3 capítulos · 21 secciones</span></div>
     </header>
 
     <nav class="chapter-grid" aria-label="Capítulos">
@@ -35,11 +37,17 @@
   <h2>Combinar la materia</h2>
   <p>Potencias, masa y unidades, propiedades y estados de la materia, la materia viva y la función de relación. Termina con el reto de las gominolas y actividades de repaso.</p>
 </a>
+<a class="chapter-card" href="capitulos/03-hoja-resumen.html">
+  <span class="tag tag--act">Repaso</span>
+  <h2>Hoja resumen de los temas 1 y 2</h2>
+  <p>Cheatsheet para estudiar el examen, con baterías de ejercicios: números, operaciones y potencias; unidades, masa y medidas; la materia, densidad, temperatura y estados de agregación. Incluye soluciones.</p>
+</a>
     </nav>
   </main>
 
   <script>
     document.getElementById("btn-print").addEventListener("click", function () { window.print(); });
+    if (window.__EDITOR_LOCAL__) document.getElementById("btn-editor").hidden = false;
   </script>
 </body>
 </html>

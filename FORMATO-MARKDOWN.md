@@ -269,3 +269,19 @@ Materias disponibles en `lista.json`:
   `<div style="break-before: page"></div>`.
 - Los enlaces a una sección del mismo capítulo pueden usar su ancla, por ejemplo:
   `[Ir a una sección](#seccion-2)`.
+
+---
+
+## 7. Editor visual local
+
+También puedes editar estos archivos con **`editar-local.bat`** (o con
+`node editor-local.js`). El editor muestra un panel de estructura que reconoce
+los encabezados `##` y `###` y las aperturas de todos los bloques `:::`, y
+ofrece botones para insertar secciones, ejemplos, resúmenes, datos, fórmulas,
+actividades y temporizadores.
+
+La vista previa se actualiza automáticamente mientras escribes y usa el mismo
+renderizado que la construcción final, pero no guarda cambios. Al pulsar
+**Guardar y reconstruir** —o `Ctrl+S`— se guarda el Markdown y se regeneran
+los HTML. El editor se sirve exclusivamente desde `http://127.0.0.1:8765`: no
+aparece ni se puede usar en GitHub Pages.
