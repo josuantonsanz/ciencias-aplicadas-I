@@ -23,6 +23,13 @@
       "materia": "actividades",
       "secciones": 7,
       "descripcion": "Cheatsheet para estudiar el examen, con baterías de ejercicios: números, operaciones y potencias; unidades, masa y medidas; la materia, densidad, temperatura y estados de agregación. Incluye soluciones."
+    },
+    {
+      "archivo": "capitulos/04-algebra-basica.md",
+      "titulo": "Álgebra básica",
+      "materia": "matematicas",
+      "secciones": 9,
+      "descripcion": "Despejar la incógnita en ecuaciones y fórmulas: la balanza, las operaciones inversas, el atajo «pasa al otro lado», la incógnita en el denominador (d = m/V) y la comprobación de resultados."
     }
   ]
 }

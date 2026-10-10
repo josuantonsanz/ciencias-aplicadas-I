@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Álgebra básica · Ciencias Aplicadas I</title>
+  <meta name="description" content="Álgebra básica — Ciencias Aplicadas I">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+@media print {
+  @page {
+    @top-left { content: "Ciencias Aplicadas I"; }
+    @top-right { content: "Capítulo 4"; }
+    @bottom-left { content: "Álgebra básica"; }
+  }
+}
+</style>
+  <!-- KaTeX se sirve localmente: el capítulo sigue funcionando sin Internet. -->
+  <link rel="stylesheet" href="../lib/katex/katex.min.css">
+</head>
+<body>
+
+  <!-- ======================= BARRA SUPERIOR ======================= -->
+  <header class="topbar">
+    <div class="topbar__title">
+      <button class="btn btn--ghost topbar__menu" id="btn-menu" aria-label="Abrir índice">☰</button>
+      <span class="topbar__brand">Ciencias Aplicadas I</span>
+    </div>
+    <div class="topbar__actions">
+      <a class="btn btn--outline" href="../index.html" title="Volver al índice general">⌂ <span class="btn__label">Índice</span></a>
+      <button class="btn btn--outline" id="btn-print" title="Imprimir o guardar como PDF (Ctrl+P)">
+        🖨️ <span class="btn__label">Imprimir / PDF</span>
+      </button>
+      <button class="btn btn--primary" id="btn-slides" title="Ver el contenido como diapositivas">
+        ▶ <span class="btn__label">Diapositivas</span>
+      </button>
+      <!-- Solo se muestra cuando editor-local.js sirve la página en 127.0.0.1. -->
+      <a class="btn btn--outline" id="btn-editor" href="/editor" hidden title="Editar el Markdown en este ordenador">
+        ✎ <span class="btn__label">Editar Markdown</span>
+      </a>
+    </div>
+  </header>
+
+  <div class="layout">
+
+    <!-- ======================= ÍNDICE LATERAL ======================= -->
+    <nav class="sidebar" id="sidebar" aria-label="Índice del capítulo">
+      <p class="sidebar__title">Índice del capítulo</p>
+      <ol class="toc" id="toc"><!-- se genera con JS --></ol>
+      <p class="sidebar__hint">Pulsa <kbd>Ctrl</kbd>+<kbd>P</kbd> para imprimir / guardar como PDF.</p>
+    </nav>
+
+    <!-- ======================= CONTENIDO ======================= -->
+    <main class="content" id="content">
+
+      <header class="cover" id="portada">
+  <p class="cover__kicker">Ciencias Aplicadas I · Capítulo 4</p>
+  <h1 class="cover__title">Álgebra básica</h1>
+  <p class="cover__subtitle"><span class="tag tag--mat">Matemáticas</span></p>
+  <div class="cover__meta"><span>Curso 2026 – 2027</span><span>Formación Básica</span></div>
+</header>
+
+      <section class="slide" id="seccion-1" data-materia="matematicas" data-seccion="¿Qué vamos a aprender?" data-seccion-numero="1" data-numero="1" data-nivel="2">
+  <h2><span class="heading__number">1</span> ¿Qué vamos a aprender?</h2>
+<p>En ciencias usamos <strong>fórmulas</strong> que relacionan varias magnitudes. Por ejemplo, la densidad:</p>
+
+<div class="math formula">
+$$d = \dfrac{m}{V}$$
+</div>
+<p>Esta fórmula dice que la densidad ($d$) es la masa ($m$) dividida entre el volumen ($V$). Si conocemos la masa y el volumen, calcular la densidad es fácil. Pero muchas veces el problema es al revés: conocemos la densidad y la masa, y necesitamos el <strong>volumen</strong>.</p>
+<blockquote>
+<p><strong>Despejar</strong> es dejar sola la letra que nos interesa en uno de los lados de la igualdad. En este tema aprenderemos a despejar la $x$ (o la $V$, la $m$, la $t$…) en distintas situaciones.</p>
+</blockquote>
+
+<div class="box box--resumen">
+<p class="box__title">Lo esencial</p>
+<p>Al terminar el tema deberías ser capaz de:</p>
+<ul>
+<li>Entender una igualdad como una <strong>balanza en equilibrio</strong>.</li>
+<li>Despejar una letra que está <strong>sumando, restando, multiplicando o dividiendo</strong>.</li>
+<li>Despejar una letra que está <strong>en el denominador</strong>, como la $V$ de $d = m/V$.</li>
+<li>Despejar <strong>por pasos</strong> cuando hay dos o más operaciones.</li>
+<li><strong>Comprobar</strong> si el despeje es correcto.</li>
+</ul>
+
+</div>
+</section>
+<section class="slide slide--seccion slide--seccion--titulo-necesario" id="seccion-2" data-materia="matematicas" data-seccion="La ecuación es una balanza" data-seccion-numero="2" data-numero="2" data-nivel="2">
+  <h2><span class="heading__number">2</span> La ecuación es una balanza</h2>
+  <ul class="slide__indice-seccion">
+    <li><span class="heading__number">2.1</span> Una igualdad con una letra escondida</li>
+    <li><span class="heading__number">2.2</span> La regla de oro</li>
+  </ul>
+
+</section>
+<section class="slide" id="seccion-3" data-materia="matematicas" data-seccion="La ecuación es una balanza" data-seccion-numero="2" data-numero="2.1" data-nivel="3">
+  <h3><span class="heading__number">2.1</span> Una igualdad con una letra escondida</h3>
+<p>Una <strong>ecuación</strong> es una igualdad con una o varias letras cuyo valor no conocemos. A esas letras las llamamos <strong>incógnitas</strong>.</p>
+
+<div class="math formula">
+$$x + 3 = 8$$
+</div>
+<ul>
+<li>A la izquierda del signo $=$ hay lo mismo que a la derecha: por eso es una <strong>igualdad</strong>.</li>
+<li>La incógnita es $x$.</li>
+<li>Resolver la ecuación (o <strong>despejar</strong> $x$) es encontrar el valor de $x$ que hace verdadera la igualdad. En este caso, $x = 5$, porque $5 + 3 = 8$.</li>
+</ul>
+
+</section>
+<section class="slide" id="seccion-4" data-materia="matematicas" data-seccion="La ecuación es una balanza" data-seccion-numero="2" data-numero="2.2" data-nivel="3">
+  <h3><span class="heading__number">2.2</span> La regla de oro</h3>
+<p>Imagina una balanza de dos platos en equilibrio. Si añades o quitas algo de un plato, se desequilibra. Para que siga equilibrada, tienes que hacer <strong>exactamente lo mismo en los dos platos</strong>.</p>
+
+<div class="box box--dato">
+<p class="box__title">La regla de oro</p>
+<p>Si sumas, restas, multiplicas o divides un lado de la igualdad, tienes que hacer <strong>lo mismo en el otro lado</strong>. Así la igualdad se mantiene.</p>
+
+</div>
+<div class="box box--example">
+<p class="box__title">Quitar lo mismo en los dos lados</p>
+<p>Queremos despejar $x$ en $x + 3 = 8$.</p>
+<p>Como a la $x$ le <strong>sobran</strong> $3$ (le están sumando), restamos $3$ en los dos lados:</p>
+<p>$$x + 3 - 3 = 8 - 3$$</p>
+<p>$$x = 5$$</p>
+<p>La comprobación se hace siempre en la ecuación original: $5 + 3 = 8$. ✓</p>
+
+</div>
+<div class="box box--actividades" data-actividad="1" aria-label="Actividades 1">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">1</span><span>Actividades</span></p>
+<ol>
+<li>En la igualdad $x + 4 = 10$, ¿qué número le sobra a la $x$? ¿Qué operación harías en los dos lados?</li>
+<li>Copia y completa: $x + 6 = 9 \Rightarrow x = 9 - \square = \square$.</li>
+<li>Comprueba si $x = 4$ es solución de $x + 5 = 9$.</li>
+<li>¿Qué valor de $x$ cumple la igualdad $x + 5 = 10$? Compruébalo.</li>
+</ol>
+
+<div class="timer" data-timer-seconds="180" data-timer-duration="3:00" role="group" aria-label="Temporizador de 3:00">
+  <div class="timer__dial" aria-hidden="true"><span class="timer__display">3:00</span></div>
+  <div class="timer__body">
+    <p class="timer__eyebrow">Tiempo restante</p>
+    <div class="timer__label">Resolvemos las actividades 1 y 2 en el cuaderno y comprobamos con la persona de al lado.</div>
+    <div class="timer__controls">
+      <button class="timer__button timer__button--start" type="button" data-timer-action="start">Iniciar</button>
+      <button class="timer__button" type="button" data-timer-action="pause">Pausar</button>
+      <button class="timer__button timer__button--reset" type="button" data-timer-action="reset">Reiniciar</button>
+    </div>
+    <output class="timer__announcement" aria-live="polite"></output>
+  </div>
+</div>
+</div>
+</section>
+<section class="slide slide--seccion slide--seccion--titulo-necesario" id="seccion-5" data-materia="matematicas" data-seccion="La operación inversa" data-seccion-numero="3" data-numero="3" data-nivel="2">
+  <h2><span class="heading__number">3</span> La operación inversa</h2>
+  <ul class="slide__indice-seccion">
+    <li><span class="heading__number">3.1</span> Sumar y restar</li>
+    <li><span class="heading__number">3.2</span> Multiplicar y dividir</li>
+  </ul>
+
+</section>
+<section class="slide" id="seccion-6" data-materia="matematicas" data-seccion="La operación inversa" data-seccion-numero="3" data-numero="3.1" data-nivel="3">
+  <h3><span class="heading__number">3.1</span> Sumar y restar</h3>
+<p>Para «deshacer» una suma <strong>restamos</strong>. Para «deshacer» una resta <strong>sumamos</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Lo que le pasa a la $x$</th>
+<th>Cómo lo deshacemos</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Está sumando</td>
+<td>Restamos lo mismo</td>
+<td>$x + 7 = 12 \Rightarrow x = 12 - 7 = 5$</td>
+</tr>
+<tr>
+<td>Está restando</td>
+<td>Sumamos lo mismo</td>
+<td>$x - 4 = 9 \Rightarrow x = 9 + 4 = 13$</td>
+</tr>
+</tbody></table>
+
+<div class="box box--example">
+<p class="box__title">La incógnita a la derecha</p>
+<p>No pasa nada porque la $x$ esté a la derecha del signo $=$.</p>
+<p>$$15 = x + 6 \quad \Rightarrow \quad 15 - 6 = x \quad \Rightarrow \quad x = 9$$</p>
+<p>$$8 = x - 2 \quad \Rightarrow \quad 8 + 2 = x \quad \Rightarrow \quad x = 10$$</p>
+
+</div>
+</section>
+<section class="slide" id="seccion-7" data-materia="matematicas" data-seccion="La operación inversa" data-seccion-numero="3" data-numero="3.2" data-nivel="3">
+  <h3><span class="heading__number">3.2</span> Multiplicar y dividir</h3>
+<p>Para «deshacer» una multiplicación <strong>dividimos</strong>. Para «deshacer» una división <strong>multiplicamos</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Lo que le pasa a la $x$</th>
+<th>Cómo lo deshacemos</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Está multiplicando</td>
+<td>Dividimos entre lo mismo</td>
+<td>$4x = 20 \Rightarrow x = 20 : 4 = 5$</td>
+</tr>
+<tr>
+<td>Está dividiendo</td>
+<td>Multiplicamos por lo mismo</td>
+<td>$\dfrac{x}{3} = 5 \Rightarrow x = 5 \times 3 = 15$</td>
+</tr>
+</tbody></table>
+
+<div class="box">
+<p class="box__title">Nota</p>
+<p>Cuando escribimos $4x$ queremos decir $4 \times x$. El número que multiplica a la letra se llama <strong>coeficiente</strong>.</p>
+
+</div>
+<div class="box box--example">
+<p class="box__title">Con la incógnita a la derecha</p>
+<p>$$6 = 2x \quad \Rightarrow \quad 6 : 2 = x \quad \Rightarrow \quad x = 3$$</p>
+<p>$$2 = \dfrac{x}{4} \quad \Rightarrow \quad 2 \times 4 = x \quad \Rightarrow \quad x = 8$$</p>
+
+</div>
+<div class="box box--actividades" data-actividad="2" aria-label="Actividades 2">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">2</span><span>Actividades</span></p>
+<ol>
+<li>Despeja y calcula: a) $x + 9 = 14$; b) $x - 5 = 3$; c) $x + 2 = 10$; d) $x - 8 = 1$.</li>
+<li>Despeja y calcula: a) $5x = 35$; b) $\dfrac{x}{2} = 6$; c) $3x = 27$; d) $\dfrac{x}{7} = 2$.</li>
+<li>Escribe una ecuación sencilla que tenga como solución $x = 6$.</li>
+<li>Comprueba en tu cuaderno las soluciones de los ejercicios 1 y 2.</li>
+</ol>
+
+<div class="timer" data-timer-seconds="300" data-timer-duration="5:00" role="group" aria-label="Temporizador de 5:00">
+  <div class="timer__dial" aria-hidden="true"><span class="timer__display">5:00</span></div>
+  <div class="timer__body">
+    <p class="timer__eyebrow">Tiempo restante</p>
+    <div class="timer__label">En parejas, resolvemos el ejercicio 2. Después comprobamos las soluciones en la pizarra.</div>
+    <div class="timer__controls">
+      <button class="timer__button timer__button--start" type="button" data-timer-action="start">Iniciar</button>
+      <button class="timer__button" type="button" data-timer-action="pause">Pausar</button>
+      <button class="timer__button timer__button--reset" type="button" data-timer-action="reset">Reiniciar</button>
+    </div>
+    <output class="timer__announcement" aria-live="polite"></output>
+  </div>
+</div>
+</div>
+</section>
+<section class="slide" id="seccion-8" data-materia="matematicas" data-seccion="El atajo: «pasa al otro lado»" data-seccion-numero="4" data-numero="4" data-nivel="2">
+  <h2><span class="heading__number">4</span> El atajo: «pasa al otro lado»</h2>
+<p>Cuando ya entiendes la balanza puedes ir más rápido. En vez de escribir la operación en los dos lados, decimos que <strong>lo que está haciendo a la $x$ pasa al otro lado haciendo lo contrario</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Si está...</th>
+<th>Pasa al otro lado...</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Sumando</td>
+<td>Restando</td>
+<td>$x + 5 = 9 \Rightarrow x = 9 - 5$</td>
+</tr>
+<tr>
+<td>Restando</td>
+<td>Sumando</td>
+<td>$x - 5 = 9 \Rightarrow x = 9 + 5$</td>
+</tr>
+<tr>
+<td>Multiplicando</td>
+<td>Dividiendo</td>
+<td>$3x = 12 \Rightarrow x = 12 : 3$</td>
+</tr>
+<tr>
+<td>Dividiendo</td>
+<td>Multiplicando</td>
+<td>$\dfrac{x}{3} = 12 \Rightarrow x = 12 \times 3$</td>
+</tr>
+</tbody></table>
+
+<div class="box box--dato">
+<p class="box__title">No es magia</p>
+<p>El atajo funciona porque estamos haciendo lo mismo en los dos lados. Solo se «mueve» el número o la letra que está <strong>sumando, restando, multiplicando o dividiendo a toda la $x$</strong>.</p>
+
+</div>
+<div class="box box--example">
+<p class="box__title">Comparar los dos métodos</p>
+<p>Despejar $x$ en $x - 6 = 4$.</p>
+<ul>
+<li><strong>Con la balanza:</strong> $x - 6 + 6 = 4 + 6 \Rightarrow x = 10$.</li>
+<li><strong>Con el atajo:</strong> el $6$ está restando, así que pasa sumando: $x = 4 + 6 = 10$.</li>
+</ul>
+
+</div>
+<div class="box box--dato">
+<p class="box__title">El signo no «cambia de la nada»</p>
+<p>Lo que ocurre es que aplicamos la operación inversa: $+5$ se deshace con $-5$, y $\times 3$ se deshace con $: 3$. Si te aprendes solo «cambia de signo», te equivocarás con las multiplicaciones y las divisiones.</p>
+
+</div>
+<div class="box box--actividades" data-actividad="3" aria-label="Actividades 3">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">3</span><span>Actividades</span></p>
+<ol>
+<li>Usa el atajo y calcula: a) $x + 12 = 20$; b) $x - 7 = 7$; c) $6x = 42$; d) $\dfrac{x}{5} = 4$.</li>
+<li>¿Cuál es el error? Alguien escribe: «$x + 8 = 15$, entonces $x = 15 + 8 = 23$». Explícalo y corrígelo.</li>
+<li>Inventa una ecuación que se resuelva restando y otra que se resuelva dividiendo.</li>
+</ol>
+
+<div class="timer" data-timer-seconds="240" data-timer-duration="4:00" role="group" aria-label="Temporizador de 4:00">
+  <div class="timer__dial" aria-hidden="true"><span class="timer__display">4:00</span></div>
+  <div class="timer__body">
+    <p class="timer__eyebrow">Tiempo restante</p>
+    <div class="timer__label">Resolvemos individualmente. Luego comparamos el ejercicio 2 con el compañero.</div>
+    <div class="timer__controls">
+      <button class="timer__button timer__button--start" type="button" data-timer-action="start">Iniciar</button>
+      <button class="timer__button" type="button" data-timer-action="pause">Pausar</button>
+      <button class="timer__button timer__button--reset" type="button" data-timer-action="reset">Reiniciar</button>
+    </div>
+    <output class="timer__announcement" aria-live="polite"></output>
+  </div>
+</div>
+</div>
+</section>
+<section class="slide" id="seccion-9" data-materia="matematicas" data-seccion="Dos pasos (y más)" data-seccion-numero="5" data-numero="5" data-nivel="2">
+  <h2><span class="heading__number">5</span> Dos pasos (y más)</h2>
+<p>Muchas fórmulas tienen más de una operación. Se despeja <strong>por partes</strong>, como cuando desenvolvemos un regalo: primero quitamos el papel de fuera y después abrimos la caja.</p>
+
+<div class="box box--dato">
+<p class="box__title">En qué orden</p>
+<p>Primero deshacemos las <strong>sumas y restas</strong> y después las <strong>multiplicaciones y divisiones</strong>. Es el orden inverso a como se construyó la expresión.</p>
+
+</div>
+<div class="box box--example">
+<p class="box__title">$2x + 5 = 13$</p>
+<ol>
+<li>Restamos $5$ en los dos lados: $2x + 5 - 5 = 13 - 5 \Rightarrow 2x = 8$.</li>
+<li>Dividimos entre $2$: $\dfrac{2x}{2} = \dfrac{8}{2} \Rightarrow x = 4$.</li>
+</ol>
+<p><strong>Comprobación:</strong> $2 \times 4 + 5 = 8 + 5 = 13$. ✓</p>
+
+</div>
+<div class="box box--example">
+<p class="box__title">$3x - 4 = 11$</p>
+<ol>
+<li>Sumamos $4$: $3x - 4 + 4 = 11 + 4 \Rightarrow 3x = 15$.</li>
+<li>Dividimos entre $3$: $x = 5$.</li>
+</ol>
+<p><strong>Comprobación:</strong> $3 \times 5 - 4 = 15 - 4 = 11$. ✓</p>
+
+</div>
+<div class="box box--example">
+<p class="box__title">$\dfrac{x}{2} + 1 = 6$</p>
+<ol>
+<li>Restamos $1$: $\dfrac{x}{2} = 5$.</li>
+<li>Multiplicamos por $2$: $x = 10$.</li>
+</ol>
+<p><strong>Comprobación:</strong> $\dfrac{10}{2} + 1 = 5 + 1 = 6$. ✓</p>
+
+</div>
+<div class="box box--actividades" data-actividad="4" aria-label="Actividades 4">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">4</span><span>Actividades</span></p>
+<ol>
+<li>Despeja paso a paso y comprueba: a) $2x + 3 = 11$; b) $4x - 1 = 19$; c) $3x + 6 = 21$; d) $5x - 10 = 15$.</li>
+<li>Despeja: a) $\dfrac{x}{3} + 2 = 5$; b) $\dfrac{x}{4} - 1 = 3$.</li>
+<li>Explica por qué en $2x + 5 = 13$ no se empieza dividiendo entre $2$.</li>
+</ol>
+
+<div class="timer" data-timer-seconds="360" data-timer-duration="6:00" role="group" aria-label="Temporizador de 6:00">
+  <div class="timer__dial" aria-hidden="true"><span class="timer__display">6:00</span></div>
+  <div class="timer__body">
+    <p class="timer__eyebrow">Tiempo restante</p>
+    <div class="timer__label">Resolvemos los apartados a) y b) del ejercicio 1. El profesor o la profesora corregirá el resto en la pizarra.</div>
+    <div class="timer__controls">
+      <button class="timer__button timer__button--start" type="button" data-timer-action="start">Iniciar</button>
+      <button class="timer__button" type="button" data-timer-action="pause">Pausar</button>
+      <button class="timer__button timer__button--reset" type="button" data-timer-action="reset">Reiniciar</button>
+    </div>
+    <output class="timer__announcement" aria-live="polite"></output>
+  </div>
+</div>
+</div>
+</section>
+<section class="slide" id="seccion-10" data-materia="matematicas" data-seccion="La incógnita en el denominador" data-seccion-numero="6" data-numero="6" data-nivel="2">
+  <h2><span class="heading__number">6</span> La incógnita en el denominador</h2>
+<p>Ahora resolvemos el problema del principio: despejar $V$ en la fórmula de la densidad.</p>
+
+<div class="math formula">
+$$d = \dfrac{m}{V}$$
+</div>
+<p>Aquí la $V$ está <strong>dividiendo</strong>. Para liberarla, primero multiplicamos los dos lados por $V$:</p>
+<p>$$d \times V = \dfrac{m}{V} \times V \quad \Rightarrow \quad d \times V = m$$</p>
+<p>Ahora la $V$ está multiplicando a la $d$, así que dividimos entre $d$:</p>
+<p>$$V = \dfrac{m}{d}$$</p>
+
+<div class="box box--resumen">
+<p class="box__title">Idea clave</p>
+<p>Si la incógnita está en el <strong>denominador</strong>, multiplica los dos lados por esa incógnita y después resuelve la ecuación como siempre.</p>
+
+</div>
+<div class="box box--example">
+<p class="box__title">Pasar de $\dfrac{6}{x} = 3$ a $x$</p>
+<ol>
+<li>Multiplicamos por $x$: $6 = 3x$.</li>
+<li>Dividimos entre $3$: $x = \dfrac{6}{3} = 2$.</li>
+</ol>
+<p><strong>Comprobación:</strong> $\dfrac{6}{2} = 3$. ✓</p>
+
+</div>
+<div class="box box--dato">
+<p class="box__title">Nunca dividas entre cero</p>
+<p>El denominador no puede valer cero: no existe $6/0$. Por eso, en $d = m/V$ el volumen no puede ser $0$.</p>
+
+</div>
+<div class="box box--actividades" data-actividad="5" aria-label="Actividades 5">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">5</span><span>Actividades</span></p>
+<ol>
+<li>Despeja $x$: a) $\dfrac{10}{x} = 5$; b) $\dfrac{12}{x} = 4$; c) $\dfrac{3}{x} = 1$; d) $\dfrac{20}{x} = 2$.</li>
+<li>En la fórmula $d = \dfrac{m}{V}$, despeja primero $m$ y después $V$.</li>
+<li>En la fórmula $v = \dfrac{d}{t}$, despeja $t$.</li>
+</ol>
+
+<div class="timer" data-timer-seconds="300" data-timer-duration="5:00" role="group" aria-label="Temporizador de 5:00">
+  <div class="timer__dial" aria-hidden="true"><span class="timer__display">5:00</span></div>
+  <div class="timer__body">
+    <p class="timer__eyebrow">Tiempo restante</p>
+    <div class="timer__label">En parejas, resolvemos el ejercicio 1 y comparamos los resultados.</div>
+    <div class="timer__controls">
+      <button class="timer__button timer__button--start" type="button" data-timer-action="start">Iniciar</button>
+      <button class="timer__button" type="button" data-timer-action="pause">Pausar</button>
+      <button class="timer__button timer__button--reset" type="button" data-timer-action="reset">Reiniciar</button>
+    </div>
+    <output class="timer__announcement" aria-live="polite"></output>
+  </div>
+</div>
+</div>
+</section>
+<section class="slide" id="seccion-11" data-materia="matematicas" data-seccion="Despejar en fórmulas de ciencias" data-seccion-numero="7" data-numero="7" data-nivel="2">
+  <h2><span class="heading__number">7</span> Despejar en fórmulas de ciencias</h2>
+<p>Estas son las fórmulas que más usarás en este curso. Practicar con ellas es la mejor forma de aprender a despejar.</p>
+<table>
+<thead>
+<tr>
+<th>Fórmula</th>
+<th>Quiero despejar</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$d = \dfrac{m}{V}$</td>
+<td>la masa</td>
+<td>$m = d \times V$</td>
+</tr>
+<tr>
+<td>$d = \dfrac{m}{V}$</td>
+<td>el volumen</td>
+<td>$V = \dfrac{m}{d}$</td>
+</tr>
+<tr>
+<td>$v = \dfrac{d}{t}$</td>
+<td>la distancia</td>
+<td>$d = v \times t$</td>
+</tr>
+<tr>
+<td>$v = \dfrac{d}{t}$</td>
+<td>el tiempo</td>
+<td>$t = \dfrac{d}{v}$</td>
+</tr>
+<tr>
+<td>$V = a \times b \times c$</td>
+<td>la altura $a$</td>
+<td>$a = \dfrac{V}{b \times c}$</td>
+</tr>
+</tbody></table>
+
+<div class="box box--resumen">
+<p class="box__title">Receta para despejar cualquier letra</p>
+<ol>
+<li>Mira qué operación <strong>afecta</strong> a la letra que quieres despejar.</li>
+<li>Si está sumando o restando, pasa al otro lado con la operación contraria.</li>
+<li>Si está multiplicando o dividiendo, pasa al otro lado con la operación contraria.</li>
+<li>Si está en el denominador, multiplica primero los dos lados por ella.</li>
+<li>Comprueba el resultado con números.</li>
+</ol>
+
+</div>
+<div class="box box--example">
+<p class="box__title">Calcular un volumen</p>
+<p>Un trozo de hierro tiene una masa de $200\,\mathrm{g}$ y una densidad de $2{,}5\,\mathrm{g/cm}^3$. ¿Qué volumen ocupa?</p>
+<p>Datos: $m = 200\,\mathrm{g}$ y $d = 2{,}5\,\mathrm{g/cm}^3$. Queremos $V$.</p>
+<p>Usamos el despeje $V = \dfrac{m}{d}$:</p>
+<p>$$V = \dfrac{200\,\mathrm{g}}{2{,}5\,\mathrm{g/cm}^3} = 80\,\mathrm{cm}^3$$</p>
+
+</div>
+<div class="box box--example">
+<p class="box__title">Calcular una distancia</p>
+<p>Un coche viaja a $90\,\mathrm{km/h}$ durante $2\,\mathrm{h}$. ¿Qué distancia recorre?</p>
+<p>Usamos el despeje $d = v \times t$:</p>
+<p>$$d = 90\,\mathrm{km/h} \times 2\,\mathrm{h} = 180\,\mathrm{km}$$</p>
+
+</div>
+<div class="box box--actividades" data-actividad="6" aria-label="Actividades 6">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">6</span><span>Actividades</span></p>
+<ol>
+<li>En la fórmula $d = \dfrac{m}{V}$, calcula $V$ si $m = 300\,\mathrm{g}$ y $d = 3\,\mathrm{g/cm}^3$.</li>
+<li>En la fórmula $v = \dfrac{d}{t}$, calcula $t$ si $d = 150\,\mathrm{km}$ y $v = 50\,\mathrm{km/h}$.</li>
+<li>El volumen de una caja es $V = a \times b \times c$. Despeja $c$ y calcula su valor si $V = 60\,\mathrm{cm}^3$, $a = 3\,\mathrm{cm}$ y $b = 4\,\mathrm{cm}$.</li>
+<li>Un anillo tiene $20\,\mathrm{g}$ de masa y ocupa $1\,\mathrm{cm}^3$. Calcula su densidad despejando de $d = \dfrac{m}{V}$.</li>
+</ol>
+
+<div class="timer" data-timer-seconds="480" data-timer-duration="8:00" role="group" aria-label="Temporizador de 8:00">
+  <div class="timer__dial" aria-hidden="true"><span class="timer__display">8:00</span></div>
+  <div class="timer__body">
+    <p class="timer__eyebrow">Tiempo restante</p>
+    <div class="timer__label">Resolvemos los ejercicios 1 y 2 escribiendo los pasos y las unidades. Después corregimos en la pizarra.</div>
+    <div class="timer__controls">
+      <button class="timer__button timer__button--start" type="button" data-timer-action="start">Iniciar</button>
+      <button class="timer__button" type="button" data-timer-action="pause">Pausar</button>
+      <button class="timer__button timer__button--reset" type="button" data-timer-action="reset">Reiniciar</button>
+    </div>
+    <output class="timer__announcement" aria-live="polite"></output>
+  </div>
+</div>
+</div>
+</section>
+<section class="slide slide--seccion slide--seccion--titulo-necesario" id="seccion-12" data-materia="matematicas" data-seccion="Comprobar y errores frecuentes" data-seccion-numero="8" data-numero="8" data-nivel="2">
+  <h2><span class="heading__number">8</span> Comprobar y errores frecuentes</h2>
+  <ul class="slide__indice-seccion">
+    <li><span class="heading__number">8.1</span> Cómo comprobar un despeje</li>
+    <li><span class="heading__number">8.2</span> Errores frecuentes</li>
+  </ul>
+
+</section>
+<section class="slide" id="seccion-13" data-materia="matematicas" data-seccion="Comprobar y errores frecuentes" data-seccion-numero="8" data-numero="8.1" data-nivel="3">
+  <h3><span class="heading__number">8.1</span> Cómo comprobar un despeje</h3>
+<p>Hay dos formas rápidas de saber si un despeje está bien:</p>
+<ol>
+<li><strong>Con el resultado numérico:</strong> sustituye el valor que has obtenido en la fórmula original y comprueba que los dos lados coinciden.</li>
+<li><strong>Con números fáciles:</strong> inventa valores sencillos y mira si el despeje da el mismo resultado que la fórmula original.</li>
+</ol>
+
+<div class="box box--example">
+<p class="box__title">Comprobar con números fáciles</p>
+<p>Para comprobar que $V = \dfrac{m}{d}$ está bien despejado, usamos números fáciles. Si $m = 10$ y $V = 2$, entonces $d = \dfrac{10}{2} = 5$. Ahora aplicamos el despeje: $V = \dfrac{m}{d} = \dfrac{10}{5} = 2$. ✓ Coincide.</p>
+
+</div>
+</section>
+<section class="slide" id="seccion-14" data-materia="matematicas" data-seccion="Comprobar y errores frecuentes" data-seccion-numero="8" data-numero="8.2" data-nivel="3">
+  <h3><span class="heading__number">8.2</span> Errores frecuentes</h3>
+<table>
+<thead>
+<tr>
+<th>Error</th>
+<th>Qué está mal</th>
+<th>Cómo se hace bien</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$x + 3 = 8 \Rightarrow x = 8 + 3$</td>
+<td>Se suma en vez de restar</td>
+<td>$x = 8 - 3 = 5$</td>
+</tr>
+<tr>
+<td>$4x = 20 \Rightarrow x = 20 \times 4$</td>
+<td>Se multiplica en vez de dividir</td>
+<td>$x = 20 : 4 = 5$</td>
+</tr>
+<tr>
+<td>$d = \dfrac{m}{V} \Rightarrow V = m \times d$</td>
+<td>La $V$ estaba dividiendo</td>
+<td>$V = \dfrac{m}{d}$</td>
+</tr>
+<tr>
+<td>$2x + 5 = 13 \Rightarrow 2x = 13 + 5$</td>
+<td>Al pasar el $5$ hay que restar</td>
+<td>$2x = 13 - 5 = 8$</td>
+</tr>
+<tr>
+<td>Dar la solución y no comprobarla</td>
+<td>Un error pasa desapercibido</td>
+<td>Sustituye en la ecuación original</td>
+</tr>
+</tbody></table>
+
+<div class="box box--dato">
+<p class="box__title">Comprueba siempre</p>
+<p>Cuando termines un despeje, sustituye tu resultado en la ecuación original. Si los dos lados coinciden, el despeje es correcto.</p>
+
+</div>
+<div class="box box--actividades" data-actividad="7" aria-label="Actividades 7">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">7</span><span>Actividades</span></p>
+<ol>
+<li>Encuentra el error y corrígelo:
+a) $x - 4 = 10 \Rightarrow x = 10 - 4$;
+b) $7x = 21 \Rightarrow x = 21 \times 7$;
+c) $\dfrac{x}{2} = 9 \Rightarrow x = 9 : 2$.</li>
+<li>Comprueba si estas soluciones son correctas:
+a) $x + 6 = 10 \Rightarrow x = 16$;
+b) $3x = 12 \Rightarrow x = 4$;
+c) $\dfrac{8}{x} = 2 \Rightarrow x = 4$.</li>
+<li>Explica con tus palabras por qué no se puede dividir entre cero.</li>
+</ol>
+
+<div class="timer" data-timer-seconds="300" data-timer-duration="5:00" role="group" aria-label="Temporizador de 5:00">
+  <div class="timer__dial" aria-hidden="true"><span class="timer__display">5:00</span></div>
+  <div class="timer__body">
+    <p class="timer__eyebrow">Tiempo restante</p>
+    <div class="timer__label">En parejas, buscamos los errores del ejercicio 1 y escribimos la solución correcta en la pizarra.</div>
+    <div class="timer__controls">
+      <button class="timer__button timer__button--start" type="button" data-timer-action="start">Iniciar</button>
+      <button class="timer__button" type="button" data-timer-action="pause">Pausar</button>
+      <button class="timer__button timer__button--reset" type="button" data-timer-action="reset">Reiniciar</button>
+    </div>
+    <output class="timer__announcement" aria-live="polite"></output>
+  </div>
+</div>
+</div>
+</section>
+<section class="slide" id="seccion-15" data-materia="matematicas" data-seccion="Actividades de repaso" data-seccion-numero="9" data-numero="9" data-nivel="2">
+  <h2><span class="heading__number">9</span> Actividades de repaso</h2>
+<div class="box box--actividades" data-actividad="8" aria-label="Actividades 8">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">8</span><span>Repaso del tema</span></p>
+<ol>
+<li>Despeja y calcula: a) $x + 15 = 22$; b) $x - 9 = 4$; c) $8x = 64$; d) $\dfrac{x}{6} = 3$.</li>
+<li>Despeja paso a paso y comprueba: a) $2x + 7 = 17$; b) $5x - 3 = 22$; c) $\dfrac{x}{3} + 4 = 9$.</li>
+<li>Despeja $x$ cuando está en el denominador: a) $\dfrac{24}{x} = 6$; b) $\dfrac{15}{x} = 3$.</li>
+<li>De la fórmula $d = \dfrac{m}{V}$ despeja $m$ y $V$. Después calcula $V$ si $m = 450\,\mathrm{g}$ y $d = 1{,}5\,\mathrm{g/cm}^3$.</li>
+<li>De la fórmula $v = \dfrac{d}{t}$ despeja $d$ y $t$. Calcula $t$ si $d = 240\,\mathrm{km}$ y $v = 80\,\mathrm{km/h}$.</li>
+<li>La masa de un líquido es $240\,\mathrm{g}$ y su volumen $300\,\mathrm{mL}$. Calcula su densidad con la fórmula $d = \dfrac{m}{V}$. ¿Flotará en el agua?</li>
+<li>Escribe una fórmula que use letras distintas de $x$, despeja una de ellas y explícalo a un compañero.</li>
+</ol>
+
+<div class="timer" data-timer-seconds="600" data-timer-duration="10:00" role="group" aria-label="Temporizador de 10:00">
+  <div class="timer__dial" aria-hidden="true"><span class="timer__display">10:00</span></div>
+  <div class="timer__body">
+    <p class="timer__eyebrow">Tiempo restante</p>
+    <div class="timer__label">Resolvemos los ejercicios 1, 2 y 4. Los demás quedan para casa. Al terminar, revisamos las unidades de los resultados.</div>
+    <div class="timer__controls">
+      <button class="timer__button timer__button--start" type="button" data-timer-action="start">Iniciar</button>
+      <button class="timer__button" type="button" data-timer-action="pause">Pausar</button>
+      <button class="timer__button timer__button--reset" type="button" data-timer-action="reset">Reiniciar</button>
+    </div>
+    <output class="timer__announcement" aria-live="polite"></output>
+  </div>
+</div>
+</div>
+<div class="box box--resumen">
+<p class="box__title">Chuleta del tema</p>
+<ul>
+<li>Una igualdad es una balanza: lo mismo en los dos lados.</li>
+<li>$+$ y $-$ son operaciones inversas; $\times$ y $:$ también.</li>
+<li>Primero se deshacen sumas y restas; después, multiplicaciones y divisiones.</li>
+<li>Si la incógnita está dividiendo, multiplica los dos lados por ella.</li>
+<li>$d = \dfrac{m}{V} \Rightarrow m = d \times V$ y $V = \dfrac{m}{d}$.</li>
+<li>Comprueba siempre sustituyendo el resultado en la fórmula original.</li>
+</ul>
+
+</div>
+</section>
+
+
+      <footer class="page-footer">
+        <p><a href="../index.html">← Volver al índice</a> · Ciencias Aplicadas I · Material de aula</p>
+      </footer>
+    </main>
+  </div>
+
+  <!-- ======================= VISOR DE DIAPOSITIVAS ======================= -->
+  <div class="slideshow" id="slideshow" hidden>
+    <div class="slideshow__progress"><div class="slideshow__bar" id="slides-bar"></div></div>
+    <button class="slideshow__close" id="slides-close" title="Salir (Esc)">✕</button>
+    <div class="slideshow__stage" id="slides-stage"></div>
+    <div class="slideshow__controls">
+      <button class="slideshow__nav" id="slides-prev" title="Anterior (←)">←</button>
+      <span class="slideshow__counter" id="slides-counter">1 / 1</span>
+      <button class="slideshow__nav" id="slides-next" title="Siguiente (→)">→</button>
+    </div>
+  </div>
+
+  <script src="../lib/katex/katex.min.js"></script>
+  <script src="../lib/katex/auto-render.min.js"></script>
+  <script>
+    // $...$ para expresiones en línea y $$...$$ para fórmulas centradas.
+    renderMathInElement(document.getElementById("content"), {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "\\[", right: "\\]", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false }
+      ],
+      throwOnError: false,
+      strict: "warn"
+    });
+  </script>
+  <script src="../script.js"></script>
+</body>
+</html>

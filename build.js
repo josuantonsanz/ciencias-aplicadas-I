@@ -46,13 +46,29 @@ function escaparHTML(s) {
   return String(s)
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;");
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
 }
 
 /* marked interpreta algunas barras inversas de LaTeX como escapes de Markdown.
    Se protegen las fórmulas antes de convertir Markdown y se restauran en el
    HTML para que KaTeX las reciba sin alteraciones. */
-function renderarMarkdownConLatex(md, enLinea) {
+/* ## → 1, ### → 1.1, #### → 1.1.1… Los niveles omitidos se
+   completan con 1 y los contadores inferiores se reinician. */
+function siguienteNumero(contadores, nivel) {
+  const indice = nivel - 2;
+  while (contadores.length < indice) contadores.push(1);
+  contadores[indice] = (contadores[indice] || 0) + 1;
+  contadores.length = indice + 1;
+  return contadores.join(".");
+}
+
+function renderarEncabezado(textoHTML, nivel, numero) {
+  return '<h' + nivel + '><span class="heading__number">' + numero
+    + '</span> ' + textoHTML + '</h' + nivel + '>';
+}
+
+function renderarMarkdownConLatex(md, enLinea, numeracion) {
   const formulas = [];
   const protegido = String(md).replace(
     /\$\$[\s\S]+?\$\$|\\\[[\s\S]+?\\\]|\\\([\s\S]+?\\\)|\$[^\n$]+\$/g,
@@ -62,7 +78,16 @@ function renderarMarkdownConLatex(md, enLinea) {
       return "@@LATEX_" + id + "@@";
     }
   );
-  const html = enLinea ? marked.parseInline(protegido) : marked.parse(protegido);
+  const opciones = {};
+  if (!enLinea && numeracion) {
+    const renderer = new marked.Renderer();
+    renderer.heading = function (texto, nivel) {
+      if (nivel < 2) return '<h' + nivel + '>' + texto + '</h' + nivel + '>\n';
+      return renderarEncabezado(texto, nivel, siguienteNumero(numeracion, nivel)) + "\n";
+    };
+    opciones.renderer = renderer;
+  }
+  const html = enLinea ? marked.parseInline(protegido) : marked.parse(protegido, opciones);
   return html.replace(/@@LATEX_(\d+)@@/g, function (_, id) {
     return formulas[Number(id)];
   });
@@ -103,7 +128,7 @@ function renderarTemporizador(especificacion, inner) {
     ? renderarMarkdownConLatex(inner.trim(), true)
     : "Tiempo para la actividad";
   const duracion = formatearDuracion(segundos);
-  return '<div class="timer" data-timer-seconds="' + segundos + '" role="group"'
+  return '<div class="timer" data-timer-seconds="' + segundos + '" data-timer-duration="' + duracion + '" role="group"'
     + ' aria-label="Temporizador de ' + escaparHTML(duracion) + '">\n'
     + '  <div class="timer__dial" aria-hidden="true"><span class="timer__display">' + duracion + '</span></div>\n'
     + '  <div class="timer__body">\n'
@@ -135,14 +160,14 @@ function renderarActividades(titulo, contenido) {
     + contenido + "\n</div>";
 }
 
-function renderarContenedor(match, inner) {
+function renderarContenedor(match, inner, numeracion) {
   const tipo = match[1].toLowerCase();
   const titulo = match[2] ? match[2].trim() : null;
   if (tipo === "temporizador" || tipo === "timer") {
     return renderarTemporizador(titulo, inner);
   }
   if (tipo === "actividades" || tipo === "actividad") {
-    return renderarActividades(titulo, renderarBloque(inner));
+    return renderarActividades(titulo, renderarBloque(inner, numeracion));
   }
   const conf = CONTENEDORES[tipo];
 
@@ -159,7 +184,7 @@ function renderarContenedor(match, inner) {
   // El resto admite a su vez bloques ::: anidados.
   html += conf.def === null
     ? renderarMarkdownConLatex(inner.trim(), true)
-    : renderarBloque(inner);
+    : renderarBloque(inner, numeracion);
   html += "\n</div>";
   return html;
 }
@@ -168,13 +193,13 @@ function renderarContenedor(match, inner) {
    Se divide en trozos y cada trozo se pasa por marked por separado,
    para que los <div> de los contenedores no se "rompan". Admite bloques
    anidados (por ejemplo, un temporizador dentro de ::: actividades). */
-function renderarBloque(md) {
+function renderarBloque(md, numeracion) {
   const lineas = md.split("\n");
   const fragmentos = [];
   let buffer = [];
   const volcar = function () {
     if (buffer.join("").trim()) {
-      fragmentos.push(renderarMarkdownConLatex(buffer.join("\n"), false));
+      fragmentos.push(renderarMarkdownConLatex(buffer.join("\n"), false, numeracion));
     }
     buffer = [];
   };
@@ -205,7 +230,7 @@ function renderarBloque(md) {
         }
       }
       i++; // salta el cierre ":::"
-      fragmentos.push(renderarContenedor(abierto, inner.join("\n")));
+      fragmentos.push(renderarContenedor(abierto, inner.join("\n"), numeracion));
     } else {
       buffer.push(linea);
       i++;
@@ -213,6 +238,20 @@ function renderarBloque(md) {
   }
   volcar();
   return fragmentos.join("\n");
+}
+
+/* Cabeceras y pies propios, sin depender de la URL/fecha del navegador.
+   Las cadenas CSS se escapan también frente a un cierre de </style>. */
+function cadenaCSS(texto) {
+  return JSON.stringify(String(texto)).replace(/</g, "\\3c ");
+}
+
+function renderarEstilosImpresion(cap, serie, num) {
+  return '<style>\n@media print {\n  @page {\n'
+    + '    @top-left { content: ' + cadenaCSS(serie) + '; }\n'
+    + '    @top-right { content: ' + cadenaCSS("Capítulo " + num) + '; }\n'
+    + '    @bottom-left { content: ' + cadenaCSS(cap.titulo) + '; }\n'
+    + '  }\n}\n</style>';
 }
 
 /* Genera la portada de un capítulo */
@@ -232,96 +271,85 @@ function renderarPortada(cap, serie, num) {
    Los encabezados ## marcan las secciones principales y los ### dividen
    también el contenido en diapositivas para que no resulten demasiado largas. */
 function renderarCapitulo(md, cap, serie, num) {
-  numeroActividades = 0; // la numeración de actividades empieza en cada capítulo
+  numeroActividades = 0;
   const lineas = md.split("\n");
   const secciones = [];
-  const principales = [];
+  const contadores = [];
   let actual = null;
-  let seccionPrincipal = "";
   let principalActual = null;
   let intro = [];
+  let cerca = null;
+  let profundidadBloque = 0;
 
   const cerrarActual = function () {
-    if (actual && actual.cuerpo.join("").trim()) secciones.push(actual);
+    // También se conservan los títulos sin texto propio.
+    if (actual) secciones.push(actual);
   };
 
   lineas.forEach(function (linea) {
-    const h2 = linea.match(/^##\s+(.*)$/);
-    const h3 = linea.match(/^###\s+(.*)$/);
-    const h1 = linea.match(/^#\s+(.*)$/);
+    const marca = linea.match(/^\s{0,3}(`{3,}|~{3,})(.*)$/);
+    const dentroCodigo = Boolean(cerca);
+    if (marca) {
+      if (!cerca) cerca = marca[1];
+      else if (marca[1][0] === cerca[0] && marca[1].length >= cerca.length && !marca[2].trim()) cerca = null;
+    }
+    const esTitulo = !dentroCodigo && !marca && profundidadBloque === 0;
+    const encabezado = esTitulo && linea.match(/^(#{2,3})\s+(.*)$/);
 
-    if (h2) {
+    if (encabezado) {
       cerrarActual();
-      seccionPrincipal = h2[1].trim();
-      principalActual = { titulo: seccionPrincipal, subtitulos: [] };
-      principales.push(principalActual);
-      actual = {
-        titulo: seccionPrincipal,
-        seccion: seccionPrincipal,
-        nivel: 2,
-        cuerpo: []
-      };
-    } else if (h3) {
-      cerrarActual();
-      const subtitulo = h3[1].trim();
-      if (principalActual) principalActual.subtitulos.push(subtitulo);
-      actual = {
-        titulo: subtitulo,
-        seccion: seccionPrincipal,
-        nivel: 3,
-        cuerpo: []
-      };
-    } else if (h1) {
-      // El título del capítulo ya viene de lista.json: se ignora
-    } else if (actual) {
-      actual.cuerpo.push(linea);
-    } else {
-      intro.push(linea);
+      const nivel = encabezado[1].length;
+      const titulo = encabezado[2].replace(/[ \t]+#+[ \t]*$/, "").trim();
+      if (nivel === 2) principalActual = { titulo: titulo, subtitulos: [] };
+      actual = { titulo: titulo, principal: principalActual, nivel: nivel, cuerpo: [] };
+      if (nivel === 3 && principalActual) principalActual.subtitulos.push(actual);
+    } else if (!(esTitulo && /^#\s+/.test(linea))) {
+      (actual ? actual.cuerpo : intro).push(linea);
+    }
+
+    if (!dentroCodigo && !marca) {
+      if (/^:::\s*[^\s:]/.test(linea)) profundidadBloque++;
+      else if (linea.trim() === ":::" && profundidadBloque) profundidadBloque--;
     }
   });
   cerrarActual();
 
-  // El texto anterior al primer encabezado se antepone a la primera diapositiva.
+  // La introducción precede al primer apartado con contenido, no a su resumen.
   if (intro.join("").trim() && secciones.length) {
-    secciones[0].cuerpo = intro.concat(secciones[0].cuerpo);
+    const primera = secciones.find(function (sec) { return sec.cuerpo.join("").trim(); }) || secciones[0];
+    primera.cuerpo = intro.concat(primera.cuerpo);
   }
 
-  const portadaSeccion = function (principal) {
-    const listaSubtitulos = principal.subtitulos.map(function (subtitulo) {
-      return "    <li>" + renderarMarkdownConLatex(subtitulo, true) + "</li>";
-    }).join("\n");
-    const tieneContenidoPropio = secciones.some(function (sec) {
-      return sec.nivel === 2 && sec.seccion === principal.titulo;
-    });
-    const clasePortada = "slide slide--seccion"
-      + (tieneContenidoPropio ? "" : " slide--seccion--titulo-necesario");
-
-    return '<section class="' + clasePortada + '" data-materia="' + escaparHTML(cap.materia)
-      + '" data-seccion="' + escaparHTML(principal.titulo) + '" data-nivel="2">\n'
-      + "  <h2>" + renderarMarkdownConLatex(principal.titulo, true) + "</h2>\n"
-      + "  <ul class=\"slide__indice-seccion\">\n" + listaSubtitulos + "\n  </ul>\n"
-      + "</section>\n";
-  };
-
-  let html = "";
-  let seccionRenderizada = "";
-
+  // Numerar en orden de lectura incluye también los títulos dentro de cajas.
+  // Primero se renderiza el cuerpo; después, los resúmenes pueden reutilizar
+  // los números definitivos de sus subtítulos sin consumir otros contadores.
   secciones.forEach(function (sec) {
-    if (sec.nivel === 3 && sec.seccion !== seccionRenderizada) {
-      const principal = principales.find(function (item) { return item.titulo === sec.seccion; });
-      if (principal) html += portadaSeccion(principal);
-    }
-    seccionRenderizada = sec.seccion;
-
-    html += '<section class="slide" data-materia="' + escaparHTML(cap.materia)
-      + '" data-seccion="' + escaparHTML(sec.seccion || sec.titulo)
-      + '" data-nivel="' + sec.nivel + '">\n';
-    html += "  <h2>" + renderarMarkdownConLatex(sec.titulo, true) + "</h2>\n";
-    html += renderarBloque(sec.cuerpo.join("\n"));
-    html += "\n</section>\n";
+    sec.numero = siguienteNumero(contadores, sec.nivel);
+    if (sec.nivel === 2) sec.principal.numero = sec.numero;
+    sec.cuerpoHTML = renderarBloque(sec.cuerpo.join("\n"), contadores);
   });
 
-  return html;
+  return secciones.map(function (sec, indice) {
+    const principal = sec.principal;
+    const esResumen = sec.nivel === 2 && !sec.cuerpo.join("").trim()
+      && principal && principal.subtitulos.length;
+    const clase = "slide" + (esResumen ? " slide--seccion slide--seccion--titulo-necesario" : "");
+    let html = '<section class="' + clase + '" id="seccion-' + (indice + 1)
+      + '" data-materia="' + escaparHTML(cap.materia)
+      + '" data-seccion="' + escaparHTML(principal ? principal.titulo : sec.titulo)
+      + '" data-seccion-numero="' + (principal ? principal.numero : sec.numero.split(".")[0])
+      + '" data-numero="' + sec.numero + '" data-nivel="' + sec.nivel + '">\n';
+    html += "  " + renderarEncabezado(renderarMarkdownConLatex(sec.titulo, true), sec.nivel, sec.numero) + "\n";
+    if (esResumen) {
+      html += '  <ul class="slide__indice-seccion">\n' + principal.subtitulos.map(function (sub) {
+        return '    <li><span class="heading__number">' + sub.numero + '</span> '
+          + renderarMarkdownConLatex(sub.titulo, true) + '</li>';
+      }).join("\n") + '\n  </ul>\n';
+    } else {
+      html += sec.cuerpoHTML;
+    }
+    return html + "\n</section>\n";
+  }).join("");
 }
 
 /* Genera la página índice general */
@@ -332,13 +360,13 @@ function renderarIndex(lista) {
   }, 0);
   const estructura = totalCapitulos + " " + (totalCapitulos === 1 ? "capítulo" : "capítulos")
     + (totalSecciones ? " · " + totalSecciones + " " + (totalSecciones === 1 ? "sección" : "secciones") : "");
-  const tarjetas = lista.capitulos.map(function (cap) {
+  const tarjetas = lista.capitulos.map(function (cap, idx) {
     const mat = MATERIAS[cap.materia] || { label: cap.materia, cls: "tag--mat" };
     const href = cap.archivo.replace(/\.md$/, ".html");
     return [
       '<a class="chapter-card" href="' + href + '">',
       '  <span class="tag ' + mat.cls + '">' + mat.label + "</span>",
-      "  <h2>" + escaparHTML(cap.titulo) + "</h2>",
+      '  <h2><span class="heading__number">' + (idx + 1) + '</span> ' + escaparHTML(cap.titulo) + '</h2>',
       "  <p>" + escaparHTML(cap.descripcion || "") + "</p>",
       "</a>",
     ].join("\n");
@@ -398,6 +426,7 @@ function main() {
     const html = plantilla
       .split("{{SERIE}}").join(lista.serie)
       .split("{{TITULO}}").join(cap.titulo)
+      .split("{{ESTILOS_IMPRESION}}").join(renderarEstilosImpresion(cap, lista.serie, idx + 1))
       .split("{{PORTADA}}").join(renderarPortada(cap, lista.serie, idx + 1))
       .split("{{CONTENIDO}}").join(contenido)
       .split("{{VOLVER}}").join("../index.html");
@@ -416,7 +445,8 @@ function main() {
    (incluidos los bloques :::) sin generar archivos ni ejecutar main(). */
 module.exports = {
   renderarCapitulo: renderarCapitulo,
-  renderarPortada: renderarPortada
+  renderarPortada: renderarPortada,
+  renderarEstilosImpresion: renderarEstilosImpresion
 };
 
 if (require.main === module) main();

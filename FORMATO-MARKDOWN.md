@@ -12,8 +12,19 @@ diapositivas ya incluidos.
 - El **título** del capítulo y su **materia** se escriben en `capitulos/lista.json`
   (no en el `.md`).
 - Dentro del `.md`, cada sección principal empieza con `## Título de la sección`.
-- Cada `##` genera, **solo en el modo diapositivas**, una portada de sección con su título y la lista de sus subtítulos `###`. Esa portada no aparece en la lectura normal ni al imprimir; si el `##` no tiene texto propio antes de los `###`, se conserva únicamente su título para mantener la jerarquía. Cada `###` con contenido crea después su propia diapositiva y muestra solo el título de ese apartado.
+- Si un `##` no tiene texto propio antes de sus `###`, en el **modo diapositivas** se muestra como portada de sección con su título y una lista numerada de esos subtítulos. En la lectura normal y al imprimir se conserva solo el título principal para mantener la jerarquía, sin esa lista. Un `##` con texto conserva su contenido. Cada `###` crea su propia diapositiva; si solo contiene actividades, su título se muestra como contexto de la diapositiva de actividades.
 - Usa `###` para dividir una sección larga en diapositivas más breves; el índice lateral las agrupa bajo su encabezado `##`, que enlaza a su diapositiva de sección. Para las actividades usa el entorno `::: actividades` (apartado 3).
+- Los títulos se **numeran automáticamente**: `##` → `1`, `###` → `1.1`,
+  `####` → `1.1.1`, y así hasta `######`. La numeración empieza de nuevo en
+  cada capítulo y es la misma en HTML, índice lateral, diapositivas y PDF.
+  No añadas los números manualmente. Usa los niveles en orden; si omites uno,
+  su número se completa con `1`.
+- Los `####`, `#####` y `######` son títulos internos del apartado, no nuevas
+  diapositivas. Cada nivel conserva su etiqueta HTML y su jerarquía visual.
+- Al imprimir, las secciones y apartados **van seguidos**, sin saltos de página
+  obligatorios. El PDF usa texto serif, títulos diferenciados, cajas en gris e
+  imágenes en escala de grises. Los temporizadores muestran su duración inicial
+  como «Tiempo orientativo», no el estado del reloj interactivo.
 
 > Un solo archivo Markdown puede contener todas las secciones de un capítulo. En `lista.json` debe haber **una sola entrada** para ese archivo; el campo opcional `secciones` permite mostrar su número en el índice general.
 
@@ -51,7 +62,8 @@ Más contenido...
 | Enlace | `[texto](https://…)` | enlace |
 | Cita | `> texto` | cita |
 | Título de sección | `## Título` | sección principal |
-| Subtítulo | `### Subtítulo` | apartado nuevo y diapositiva propia |
+| Subtítulo | `### Subtítulo` | apartado numerado y diapositiva propia |
+| Título interno | `#### Detalle` | título numerado dentro del apartado |
 
 ### Tablas
 

@@ -35,11 +35,13 @@
   var sublistaActual = null;
 
   sections.forEach(function (section) {
-    var heading = section.querySelector("h2");
+    var heading = section.querySelector(":scope > h2, :scope > h3");
     if (!heading) return;
 
     var materia = section.getAttribute("data-materia") || "";
+    var numeroSeccion = section.getAttribute("data-seccion-numero") || "";
     var seccion = section.getAttribute("data-seccion") || "";
+    var claveSeccion = numeroSeccion || seccion;
     var textoTitulo = heading.textContent.trim();
 
     // Añade separador de materia cuando cambia
@@ -54,8 +56,8 @@
 
     // Los encabezados ## forman el primer nivel del índice; las
     // diapositivas creadas desde ### se añaden dentro de esa sección.
-    if (seccion && seccion !== seccionActual) {
-      seccionActual = seccion;
+    if (seccion && claveSeccion !== seccionActual) {
+      seccionActual = claveSeccion;
       var grupo = document.createElement("li");
       grupo.className = "toc__seccion";
 
@@ -70,12 +72,12 @@
           && !section.classList.contains("slide--seccion--titulo-necesario")) {
         var posicion = sections.indexOf(section);
         destino = sections.slice(posicion + 1).find(function (candidata) {
-          return candidata.getAttribute("data-seccion") === seccion
+          return (candidata.getAttribute("data-seccion-numero") || candidata.getAttribute("data-seccion")) === claveSeccion
             && !candidata.classList.contains("slide--seccion");
         }) || section;
       }
       tituloSeccion.href = "#" + destino.id;
-      tituloSeccion.textContent = seccion;
+      tituloSeccion.textContent = (numeroSeccion ? numeroSeccion + " " : "") + seccion;
       grupo.appendChild(tituloSeccion);
 
       sublistaActual = document.createElement("ol");
@@ -103,7 +105,7 @@
     var activo = null;
 
     sections.forEach(function (section) {
-      if (section.offsetTop <= posicion) activo = section.id;
+      if (section.offsetParent !== null && section.offsetTop <= posicion) activo = section.id;
     });
 
     enlacesToc.forEach(function (a) {
@@ -418,7 +420,7 @@
       clon.innerHTML = section.innerHTML;
 
       var cajas = Array.prototype.slice.call(clon.querySelectorAll(".box--actividades"));
-      var encabezado = clon.querySelector("h2");
+      var encabezado = clon.querySelector(":scope > h2, :scope > h3");
       var contexto = encabezado ? encabezado.innerHTML : "";
 
       cajas.forEach(function (caja) { caja.parentNode.removeChild(caja); });

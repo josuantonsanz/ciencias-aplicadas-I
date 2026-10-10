@@ -6,6 +6,15 @@
   <title>Combinar la materia · Ciencias Aplicadas I</title>
   <meta name="description" content="Combinar la materia — Ciencias Aplicadas I">
   <link rel="stylesheet" href="../styles.css">
+  <style>
+@media print {
+  @page {
+    @top-left { content: "Ciencias Aplicadas I"; }
+    @top-right { content: "Capítulo 2"; }
+    @bottom-left { content: "Combinar la materia"; }
+  }
+}
+</style>
   <!-- KaTeX se sirve localmente: el capítulo sigue funcionando sin Internet. -->
   <link rel="stylesheet" href="../lib/katex/katex.min.css">
 </head>
@@ -51,8 +60,8 @@
   <div class="cover__meta"><span>Curso 2026 – 2027</span><span>Formación Básica</span></div>
 </header>
 
-      <section class="slide" data-materia="ciencias" data-seccion="¿Qué vamos a aprender?" data-nivel="2">
-  <h2>¿Qué vamos a aprender?</h2>
+      <section class="slide" id="seccion-1" data-materia="ciencias" data-seccion="¿Qué vamos a aprender?" data-seccion-numero="1" data-numero="1" data-nivel="2">
+  <h2><span class="heading__number">1</span> ¿Qué vamos a aprender?</h2>
 <p>En este tema trabajaremos tres bloques que están conectados:</p>
 <ul>
 <li><strong>Matemáticas:</strong> las potencias y sus propiedades.</li>
@@ -74,16 +83,17 @@
 
 </div>
 </section>
-<section class="slide slide--seccion slide--seccion--titulo-necesario" data-materia="ciencias" data-seccion="Matemáticas: potencias" data-nivel="2">
-  <h2>Matemáticas: potencias</h2>
+<section class="slide slide--seccion slide--seccion--titulo-necesario" id="seccion-2" data-materia="ciencias" data-seccion="Matemáticas: potencias" data-seccion-numero="2" data-numero="2" data-nivel="2">
+  <h2><span class="heading__number">2</span> Matemáticas: potencias</h2>
   <ul class="slide__indice-seccion">
-    <li>¿Qué es una potencia?</li>
-    <li>Potencias de base 10</li>
-    <li>Las propiedades de las potencias</li>
+    <li><span class="heading__number">2.1</span> ¿Qué es una potencia?</li>
+    <li><span class="heading__number">2.2</span> Potencias de base 10</li>
+    <li><span class="heading__number">2.3</span> Las propiedades de las potencias</li>
   </ul>
+
 </section>
-<section class="slide" data-materia="ciencias" data-seccion="Matemáticas: potencias" data-nivel="3">
-  <h2>¿Qué es una potencia?</h2>
+<section class="slide" id="seccion-3" data-materia="ciencias" data-seccion="Matemáticas: potencias" data-seccion-numero="2" data-numero="2.1" data-nivel="3">
+  <h3><span class="heading__number">2.1</span> ¿Qué es una potencia?</h3>
 <p>Una <strong>potencia</strong> es una forma abreviada de escribir un producto en el que se repite el mismo número:</p>
 
 <div class="math formula">
@@ -114,7 +124,7 @@ $$a^n = \underbrace{a \times a \times \cdots \times a}_{n\ \text{veces}}$$
 <li>¿Cómo se leen? a) $8^3$; b) $15^2$; c) $2^6$.</li>
 </ol>
 
-<div class="timer" data-timer-seconds="240" role="group" aria-label="Temporizador de 4:00">
+<div class="timer" data-timer-seconds="240" data-timer-duration="4:00" role="group" aria-label="Temporizador de 4:00">
   <div class="timer__dial" aria-hidden="true"><span class="timer__display">4:00</span></div>
   <div class="timer__body">
     <p class="timer__eyebrow">Tiempo restante</p>
@@ -129,8 +139,8 @@ $$a^n = \underbrace{a \times a \times \cdots \times a}_{n\ \text{veces}}$$
 </div>
 </div>
 </section>
-<section class="slide" data-materia="ciencias" data-seccion="Matemáticas: potencias" data-nivel="3">
-  <h2>Potencias de base 10</h2>
+<section class="slide" id="seccion-4" data-materia="ciencias" data-seccion="Matemáticas: potencias" data-seccion-numero="2" data-numero="2.2" data-nivel="3">
+  <h3><span class="heading__number">2.2</span> Potencias de base 10</h3>
 <p>Una potencia de base 10 es igual a la <strong>unidad seguida de tantos ceros como indica el exponente</strong>:</p>
 <table>
 <thead>
@@ -185,7 +195,7 @@ $$a^n = \underbrace{a \times a \times \cdots \times a}_{n\ \text{veces}}$$
 <li>Descompón el número 67 304 como suma de potencias de 10.</li>
 </ol>
 
-<div class="timer" data-timer-seconds="240" role="group" aria-label="Temporizador de 4:00">
+<div class="timer" data-timer-seconds="240" data-timer-duration="4:00" role="group" aria-label="Temporizador de 4:00">
   <div class="timer__dial" aria-hidden="true"><span class="timer__display">4:00</span></div>
   <div class="timer__body">
     <p class="timer__eyebrow">Tiempo restante</p>
@@ -200,8 +210,8 @@ $$a^n = \underbrace{a \times a \times \cdots \times a}_{n\ \text{veces}}$$
 </div>
 </div>
 </section>
-<section class="slide" data-materia="ciencias" data-seccion="Matemáticas: potencias" data-nivel="3">
-  <h2>Las propiedades de las potencias</h2>
+<section class="slide" id="seccion-5" data-materia="ciencias" data-seccion="Matemáticas: potencias" data-seccion-numero="2" data-numero="2.3" data-nivel="3">
+  <h3><span class="heading__number">2.3</span> Las propiedades de las potencias</h3>
 <p>No siempre hace falta calcular el resultado: podemos dejar el resultado <strong>como una sola potencia</strong>. Estas son las propiedades que más se usan:</p>
 <table>
 <thead>
@@ -256,7 +266,7 @@ $$a^n = \underbrace{a \times a \times \cdots \times a}_{n\ \text{veces}}$$
 <li>¿Verdadero o falso? Corrige los enunciados falsos: a) $2^4 \times 2^5 = 2^{20}$; b) $6^7 : 6^7 = 1$; c) $(10^5)^2 = 10^7$; d) $3^0 = 1$.</li>
 </ol>
 
-<div class="timer" data-timer-seconds="360" role="group" aria-label="Temporizador de 6:00">
+<div class="timer" data-timer-seconds="360" data-timer-duration="6:00" role="group" aria-label="Temporizador de 6:00">
   <div class="timer__dial" aria-hidden="true"><span class="timer__display">6:00</span></div>
   <div class="timer__body">
     <p class="timer__eyebrow">Tiempo restante</p>
@@ -279,7 +289,7 @@ $$a^n = \underbrace{a \times a \times \cdots \times a}_{n\ \text{veces}}$$
 </ul>
 
 </div>
-<h4>Practica online</h4>
+<h4><span class="heading__number">2.3.1</span> Practica online</h4>
 <ul>
 <li><a href="https://www.cokitos.com/ecuaciones-con-potencias/play/" target="_blank" rel="noopener">Carrera de potencias (Arcademics)</a></li>
 </ul>
@@ -288,16 +298,17 @@ $$a^n = \underbrace{a \times a \times \cdots \times a}_{n\ \text{veces}}$$
 </blockquote>
 
 </section>
-<section class="slide slide--seccion slide--seccion--titulo-necesario" data-materia="ciencias" data-seccion="Física y química: la masa y sus unidades" data-nivel="2">
-  <h2>Física y química: la masa y sus unidades</h2>
+<section class="slide slide--seccion slide--seccion--titulo-necesario" id="seccion-6" data-materia="ciencias" data-seccion="Física y química: la masa y sus unidades" data-seccion-numero="3" data-numero="3" data-nivel="2">
+  <h2><span class="heading__number">3</span> Física y química: la masa y sus unidades</h2>
   <ul class="slide__indice-seccion">
-    <li>Masa y peso no son lo mismo</li>
-    <li>Cambio de unidades de masa</li>
-    <li>La relación entre masa, capacidad y volumen</li>
+    <li><span class="heading__number">3.1</span> Masa y peso no son lo mismo</li>
+    <li><span class="heading__number">3.2</span> Cambio de unidades de masa</li>
+    <li><span class="heading__number">3.3</span> La relación entre masa, capacidad y volumen</li>
   </ul>
+
 </section>
-<section class="slide" data-materia="ciencias" data-seccion="Física y química: la masa y sus unidades" data-nivel="3">
-  <h2>Masa y peso no son lo mismo</h2>
+<section class="slide" id="seccion-7" data-materia="ciencias" data-seccion="Física y química: la masa y sus unidades" data-seccion-numero="3" data-numero="3.1" data-nivel="3">
+  <h3><span class="heading__number">3.1</span> Masa y peso no son lo mismo</h3>
 <p>La <strong>masa</strong> mide la cantidad de materia de un cuerpo. Su unidad en el Sistema Internacional es el <strong>kilogramo</strong> ($\mathrm{kg}$), aunque en el día a día usamos mucho el <strong>gramo</strong> ($\mathrm{g}$).</p>
 <p>El <strong>peso</strong> es la fuerza con la que la gravedad atrae a un cuerpo y se mide en <strong>newtons</strong> ($\mathrm{N}$). Un mismo cuerpo tiene la misma masa en la Tierra y en la Luna, pero pesa distinto.</p>
 
@@ -318,8 +329,8 @@ $$a^n = \underbrace{a \times a \times \cdots \times a}_{n\ \text{veces}}$$
 
 </div>
 </section>
-<section class="slide" data-materia="ciencias" data-seccion="Física y química: la masa y sus unidades" data-nivel="3">
-  <h2>Cambio de unidades de masa</h2>
+<section class="slide" id="seccion-8" data-materia="ciencias" data-seccion="Física y química: la masa y sus unidades" data-seccion-numero="3" data-numero="3.2" data-nivel="3">
+  <h3><span class="heading__number">3.2</span> Cambio de unidades de masa</h3>
 <p>Para pasar de una unidad a otra multiplicamos o dividimos por 10 en cada salto:</p>
 <p><img src="escalera_masa.png" alt="image"></p>
 
@@ -344,7 +355,7 @@ $$a^n = \underbrace{a \times a \times \cdots \times a}_{n\ \text{veces}}$$
 <li>Una vaca lechera tiene una masa de 5 quintales. ¿Cuántos kilogramos son?</li>
 </ol>
 
-<div class="timer" data-timer-seconds="300" role="group" aria-label="Temporizador de 5:00">
+<div class="timer" data-timer-seconds="300" data-timer-duration="5:00" role="group" aria-label="Temporizador de 5:00">
   <div class="timer__dial" aria-hidden="true"><span class="timer__display">5:00</span></div>
   <div class="timer__body">
     <p class="timer__eyebrow">Tiempo restante</p>
@@ -359,8 +370,8 @@ $$a^n = \underbrace{a \times a \times \cdots \times a}_{n\ \text{veces}}$$
 </div>
 </div>
 </section>
-<section class="slide" data-materia="ciencias" data-seccion="Física y química: la masa y sus unidades" data-nivel="3">
-  <h2>La relación entre masa, capacidad y volumen</h2>
+<section class="slide" id="seccion-9" data-materia="ciencias" data-seccion="Física y química: la masa y sus unidades" data-seccion-numero="3" data-numero="3.3" data-nivel="3">
+  <h3><span class="heading__number">3.3</span> La relación entre masa, capacidad y volumen</h3>
 <p>Para el <strong>agua pura</strong> existe una relación muy útil entre estas tres magnitudes:</p>
 <table>
 <thead>
@@ -396,7 +407,7 @@ $$a^n = \underbrace{a \times a \times \cdots \times a}_{n\ \text{veces}}$$
 <li>Un depósito tiene $2\,\mathrm{m}^3$ de agua. ¿Cuántos litros son? ¿Cuántas toneladas son?</li>
 </ol>
 
-<div class="timer" data-timer-seconds="240" role="group" aria-label="Temporizador de 4:00">
+<div class="timer" data-timer-seconds="240" data-timer-duration="4:00" role="group" aria-label="Temporizador de 4:00">
   <div class="timer__dial" aria-hidden="true"><span class="timer__display">4:00</span></div>
   <div class="timer__body">
     <p class="timer__eyebrow">Tiempo restante</p>
@@ -421,17 +432,18 @@ $$a^n = \underbrace{a \times a \times \cdots \times a}_{n\ \text{veces}}$$
 
 </div>
 </section>
-<section class="slide slide--seccion slide--seccion--titulo-necesario" data-materia="ciencias" data-seccion="Física y química: la materia y sus propiedades" data-nivel="2">
-  <h2>Física y química: la materia y sus propiedades</h2>
+<section class="slide slide--seccion slide--seccion--titulo-necesario" id="seccion-10" data-materia="ciencias" data-seccion="Física y química: la materia y sus propiedades" data-seccion-numero="4" data-numero="4" data-nivel="2">
+  <h2><span class="heading__number">4</span> Física y química: la materia y sus propiedades</h2>
   <ul class="slide__indice-seccion">
-    <li>¿Qué es la materia?</li>
-    <li>Propiedades generales: masa y volumen</li>
-    <li>Propiedades específicas: la densidad</li>
-    <li>Temperatura, calor y presión</li>
+    <li><span class="heading__number">4.1</span> ¿Qué es la materia?</li>
+    <li><span class="heading__number">4.2</span> Propiedades generales: masa y volumen</li>
+    <li><span class="heading__number">4.3</span> Propiedades específicas: la densidad</li>
+    <li><span class="heading__number">4.4</span> Temperatura, calor y presión</li>
   </ul>
+
 </section>
-<section class="slide" data-materia="ciencias" data-seccion="Física y química: la materia y sus propiedades" data-nivel="3">
-  <h2>¿Qué es la materia?</h2>
+<section class="slide" id="seccion-11" data-materia="ciencias" data-seccion="Física y química: la materia y sus propiedades" data-seccion-numero="4" data-numero="4.1" data-nivel="3">
+  <h3><span class="heading__number">4.1</span> ¿Qué es la materia?</h3>
 <p>La <strong>materia</strong> es todo lo que ocupa un lugar en el espacio y tiene masa. Un <strong>sistema material</strong> es una porción de materia que estudiamos (un trozo de pan, una piedra, el aire de una botella). Todo lo que rodea al sistema es el <strong>entorno</strong> o ambiente.</p>
 <p>La materia está formada por partículas cada vez más pequeñas, que se organizan por <strong>niveles</strong>:</p>
 <ol>
@@ -447,8 +459,8 @@ $$a^n = \underbrace{a \times a \times \cdots \times a}_{n\ \text{veces}}$$
 
 </div>
 </section>
-<section class="slide" data-materia="ciencias" data-seccion="Física y química: la materia y sus propiedades" data-nivel="3">
-  <h2>Propiedades generales: masa y volumen</h2>
+<section class="slide" id="seccion-12" data-materia="ciencias" data-seccion="Física y química: la materia y sus propiedades" data-seccion-numero="4" data-numero="4.2" data-nivel="3">
+  <h3><span class="heading__number">4.2</span> Propiedades generales: masa y volumen</h3>
 <p>Las propiedades <strong>generales</strong> son comunes a toda la materia:</p>
 <ul>
 <li>La <strong>masa</strong>, que ya hemos estudiado.</li>
@@ -478,8 +490,8 @@ $$V = \text{alto} \times \text{ancho} \times \text{largo}$$
 
 </div>
 </section>
-<section class="slide" data-materia="ciencias" data-seccion="Física y química: la materia y sus propiedades" data-nivel="3">
-  <h2>Propiedades específicas: la densidad</h2>
+<section class="slide" id="seccion-13" data-materia="ciencias" data-seccion="Física y química: la materia y sus propiedades" data-seccion-numero="4" data-numero="4.3" data-nivel="3">
+  <h3><span class="heading__number">4.3</span> Propiedades específicas: la densidad</h3>
 <p>Las propiedades <strong>específicas</strong> son características de cada sustancia: el color, el olor, el sabor, el punto de fusión o la densidad.</p>
 <p>La <strong>densidad</strong> ($d$) relaciona la masa de un cuerpo con el volumen que ocupa:</p>
 
@@ -505,7 +517,7 @@ $$d = \frac{m}{V}$$
 <li>Ordena de menor a mayor densidad estas sustancias: corcho, agua, hierro y aceite.</li>
 </ol>
 
-<div class="timer" data-timer-seconds="360" role="group" aria-label="Temporizador de 6:00">
+<div class="timer" data-timer-seconds="360" data-timer-duration="6:00" role="group" aria-label="Temporizador de 6:00">
   <div class="timer__dial" aria-hidden="true"><span class="timer__display">6:00</span></div>
   <div class="timer__body">
     <p class="timer__eyebrow">Tiempo restante</p>
@@ -520,8 +532,8 @@ $$d = \frac{m}{V}$$
 </div>
 </div>
 </section>
-<section class="slide" data-materia="ciencias" data-seccion="Física y química: la materia y sus propiedades" data-nivel="3">
-  <h2>Temperatura, calor y presión</h2>
+<section class="slide" id="seccion-14" data-materia="ciencias" data-seccion="Física y química: la materia y sus propiedades" data-seccion-numero="4" data-numero="4.4" data-nivel="3">
+  <h3><span class="heading__number">4.4</span> Temperatura, calor y presión</h3>
 <ul>
 <li>La <strong>temperatura</strong> mide la energía térmica de las partículas. En el Sistema Internacional se mide en <strong>kelvin</strong> ($\mathrm{K}$), aunque usamos los <strong>grados Celsius</strong> ($^\circ\mathrm{C}$).</li>
 </ul>
@@ -558,21 +570,22 @@ $$T(\mathrm{K}) = 273 + T(^\circ\mathrm{C})$$
 </ul>
 
 </div>
-<h4>Practica online</h4>
+<h4><span class="heading__number">4.4.1</span> Practica online</h4>
 <p>Simulación <strong>«Densidad»</strong> de PhET: <a href="https://phet.colorado.edu/es/simulations/density" target="_blank" rel="noopener">phet.colorado.edu/es/simulations/density</a></p>
 <p>Puedes cambiar la masa y el volumen de un bloque y comprobar cuándo flota o se hunde en el agua.</p>
 
 </section>
-<section class="slide slide--seccion slide--seccion--titulo-necesario" data-materia="ciencias" data-seccion="Física y química: los estados de la materia" data-nivel="2">
-  <h2>Física y química: los estados de la materia</h2>
+<section class="slide slide--seccion slide--seccion--titulo-necesario" id="seccion-15" data-materia="ciencias" data-seccion="Física y química: los estados de la materia" data-seccion-numero="5" data-numero="5" data-nivel="2">
+  <h2><span class="heading__number">5</span> Física y química: los estados de la materia</h2>
   <ul class="slide__indice-seccion">
-    <li>Los estados de agregación</li>
-    <li>Los cambios de estado</li>
-    <li>Puntos de fusión y ebullición</li>
+    <li><span class="heading__number">5.1</span> Los estados de agregación</li>
+    <li><span class="heading__number">5.2</span> Los cambios de estado</li>
+    <li><span class="heading__number">5.3</span> Puntos de fusión y ebullición</li>
   </ul>
+
 </section>
-<section class="slide" data-materia="ciencias" data-seccion="Física y química: los estados de la materia" data-nivel="3">
-  <h2>Los estados de agregación</h2>
+<section class="slide" id="seccion-16" data-materia="ciencias" data-seccion="Física y química: los estados de la materia" data-seccion-numero="5" data-numero="5.1" data-nivel="3">
+  <h3><span class="heading__number">5.1</span> Los estados de agregación</h3>
 <p>Según cómo estén unidas y separadas sus partículas, la materia se encuentra en distintos estados:</p>
 <table>
 <thead>
@@ -614,7 +627,7 @@ $$T(\mathrm{K}) = 273 + T(^\circ\mathrm{C})$$
 <li>¿Dónde encontramos plasma en la naturaleza? Cita dos ejemplos.</li>
 </ol>
 
-<div class="timer" data-timer-seconds="240" role="group" aria-label="Temporizador de 4:00">
+<div class="timer" data-timer-seconds="240" data-timer-duration="4:00" role="group" aria-label="Temporizador de 4:00">
   <div class="timer__dial" aria-hidden="true"><span class="timer__display">4:00</span></div>
   <div class="timer__body">
     <p class="timer__eyebrow">Tiempo restante</p>
@@ -629,8 +642,8 @@ $$T(\mathrm{K}) = 273 + T(^\circ\mathrm{C})$$
 </div>
 </div>
 </section>
-<section class="slide" data-materia="ciencias" data-seccion="Física y química: los estados de la materia" data-nivel="3">
-  <h2>Los cambios de estado</h2>
+<section class="slide" id="seccion-17" data-materia="ciencias" data-seccion="Física y química: los estados de la materia" data-seccion-numero="5" data-numero="5.2" data-nivel="3">
+  <h3><span class="heading__number">5.2</span> Los cambios de estado</h3>
 <p>Cuando cambia la temperatura, la materia pasa de un estado a otro. Son <strong>cambios físicos</strong>: la sustancia sigue siendo la misma.</p>
 <p><img src="estados_materia.png" alt="image"></p>
 <table>
@@ -677,7 +690,7 @@ $$T(\mathrm{K}) = 273 + T(^\circ\mathrm{C})$$
 <li>Copia y completa: «Al aumentar la temperatura, las partículas se mueven ________ y la sustancia pasa de ________ a ________».</li>
 </ol>
 
-<div class="timer" data-timer-seconds="300" role="group" aria-label="Temporizador de 5:00">
+<div class="timer" data-timer-seconds="300" data-timer-duration="5:00" role="group" aria-label="Temporizador de 5:00">
   <div class="timer__dial" aria-hidden="true"><span class="timer__display">5:00</span></div>
   <div class="timer__body">
     <p class="timer__eyebrow">Tiempo restante</p>
@@ -692,8 +705,8 @@ $$T(\mathrm{K}) = 273 + T(^\circ\mathrm{C})$$
 </div>
 </div>
 </section>
-<section class="slide" data-materia="ciencias" data-seccion="Física y química: los estados de la materia" data-nivel="3">
-  <h2>Puntos de fusión y ebullición</h2>
+<section class="slide" id="seccion-18" data-materia="ciencias" data-seccion="Física y química: los estados de la materia" data-seccion-numero="5" data-numero="5.3" data-nivel="3">
+  <h3><span class="heading__number">5.3</span> Puntos de fusión y ebullición</h3>
 <p>Cada <strong>sustancia pura</strong> tiene un punto de fusión y un punto de ebullición característicos. Sirven para identificarla y para saber si una sustancia es pura.</p>
 <table>
 <thead>
@@ -739,21 +752,22 @@ $$T(\mathrm{K}) = 273 + T(^\circ\mathrm{C})$$
 </ul>
 
 </div>
-<h4>Practica online</h4>
+<h4><span class="heading__number">5.3.1</span> Practica online</h4>
 <p>Simulación <strong>«Estados de la materia: básico»</strong> de PhET: <a href="https://phet.colorado.edu/es/simulations/states-of-matter-basics" target="_blank" rel="noopener">phet.colorado.edu/es/simulations/states-of-matter-basics</a></p>
 <p>Calienta y enfría distintos materiales y observa cómo se mueven sus partículas al cambiar de estado.</p>
 
 </section>
-<section class="slide slide--seccion slide--seccion--titulo-necesario" data-materia="ciencias" data-seccion="Biología: la materia viva" data-nivel="2">
-  <h2>Biología: la materia viva</h2>
+<section class="slide slide--seccion slide--seccion--titulo-necesario" id="seccion-19" data-materia="ciencias" data-seccion="Biología: la materia viva" data-seccion-numero="6" data-numero="6" data-nivel="2">
+  <h2><span class="heading__number">6</span> Biología: la materia viva</h2>
   <ul class="slide__indice-seccion">
-    <li>Bioelementos y biomoléculas</li>
-    <li>Los niveles de organización de la materia viva</li>
-    <li>La célula, unidad básica de la vida</li>
+    <li><span class="heading__number">6.1</span> Bioelementos y biomoléculas</li>
+    <li><span class="heading__number">6.2</span> Los niveles de organización de la materia viva</li>
+    <li><span class="heading__number">6.3</span> La célula, unidad básica de la vida</li>
   </ul>
+
 </section>
-<section class="slide" data-materia="ciencias" data-seccion="Biología: la materia viva" data-nivel="3">
-  <h2>Bioelementos y biomoléculas</h2>
+<section class="slide" id="seccion-20" data-materia="ciencias" data-seccion="Biología: la materia viva" data-seccion-numero="6" data-numero="6.1" data-nivel="3">
+  <h3><span class="heading__number">6.1</span> Bioelementos y biomoléculas</h3>
 <p>La materia viva también está formada por átomos, pero organizados de una forma muy especial. Los elementos químicos que forman los seres vivos se llaman <strong>bioelementos</strong>. Los más abundantes son el <strong>carbono</strong> (C), el <strong>hidrógeno</strong> (H), el <strong>oxígeno</strong> (O) y el <strong>nitrógeno</strong> (N); junto con el fósforo (P) y el azufre (S) forman la mayoría de nuestras moléculas.</p>
 <p>Las moléculas de los seres vivos se llaman <strong>biomoléculas</strong> y se clasifican en dos grupos:</p>
 <table>
@@ -788,8 +802,8 @@ $$T(\mathrm{K}) = 273 + T(^\circ\mathrm{C})$$
 
 </div>
 </section>
-<section class="slide" data-materia="ciencias" data-seccion="Biología: la materia viva" data-nivel="3">
-  <h2>Los niveles de organización de la materia viva</h2>
+<section class="slide" id="seccion-21" data-materia="ciencias" data-seccion="Biología: la materia viva" data-seccion-numero="6" data-numero="6.2" data-nivel="3">
+  <h3><span class="heading__number">6.2</span> Los niveles de organización de la materia viva</h3>
 <p><img src="niveles_organizacion.png" alt="image"></p>
 <p>Las biomoléculas se unen y forman estructuras cada vez más complejas. En los seres vivos encontramos estos <strong>niveles de organización</strong>:</p>
 <table>
@@ -847,8 +861,8 @@ $$T(\mathrm{K}) = 273 + T(^\circ\mathrm{C})$$
 
 </div>
 </section>
-<section class="slide" data-materia="ciencias" data-seccion="Biología: la materia viva" data-nivel="3">
-  <h2>La célula, unidad básica de la vida</h2>
+<section class="slide" id="seccion-22" data-materia="ciencias" data-seccion="Biología: la materia viva" data-seccion-numero="6" data-numero="6.3" data-nivel="3">
+  <h3><span class="heading__number">6.3</span> La célula, unidad básica de la vida</h3>
 <p><img src="celula.webp" alt="image"></p>
 <p>La <strong>célula</strong> es la unidad más pequeña que tiene vida propia. Todos los seres vivos están formados por células:</p>
 <ul>
@@ -878,7 +892,7 @@ $$T(\mathrm{K}) = 273 + T(^\circ\mathrm{C})$$
 <li>Ordena este recorrido: órgano → célula → aparato → tejido → individuo.</li>
 </ol>
 
-<div class="timer" data-timer-seconds="240" role="group" aria-label="Temporizador de 4:00">
+<div class="timer" data-timer-seconds="240" data-timer-duration="4:00" role="group" aria-label="Temporizador de 4:00">
   <div class="timer__dial" aria-hidden="true"><span class="timer__display">4:00</span></div>
   <div class="timer__body">
     <p class="timer__eyebrow">Tiempo restante</p>
@@ -902,16 +916,17 @@ $$T(\mathrm{K}) = 273 + T(^\circ\mathrm{C})$$
 
 </div>
 </section>
-<section class="slide slide--seccion slide--seccion--titulo-necesario" data-materia="ciencias" data-seccion="Biología: la función de relación" data-nivel="2">
-  <h2>Biología: la función de relación</h2>
+<section class="slide slide--seccion slide--seccion--titulo-necesario" id="seccion-23" data-materia="ciencias" data-seccion="Biología: la función de relación" data-seccion-numero="7" data-numero="7" data-nivel="2">
+  <h2><span class="heading__number">7</span> Biología: la función de relación</h2>
   <ul class="slide__indice-seccion">
-    <li>Estímulo, receptor y respuesta</li>
-    <li>El sistema nervioso</li>
-    <li>Los órganos de los sentidos</li>
+    <li><span class="heading__number">7.1</span> Estímulo, receptor y respuesta</li>
+    <li><span class="heading__number">7.2</span> El sistema nervioso</li>
+    <li><span class="heading__number">7.3</span> Los órganos de los sentidos</li>
   </ul>
+
 </section>
-<section class="slide" data-materia="ciencias" data-seccion="Biología: la función de relación" data-nivel="3">
-  <h2>Estímulo, receptor y respuesta</h2>
+<section class="slide" id="seccion-24" data-materia="ciencias" data-seccion="Biología: la función de relación" data-seccion-numero="7" data-numero="7.1" data-nivel="3">
+  <h3><span class="heading__number">7.1</span> Estímulo, receptor y respuesta</h3>
 <p>La <strong>función de relación</strong> es la capacidad de los seres vivos de detectar cambios en el entorno y responder a ellos. Es esencial para buscar alimento o huir de los peligros.</p>
 <p>En ella intervienen tres elementos:</p>
 <ol>
@@ -940,8 +955,8 @@ $$T(\mathrm{K}) = 273 + T(^\circ\mathrm{C})$$
 
 </div>
 </section>
-<section class="slide" data-materia="ciencias" data-seccion="Biología: la función de relación" data-nivel="3">
-  <h2>El sistema nervioso</h2>
+<section class="slide" id="seccion-25" data-materia="ciencias" data-seccion="Biología: la función de relación" data-seccion-numero="7" data-numero="7.2" data-nivel="3">
+  <h3><span class="heading__number">7.2</span> El sistema nervioso</h3>
 <p>El sistema nervioso es una gran red de células llamadas <strong>neuronas</strong>, especializadas en transmitir una señal eléctrica muy rápida: el <strong>impulso nervioso</strong>.</p>
 <p>Cada neurona tiene:</p>
 <ul>
@@ -971,8 +986,8 @@ $$T(\mathrm{K}) = 273 + T(^\circ\mathrm{C})$$
 
 </div>
 </section>
-<section class="slide" data-materia="ciencias" data-seccion="Biología: la función de relación" data-nivel="3">
-  <h2>Los órganos de los sentidos</h2>
+<section class="slide" id="seccion-26" data-materia="ciencias" data-seccion="Biología: la función de relación" data-seccion-numero="7" data-numero="7.3" data-nivel="3">
+  <h3><span class="heading__number">7.3</span> Los órganos de los sentidos</h3>
 <p>Los receptores sensoriales se agrupan en los <strong>órganos de los sentidos</strong>. Captan información del exterior y la envían al sistema nervioso central.</p>
 <table>
 <thead>
@@ -1024,7 +1039,7 @@ $$T(\mathrm{K}) = 273 + T(^\circ\mathrm{C})$$
 <li>¿Qué órgano se encarga del equilibrio?</li>
 </ol>
 
-<div class="timer" data-timer-seconds="300" role="group" aria-label="Temporizador de 5:00">
+<div class="timer" data-timer-seconds="300" data-timer-duration="5:00" role="group" aria-label="Temporizador de 5:00">
   <div class="timer__dial" aria-hidden="true"><span class="timer__display">5:00</span></div>
   <div class="timer__body">
     <p class="timer__eyebrow">Tiempo restante</p>
@@ -1047,19 +1062,19 @@ $$T(\mathrm{K}) = 273 + T(^\circ\mathrm{C})$$
 </ul>
 
 </div>
-<h4>Practica online</h4>
+<h4><span class="heading__number">7.3.1</span> Practica online</h4>
 <ul>
 <li><a href="https://biologia-geologia.com/juegos/laboratoriosensorial.html" target="_blank" rel="noopener">Laboratorio sensorial virtual</a></li>
 </ul>
 
 </section>
-<section class="slide" data-materia="ciencias" data-seccion="Reto: fabrica tus propias gominolas" data-nivel="2">
-  <h2>Reto: fabrica tus propias gominolas</h2>
+<section class="slide" id="seccion-27" data-materia="ciencias" data-seccion="Reto: fabrica tus propias gominolas" data-seccion-numero="8" data-numero="8" data-nivel="2">
+  <h2><span class="heading__number">8</span> Reto: fabrica tus propias gominolas</h2>
 <p>Este reto consiste en <strong>combinar sustancias</strong> en distintos estados y observar cómo se transforman. Vais a fabricar gominolas y a grabar un vídeo explicando el proceso.</p>
 
 </section>
-<section class="slide" data-materia="ciencias" data-seccion="Reto: fabrica tus propias gominolas" data-nivel="3">
-  <h2>El experimento</h2>
+<section class="slide" id="seccion-28" data-materia="ciencias" data-seccion="Reto: fabrica tus propias gominolas" data-seccion-numero="8" data-numero="8.1" data-nivel="3">
+  <h3><span class="heading__number">8.1</span> El experimento</h3>
 <p><strong>Material:</strong> gelatina neutra en polvo, gelatina de sabor, azúcar, agua, un recipiente, una cuchara, un termómetro de cocina y moldes de silicona.</p>
 <p><strong>Pasos:</strong></p>
 <ol>
@@ -1077,8 +1092,8 @@ $$T(\mathrm{K}) = 273 + T(^\circ\mathrm{C})$$
 
 </div>
 </section>
-<section class="slide" data-materia="ciencias" data-seccion="Reto: fabrica tus propias gominolas" data-nivel="3">
-  <h2>La explicación científica</h2>
+<section class="slide" id="seccion-29" data-materia="ciencias" data-seccion="Reto: fabrica tus propias gominolas" data-seccion-numero="8" data-numero="8.2" data-nivel="3">
+  <h3><span class="heading__number">8.2</span> La explicación científica</h3>
 <ul>
 <li>Al calentar, el <strong>azúcar</strong> y la <strong>gelatina</strong> se <strong>disuelven</strong> en el agua: se forma una <strong>mezcla homogénea</strong>.</li>
 <li>Al enfriar, la gelatina forma una red que atrapa el agua y la mezcla se <strong>solidifica</strong>; así se forman las gominolas.</li>
@@ -1097,8 +1112,8 @@ $$T(\mathrm{K}) = 273 + T(^\circ\mathrm{C})$$
 
 </div>
 </section>
-<section class="slide" data-materia="ciencias" data-seccion="Reto: fabrica tus propias gominolas" data-nivel="3">
-  <h2>El vídeo</h2>
+<section class="slide" id="seccion-30" data-materia="ciencias" data-seccion="Reto: fabrica tus propias gominolas" data-seccion-numero="8" data-numero="8.3" data-nivel="3">
+  <h3><span class="heading__number">8.3</span> El vídeo</h3>
 <p>Grabad un vídeo de <strong>máximo 3 minutos</strong> explicando el experimento. Debe incluir:</p>
 <ul>
 <li>Qué vais a hacer y el material necesario.</li>
@@ -1117,16 +1132,17 @@ $$T(\mathrm{K}) = 273 + T(^\circ\mathrm{C})$$
 
 </div>
 </section>
-<section class="slide slide--seccion slide--seccion--titulo-necesario" data-materia="ciencias" data-seccion="Actividades de repaso" data-nivel="2">
-  <h2>Actividades de repaso</h2>
+<section class="slide slide--seccion slide--seccion--titulo-necesario" id="seccion-31" data-materia="ciencias" data-seccion="Actividades de repaso" data-seccion-numero="9" data-numero="9" data-nivel="2">
+  <h2><span class="heading__number">9</span> Actividades de repaso</h2>
   <ul class="slide__indice-seccion">
-    <li>Matemáticas: potencias</li>
-    <li>Física y química: masa, materia y estados</li>
-    <li>Biología: materia viva y función de relación</li>
+    <li><span class="heading__number">9.1</span> Matemáticas: potencias</li>
+    <li><span class="heading__number">9.2</span> Física y química: masa, materia y estados</li>
+    <li><span class="heading__number">9.3</span> Biología: materia viva y función de relación</li>
   </ul>
+
 </section>
-<section class="slide" data-materia="ciencias" data-seccion="Actividades de repaso" data-nivel="3">
-  <h2>Matemáticas: potencias</h2>
+<section class="slide" id="seccion-32" data-materia="ciencias" data-seccion="Actividades de repaso" data-seccion-numero="9" data-numero="9.1" data-nivel="3">
+  <h3><span class="heading__number">9.1</span> Matemáticas: potencias</h3>
 <div class="box box--actividades" data-actividad="20" aria-label="Actividades 20">
   <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">20</span><span>Actividades</span></p>
 <ol>
@@ -1138,8 +1154,8 @@ $$T(\mathrm{K}) = 273 + T(^\circ\mathrm{C})$$
 
 </div>
 </section>
-<section class="slide" data-materia="ciencias" data-seccion="Actividades de repaso" data-nivel="3">
-  <h2>Física y química: masa, materia y estados</h2>
+<section class="slide" id="seccion-33" data-materia="ciencias" data-seccion="Actividades de repaso" data-seccion-numero="9" data-numero="9.2" data-nivel="3">
+  <h3><span class="heading__number">9.2</span> Física y química: masa, materia y estados</h3>
 <div class="box box--actividades" data-actividad="21" aria-label="Actividades 21">
   <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">21</span><span>Actividades</span></p>
 <ol>
@@ -1153,8 +1169,8 @@ $$T(\mathrm{K}) = 273 + T(^\circ\mathrm{C})$$
 
 </div>
 </section>
-<section class="slide" data-materia="ciencias" data-seccion="Actividades de repaso" data-nivel="3">
-  <h2>Biología: materia viva y función de relación</h2>
+<section class="slide" id="seccion-34" data-materia="ciencias" data-seccion="Actividades de repaso" data-seccion-numero="9" data-numero="9.3" data-nivel="3">
+  <h3><span class="heading__number">9.3</span> Biología: materia viva y función de relación</h3>
 <div class="box box--actividades" data-actividad="22" aria-label="Actividades 22">
   <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">22</span><span>Actividades</span></p>
 <ol>

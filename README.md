@@ -15,10 +15,25 @@ escribes Markdown  →  node build.js  →  HTML estático listo para usar
 ```
 
 - **Leer online:** abre `index.html` y entra en cada capítulo.
-- **Imprimir / PDF:** botón **🖨️ Imprimir / PDF** o `Ctrl+P`. Salida A4, con
-  portada y cada apartado en su propia página, sin la URL ni la fecha del navegador.
+- **Imprimir / PDF:** botón **🖨️ Imprimir / PDF** o `Ctrl+P`. Diseño de libro
+  de texto en A4: texto serif, títulos de distinto tamaño, cajas en gris e
+  ilustraciones en escala de grises. El título de capítulo abre el contenido,
+  sin portada independiente ni saltos obligatorios entre secciones. Las cajas
+  y tablas largas pueden continuar en la siguiente página para reducir huecos.
+  Los márgenes se repiten en todas las páginas (22 mm arriba, 18 mm a los lados
+  y 21 mm abajo). En **Chrome o Edge actuales**, aparecen cabeceras de asignatura
+  y capítulo, y un pie con el título y la página `n / total`.
+  En el diálogo de impresión usa **A4**, **escala 100 %** y **márgenes
+  predeterminados**; desactiva **Encabezados y pies de página** del navegador
+  para quitar su URL y fecha, no los del material. Activa **Gráficos de fondo**
+  para conservar los grises suaves (las cajas también se distinguen sin ellos).
+  Otros navegadores pueden omitir las cabeceras y pies propios.
 - **Diapositivas:** botón **▶ Diapositivas** dentro de cada capítulo.
   Navega con `←` `→` `Espacio` `Esc` o deslizando en pantalla táctil.
+- **Numeración de títulos:** se genera al construir, igual en HTML, índice
+  lateral, diapositivas y PDF: `##` → `1`, `###` → `1.1`, `####` → `1.1.1`,
+  hasta `######`. Reinicia en cada capítulo; no escribas esos números a mano.
+  Las actividades conservan su propia numeración independiente.
 
 ## Archivos
 
@@ -108,6 +123,12 @@ Para matemáticas, usa `$...$` en línea o `$$...$$` como fórmula centrada;
 por ejemplo, `$6 + 4 \\times 5 = 26$`. Todas las opciones (tipos de caja,
 fórmulas, tablas, añadir capítulos…) están detalladas en
 **`FORMATO-MARKDOWN.md`**.
+
+## Comprobar el conversor
+
+Después de reconstruir, ejecuta `node --test tests/build.test.js` para comprobar
+la numeración, la jerarquía de títulos, los bloques anidados, LaTeX y que los
+HTML publicados coinciden con el Markdown. No necesita instalar dependencias.
 
 ## Personalizar colores
 

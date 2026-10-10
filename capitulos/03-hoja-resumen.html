@@ -6,6 +6,15 @@
   <title>Hoja resumen de los temas 1 y 2 · Ciencias Aplicadas I</title>
   <meta name="description" content="Hoja resumen de los temas 1 y 2 — Ciencias Aplicadas I">
   <link rel="stylesheet" href="../styles.css">
+  <style>
+@media print {
+  @page {
+    @top-left { content: "Ciencias Aplicadas I"; }
+    @top-right { content: "Capítulo 3"; }
+    @bottom-left { content: "Hoja resumen de los temas 1 y 2"; }
+  }
+}
+</style>
   <!-- KaTeX se sirve localmente: el capítulo sigue funcionando sin Internet. -->
   <link rel="stylesheet" href="../lib/katex/katex.min.css">
 </head>
@@ -51,16 +60,17 @@
   <div class="cover__meta"><span>Curso 2026 – 2027</span><span>Formación Básica</span></div>
 </header>
 
-      <section class="slide slide--seccion slide--seccion--titulo-necesario" data-materia="actividades" data-seccion="Matemáticas" data-nivel="2">
-  <h2>Matemáticas</h2>
+      <section class="slide slide--seccion slide--seccion--titulo-necesario" id="seccion-1" data-materia="actividades" data-seccion="Matemáticas" data-seccion-numero="1" data-numero="1" data-nivel="2">
+  <h2><span class="heading__number">1</span> Matemáticas</h2>
   <ul class="slide__indice-seccion">
-    <li>Números y operaciones</li>
-    <li>Potencias</li>
-    <li>Proporcionalidad</li>
+    <li><span class="heading__number">1.1</span> Números y operaciones</li>
+    <li><span class="heading__number">1.2</span> Potencias</li>
+    <li><span class="heading__number">1.3</span> Proporcionalidad</li>
   </ul>
+
 </section>
-<section class="slide" data-materia="actividades" data-seccion="Matemáticas" data-nivel="3">
-  <h2>Números y operaciones</h2>
+<section class="slide" id="seccion-2" data-materia="actividades" data-seccion="Matemáticas" data-seccion-numero="1" data-numero="1.1" data-nivel="3">
+  <h3><span class="heading__number">1.1</span> Números y operaciones</h3>
 <blockquote>
 <p><strong>Cheatsheet de Matemáticas · Física y Química.</strong> Solo lo esencial: definiciones, fórmulas y datos que hay que memorizar. Para practicar, usa los resúmenes y las actividades de los temas 1 y 2.</p>
 </blockquote>
@@ -120,8 +130,8 @@
 <p>Los paréntesis lo cambian todo: $3 + 4 \times 2 = 11$, pero $(3 + 4) \times 2 = 14$.</p>
 
 </section>
-<section class="slide" data-materia="actividades" data-seccion="Matemáticas" data-nivel="3">
-  <h2>Potencias</h2>
+<section class="slide" id="seccion-3" data-materia="actividades" data-seccion="Matemáticas" data-seccion-numero="1" data-numero="1.2" data-nivel="3">
+  <h3><span class="heading__number">1.2</span> Potencias</h3>
 <div class="math formula">
 $$a^n = \underbrace{a \times a \times \cdots \times a}_{n\ \text{veces}} \qquad 10^0 = 1$$
 </div>
@@ -177,8 +187,8 @@ $$a^n = \underbrace{a \times a \times \cdots \times a}_{n\ \text{veces}} \qquad 
 
 </div>
 </section>
-<section class="slide" data-materia="actividades" data-seccion="Matemáticas" data-nivel="3">
-  <h2>Proporcionalidad</h2>
+<section class="slide" id="seccion-4" data-materia="actividades" data-seccion="Matemáticas" data-seccion-numero="1" data-numero="1.3" data-nivel="3">
+  <h3><span class="heading__number">1.3</span> Proporcionalidad</h3>
 <p>Una <strong>magnitud</strong> es una propiedad que se puede medir y expresar con un número y una unidad.</p>
 <table>
 <thead>
@@ -210,16 +220,17 @@ $$a^n = \underbrace{a \times a \times \cdots \times a}_{n\ \text{veces}} \qquad 
 
 </div>
 </section>
-<section class="slide slide--seccion slide--seccion--titulo-necesario" data-materia="actividades" data-seccion="Física y química: unidades, masa y medidas" data-nivel="2">
-  <h2>Física y química: unidades, masa y medidas</h2>
+<section class="slide slide--seccion slide--seccion--titulo-necesario" id="seccion-5" data-materia="actividades" data-seccion="Física y química: unidades, masa y medidas" data-seccion-numero="2" data-numero="2" data-nivel="2">
+  <h2><span class="heading__number">2</span> Física y química: unidades, masa y medidas</h2>
   <ul class="slide__indice-seccion">
-    <li>Magnitudes y Sistema Internacional</li>
-    <li>Cambios de unidad</li>
-    <li>Volumen y capacidad</li>
+    <li><span class="heading__number">2.1</span> Magnitudes y Sistema Internacional</li>
+    <li><span class="heading__number">2.2</span> Cambios de unidad</li>
+    <li><span class="heading__number">2.3</span> Volumen y capacidad</li>
   </ul>
+
 </section>
-<section class="slide" data-materia="actividades" data-seccion="Física y química: unidades, masa y medidas" data-nivel="3">
-  <h2>Magnitudes y Sistema Internacional</h2>
+<section class="slide" id="seccion-6" data-materia="actividades" data-seccion="Física y química: unidades, masa y medidas" data-seccion-numero="2" data-numero="2.1" data-nivel="3">
+  <h3><span class="heading__number">2.1</span> Magnitudes y Sistema Internacional</h3>
 <p>Medir es comparar una magnitud con una unidad. Toda medida lleva <strong>número + unidad</strong>.</p>
 <table>
 <thead>
@@ -268,8 +279,8 @@ $$a^n = \underbrace{a \times a \times \cdots \times a}_{n\ \text{veces}} \qquad 
 
 </div>
 </section>
-<section class="slide" data-materia="actividades" data-seccion="Física y química: unidades, masa y medidas" data-nivel="3">
-  <h2>Cambios de unidad</h2>
+<section class="slide" id="seccion-7" data-materia="actividades" data-seccion="Física y química: unidades, masa y medidas" data-seccion-numero="2" data-numero="2.2" data-nivel="3">
+  <h3><span class="heading__number">2.2</span> Cambios de unidad</h3>
 <p>Cada salto a la derecha <strong>multiplica por 10</strong>; cada salto a la izquierda <strong>divide por 10</strong>.</p>
 <ul>
 <li><strong>Longitud:</strong> km – hm – dam – <strong>m</strong> – dm – cm – mm</li>
@@ -288,8 +299,8 @@ $$a^n = \underbrace{a \times a \times \cdots \times a}_{n\ \text{veces}} \qquad 
 
 </div>
 </section>
-<section class="slide" data-materia="actividades" data-seccion="Física y química: unidades, masa y medidas" data-nivel="3">
-  <h2>Volumen y capacidad</h2>
+<section class="slide" id="seccion-8" data-materia="actividades" data-seccion="Física y química: unidades, masa y medidas" data-seccion-numero="2" data-numero="2.3" data-nivel="3">
+  <h3><span class="heading__number">2.3</span> Volumen y capacidad</h3>
 <ul>
 <li>El <strong>volumen</strong> es el espacio que ocupa un cuerpo: en el SI, metros cúbicos ($\mathrm{m}^3$).</li>
 <li>La <strong>capacidad</strong> es lo que puede contener un recipiente: litros ($\mathrm{L}$).</li>
@@ -300,15 +311,16 @@ $$a^n = \underbrace{a \times a \times \cdots \times a}_{n\ \text{veces}} \qquad 
 $$V = \text{alto} \times \text{ancho} \times \text{largo}$$
 </div>
 </section>
-<section class="slide slide--seccion slide--seccion--titulo-necesario" data-materia="actividades" data-seccion="Chuleta final" data-nivel="2">
-  <h2>Chuleta final</h2>
+<section class="slide slide--seccion slide--seccion--titulo-necesario" id="seccion-9" data-materia="actividades" data-seccion="Chuleta final" data-seccion-numero="3" data-numero="3" data-nivel="2">
+  <h2><span class="heading__number">3</span> Chuleta final</h2>
   <ul class="slide__indice-seccion">
-    <li>Fórmulas imprescindibles</li>
-    <li>Errores que hay que evitar</li>
+    <li><span class="heading__number">3.1</span> Fórmulas imprescindibles</li>
+    <li><span class="heading__number">3.2</span> Errores que hay que evitar</li>
   </ul>
+
 </section>
-<section class="slide" data-materia="actividades" data-seccion="Chuleta final" data-nivel="3">
-  <h2>Fórmulas imprescindibles</h2>
+<section class="slide" id="seccion-10" data-materia="actividades" data-seccion="Chuleta final" data-seccion-numero="3" data-numero="3.1" data-nivel="3">
+  <h3><span class="heading__number">3.1</span> Fórmulas imprescindibles</h3>
 <div class="box box--resumen">
 <p class="box__title">Resumen</p>
 <ul>
@@ -319,8 +331,8 @@ $$V = \text{alto} \times \text{ancho} \times \text{largo}$$
 
 </div>
 </section>
-<section class="slide" data-materia="actividades" data-seccion="Chuleta final" data-nivel="3">
-  <h2>Errores que hay que evitar</h2>
+<section class="slide" id="seccion-11" data-materia="actividades" data-seccion="Chuleta final" data-seccion-numero="3" data-numero="3.2" data-nivel="3">
+  <h3><span class="heading__number">3.2</span> Errores que hay que evitar</h3>
 <div class="box box--dato">
 <p class="box__title">Importante</p>
 <ul>
@@ -332,16 +344,17 @@ $$V = \text{alto} \times \text{ancho} \times \text{largo}$$
 
 </div>
 </section>
-<section class="slide slide--seccion slide--seccion--titulo-necesario" data-materia="actividades" data-seccion="Ejercicios de Matemáticas" data-nivel="2">
-  <h2>Ejercicios de Matemáticas</h2>
+<section class="slide slide--seccion slide--seccion--titulo-necesario" id="seccion-12" data-materia="actividades" data-seccion="Ejercicios de Matemáticas" data-seccion-numero="4" data-numero="4" data-nivel="2">
+  <h2><span class="heading__number">4</span> Ejercicios de Matemáticas</h2>
   <ul class="slide__indice-seccion">
-    <li>Números y operaciones combinadas</li>
-    <li>Potencias</li>
-    <li>Proporcionalidad</li>
+    <li><span class="heading__number">4.1</span> Números y operaciones combinadas</li>
+    <li><span class="heading__number">4.2</span> Potencias</li>
+    <li><span class="heading__number">4.3</span> Proporcionalidad</li>
   </ul>
+
 </section>
-<section class="slide" data-materia="actividades" data-seccion="Ejercicios de Matemáticas" data-nivel="3">
-  <h2>Números y operaciones combinadas</h2>
+<section class="slide" id="seccion-13" data-materia="actividades" data-seccion="Ejercicios de Matemáticas" data-seccion-numero="4" data-numero="4.1" data-nivel="3">
+  <h3><span class="heading__number">4.1</span> Números y operaciones combinadas</h3>
 <div class="box box--actividades" data-actividad="1" aria-label="Actividades 1">
   <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">1</span><span>Actividades</span></p>
 <ol>
@@ -353,8 +366,8 @@ $$V = \text{alto} \times \text{ancho} \times \text{largo}$$
 
 </div>
 </section>
-<section class="slide" data-materia="actividades" data-seccion="Ejercicios de Matemáticas" data-nivel="3">
-  <h2>Potencias</h2>
+<section class="slide" id="seccion-14" data-materia="actividades" data-seccion="Ejercicios de Matemáticas" data-seccion-numero="4" data-numero="4.2" data-nivel="3">
+  <h3><span class="heading__number">4.2</span> Potencias</h3>
 <div class="box box--actividades" data-actividad="2" aria-label="Actividades 2">
   <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">2</span><span>Actividades</span></p>
 <ol>
@@ -365,8 +378,8 @@ $$V = \text{alto} \times \text{ancho} \times \text{largo}$$
 
 </div>
 </section>
-<section class="slide" data-materia="actividades" data-seccion="Ejercicios de Matemáticas" data-nivel="3">
-  <h2>Proporcionalidad</h2>
+<section class="slide" id="seccion-15" data-materia="actividades" data-seccion="Ejercicios de Matemáticas" data-seccion-numero="4" data-numero="4.3" data-nivel="3">
+  <h3><span class="heading__number">4.3</span> Proporcionalidad</h3>
 <div class="box box--actividades" data-actividad="3" aria-label="Actividades 3">
   <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">3</span><span>Actividades</span></p>
 <ol>
@@ -378,14 +391,15 @@ $$V = \text{alto} \times \text{ancho} \times \text{largo}$$
 
 </div>
 </section>
-<section class="slide slide--seccion slide--seccion--titulo-necesario" data-materia="actividades" data-seccion="Ejercicios de Física y Química" data-nivel="2">
-  <h2>Ejercicios de Física y Química</h2>
+<section class="slide slide--seccion slide--seccion--titulo-necesario" id="seccion-16" data-materia="actividades" data-seccion="Ejercicios de Física y Química" data-seccion-numero="5" data-numero="5" data-nivel="2">
+  <h2><span class="heading__number">5</span> Ejercicios de Física y Química</h2>
   <ul class="slide__indice-seccion">
-    <li>Unidades y medidas</li>
+    <li><span class="heading__number">5.1</span> Unidades y medidas</li>
   </ul>
+
 </section>
-<section class="slide" data-materia="actividades" data-seccion="Ejercicios de Física y Química" data-nivel="3">
-  <h2>Unidades y medidas</h2>
+<section class="slide" id="seccion-17" data-materia="actividades" data-seccion="Ejercicios de Física y Química" data-seccion-numero="5" data-numero="5.1" data-nivel="3">
+  <h3><span class="heading__number">5.1</span> Unidades y medidas</h3>
 <div class="box box--actividades" data-actividad="4" aria-label="Actividades 4">
   <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">4</span><span>Actividades</span></p>
 <ol>
@@ -398,15 +412,16 @@ $$V = \text{alto} \times \text{ancho} \times \text{largo}$$
 
 </div>
 </section>
-<section class="slide slide--seccion slide--seccion--titulo-necesario" data-materia="actividades" data-seccion="Soluciones" data-nivel="2">
-  <h2>Soluciones</h2>
+<section class="slide slide--seccion slide--seccion--titulo-necesario" id="seccion-18" data-materia="actividades" data-seccion="Soluciones" data-seccion-numero="6" data-numero="6" data-nivel="2">
+  <h2><span class="heading__number">6</span> Soluciones</h2>
   <ul class="slide__indice-seccion">
-    <li>Matemáticas</li>
-    <li>Física y Química</li>
+    <li><span class="heading__number">6.1</span> Matemáticas</li>
+    <li><span class="heading__number">6.2</span> Física y Química</li>
   </ul>
+
 </section>
-<section class="slide" data-materia="actividades" data-seccion="Soluciones" data-nivel="3">
-  <h2>Matemáticas</h2>
+<section class="slide" id="seccion-19" data-materia="actividades" data-seccion="Soluciones" data-seccion-numero="6" data-numero="6.1" data-nivel="3">
+  <h3><span class="heading__number">6.1</span> Matemáticas</h3>
 <div class="box box--resumen">
 <p class="box__title">Actividades 1</p>
 <ol>
@@ -437,8 +452,8 @@ $$V = \text{alto} \times \text{ancho} \times \text{largo}$$
 
 </div>
 </section>
-<section class="slide" data-materia="actividades" data-seccion="Soluciones" data-nivel="3">
-  <h2>Física y Química</h2>
+<section class="slide" id="seccion-20" data-materia="actividades" data-seccion="Soluciones" data-seccion-numero="6" data-numero="6.2" data-nivel="3">
+  <h3><span class="heading__number">6.2</span> Física y Química</h3>
 <div class="box box--resumen">
 <p class="box__title">Actividades 4</p>
 <ol>

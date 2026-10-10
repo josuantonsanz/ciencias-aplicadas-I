@@ -12,7 +12,7 @@ const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
 const { spawnSync } = require("child_process");
-const { renderarCapitulo, renderarPortada } = require("./build.js");
+const { renderarCapitulo, renderarPortada, renderarEstilosImpresion } = require("./build.js");
 
 const ROOT = __dirname;
 const PORT = Number(process.env.PORT || 8765);
@@ -101,7 +101,8 @@ function paginaPrevisualizacion(markdown, capitulo) {
     + '<base href="/">'
     + '<link rel="stylesheet" href="styles.css">'
     + '<link rel="stylesheet" href="lib/katex/katex.min.css">'
-    + '<style>body{overflow:auto}.content{max-width:1100px;margin:0 auto;padding:1rem}.page-footer{display:none}</style>'
+    + renderarEstilosImpresion(capitulo, lista.serie, numero)
+    + '<style>@media screen{body{overflow:auto}.content{max-width:1100px;margin:0 auto;padding:1rem}}.page-footer{display:none}</style>'
     + '</head><body><main class="content">'
     + renderarPortada(capitulo, lista.serie, numero) + contenido
     + '</main><script src="lib/katex/katex.min.js"></script>'
