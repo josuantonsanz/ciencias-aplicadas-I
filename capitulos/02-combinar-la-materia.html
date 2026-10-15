@@ -24,14 +24,10 @@
   <header class="topbar">
     <div class="topbar__title">
       <button class="btn btn--ghost topbar__menu" id="btn-menu" aria-label="Abrir índice">☰</button>
-      <span class="topbar__brand">Ciencias Aplicadas I</span>
+      <a class="topbar__brand" href="../index.html" title="Volver al índice general">Ciencias Aplicadas I</a>
     </div>
     <div class="topbar__actions">
-      <a class="btn btn--outline" href="../index.html" title="Volver al índice general">⌂ <span class="btn__label">Índice</span></a>
-      <a class="btn btn--primary" href="./02-combinar-la-materia.pdf" download title="Descargar el PDF ya maquetado">⬇️ <span class="btn__label">Descargar PDF</span></a>
-      <button class="btn btn--outline" id="btn-print" title="Imprimir o guardar como PDF (Ctrl+P)">
-        🖨️ <span class="btn__label">Imprimir / PDF</span>
-      </button>
+      <a class="btn btn--primary" href="./02-combinar-la-materia.pdf" download title="Descargar el PDF ya maquetado"><svg class="btn__icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 17v3h14v-3" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg><span class="btn__label">Descargar PDF</span></a>
       <button class="btn btn--primary" id="btn-slides" title="Ver el contenido como diapositivas">
         ▶ <span class="btn__label">Diapositivas</span>
       </button>
@@ -55,10 +51,13 @@
     <main class="content" id="content">
 
       <header class="cover" id="portada">
-  <p class="cover__kicker">Ciencias Aplicadas I · Capítulo 2</p>
-  <h1 class="cover__title">Combinar la materia</h1>
-  <p class="cover__subtitle"><span class="tag tag--mat">Ciencias aplicadas</span></p>
-  <div class="cover__meta"><span>Curso 2026 – 2027</span><span>Formación Básica</span></div>
+  <span class="cover__number" aria-hidden="true">02</span>
+  <div class="cover__body">
+    <p class="cover__kicker">Ciencias Aplicadas I · Capítulo 2</p>
+    <h1 class="cover__title">Combinar la materia</h1>
+    <p class="cover__subtitle"><span class="tag tag--mat">Ciencias aplicadas</span></p>
+    <div class="cover__meta"><span>Curso 2026 – 2027</span><span>1º FPB</span></div>
+  </div>
 </header>
 
       <section class="slide" id="seccion-1" data-materia="ciencias" data-seccion="¿Qué vamos a aprender?" data-seccion-numero="1" data-numero="1" data-nivel="2">

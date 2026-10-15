@@ -24,14 +24,10 @@
   <header class="topbar">
     <div class="topbar__title">
       <button class="btn btn--ghost topbar__menu" id="btn-menu" aria-label="Abrir índice">☰</button>
-      <span class="topbar__brand">Ciencias Aplicadas I</span>
+      <a class="topbar__brand" href="../index.html" title="Volver al índice general">Ciencias Aplicadas I</a>
     </div>
     <div class="topbar__actions">
-      <a class="btn btn--outline" href="../index.html" title="Volver al índice general">⌂ <span class="btn__label">Índice</span></a>
-      <a class="btn btn--primary" href="./04-algebra-basica.pdf" download title="Descargar el PDF ya maquetado">⬇️ <span class="btn__label">Descargar PDF</span></a>
-      <button class="btn btn--outline" id="btn-print" title="Imprimir o guardar como PDF (Ctrl+P)">
-        🖨️ <span class="btn__label">Imprimir / PDF</span>
-      </button>
+      <a class="btn btn--primary" href="./04-algebra-basica.pdf" download title="Descargar el PDF ya maquetado"><svg class="btn__icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 17v3h14v-3" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg><span class="btn__label">Descargar PDF</span></a>
       <button class="btn btn--primary" id="btn-slides" title="Ver el contenido como diapositivas">
         ▶ <span class="btn__label">Diapositivas</span>
       </button>
@@ -55,16 +51,19 @@
     <main class="content" id="content">
 
       <header class="cover" id="portada">
-  <p class="cover__kicker">Ciencias Aplicadas I · Capítulo 4</p>
-  <h1 class="cover__title">Álgebra básica</h1>
-  <p class="cover__subtitle"><span class="tag tag--mat">Matemáticas</span></p>
-  <div class="cover__meta"><span>Curso 2026 – 2027</span><span>Formación Básica</span></div>
+  <span class="cover__number" aria-hidden="true">04</span>
+  <div class="cover__body">
+    <p class="cover__kicker">Ciencias Aplicadas I · Capítulo 4</p>
+    <h1 class="cover__title">Álgebra básica</h1>
+    <p class="cover__subtitle"><span class="tag tag--mat">Matemáticas</span></p>
+    <div class="cover__meta"><span>Curso 2026 – 2027</span><span>1º FPB</span></div>
+  </div>
 </header>
 
       <section class="slide" id="seccion-1" data-materia="matematicas" data-seccion="¿Qué vamos a aprender?" data-seccion-numero="1" data-numero="1" data-nivel="2">
   <h2><span class="heading__number">1</span> ¿Qué vamos a aprender?</h2>
 <p>A veces sabemos encontrar un número que falta haciendo pruebas o pensando «¿cuánto tendría que valer?». El <strong>álgebra</strong> nos ayuda a escribir ese razonamiento y a resolver situaciones en las que acertar a ojo ya no resulta fácil.</p>
-<p>No hace falta saber resolver ecuaciones para empezar este tema. Vamos a avanzar desde los huecos con números hasta los despejes de fórmulas, <strong>una dificultad cada vez</strong>.</p>
+<p>No hace falta saber resolver ecuaciones para empezar este tema. Vamos a avanzar desde los huecos con números hasta los despejes de fórmulas, <strong>paso a paso</strong>.</p>
 
 <div class="box box--resumen">
 <p class="box__title">Nuestro recorrido</p>
@@ -90,7 +89,6 @@
   <ul class="slide__indice-seccion">
     <li><span class="heading__number">2.1</span> Encontrar el número que falta</li>
     <li><span class="heading__number">2.2</span> Las operaciones inversas</li>
-    <li><span class="heading__number">2.3</span> Recorrer el camino al revés</li>
   </ul>
 
 </section>
@@ -112,7 +110,6 @@
 <ol>
 <li>Completa: a) $\square + 4 = 11$; b) $\square - 3 = 8$; c) $5 \times \square = 20$; d) $\square \div 3 = 6$.</li>
 <li>Explica con palabras cómo has encontrado el número del apartado a) y el del apartado c).</li>
-<li>¿Sirve el número $6$ para completar $\square + 8 = 15$? Escribe la cuenta que permite comprobarlo.</li>
 </ol>
 
 </div>
@@ -156,30 +153,7 @@
 
 </div>
 </section>
-<section class="slide" id="seccion-5" data-materia="matematicas" data-seccion="Antes de las letras: hacer y deshacer operaciones" data-seccion-numero="2" data-numero="2.3" data-nivel="3">
-  <h3><span class="heading__number">2.3</span> Recorrer el camino al revés</h3>
-<div class="box box--example">
-<p class="box__title">Deshacer una cadena</p>
-<p>A un número le multiplicamos por $2$ y después le sumamos $3$. El resultado es $13$.</p>
-<p>Para volver al principio, recorremos el camino <strong>en orden contrario</strong>:</p>
-<ol>
-<li>Deshacemos la última operación: $13 - 3 = 10$.</li>
-<li>Deshacemos la multiplicación: $10 \div 2 = 5$.</li>
-</ol>
-<p>El número inicial era $5$. Comprobación: $5 \times 2 + 3 = 13$.</p>
-
-</div>
-<div class="box box--actividades" data-actividad="2" aria-label="Actividades 2">
-  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">2</span><span>Actividades</span></p>
-<ol>
-<li>¿Qué operación deshace cada una? a) Sumar $9$; b) dividir entre $5$; c) restar $7$; d) multiplicar por $4$.</li>
-<li>Pienso un número, le sumo $6$ y obtengo $14$. ¿Qué número era?</li>
-<li>Pienso un número, lo multiplico por $3$ y le sumo $2$. Obtengo $20$. Escribe las dos operaciones necesarias para volver al principio.</li>
-</ol>
-
-</div>
-</section>
-<section class="slide slide--seccion slide--seccion--titulo-necesario" id="seccion-6" data-materia="matematicas" data-seccion="De los números a las letras" data-seccion-numero="3" data-numero="3" data-nivel="2">
+<section class="slide slide--seccion slide--seccion--titulo-necesario" id="seccion-5" data-materia="matematicas" data-seccion="De los números a las letras" data-seccion-numero="3" data-numero="3" data-nivel="2">
   <h2><span class="heading__number">3</span> De los números a las letras</h2>
   <ul class="slide__indice-seccion">
     <li><span class="heading__number">3.1</span> ¿Qué representa la x?</li>
@@ -189,7 +163,7 @@
   </ul>
 
 </section>
-<section class="slide" id="seccion-7" data-materia="matematicas" data-seccion="De los números a las letras" data-seccion-numero="3" data-numero="3.1" data-nivel="3">
+<section class="slide" id="seccion-6" data-materia="matematicas" data-seccion="De los números a las letras" data-seccion-numero="3" data-numero="3.1" data-nivel="3">
   <h3><span class="heading__number">3.1</span> ¿Qué representa la x?</h3>
 <p>En lugar de un hueco, podemos escribir una letra. Cuando buscamos su valor la llamamos <strong>incógnita</strong>. La más habitual es $x$, pero también pueden usarse otras: $a$, $t$, $m$…</p>
 
@@ -200,7 +174,7 @@ $$\square + 5 = 12 \qquad \longrightarrow \qquad x + 5 = 12$$
 <p>No tiene siempre el mismo valor. En un ejercicio puede ser $7$ y en otro, $20$. <strong>Dentro de una misma ecuación, todas las x representan el mismo número.</strong></p>
 
 </section>
-<section class="slide" id="seccion-8" data-materia="matematicas" data-seccion="De los números a las letras" data-seccion-numero="3" data-numero="3.2" data-nivel="3">
+<section class="slide" id="seccion-7" data-materia="matematicas" data-seccion="De los números a las letras" data-seccion-numero="3" data-numero="3.2" data-nivel="3">
   <h3><span class="heading__number">3.2</span> Leer y escribir expresiones</h3>
 <p>Una <strong>expresión algebraica</strong> combina números, letras y operaciones. No tiene por qué llevar un signo igual.</p>
 <table>
@@ -251,7 +225,7 @@ $$\square + 5 = 12 \qquad \longrightarrow \qquad x + 5 = 12$$
 
 </div>
 </section>
-<section class="slide" id="seccion-9" data-materia="matematicas" data-seccion="De los números a las letras" data-seccion-numero="3" data-numero="3.3" data-nivel="3">
+<section class="slide" id="seccion-8" data-materia="matematicas" data-seccion="De los números a las letras" data-seccion-numero="3" data-numero="3.3" data-nivel="3">
   <h3><span class="heading__number">3.3</span> Sustituir una letra por un número</h3>
 <div class="box box--example">
 <p class="box__title">Sustituir una letra por un número</p>
@@ -264,8 +238,8 @@ $$\square + 5 = 12 \qquad \longrightarrow \qquad x + 5 = 12$$
 <p><strong>Sustituir</strong> significa escribir el número en el lugar de la letra y calcular respetando el orden de las operaciones.</p>
 
 </div>
-<div class="box box--actividades" data-actividad="3" aria-label="Actividades 3">
-  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">3</span><span>Actividades</span></p>
+<div class="box box--actividades" data-actividad="2" aria-label="Actividades 2">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">2</span><span>Actividades</span></p>
 <ol>
 <li>Escribe con $x$: a) un número más $8$; b) el cuádruple de un número; c) un número dividido entre $5$; d) el triple de un número, menos $2$.</li>
 <li>Calcula si $x = 6$: a) $2x$; b) $x + 4$; c) $\frac{x}{3}$; d) $3x - 2$.</li>
@@ -274,7 +248,7 @@ $$\square + 5 = 12 \qquad \longrightarrow \qquad x + 5 = 12$$
 
 </div>
 </section>
-<section class="slide" id="seccion-10" data-materia="matematicas" data-seccion="De los números a las letras" data-seccion-numero="3" data-numero="3.4" data-nivel="3">
+<section class="slide" id="seccion-9" data-materia="matematicas" data-seccion="De los números a las letras" data-seccion-numero="3" data-numero="3.4" data-nivel="3">
   <h3><span class="heading__number">3.4</span> Juntar términos del mismo tipo</h3>
 <p>Antes de resolver algunas ecuaciones necesitaremos <strong>simplificar</strong>: escribir la misma expresión de una forma más corta.</p>
 <p>Los trozos separados por sumas o restas se llaman <strong>términos</strong>. Podemos juntar los que son del mismo tipo:</p>
@@ -293,8 +267,8 @@ $$\square + 5 = 12 \qquad \longrightarrow \qquad x + 5 = 12$$
 <p>$3x + 2$ <strong>no es</strong> $5x$. El $3$ está multiplicando a la $x$ y el $2$ se está sumando. No pueden juntarse como si fueran lo mismo.</p>
 
 </div>
-<div class="box box--actividades" data-actividad="4" aria-label="Actividades 4">
-  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">4</span><span>Actividades</span></p>
+<div class="box box--actividades" data-actividad="3" aria-label="Actividades 3">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">3</span><span>Actividades</span></p>
 <ol>
 <li>Simplifica: a) $4x + 2x$; b) $8x - 3x$; c) $x + x + x$; d) $2x + 5 + x + 3$.</li>
 <li>Una persona escribe $2x + 3 = 5x$. Sustituye $x$ por $4$ en las dos expresiones y explica por qué no son iguales.</li>
@@ -302,7 +276,7 @@ $$\square + 5 = 12 \qquad \longrightarrow \qquad x + 5 = 12$$
 
 </div>
 </section>
-<section class="slide slide--seccion slide--seccion--titulo-necesario" id="seccion-11" data-materia="matematicas" data-seccion="Qué es una ecuación y qué significa resolverla" data-seccion-numero="4" data-numero="4" data-nivel="2">
+<section class="slide slide--seccion slide--seccion--titulo-necesario" id="seccion-10" data-materia="matematicas" data-seccion="Qué es una ecuación y qué significa resolverla" data-seccion-numero="4" data-numero="4" data-nivel="2">
   <h2><span class="heading__number">4</span> Qué es una ecuación y qué significa resolverla</h2>
   <ul class="slide__indice-seccion">
     <li><span class="heading__number">4.1</span> El signo igual no significa «ahora viene la respuesta»</li>
@@ -311,7 +285,7 @@ $$\square + 5 = 12 \qquad \longrightarrow \qquad x + 5 = 12$$
   </ul>
 
 </section>
-<section class="slide" id="seccion-12" data-materia="matematicas" data-seccion="Qué es una ecuación y qué significa resolverla" data-seccion-numero="4" data-numero="4.1" data-nivel="3">
+<section class="slide" id="seccion-11" data-materia="matematicas" data-seccion="Qué es una ecuación y qué significa resolverla" data-seccion-numero="4" data-numero="4.1" data-nivel="3">
   <h3><span class="heading__number">4.1</span> El signo igual no significa «ahora viene la respuesta»</h3>
 <p>El signo <strong>igual</strong> indica que las expresiones de sus dos lados tienen el mismo valor:</p>
 
@@ -328,7 +302,7 @@ $$x + 3 = 10$$
 <p><strong>Resolver</strong> la ecuación es encontrar el valor de la incógnita que hace cierta la igualdad. En este ejemplo la solución es $x = 7$.</p>
 
 </section>
-<section class="slide" id="seccion-13" data-materia="matematicas" data-seccion="Qué es una ecuación y qué significa resolverla" data-seccion-numero="4" data-numero="4.2" data-nivel="3">
+<section class="slide" id="seccion-12" data-materia="matematicas" data-seccion="Qué es una ecuación y qué significa resolverla" data-seccion-numero="4" data-numero="4.2" data-nivel="3">
   <h3><span class="heading__number">4.2</span> La igualdad como una balanza</h3>
 <p>Imagina una balanza equilibrada. Si añadimos la misma cantidad a los dos platos, sigue equilibrada. Si quitamos la misma cantidad de los dos, también.</p>
 
@@ -347,7 +321,7 @@ $$x + 3 = 10$$
 
 </div>
 </section>
-<section class="slide" id="seccion-14" data-materia="matematicas" data-seccion="Qué es una ecuación y qué significa resolverla" data-seccion-numero="4" data-numero="4.3" data-nivel="3">
+<section class="slide" id="seccion-13" data-materia="matematicas" data-seccion="Qué es una ecuación y qué significa resolverla" data-seccion-numero="4" data-numero="4.3" data-nivel="3">
   <h3><span class="heading__number">4.3</span> Comprobar una solución</h3>
 <p>Para comprobar, volvemos a la <strong>ecuación original</strong> y sustituimos la letra por el número obtenido. Calculamos cada lado por separado.</p>
 
@@ -360,8 +334,8 @@ $$x + 3 = 10$$
 <p>Coinciden: la solución es correcta. En cambio, $x = 6$ no sirve, porque $6 + 3 = 9$ y $9 \ne 10$.</p>
 
 </div>
-<div class="box box--actividades" data-actividad="5" aria-label="Actividades 5">
-  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">5</span><span>Actividades</span></p>
+<div class="box box--actividades" data-actividad="4" aria-label="Actividades 4">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">4</span><span>Actividades</span></p>
 <ol>
 <li>¿Cuáles son igualdades verdaderas? a) $7 + 5 = 12$; b) $9 = 4 + 5$; c) $6 + 2 = 10$; d) $3 \times 4 = 8 + 4$.</li>
 <li>¿Cuál de estos valores resuelve $x + 4 = 13$: $8$, $9$ o $10$? Comprueba los tres.</li>
@@ -383,7 +357,7 @@ $$x + 3 = 10$$
 </div>
 </div>
 </section>
-<section class="slide slide--seccion slide--seccion--titulo-necesario" id="seccion-15" data-materia="matematicas" data-seccion="Un paso: quitar una suma o una resta" data-seccion-numero="5" data-numero="5" data-nivel="2">
+<section class="slide slide--seccion slide--seccion--titulo-necesario" id="seccion-14" data-materia="matematicas" data-seccion="Un paso: quitar una suma o una resta" data-seccion-numero="5" data-numero="5" data-nivel="2">
   <h2><span class="heading__number">5</span> Un paso: quitar una suma o una resta</h2>
   <ul class="slide__indice-seccion">
     <li><span class="heading__number">5.1</span> Cuando están sumando a la x</li>
@@ -392,7 +366,7 @@ $$x + 3 = 10$$
   </ul>
 
 </section>
-<section class="slide" id="seccion-16" data-materia="matematicas" data-seccion="Un paso: quitar una suma o una resta" data-seccion-numero="5" data-numero="5.1" data-nivel="3">
+<section class="slide" id="seccion-15" data-materia="matematicas" data-seccion="Un paso: quitar una suma o una resta" data-seccion-numero="5" data-numero="5.1" data-nivel="3">
   <h3><span class="heading__number">5.1</span> Cuando están sumando a la x</h3>
 <p><strong>Despejar la x</strong> significa dejarla sola en uno de los lados. Si tiene una cantidad sumando, restamos esa cantidad en ambos lados.</p>
 
@@ -425,8 +399,8 @@ $$x + 3 = 10$$
 <p>Comprobación: $11 + 8 = 19$.</p>
 
 </div>
-<div class="box box--actividades" data-actividad="6" aria-label="Actividades 6">
-  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">6</span><span>Actividades</span></p>
+<div class="box box--actividades" data-actividad="5" aria-label="Actividades 5">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">5</span><span>Actividades</span></p>
 <ol>
 <li>Completa los pasos: $x + 6 = 14$; $x + 6 - \square = 14 - \square$; $x = \square$.</li>
 <li>Resuelve y comprueba: a) $x + 3 = 12$; b) $x + 9 = 20$; c) $x + 15 = 15$.</li>
@@ -434,7 +408,7 @@ $$x + 3 = 10$$
 
 </div>
 </section>
-<section class="slide" id="seccion-17" data-materia="matematicas" data-seccion="Un paso: quitar una suma o una resta" data-seccion-numero="5" data-numero="5.2" data-nivel="3">
+<section class="slide" id="seccion-16" data-materia="matematicas" data-seccion="Un paso: quitar una suma o una resta" data-seccion-numero="5" data-numero="5.2" data-nivel="3">
   <h3><span class="heading__number">5.2</span> Cuando están restando a la x</h3>
 <p>Si tiene una cantidad restando, sumamos esa cantidad en ambos lados.</p>
 
@@ -446,7 +420,7 @@ $$x + 3 = 10$$
 
 </div>
 </section>
-<section class="slide" id="seccion-18" data-materia="matematicas" data-seccion="Un paso: quitar una suma o una resta" data-seccion-numero="5" data-numero="5.3" data-nivel="3">
+<section class="slide" id="seccion-17" data-materia="matematicas" data-seccion="Un paso: quitar una suma o una resta" data-seccion-numero="5" data-numero="5.3" data-nivel="3">
   <h3><span class="heading__number">5.3</span> Si la incógnita está a la derecha</h3>
 <p>La incógnita puede estar a la derecha. <strong>El procedimiento no cambia</strong>:</p>
 
@@ -458,8 +432,8 @@ $$x + 3 = 10$$
 <p>Es lo mismo que $x = 13$. Comprobación: $9 = 13 - 4$.</p>
 
 </div>
-<div class="box box--actividades" data-actividad="7" aria-label="Actividades 7">
-  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">7</span><span>Actividades</span></p>
+<div class="box box--actividades" data-actividad="6" aria-label="Actividades 6">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">6</span><span>Actividades</span></p>
 <ol>
 <li>Resuelve y comprueba: a) $x - 7 = 8$; b) $x - 12 = 5$; c) $x - 6 = 0$.</li>
 <li>Resuelve: a) $16 = x + 5$; b) $7 = x - 9$.</li>
@@ -468,7 +442,7 @@ $$x + 3 = 10$$
 
 </div>
 </section>
-<section class="slide slide--seccion slide--seccion--titulo-necesario" id="seccion-19" data-materia="matematicas" data-seccion="Un paso: quitar una multiplicación o una división" data-seccion-numero="6" data-numero="6" data-nivel="2">
+<section class="slide slide--seccion slide--seccion--titulo-necesario" id="seccion-18" data-materia="matematicas" data-seccion="Un paso: quitar una multiplicación o una división" data-seccion-numero="6" data-numero="6" data-nivel="2">
   <h2><span class="heading__number">6</span> Un paso: quitar una multiplicación o una división</h2>
   <ul class="slide__indice-seccion">
     <li><span class="heading__number">6.1</span> Cuando un número multiplica a la x</li>
@@ -477,7 +451,7 @@ $$x + 3 = 10$$
   </ul>
 
 </section>
-<section class="slide" id="seccion-20" data-materia="matematicas" data-seccion="Un paso: quitar una multiplicación o una división" data-seccion-numero="6" data-numero="6.1" data-nivel="3">
+<section class="slide" id="seccion-19" data-materia="matematicas" data-seccion="Un paso: quitar una multiplicación o una división" data-seccion-numero="6" data-numero="6.1" data-nivel="3">
   <h3><span class="heading__number">6.1</span> Cuando un número multiplica a la x</h3>
 <p>En $4x = 28$, el $4$ <strong>multiplica</strong> a la $x$. Para deshacerlo, dividimos los dos miembros entre $4$.</p>
 
@@ -495,8 +469,8 @@ $$x + 3 = 10$$
 <p>Antes de actuar, pregunta: <strong>¿qué operación está haciendo ese número con la x?</strong></p>
 
 </div>
-<div class="box box--actividades" data-actividad="8" aria-label="Actividades 8">
-  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">8</span><span>Actividades</span></p>
+<div class="box box--actividades" data-actividad="7" aria-label="Actividades 7">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">7</span><span>Actividades</span></p>
 <ol>
 <li>Resuelve y comprueba: a) $3x = 21$; b) $5x = 40$; c) $6x = 18$.</li>
 <li>Resuelve: a) $24 = 4x$; b) $2x = 9$. En el último caso puedes expresar la solución como fracción o decimal.</li>
@@ -505,7 +479,7 @@ $$x + 3 = 10$$
 
 </div>
 </section>
-<section class="slide" id="seccion-21" data-materia="matematicas" data-seccion="Un paso: quitar una multiplicación o una división" data-seccion-numero="6" data-numero="6.2" data-nivel="3">
+<section class="slide" id="seccion-20" data-materia="matematicas" data-seccion="Un paso: quitar una multiplicación o una división" data-seccion-numero="6" data-numero="6.2" data-nivel="3">
   <h3><span class="heading__number">6.2</span> Cuando la x está dividida entre un número</h3>
 <p>Si $\frac{x}{5} = 6$, la $x$ está dividida entre $5$. Para deshacer esa división, multiplicamos ambos miembros por $5$.</p>
 
@@ -516,8 +490,8 @@ $$x + 3 = 10$$
 <p>Comprobación: $\frac{30}{5} = 6$.</p>
 
 </div>
-<div class="box box--actividades" data-actividad="9" aria-label="Actividades 9">
-  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">9</span><span>Actividades</span></p>
+<div class="box box--actividades" data-actividad="8" aria-label="Actividades 8">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">8</span><span>Actividades</span></p>
 <ol>
 <li>Resuelve y comprueba: a) $\frac{x}{3} = 7$; b) $\frac{x}{4} = 5$; c) $\frac{x}{2} = 9$.</li>
 <li>Resuelve $8 = \frac{x}{6}$. ¿Importa que la incógnita esté a la derecha?</li>
@@ -526,7 +500,7 @@ $$x + 3 = 10$$
 
 </div>
 </section>
-<section class="slide" id="seccion-22" data-materia="matematicas" data-seccion="Un paso: quitar una multiplicación o una división" data-seccion-numero="6" data-numero="6.3" data-nivel="3">
+<section class="slide" id="seccion-21" data-materia="matematicas" data-seccion="Un paso: quitar una multiplicación o una división" data-seccion-numero="6" data-numero="6.3" data-nivel="3">
   <h3><span class="heading__number">6.3</span> Las cuatro operaciones básicas</h3>
 <div class="box box--resumen">
 <p class="box__title">Las cuatro operaciones básicas</p>
@@ -558,7 +532,7 @@ $$x + 3 = 10$$
 
 </div>
 </section>
-<section class="slide slide--seccion slide--seccion--titulo-necesario" id="seccion-23" data-materia="matematicas" data-seccion="Dos pasos: deshacer en el orden adecuado" data-seccion-numero="7" data-numero="7" data-nivel="2">
+<section class="slide slide--seccion slide--seccion--titulo-necesario" id="seccion-22" data-materia="matematicas" data-seccion="Dos pasos: deshacer en el orden adecuado" data-seccion-numero="7" data-numero="7" data-nivel="2">
   <h2><span class="heading__number">7</span> Dos pasos: deshacer en el orden adecuado</h2>
   <ul class="slide__indice-seccion">
     <li><span class="heading__number">7.1</span> Primero la suma o la resta; después el factor</li>
@@ -567,7 +541,7 @@ $$x + 3 = 10$$
   </ul>
 
 </section>
-<section class="slide" id="seccion-24" data-materia="matematicas" data-seccion="Dos pasos: deshacer en el orden adecuado" data-seccion-numero="7" data-numero="7.1" data-nivel="3">
+<section class="slide" id="seccion-23" data-materia="matematicas" data-seccion="Dos pasos: deshacer en el orden adecuado" data-seccion-numero="7" data-numero="7.1" data-nivel="3">
   <h3><span class="heading__number">7.1</span> Primero la suma o la resta; después el factor</h3>
 <p>En $3x + 4 = 19$ hay dos operaciones sobre la incógnita: multiplicarla por $3$ y sumar $4$. Para volver a la $x$, deshacemos primero la última.</p>
 
@@ -611,7 +585,7 @@ $$x + 3 = 10$$
 
 </div>
 </section>
-<section class="slide" id="seccion-25" data-materia="matematicas" data-seccion="Dos pasos: deshacer en el orden adecuado" data-seccion-numero="7" data-numero="7.2" data-nivel="3">
+<section class="slide" id="seccion-24" data-materia="matematicas" data-seccion="Dos pasos: deshacer en el orden adecuado" data-seccion-numero="7" data-numero="7.2" data-nivel="3">
   <h3><span class="heading__number">7.2</span> Si aparece una resta</h3>
 <div class="box box--example">
 <p class="box__title">Si hay una resta: 4x − 3 = 17</p>
@@ -627,8 +601,8 @@ $$x + 3 = 10$$
 <p>Cuando oigas «el $4$ pasa restando», recuerda qué significa: <strong>restamos $4$ en los dos lados</strong>. Nada salta de un lado a otro por sí solo.</p>
 
 </div>
-<div class="box box--actividades" data-actividad="10" aria-label="Actividades 10">
-  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">10</span><span>Actividades</span></p>
+<div class="box box--actividades" data-actividad="9" aria-label="Actividades 9">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">9</span><span>Actividades</span></p>
 <ol>
 <li>Completa: $2x + 5 = 17$; $2x = 17 - \square$; $2x = \square$; $x = \square$.</li>
 <li>Resuelve y comprueba: a) $2x + 3 = 15$; b) $5x - 4 = 21$; c) $3x + 7 = 25$.</li>
@@ -650,7 +624,7 @@ $$x + 3 = 10$$
 </div>
 </div>
 </section>
-<section class="slide" id="seccion-26" data-materia="matematicas" data-seccion="Dos pasos: deshacer en el orden adecuado" data-seccion-numero="7" data-numero="7.3" data-nivel="3">
+<section class="slide" id="seccion-25" data-materia="matematicas" data-seccion="Dos pasos: deshacer en el orden adecuado" data-seccion-numero="7" data-numero="7.3" data-nivel="3">
   <h3><span class="heading__number">7.3</span> Si la x está dividida</h3>
 <p>La idea es la misma: quitar primero lo que se suma o se resta <strong>fuera de la fracción</strong>.</p>
 
@@ -662,8 +636,8 @@ $$x + 3 = 10$$
 <p>Comprobación: $\frac{15}{3} + 2 = 5 + 2 = 7$.</p>
 
 </div>
-<div class="box box--actividades" data-actividad="11" aria-label="Actividades 11">
-  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">11</span><span>Actividades</span></p>
+<div class="box box--actividades" data-actividad="10" aria-label="Actividades 10">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">10</span><span>Actividades</span></p>
 <ol>
 <li>Resuelve y comprueba: a) $\frac{x}{2} + 4 = 10$; b) $\frac{x}{5} - 3 = 2$; c) $12 = 2x + 4$.</li>
 <li>Sin resolver, indica el primer paso en cada caso: a) $7x + 2 = 30$; b) $\frac{x}{7} - 2 = 3$.</li>
@@ -671,7 +645,7 @@ $$x + 3 = 10$$
 
 </div>
 </section>
-<section class="slide slide--seccion slide--seccion--titulo-necesario" id="seccion-27" data-materia="matematicas" data-seccion="Los signos y la x en los dos lados" data-seccion-numero="8" data-numero="8" data-nivel="2">
+<section class="slide slide--seccion slide--seccion--titulo-necesario" id="seccion-26" data-materia="matematicas" data-seccion="Los signos y la x en los dos lados" data-seccion-numero="8" data-numero="8" data-nivel="2">
   <h2><span class="heading__number">8</span> Los signos y la x en los dos lados</h2>
   <ul class="slide__indice-seccion">
     <li><span class="heading__number">8.1</span> Una solución también puede ser negativa</li>
@@ -682,7 +656,7 @@ $$x + 3 = 10$$
   </ul>
 
 </section>
-<section class="slide" id="seccion-28" data-materia="matematicas" data-seccion="Los signos y la x en los dos lados" data-seccion-numero="8" data-numero="8.1" data-nivel="3">
+<section class="slide" id="seccion-27" data-materia="matematicas" data-seccion="Los signos y la x en los dos lados" data-seccion-numero="8" data-numero="8.1" data-nivel="3">
   <h3><span class="heading__number">8.1</span> Una solución también puede ser negativa</h3>
 <p>Que el resultado sea negativo no significa que esté mal. Lo que decide si sirve es la comprobación.</p>
 
@@ -694,7 +668,7 @@ $$x + 3 = 10$$
 
 </div>
 </section>
-<section class="slide" id="seccion-29" data-materia="matematicas" data-seccion="Los signos y la x en los dos lados" data-seccion-numero="8" data-numero="8.2" data-nivel="3">
+<section class="slide" id="seccion-28" data-materia="matematicas" data-seccion="Los signos y la x en los dos lados" data-seccion-numero="8" data-numero="8.2" data-nivel="3">
   <h3><span class="heading__number">8.2</span> Cuando el factor es negativo</h3>
 <div class="box">
 <p class="box__title">Recordatorio de signos</p>
@@ -714,8 +688,8 @@ $$x + 3 = 10$$
 <p>Comprobación: $(-3) \times (-4) = 12$.</p>
 
 </div>
-<div class="box box--actividades" data-actividad="12" aria-label="Actividades 12">
-  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">12</span><span>Actividades</span></p>
+<div class="box box--actividades" data-actividad="11" aria-label="Actividades 11">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">11</span><span>Actividades</span></p>
 <ol>
 <li>Calcula antes de seguir: a) $4 - 9$; b) $-8 + 3$; c) $(-15) \div 3$; d) $(-15) \div (-3)$.</li>
 <li>Resuelve y comprueba: a) $x + 9 = 4$; b) $2x + 7 = 1$; c) $-4x = 20$; d) $-x = 6$.</li>
@@ -723,7 +697,7 @@ $$x + 3 = 10$$
 
 </div>
 </section>
-<section class="slide" id="seccion-30" data-materia="matematicas" data-seccion="Los signos y la x en los dos lados" data-seccion-numero="8" data-numero="8.3" data-nivel="3">
+<section class="slide" id="seccion-29" data-materia="matematicas" data-seccion="Los signos y la x en los dos lados" data-seccion-numero="8" data-numero="8.3" data-nivel="3">
   <h3><span class="heading__number">8.3</span> Cuando la x está restando</h3>
 <p>No es lo mismo $x - 4$ que $4 - x$. En el segundo caso hay una $x$ con signo negativo.</p>
 
@@ -737,8 +711,8 @@ $$x + 3 = 10$$
 <p>Solución: $x = 6$. Comprobación: $10 - 6 = 4$.</p>
 
 </div>
-<div class="box box--actividades" data-actividad="13" aria-label="Actividades 13">
-  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">13</span><span>Actividades</span></p>
+<div class="box box--actividades" data-actividad="12" aria-label="Actividades 12">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">12</span><span>Actividades</span></p>
 <ol>
 <li>Resuelve y comprueba: a) $12 - x = 5$; b) $20 - 2x = 8$.</li>
 <li>Compara las soluciones de $x - 6 = 10$ y $6 - x = 10$. Comprueba las dos.</li>
@@ -746,7 +720,7 @@ $$x + 3 = 10$$
 
 </div>
 </section>
-<section class="slide" id="seccion-31" data-materia="matematicas" data-seccion="Los signos y la x en los dos lados" data-seccion-numero="8" data-numero="8.4" data-nivel="3">
+<section class="slide" id="seccion-30" data-materia="matematicas" data-seccion="Los signos y la x en los dos lados" data-seccion-numero="8" data-numero="8.4" data-nivel="3">
   <h3><span class="heading__number">8.4</span> Reunir las x en un lado y los números en el otro</h3>
 <p>En una ecuación puede aparecer la incógnita en ambos miembros. Usamos la misma regla de siempre para reunirla en un solo lado.</p>
 
@@ -785,8 +759,8 @@ $$x + 3 = 10$$
 </div>
 <p>No es obligatorio reunir las $x$ a la izquierda. Puedes elegir el lado que deje las cuentas más sencillas.</p>
 
-<div class="box box--actividades" data-actividad="14" aria-label="Actividades 14">
-  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">14</span><span>Actividades</span></p>
+<div class="box box--actividades" data-actividad="13" aria-label="Actividades 13">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">13</span><span>Actividades</span></p>
 <ol>
 <li>Resuelve y comprueba: a) $4x + 1 = x + 10$; b) $6x - 5 = 2x + 11$; c) $2x + 9 = 5x$.</li>
 <li>En $3x + 4 = x + 12$, ¿qué ocurre si restamos $x$ solo en el lado izquierdo? Explica qué regla se incumple.</li>
@@ -807,7 +781,7 @@ $$x + 3 = 10$$
 </div>
 </div>
 </section>
-<section class="slide" id="seccion-32" data-materia="matematicas" data-seccion="Los signos y la x en los dos lados" data-seccion-numero="8" data-numero="8.5" data-nivel="3">
+<section class="slide" id="seccion-31" data-materia="matematicas" data-seccion="Los signos y la x en los dos lados" data-seccion-numero="8" data-numero="8.5" data-nivel="3">
   <h3><span class="heading__number">8.5</span> Dos resultados especiales</h3>
 <p>La mayoría de las ecuaciones de este bloque tienen una única solución, pero no todas. Si al simplificar desaparece la $x$, observa la igualdad que queda.</p>
 
@@ -828,15 +802,15 @@ $$x + 3 = 10$$
 <p>Si las $x$ desaparecen, no escribas automáticamente $x = 0$. Decide si la igualdad final es verdadera o falsa.</p>
 
 </div>
-<div class="box box--actividades" data-actividad="15" aria-label="Actividades 15">
-  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">15</span><span>Actividades</span></p>
+<div class="box box--actividades" data-actividad="14" aria-label="Actividades 14">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">14</span><span>Actividades</span></p>
 <ol>
 <li>Simplifica y decide si no hay solución o si sirve cualquier número: a) $3x + 1 = 3x + 6$; b) $4x - 2 = 4x - 2$.</li>
 </ol>
 
 </div>
 </section>
-<section class="slide slide--seccion slide--seccion--titulo-necesario" id="seccion-33" data-materia="matematicas" data-seccion="Ecuaciones con paréntesis" data-seccion-numero="9" data-numero="9" data-nivel="2">
+<section class="slide slide--seccion slide--seccion--titulo-necesario" id="seccion-32" data-materia="matematicas" data-seccion="Ecuaciones con paréntesis" data-seccion-numero="9" data-numero="9" data-nivel="2">
   <h2><span class="heading__number">9</span> Ecuaciones con paréntesis</h2>
   <ul class="slide__indice-seccion">
     <li><span class="heading__number">9.1</span> Deshacer operaciones sobre un grupo</li>
@@ -846,7 +820,7 @@ $$x + 3 = 10$$
   </ul>
 
 </section>
-<section class="slide" id="seccion-34" data-materia="matematicas" data-seccion="Ecuaciones con paréntesis" data-seccion-numero="9" data-numero="9.1" data-nivel="3">
+<section class="slide" id="seccion-33" data-materia="matematicas" data-seccion="Ecuaciones con paréntesis" data-seccion-numero="9" data-numero="9.1" data-nivel="3">
   <h3><span class="heading__number">9.1</span> Deshacer operaciones sobre un grupo</h3>
 <p>Un paréntesis indica que las operaciones de su interior forman un grupo. En $3(x + 2)$, el $3$ multiplica a <strong>todo</strong> $x + 2$.</p>
 <p>Si el paréntesis completo está multiplicado por un número y no hay nada más en ese lado, podemos empezar dividiendo.</p>
@@ -858,8 +832,8 @@ $$x + 3 = 10$$
 <p>Comprobación: $3 \times (5 + 2) = 3 \times 7 = 21$.</p>
 
 </div>
-<div class="box box--actividades" data-actividad="16" aria-label="Actividades 16">
-  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">16</span><span>Actividades</span></p>
+<div class="box box--actividades" data-actividad="15" aria-label="Actividades 15">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">15</span><span>Actividades</span></p>
 <ol>
 <li>Resuelve sin desarrollar el paréntesis: a) $2(x + 3) = 16$; b) $4(x - 1) = 20$; c) $5(x + 2) = 15$.</li>
 <li>En $2(x + 3) = 16$, ¿por qué primero dividimos entre $2$ y después restamos $3$?</li>
@@ -867,7 +841,7 @@ $$x + 3 = 10$$
 
 </div>
 </section>
-<section class="slide" id="seccion-35" data-materia="matematicas" data-seccion="Ecuaciones con paréntesis" data-seccion-numero="9" data-numero="9.2" data-nivel="3">
+<section class="slide" id="seccion-34" data-materia="matematicas" data-seccion="Ecuaciones con paréntesis" data-seccion-numero="9" data-numero="9.2" data-nivel="3">
   <h3><span class="heading__number">9.2</span> La propiedad distributiva</h3>
 <p>También podemos <strong>abrir el paréntesis</strong>, multiplicando el número de fuera por cada término de dentro. Esto se llama <strong>propiedad distributiva</strong>.</p>
 
@@ -882,7 +856,7 @@ $$a(b + c) = ab + ac \qquad a(b - c) = ab - ac$$
 
 </div>
 </section>
-<section class="slide" id="seccion-36" data-materia="matematicas" data-seccion="Ecuaciones con paréntesis" data-seccion-numero="9" data-numero="9.3" data-nivel="3">
+<section class="slide" id="seccion-35" data-materia="matematicas" data-seccion="Ecuaciones con paréntesis" data-seccion-numero="9" data-numero="9.3" data-nivel="3">
   <h3><span class="heading__number">9.3</span> Desarrollar antes de despejar</h3>
 <div class="box box--example">
 <p class="box__title">Resolver 2(x + 3) + 4 = 18</p>
@@ -893,8 +867,8 @@ $$a(b + c) = ab + ac \qquad a(b - c) = ab - ac$$
 <p>Comprobación: $2 \times (4 + 3) + 4 = 14 + 4 = 18$.</p>
 
 </div>
-<div class="box box--actividades" data-actividad="17" aria-label="Actividades 17">
-  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">17</span><span>Actividades</span></p>
+<div class="box box--actividades" data-actividad="16" aria-label="Actividades 16">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">16</span><span>Actividades</span></p>
 <ol>
 <li>Desarrolla sin resolver ninguna ecuación: a) $4(x + 2)$; b) $3(x - 5)$; c) $2(3x + 1)$.</li>
 <li>Resuelve y comprueba: a) $3(x + 2) + 1 = 22$; b) $2(x - 3) = x + 1$.</li>
@@ -902,7 +876,7 @@ $$a(b + c) = ab + ac \qquad a(b - c) = ab - ac$$
 
 </div>
 </section>
-<section class="slide" id="seccion-37" data-materia="matematicas" data-seccion="Ecuaciones con paréntesis" data-seccion-numero="9" data-numero="9.4" data-nivel="3">
+<section class="slide" id="seccion-36" data-materia="matematicas" data-seccion="Ecuaciones con paréntesis" data-seccion-numero="9" data-numero="9.4" data-nivel="3">
   <h3><span class="heading__number">9.4</span> Un signo menos delante del paréntesis</h3>
 <p>Un menos delante de un paréntesis equivale a multiplicar <strong>cada término</strong> por $-1$:</p>
 
@@ -918,8 +892,8 @@ $$-(x + 3) = -x - 3 \qquad -(x - 3) = -x + 3$$
 <p>Comprobación: $10 - (5 + 2) = 3$.</p>
 
 </div>
-<div class="box box--actividades" data-actividad="18" aria-label="Actividades 18">
-  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">18</span><span>Actividades</span></p>
+<div class="box box--actividades" data-actividad="17" aria-label="Actividades 17">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">17</span><span>Actividades</span></p>
 <ol>
 <li>Quita los paréntesis: a) $-(x + 5)$; b) $-(x - 4)$; c) $-2(x - 3)$.</li>
 <li>Resuelve y comprueba: a) $12 - (x + 4) = 5$; b) $8 - (x - 2) = 6$.</li>
@@ -927,7 +901,7 @@ $$-(x + 3) = -x - 3 \qquad -(x - 3) = -x + 3$$
 
 </div>
 </section>
-<section class="slide slide--seccion slide--seccion--titulo-necesario" id="seccion-38" data-materia="matematicas" data-seccion="Ecuaciones con fracciones sencillas" data-seccion-numero="10" data-numero="10" data-nivel="2">
+<section class="slide slide--seccion slide--seccion--titulo-necesario" id="seccion-37" data-materia="matematicas" data-seccion="Ecuaciones con fracciones sencillas" data-seccion-numero="10" data-numero="10" data-nivel="2">
   <h2><span class="heading__number">10</span> Ecuaciones con fracciones sencillas</h2>
   <ul class="slide__indice-seccion">
     <li><span class="heading__number">10.1</span> La raya de fracción agrupa el numerador</li>
@@ -937,7 +911,7 @@ $$-(x + 3) = -x - 3 \qquad -(x - 3) = -x + 3$$
   </ul>
 
 </section>
-<section class="slide" id="seccion-39" data-materia="matematicas" data-seccion="Ecuaciones con fracciones sencillas" data-seccion-numero="10" data-numero="10.1" data-nivel="3">
+<section class="slide" id="seccion-38" data-materia="matematicas" data-seccion="Ecuaciones con fracciones sencillas" data-seccion-numero="10" data-numero="10.1" data-nivel="3">
   <h3><span class="heading__number">10.1</span> La raya de fracción agrupa el numerador</h3>
 <p>La raya de una fracción hace de paréntesis para todo lo que tiene encima. Por eso estas expresiones son diferentes:</p>
 
@@ -956,8 +930,8 @@ $$\frac{x + 3}{2} \qquad \frac{x}{2} + 3$$
 <p>Comprobación: $\frac{11 + 3}{2} = \frac{14}{2} = 7$.</p>
 
 </div>
-<div class="box box--actividades" data-actividad="19" aria-label="Actividades 19">
-  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">19</span><span>Actividades</span></p>
+<div class="box box--actividades" data-actividad="18" aria-label="Actividades 18">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">18</span><span>Actividades</span></p>
 <ol>
 <li>Calcula las dos expresiones para $x = 5$: a) $\frac{x + 3}{2}$; b) $\frac{x}{2} + 3$.</li>
 <li>Resuelve y comprueba: a) $\frac{x + 4}{3} = 5$; b) $\frac{x - 2}{4} = 3$; c) $\frac{2x + 1}{3} = 5$.</li>
@@ -965,7 +939,7 @@ $$\frac{x + 3}{2} \qquad \frac{x}{2} + 3$$
 
 </div>
 </section>
-<section class="slide" id="seccion-40" data-materia="matematicas" data-seccion="Ecuaciones con fracciones sencillas" data-seccion-numero="10" data-numero="10.2" data-nivel="3">
+<section class="slide" id="seccion-39" data-materia="matematicas" data-seccion="Ecuaciones con fracciones sencillas" data-seccion-numero="10" data-numero="10.2" data-nivel="3">
   <h3><span class="heading__number">10.2</span> Quitar varios denominadores</h3>
 <p>Si hay varias fracciones con <strong>denominadores numéricos</strong>, podemos multiplicar todos los términos de la ecuación por un múltiplo común. Elegimos el menor para hacer cuentas más pequeñas.</p>
 <p>Por ejemplo, para denominadores $2$ y $3$, usamos $6$, porque es múltiplo de los dos.</p>
@@ -982,15 +956,15 @@ $$\frac{x + 3}{2} \qquad \frac{x}{2} + 3$$
 
 </div>
 </section>
-<section class="slide" id="seccion-41" data-materia="matematicas" data-seccion="Ecuaciones con fracciones sencillas" data-seccion-numero="10" data-numero="10.3" data-nivel="3">
+<section class="slide" id="seccion-40" data-materia="matematicas" data-seccion="Ecuaciones con fracciones sencillas" data-seccion-numero="10" data-numero="10.3" data-nivel="3">
   <h3><span class="heading__number">10.3</span> Multiplicar todos los términos</h3>
 <div class="box box--dato">
 <p class="box__title">También los términos sin denominador</p>
 <p>En $\frac{x}{2} + 3 = 8$, si multiplicamos por $2$, obtenemos $x + 6 = 16$, <strong>no</strong> $x + 3 = 16$. El $3$ también forma parte del miembro izquierdo.</p>
 
 </div>
-<div class="box box--actividades" data-actividad="20" aria-label="Actividades 20">
-  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">20</span><span>Actividades</span></p>
+<div class="box box--actividades" data-actividad="19" aria-label="Actividades 19">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">19</span><span>Actividades</span></p>
 <ol>
 <li>¿Qué número usarías para quitar los denominadores? a) $2$ y $5$; b) $3$ y $6$; c) $4$ y $2$.</li>
 <li>Multiplica todos los términos y resuelve: a) $\frac{x}{2} + \frac{x}{4} = 6$; b) $\frac{x}{3} + 2 = 5$; c) $\frac{x + 1}{2} = \frac{x + 5}{3}$.</li>
@@ -1012,7 +986,7 @@ $$\frac{x + 3}{2} \qquad \frac{x}{2} + 3$$
 </div>
 </div>
 </section>
-<section class="slide" id="seccion-42" data-materia="matematicas" data-seccion="Ecuaciones con fracciones sencillas" data-seccion-numero="10" data-numero="10.4" data-nivel="3">
+<section class="slide" id="seccion-41" data-materia="matematicas" data-seccion="Ecuaciones con fracciones sencillas" data-seccion-numero="10" data-numero="10.4" data-nivel="3">
   <h3><span class="heading__number">10.4</span> Un paso más: la incógnita en el denominador</h3>
 <p>Hasta ahora dividíamos entre un número conocido. Si aparece $\frac{12}{x}$, estamos dividiendo entre la incógnita: es un caso distinto de $\frac{x}{12}$.</p>
 <p><strong>La x no puede valer cero</strong>, porque está en el denominador.</p>
@@ -1029,8 +1003,8 @@ $$\frac{x + 3}{2} \qquad \frac{x}{2} + 3$$
 </div>
 <p>No hace falta una regla nueva de «dar la vuelta»: quitamos la división multiplicando ambos miembros por su divisor. Después resolvemos lo que queda y comprobamos que la solución está permitida.</p>
 
-<div class="box box--actividades" data-actividad="21" aria-label="Actividades 21">
-  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">21</span><span>Actividades</span></p>
+<div class="box box--actividades" data-actividad="20" aria-label="Actividades 20">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">20</span><span>Actividades</span></p>
 <ol>
 <li>Resuelve y comprueba: a) $\frac{20}{x} = 5$; b) $\frac{18}{x} = 3$; c) $\frac{10}{x} = 4$.</li>
 <li>Resuelve $\frac{x}{6} = 2$ y $\frac{6}{x} = 2$. ¿Por qué dan resultados diferentes?</li>
@@ -1039,7 +1013,7 @@ $$\frac{x + 3}{2} \qquad \frac{x}{2} + 3$$
 
 </div>
 </section>
-<section class="slide slide--seccion slide--seccion--titulo-necesario" id="seccion-43" data-materia="matematicas" data-seccion="Del enunciado a la ecuación" data-seccion-numero="11" data-numero="11" data-nivel="2">
+<section class="slide slide--seccion slide--seccion--titulo-necesario" id="seccion-42" data-materia="matematicas" data-seccion="Del enunciado a la ecuación" data-seccion-numero="11" data-numero="11" data-nivel="2">
   <h2><span class="heading__number">11</span> Del enunciado a la ecuación</h2>
   <ul class="slide__indice-seccion">
     <li><span class="heading__number">11.1</span> Elegir qué representa la incógnita</li>
@@ -1047,7 +1021,7 @@ $$\frac{x + 3}{2} \qquad \frac{x}{2} + 3$$
   </ul>
 
 </section>
-<section class="slide" id="seccion-44" data-materia="matematicas" data-seccion="Del enunciado a la ecuación" data-seccion-numero="11" data-numero="11.1" data-nivel="3">
+<section class="slide" id="seccion-43" data-materia="matematicas" data-seccion="Del enunciado a la ecuación" data-seccion-numero="11" data-numero="11.1" data-nivel="3">
   <h3><span class="heading__number">11.1</span> Elegir qué representa la incógnita</h3>
 <p>Resolver una ecuación y <strong>plantearla</strong> son tareas diferentes. En un problema, primero hay que traducir la información.</p>
 <ol>
@@ -1071,8 +1045,8 @@ $$\frac{x + 3}{2} \qquad \frac{x}{2} + 3$$
 </ul>
 
 </div>
-<div class="box box--actividades" data-actividad="22" aria-label="Actividades 22">
-  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">22</span><span>Actividades</span></p>
+<div class="box box--actividades" data-actividad="21" aria-label="Actividades 21">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">21</span><span>Actividades</span></p>
 <ol>
 <li>Sin resolver, plantea: «Cinco entradas iguales y $3$ € de gastos cuestan $38$ €». Define la incógnita y escribe la ecuación.</li>
 <li>Cuatro cuadernos iguales y un bolígrafo de $2$ € cuestan $14$ €. ¿Cuánto cuesta un cuaderno?</li>
@@ -1081,7 +1055,7 @@ $$\frac{x + 3}{2} \qquad \frac{x}{2} + 3$$
 
 </div>
 </section>
-<section class="slide" id="seccion-45" data-materia="matematicas" data-seccion="Del enunciado a la ecuación" data-seccion-numero="11" data-numero="11.2" data-nivel="3">
+<section class="slide" id="seccion-44" data-materia="matematicas" data-seccion="Del enunciado a la ecuación" data-seccion-numero="11" data-numero="11.2" data-nivel="3">
   <h3><span class="heading__number">11.2</span> Relacionar dos cantidades desconocidas</h3>
 <p>Si una cantidad depende de otra, a menudo podemos expresarlas con <strong>una sola incógnita</strong>.</p>
 
@@ -1100,8 +1074,8 @@ $$\frac{x + 3}{2} \qquad \frac{x}{2} + 3$$
 <p>El trozo corto mide <strong>20 cm</strong> y el largo, $20 + 10 =$ <strong>30 cm</strong>. Comprobamos las dos condiciones: suman $50$ cm y se llevan $10$ cm.</p>
 
 </div>
-<div class="box box--actividades" data-actividad="23" aria-label="Actividades 23">
-  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">23</span><span>Actividades</span></p>
+<div class="box box--actividades" data-actividad="22" aria-label="Actividades 22">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">22</span><span>Actividades</span></p>
 <ol>
 <li>Dos cajas contienen en total $36$ tornillos. Una tiene el doble que la otra. ¿Cuántos hay en cada caja? Pista: si la que tiene menos contiene $x$, la otra contiene $2x$.</li>
 <li>Una cuerda de $44$ m se corta en dos trozos. Uno mide $8$ m más que el otro. ¿Cuánto mide cada trozo?</li>
@@ -1123,12 +1097,12 @@ $$\frac{x + 3}{2} \qquad \frac{x}{2} + 3$$
 </div>
 </div>
 </section>
-<section class="slide" id="seccion-46" data-materia="matematicas" data-seccion="Despejar letras en fórmulas" data-seccion-numero="12" data-numero="12" data-nivel="2">
+<section class="slide" id="seccion-45" data-materia="matematicas" data-seccion="Despejar letras en fórmulas" data-seccion-numero="12" data-numero="12" data-nivel="2">
   <h2><span class="heading__number">12</span> Despejar letras en fórmulas</h2>
 <p>Ahora vamos a aplicar las mismas reglas a relaciones entre medidas, precios y tiempos. En cada ejemplo elegiremos una letra distinta para dejarla sola.</p>
 
 </section>
-<section class="slide" id="seccion-47" data-materia="matematicas" data-seccion="Despejar letras en fórmulas" data-seccion-numero="12" data-numero="12.1" data-nivel="3">
+<section class="slide" id="seccion-46" data-materia="matematicas" data-seccion="Despejar letras en fórmulas" data-seccion-numero="12" data-numero="12.1" data-nivel="3">
   <h3><span class="heading__number">12.1</span> Es el mismo procedimiento con otras letras</h3>
 <p>Una <strong>fórmula</strong> relaciona varias magnitudes. Podemos conocer unas y necesitar calcular otra. La letra que queremos despejar es nuestra incógnita; las demás representan cantidades conocidas.</p>
 <p>No hace falta cambiar todas las letras por $x$. Primero decide <strong>cuál quieres dejar sola</strong>.</p>
@@ -1144,7 +1118,7 @@ $$\frac{x + 3}{2} \qquad \frac{x}{2} + 3$$
 
 </div>
 </section>
-<section class="slide" id="seccion-48" data-materia="matematicas" data-seccion="Despejar letras en fórmulas" data-seccion-numero="12" data-numero="12.2" data-nivel="3">
+<section class="slide" id="seccion-47" data-materia="matematicas" data-seccion="Despejar letras en fórmulas" data-seccion-numero="12" data-numero="12.2" data-nivel="3">
   <h3><span class="heading__number">12.2</span> Despejar en un producto</h3>
 <div class="box box--example">
 <p class="box__title">Un producto: el área de un rectángulo</p>
@@ -1155,8 +1129,8 @@ $$\frac{x + 3}{2} \qquad \frac{x}{2} + 3$$
 <p>Si $A = 48$ cm² y $b = 8$ cm, entonces $h = 6$ cm. Comprobación: $8 \times 6 = 48$ cm².</p>
 
 </div>
-<div class="box box--actividades" data-actividad="24" aria-label="Actividades 24">
-  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">24</span><span>Actividades</span></p>
+<div class="box box--actividades" data-actividad="23" aria-label="Actividades 23">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">23</span><span>Actividades</span></p>
 <ol>
 <li>En $P = a + b + c$, despeja $b$.</li>
 <li>En $A = b \cdot h$, despeja $b$. Calcula la base si el área es $35$ cm² y la altura es $5$ cm.</li>
@@ -1165,7 +1139,7 @@ $$\frac{x + 3}{2} \qquad \frac{x}{2} + 3$$
 
 </div>
 </section>
-<section class="slide" id="seccion-49" data-materia="matematicas" data-seccion="Despejar letras en fórmulas" data-seccion-numero="12" data-numero="12.3" data-nivel="3">
+<section class="slide" id="seccion-48" data-materia="matematicas" data-seccion="Despejar letras en fórmulas" data-seccion-numero="12" data-numero="12.3" data-nivel="3">
   <h3><span class="heading__number">12.3</span> Fórmulas con varios pasos</h3>
 <p>También aquí debemos deshacer las operaciones en el orden adecuado.</p>
 
@@ -1182,7 +1156,7 @@ $$\frac{x + 3}{2} \qquad \frac{x}{2} + 3$$
 
 </div>
 </section>
-<section class="slide" id="seccion-50" data-materia="matematicas" data-seccion="Despejar letras en fórmulas" data-seccion-numero="12" data-numero="12.4" data-nivel="3">
+<section class="slide" id="seccion-49" data-materia="matematicas" data-seccion="Despejar letras en fórmulas" data-seccion-numero="12" data-numero="12.4" data-nivel="3">
   <h3><span class="heading__number">12.4</span> Una fórmula con coste fijo</h3>
 <div class="box box--example">
 <p class="box__title">Una tarifa con coste fijo</p>
@@ -1193,8 +1167,8 @@ $$\frac{x + 3}{2} \qquad \frac{x}{2} + 3$$
 <p>Si el total es $24$ €, entonces $n = \frac{24 - 6}{3} = 6$ usos. Comprobación: $6 + 3 \times 6 = 24$ €.</p>
 
 </div>
-<div class="box box--actividades" data-actividad="25" aria-label="Actividades 25">
-  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">25</span><span>Actividades</span></p>
+<div class="box box--actividades" data-actividad="24" aria-label="Actividades 24">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">24</span><span>Actividades</span></p>
 <ol>
 <li>En $P = 2(b + h)$, despeja $b$ y calcula su valor para $P = 40$ cm y $h = 6$ cm.</li>
 <li>Un servicio de transporte cobra $C = 4 + 2k$, donde $k$ son los kilómetros y $C$ el precio en euros. Despeja $k$. ¿Qué distancia corresponde a $18$ €?</li>
@@ -1203,7 +1177,7 @@ $$\frac{x + 3}{2} \qquad \frac{x}{2} + 3$$
 
 </div>
 </section>
-<section class="slide" id="seccion-51" data-materia="matematicas" data-seccion="Despejar letras en fórmulas" data-seccion-numero="12" data-numero="12.5" data-nivel="3">
+<section class="slide" id="seccion-50" data-materia="matematicas" data-seccion="Despejar letras en fórmulas" data-seccion-numero="12" data-numero="12.5" data-nivel="3">
   <h3><span class="heading__number">12.5</span> Fórmulas con un cociente</h3>
 <p>En un movimiento a velocidad constante:</p>
 <ul>
@@ -1226,7 +1200,7 @@ $$v = \frac{s}{t}$$
 
 </div>
 </section>
-<section class="slide" id="seccion-52" data-materia="matematicas" data-seccion="Despejar letras en fórmulas" data-seccion-numero="12" data-numero="12.6" data-nivel="3">
+<section class="slide" id="seccion-51" data-materia="matematicas" data-seccion="Despejar letras en fórmulas" data-seccion-numero="12" data-numero="12.6" data-nivel="3">
   <h3><span class="heading__number">12.6</span> Despejar el denominador</h3>
 <div class="box box--example">
 <p class="box__title">Despejar el tiempo, que está en el denominador</p>
@@ -1237,8 +1211,8 @@ $$v = \frac{s}{t}$$
 <p>Para recorrer $150$ km a $50$ km/h: $t = 150 \div 50 = 3$ h. Comprobación: $50 = 150 \div 3$ km/h.</p>
 
 </div>
-<div class="box box--actividades" data-actividad="26" aria-label="Actividades 26">
-  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">26</span><span>Actividades</span></p>
+<div class="box box--actividades" data-actividad="25" aria-label="Actividades 25">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">25</span><span>Actividades</span></p>
 <ol>
 <li>Calcula la distancia recorrida a $40$ km/h durante $3$ h. Escribe primero la fórmula despejada.</li>
 <li>¿Cuánto tiempo se tarda en recorrer $180$ km a $60$ km/h constantes?</li>
@@ -1248,7 +1222,7 @@ $$v = \frac{s}{t}$$
 
 </div>
 </section>
-<section class="slide" id="seccion-53" data-materia="matematicas" data-seccion="Despejar letras en fórmulas" data-seccion-numero="12" data-numero="12.7" data-nivel="3">
+<section class="slide" id="seccion-52" data-materia="matematicas" data-seccion="Despejar letras en fórmulas" data-seccion-numero="12" data-numero="12.7" data-nivel="3">
   <h3><span class="heading__number">12.7</span> Un procedimiento común</h3>
 <div class="box box--resumen">
 <p class="box__title">Una fórmula no necesita una regla especial</p>
@@ -1262,12 +1236,12 @@ $$v = \frac{s}{t}$$
 
 </div>
 </section>
-<section class="slide" id="seccion-54" data-materia="matematicas" data-seccion="Ampliación: potencias y raíces" data-seccion-numero="13" data-numero="13" data-nivel="2">
+<section class="slide" id="seccion-53" data-materia="matematicas" data-seccion="Ampliación: potencias y raíces" data-seccion-numero="13" data-numero="13" data-nivel="2">
   <h2><span class="heading__number">13</span> Ampliación: potencias y raíces</h2>
 <p>Este bloque añade operaciones nuevas. <strong>No necesitas dominarlo para practicar el bloque básico.</strong> No vamos a estudiar la fórmula general de segundo grado, logaritmos ni trigonometría.</p>
 
 </section>
-<section class="slide" id="seccion-55" data-materia="matematicas" data-seccion="Ampliación: potencias y raíces" data-seccion-numero="13" data-numero="13.1" data-nivel="3">
+<section class="slide" id="seccion-54" data-materia="matematicas" data-seccion="Ampliación: potencias y raíces" data-seccion-numero="13" data-numero="13.1" data-nivel="3">
   <h3><span class="heading__number">13.1</span> Un cuadrado no se deshace dividiendo entre dos</h3>
 <p>$x^2$ significa $x \times x$, no $2x$. Por eso $x^2 = 25$ no se resuelve dividiendo $25$ entre $2$.</p>
 <p>Hay dos números cuyo cuadrado es $25$:</p>
@@ -1284,8 +1258,8 @@ $$5^2 = 25 \qquad (-5)^2 = 25$$
 </div>
 <p>Si $x^2 = 0$, la única solución es $x = 0$. Si $x^2 = -9$, <strong>no hay solución real</strong>: el cuadrado de un número real nunca es negativo.</p>
 
-<div class="box box--actividades" data-actividad="27" aria-label="Actividades 27">
-  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">27</span><span>Actividades</span></p>
+<div class="box box--actividades" data-actividad="26" aria-label="Actividades 26">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">26</span><span>Actividades</span></p>
 <ol>
 <li>Resuelve y comprueba todas las soluciones: a) $x^2 = 36$; b) $x^2 = 49$; c) $x^2 = 0$.</li>
 <li>¿Tiene solución real $x^2 = -4$? Explica por qué.</li>
@@ -1294,7 +1268,7 @@ $$5^2 = 25 \qquad (-5)^2 = 25$$
 
 </div>
 </section>
-<section class="slide" id="seccion-56" data-materia="matematicas" data-seccion="Ampliación: potencias y raíces" data-seccion-numero="13" data-numero="13.2" data-nivel="3">
+<section class="slide" id="seccion-55" data-materia="matematicas" data-seccion="Ampliación: potencias y raíces" data-seccion-numero="13" data-numero="13.2" data-nivel="3">
   <h3><span class="heading__number">13.2</span> Primero dejar sola la potencia</h3>
 <p>Si la potencia forma parte de una expresión mayor, primero usamos las reglas conocidas para aislarla.</p>
 
@@ -1313,8 +1287,8 @@ $$5^2 = 25 \qquad (-5)^2 = 25$$
 <p>Al despejar el lado de un cuadrado escribimos $l = \sqrt{A}$, porque el contexto exige la raíz positiva.</p>
 
 </div>
-<div class="box box--actividades" data-actividad="28" aria-label="Actividades 28">
-  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">28</span><span>Actividades</span></p>
+<div class="box box--actividades" data-actividad="27" aria-label="Actividades 27">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">27</span><span>Actividades</span></p>
 <ol>
 <li>Resuelve y comprueba: a) $x^2 + 4 = 20$; b) $3x^2 = 75$.</li>
 <li>Un cuadrado tiene un área de $81$ cm². ¿Cuánto mide su lado? Explica por qué no das dos longitudes.</li>
@@ -1322,7 +1296,7 @@ $$5^2 = 25 \qquad (-5)^2 = 25$$
 
 </div>
 </section>
-<section class="slide" id="seccion-57" data-materia="matematicas" data-seccion="Ampliación: potencias y raíces" data-seccion-numero="13" data-numero="13.3" data-nivel="3">
+<section class="slide" id="seccion-56" data-materia="matematicas" data-seccion="Ampliación: potencias y raíces" data-seccion-numero="13" data-numero="13.3" data-nivel="3">
   <h3><span class="heading__number">13.3</span> La raíz cuadrada como operación sobre la incógnita</h3>
 <p>Si tenemos $\sqrt{x} = 6$, la operación que actúa sobre la $x$ es una raíz cuadrada. Podemos deshacerla elevando ambos lados al cuadrado.</p>
 
@@ -1340,8 +1314,8 @@ $$5^2 = 25 \qquad (-5)^2 = 25$$
 <p>Si elevásemos al cuadrado sin mirar, aparecería $x = 9$, pero no sirve: $\sqrt{9} = 3$, no $-3$. <strong>La comprobación en la ecuación original es imprescindible.</strong></p>
 
 </div>
-<div class="box box--actividades" data-actividad="29" aria-label="Actividades 29">
-  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">29</span><span>Actividades</span></p>
+<div class="box box--actividades" data-actividad="28" aria-label="Actividades 28">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">28</span><span>Actividades</span></p>
 <ol>
 <li>Resuelve y comprueba: a) $\sqrt{x} = 8$; b) $\sqrt{x} + 2 = 7$; c) $\sqrt{x + 1} = 4$.</li>
 <li>Explica por qué $\sqrt{x} = -5$ no tiene solución real.</li>
@@ -1349,7 +1323,7 @@ $$5^2 = 25 \qquad (-5)^2 = 25$$
 
 </div>
 </section>
-<section class="slide" id="seccion-58" data-materia="matematicas" data-seccion="Ampliación: potencias y raíces" data-seccion-numero="13" data-numero="13.4" data-nivel="3">
+<section class="slide" id="seccion-57" data-materia="matematicas" data-seccion="Ampliación: potencias y raíces" data-seccion-numero="13" data-numero="13.4" data-nivel="3">
   <h3><span class="heading__number">13.4</span> Un vistazo al cubo</h3>
 <p>Para deshacer un cubo usamos la <strong>raíz cúbica</strong>. A diferencia del cuadrado, el cubo conserva el signo del número.</p>
 
@@ -1360,8 +1334,8 @@ $$5^2 = 25 \qquad (-5)^2 = 25$$
 <p>En estos casos no añadimos $\pm$: $(-2)^3 = -8$, no $8$.</p>
 
 </div>
-<div class="box box--actividades" data-actividad="30" aria-label="Actividades 30">
-  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">30</span><span>Actividades</span></p>
+<div class="box box--actividades" data-actividad="29" aria-label="Actividades 29">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">29</span><span>Actividades</span></p>
 <ol>
 <li>Resuelve y comprueba: a) $x^3 = 27$; b) $x^3 = -27$; c) $x^3 + 1 = 9$.</li>
 <li>Un cubo tiene un volumen de $125$ cm³. Su volumen cumple $V = l^3$. ¿Cuánto mide su arista $l$?</li>
@@ -1369,15 +1343,15 @@ $$5^2 = 25 \qquad (-5)^2 = 25$$
 
 </div>
 </section>
-<section class="slide" id="seccion-59" data-materia="matematicas" data-seccion="Actividades de repaso" data-seccion-numero="14" data-numero="14" data-nivel="2">
+<section class="slide" id="seccion-58" data-materia="matematicas" data-seccion="Actividades de repaso" data-seccion-numero="14" data-numero="14" data-nivel="2">
   <h2><span class="heading__number">14</span> Actividades de repaso</h2>
 <p>No hace falta resolver toda la batería de una vez. Empieza por el primer bloque. Si una dificultad se repite, vuelve a su ejemplo antes de continuar.</p>
 
 </section>
-<section class="slide" id="seccion-60" data-materia="matematicas" data-seccion="Actividades de repaso" data-seccion-numero="14" data-numero="14.1" data-nivel="3">
+<section class="slide" id="seccion-59" data-materia="matematicas" data-seccion="Actividades de repaso" data-seccion-numero="14" data-numero="14.1" data-nivel="3">
   <h3><span class="heading__number">14.1</span> Leer, elegir la operación y comprobar</h3>
-<div class="box box--actividades" data-actividad="31" aria-label="Actividades 31">
-  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">31</span><span>Actividades</span></p>
+<div class="box box--actividades" data-actividad="30" aria-label="Actividades 30">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">30</span><span>Actividades</span></p>
 <ol>
 <li>Escribe con una letra: a) el triple de un número más $4$; b) la mitad de un número; c) el triple de la suma de un número y $4$.</li>
 <li>Calcula $3x + 2$ si $x = 5$. Después simplifica $2x + 4 + 3x + 1$.</li>
@@ -1387,10 +1361,10 @@ $$5^2 = 25 \qquad (-5)^2 = 25$$
 
 </div>
 </section>
-<section class="slide" id="seccion-61" data-materia="matematicas" data-seccion="Actividades de repaso" data-seccion-numero="14" data-numero="14.2" data-nivel="3">
+<section class="slide" id="seccion-60" data-materia="matematicas" data-seccion="Actividades de repaso" data-seccion-numero="14" data-numero="14.2" data-nivel="3">
   <h3><span class="heading__number">14.2</span> Ecuaciones de uno y dos pasos</h3>
-<div class="box box--actividades" data-actividad="32" aria-label="Actividades 32">
-  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">32</span><span>Actividades</span></p>
+<div class="box box--actividades" data-actividad="31" aria-label="Actividades 31">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">31</span><span>Actividades</span></p>
 <ol>
 <li>Resuelve: a) $x + 12 = 20$; b) $x - 9 = 7$; c) $7x = 42$; d) $\frac{x}{6} = 4$.</li>
 <li>Resuelve: a) $3x + 5 = 26$; b) $4x - 7 = 13$; c) $\frac{x}{3} + 4 = 9$; d) $18 = 2x + 6$.</li>
@@ -1400,10 +1374,10 @@ $$5^2 = 25 \qquad (-5)^2 = 25$$
 
 </div>
 </section>
-<section class="slide" id="seccion-62" data-materia="matematicas" data-seccion="Actividades de repaso" data-seccion-numero="14" data-numero="14.3" data-nivel="3">
+<section class="slide" id="seccion-61" data-materia="matematicas" data-seccion="Actividades de repaso" data-seccion-numero="14" data-numero="14.3" data-nivel="3">
   <h3><span class="heading__number">14.3</span> Ecuaciones con más elementos</h3>
-<div class="box box--actividades" data-actividad="33" aria-label="Actividades 33">
-  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">33</span><span>Actividades</span></p>
+<div class="box box--actividades" data-actividad="32" aria-label="Actividades 32">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">32</span><span>Actividades</span></p>
 <ol>
 <li>Resuelve: a) $5x + 3 = 2x + 18$; b) $7x - 4 = 3x + 12$.</li>
 <li>Resuelve: a) $3(x + 1) = 18$; b) $2(x + 4) + 3 = 21$; c) $14 - (x + 3) = 5$.</li>
@@ -1414,10 +1388,10 @@ $$5^2 = 25 \qquad (-5)^2 = 25$$
 
 </div>
 </section>
-<section class="slide" id="seccion-63" data-materia="matematicas" data-seccion="Actividades de repaso" data-seccion-numero="14" data-numero="14.4" data-nivel="3">
+<section class="slide" id="seccion-62" data-materia="matematicas" data-seccion="Actividades de repaso" data-seccion-numero="14" data-numero="14.4" data-nivel="3">
   <h3><span class="heading__number">14.4</span> Problemas y fórmulas</h3>
-<div class="box box--actividades" data-actividad="34" aria-label="Actividades 34">
-  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">34</span><span>Actividades</span></p>
+<div class="box box--actividades" data-actividad="33" aria-label="Actividades 33">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">33</span><span>Actividades</span></p>
 <ol>
 <li>Cinco piezas iguales y un envío de $4$ € cuestan en total $39$ €. ¿Cuánto cuesta cada pieza? Define la incógnita, plantea y resuelve.</li>
 <li>Dos rollos suman $58$ m de cable. Uno tiene $12$ m más que el otro. ¿Cuántos metros hay en cada rollo?</li>
@@ -1428,10 +1402,10 @@ $$5^2 = 25 \qquad (-5)^2 = 25$$
 
 </div>
 </section>
-<section class="slide" id="seccion-64" data-materia="matematicas" data-seccion="Actividades de repaso" data-seccion-numero="14" data-numero="14.5" data-nivel="3">
+<section class="slide" id="seccion-63" data-materia="matematicas" data-seccion="Actividades de repaso" data-seccion-numero="14" data-numero="14.5" data-nivel="3">
   <h3><span class="heading__number">14.5</span> Repaso de la ampliación</h3>
-<div class="box box--actividades" data-actividad="35" aria-label="Actividades 35">
-  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">35</span><span>Actividades</span></p>
+<div class="box box--actividades" data-actividad="34" aria-label="Actividades 34">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">34</span><span>Actividades</span></p>
 <ol>
 <li>Resuelve dando todas las soluciones reales: a) $x^2 = 16$; b) $x^2 + 5 = 30$; c) $2x^2 = 32$.</li>
 <li>Resuelve y comprueba: a) $\sqrt{x} = 9$; b) $\sqrt{x} - 1 = 4$; c) $x^3 = -64$.</li>
@@ -1441,10 +1415,10 @@ $$5^2 = 25 \qquad (-5)^2 = 25$$
 
 </div>
 </section>
-<section class="slide" id="seccion-65" data-materia="matematicas" data-seccion="Actividades de repaso" data-seccion-numero="14" data-numero="14.6" data-nivel="3">
+<section class="slide" id="seccion-64" data-materia="matematicas" data-seccion="Actividades de repaso" data-seccion-numero="14" data-numero="14.6" data-nivel="3">
   <h3><span class="heading__number">14.6</span> Detectar errores</h3>
-<div class="box box--actividades" data-actividad="36" aria-label="Actividades 36">
-  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">36</span><span>Actividades</span></p>
+<div class="box box--actividades" data-actividad="35" aria-label="Actividades 35">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">35</span><span>Actividades</span></p>
 <ol>
 <li>Al resolver $4x = 20$, alguien escribe $x = 20 - 4 = 16$. Identifica la operación que debía deshacer y corrige.</li>
 <li>Al resolver $2x + 6 = 18$, alguien divide entre $2$ y escribe $x + 6 = 9$. ¿Qué término no ha dividido? Escribe una transformación correcta.</li>
@@ -1455,7 +1429,7 @@ $$5^2 = 25 \qquad (-5)^2 = 25$$
 
 </div>
 </section>
-<section class="slide" id="seccion-66" data-materia="matematicas" data-seccion="Actividades de repaso" data-seccion-numero="14" data-numero="14.7" data-nivel="3">
+<section class="slide" id="seccion-65" data-materia="matematicas" data-seccion="Actividades de repaso" data-seccion-numero="14" data-numero="14.7" data-nivel="3">
   <h3><span class="heading__number">14.7</span> Guía para resolver y revisar</h3>
 <div class="box box--resumen">
 <p class="box__title">Guía para resolver sin perder el orden</p>
@@ -1470,7 +1444,7 @@ $$5^2 = 25 \qquad (-5)^2 = 25$$
 
 </div>
 </section>
-<section class="slide" id="seccion-67" data-materia="matematicas" data-seccion="Actividades de repaso" data-seccion-numero="14" data-numero="14.8" data-nivel="3">
+<section class="slide" id="seccion-66" data-materia="matematicas" data-seccion="Actividades de repaso" data-seccion-numero="14" data-numero="14.8" data-nivel="3">
   <h3><span class="heading__number">14.8</span> Valorar tu progreso</h3>
 <div class="box">
 <p class="box__title">¿Qué necesito seguir practicando?</p>

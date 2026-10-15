@@ -16,14 +16,10 @@
   <header class="topbar">
     <div class="topbar__title">
       <button class="btn btn--ghost topbar__menu" id="btn-menu" aria-label="Abrir índice">☰</button>
-      <span class="topbar__brand">{{SERIE}}</span>
+      <a class="topbar__brand" href="{{VOLVER}}" title="Volver al índice general">{{SERIE}}</a>
     </div>
     <div class="topbar__actions">
-      <a class="btn btn--outline" href="{{VOLVER}}" title="Volver al índice general">⌂ <span class="btn__label">Índice</span></a>
       {{BOTON_PDF}}
-      <button class="btn btn--outline" id="btn-print" title="Imprimir o guardar como PDF (Ctrl+P)">
-        🖨️ <span class="btn__label">Imprimir / PDF</span>
-      </button>
       <button class="btn btn--primary" id="btn-slides" title="Ver el contenido como diapositivas">
         ▶ <span class="btn__label">Diapositivas</span>
       </button>

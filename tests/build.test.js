@@ -4,7 +4,7 @@ const test = require("node:test");
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
-const { renderarCapitulo, renderarEstilosImpresion } = require("../build.js");
+const { renderarCapitulo, renderarPortada, renderarEstilosImpresion } = require("../build.js");
 
 const cap = { titulo: "Capítulo de prueba", materia: "ciencias" };
 const render = md => renderarCapitulo(md, cap, "Ciencias Aplicadas I", 4);
@@ -70,6 +70,17 @@ test("actividades mantienen una numeración independiente y el reloj tiene durac
   assert.match(render(md), /data-actividad="1"/);
 });
 
+test("la apertura separa el número lateral y usa los datos configurados", () => {
+  const html = renderarPortada({ titulo: 'Álgebra & medidas', materia: 'matematicas' }, 'Asignatura', 4,
+    { curso: 'Curso de prueba', nivel: '1º FPB' });
+  assert.match(html, /<span class="cover__number" aria-hidden="true">04<\/span>/);
+  assert.match(html, /<div class="cover__body">/);
+  assert.match(html, /<h1 class="cover__title">Álgebra &amp; medidas<\/h1>/);
+  assert.match(html, /<span>Curso de prueba<\/span><span>1º FPB<\/span>/);
+  assert.match(renderarPortada(cap, 'Serie', 12), />12<\/span>/);
+  assert.match(renderarPortada(cap, 'Serie', 1), /Formación Básica/);
+});
+
 test("cabeceras de impresión usan asignatura, nivel, centro y capítulo", () => {
   const lista = { serie: "Ciencias Aplicadas I", nivel: "1º FPB", centro: "Colegio San Gabriel" };
   const styles = renderarEstilosImpresion({ titulo: 'Un "título" </style>' }, lista, 4);
@@ -93,6 +104,7 @@ test("los HTML publicados coinciden con el conversor y no pierden actividades", 
     const page = fs.readFileSync(path.join(root, chapter.archivo.replace(/\.md$/, ".html")), "utf8");
     assert.ok(page.includes(generated), chapter.archivo + ": ejecutar node build.js");
     assert.ok(page.includes(renderarEstilosImpresion(chapter, lista, idx + 1)));
+    assert.ok(page.includes(renderarPortada(chapter, lista.serie, idx + 1, lista)));
     assert.doesNotMatch(page, /\{\{[A-Z_]+\}\}/);
     const sourceActivities = (md.match(/^:::\s*actividad(?:es)?(?:\s|$)/gm) || []).length;
     const actualActivities = Array.from(generated.matchAll(/data-actividad="(\d+)"/g), m => Number(m[1]));

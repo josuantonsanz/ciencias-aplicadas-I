@@ -21,10 +21,15 @@ diapositivas ya incluidos.
   su número se completa con `1`.
 - Los `####`, `#####` y `######` son títulos internos del apartado, no nuevas
   diapositivas. Cada nivel conserva su etiqueta HTML y su jerarquía visual.
-- Al imprimir, las secciones y apartados **van seguidos**, sin saltos de página
-  obligatorios. El PDF usa texto serif, títulos diferenciados, cajas en gris e
-  imágenes en escala de grises. Los temporizadores muestran su duración inicial
-  como «Tiempo orientativo», no el estado del reloj interactivo.
+- Al imprimir, las secciones y apartados **van seguidos**. Los títulos
+  principales (`##`) reservan unos 51 mm para su continuación y saltan a la
+  siguiente página si quedan demasiado abajo, aproximadamente en el último
+  20 % de la zona útil. No hay que insertar saltos manuales ni abrir página
+  en cada sección; los `###` no tienen esa reserva. El PDF usa márgenes
+  laterales de 24 mm, texto serif, títulos diferenciados, cajas en gris e
+  imágenes en escala de grises. La apertura del capítulo muestra el número
+  grande junto al título, sin marcos. Los temporizadores muestran su duración
+  inicial como «Tiempo orientativo», no el estado del reloj interactivo.
 
 > Un solo archivo Markdown puede contener todas las secciones de un capítulo. En `lista.json` debe haber **una sola entrada** para ese archivo; el campo opcional `secciones` permite mostrar su número en el índice general.
 

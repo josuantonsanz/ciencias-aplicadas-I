@@ -15,7 +15,7 @@ escribes Markdown  →  node build.js  →  HTML estático listo para usar
 ```
 
 - **Leer online:** abre `index.html` y entra en cada capítulo.
-- **PDF listo para fotocopiar:** botón **⬇️ Descargar PDF** en cada capítulo.
+- **PDF listo para fotocopiar:** botón **Descargar PDF** en cada capítulo.
   Al construir, `build.js` genera `capitulos/*.pdf` con Chrome o Edge en segundo
   plano, **sin** el encabezado ni el pie del navegador. La cabecera muestra
   `Ciencias Aplicadas I - 1º FPB` a la izquierda y `Colegio San Gabriel` a la
@@ -23,13 +23,18 @@ escribes Markdown  →  node build.js  →  HTML estático listo para usar
   `capitulos/lista.json`); el pie, por ejemplo,
   `Cap 2. Combinar la materia - 3/18`. Si no hay Chrome ni Edge, usa
   `node build.js --sin-pdf` o define la variable `CHROME_PATH`.
-- **Imprimir / PDF:** botón **🖨️ Imprimir / PDF** o `Ctrl+P`. Diseño de libro
+- **Imprimir desde el navegador:** `Ctrl+P`. Diseño de libro
   de texto en A4: texto serif, títulos de distinto tamaño, cajas en gris e
-  ilustraciones en escala de grises. El título de capítulo abre el contenido,
-  sin portada independiente ni saltos obligatorios entre secciones. Las cajas
-  y tablas largas pueden continuar en la siguiente página para reducir huecos.
-  Los márgenes se repiten en todas las páginas (22 mm arriba, 18 mm a los lados
-  y 21 mm abajo). Para ver la cabecera y el pie propios al imprimir, usa
+  ilustraciones en escala de grises. El capítulo abre con su número grande a
+  la izquierda del título, sin marcos ni líneas alrededor; debajo aparecen la
+  materia, el curso y el nivel de `capitulos/lista.json`. No hay portada aparte.
+  Los títulos principales (`##`) reservan unos 51 mm de continuación: si quedan
+  demasiado abajo (aproximadamente en el último 20 % de la zona útil), pasan a
+  la página siguiente. Esa reserva no añade un hueco debajo del título ni obliga
+  a abrir página en cada sección. Las cajas y tablas largas pueden continuar en
+  la siguiente página para reducir huecos. Los márgenes se repiten en todas las
+  páginas (22 mm arriba, **24 mm a los lados** y 21 mm abajo). La cabecera con la
+  asignatura y el centro no lleva líneas. Para ver la cabecera y el pie propios al imprimir, usa
   **Chrome o Edge** y desactiva **Encabezados y pies de página** del navegador
   (Firefox no admite esas cajas de margen y mostraría los suyos). Usa **A4**,
   **escala 100 %**, **márgenes predeterminados** y **Gráficos de fondo**
@@ -138,7 +143,9 @@ fórmulas, tablas, añadir capítulos…) están detalladas en
 Después de reconstruir, ejecuta `node --test tests/build.test.js tests/pdf.test.js`
 para comprobar la numeración, la jerarquía de títulos, los bloques anidados,
 LaTeX, las cabeceras de impresión y que los HTML publicados coinciden con el
-Markdown. No necesita instalar dependencias.
+Markdown. Si hay Chrome/Edge, también genera tres PDF temporales para comprobar
+que los títulos principales demasiado bajos saltan de página; sin navegador,
+solo se omite esa prueba. No necesita instalar dependencias.
 
 ## Personalizar colores
 

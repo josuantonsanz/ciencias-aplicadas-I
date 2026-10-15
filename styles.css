@@ -71,7 +71,9 @@ img { max-width: 100%; }
   color: var(--azul);
   font-size: 1.05rem;
   white-space: nowrap;
+  text-decoration: none;
 }
+.topbar__brand:hover { color: #163c60; }
 
 .topbar__actions { display: flex; gap: 10px; }
 
@@ -87,8 +89,14 @@ img { max-width: 100%; }
   font-family: inherit;
   font-weight: 600;
   cursor: pointer;
+  text-decoration: none;
   transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
   white-space: nowrap;
+}
+.btn__icon {
+  width: 1.15em;
+  height: 1.15em;
+  flex: 0 0 auto;
 }
 .btn:active { transform: translateY(1px); }
 
@@ -238,6 +246,8 @@ kbd {
 }
 
 /* Portada */
+.cover__number { display: none; }
+
 .cover {
   padding-bottom: 20px;
   border-bottom: 2px solid var(--borde);
@@ -829,6 +839,8 @@ tbody tr:nth-child(even) { background: #f8f9fb; }
     --texto: #171717;
     --texto-suave: #444;
     --borde: #bbb;
+    /* El 20 % de los 254 mm útiles de una página A4. */
+    --print-section-reserve: 51mm;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
@@ -851,27 +863,33 @@ tbody tr:nth-child(even) { background: #f8f9fb; }
   .layout { display: block; max-width: none; margin: 0; padding: 0; }
   .content { border: 0; box-shadow: none; border-radius: 0; padding: 0; max-width: none; }
 
-  /* Apertura de capítulo, no una página de portada vacía. */
+  /* Apertura editorial: número lateral y título, sin marcos ni portada aparte. */
   .content > .cover {
-    display: block;
+    display: grid;
+    grid-template-columns: 20mm minmax(0, 1fr);
+    align-items: start;
+    column-gap: 6mm;
     min-height: 0;
-    margin: 0 0 16pt;
-    padding: 12pt 0;
-    border-top: 3pt solid #222;
-    border-bottom: .6pt solid #999;
+    margin: 0 0 20pt;
+    padding: 3pt 0 0;
+    border: 0;
     text-align: left;
     break-after: avoid;
     page-break-after: avoid;
     break-inside: avoid;
   }
-  .cover__title { color: #111; font-family: var(--fuente); font-size: 25pt; line-height: 1.12; }
-  .cover__kicker { color: #444; font-family: var(--fuente); font-size: 8pt; letter-spacing: .08em; margin-bottom: 7pt; }
-  .cover__subtitle { color: #444; font-size: 10pt; margin: 8pt 0 0; }
-  .cover__meta { justify-content: flex-start; font-family: var(--fuente); font-size: 8pt; gap: 16pt; margin-top: 8pt; }
+  .cover__number { display: block; color: #777; font-family: var(--fuente); font-size: 43pt; font-weight: 300; line-height: .95; letter-spacing: -.05em; }
+  .cover__body { min-width: 0; }
+  .cover__title { color: #111; font-family: var(--fuente); font-size: 26pt; font-weight: 700; line-height: 1.12; }
+  .cover__kicker { display: none; }
+  .cover__subtitle { color: #444; font-size: 9pt; margin: 7pt 0 0; }
+  .cover__meta { justify-content: flex-start; font-family: var(--fuente); font-size: 8pt; color: #555; gap: 8pt; margin-top: 5pt; }
+  .cover__meta > span + span::before { content: "·"; margin-right: 8pt; }
   .cover__note { display: none; }
   .tag { color: #333; background: #fff !important; border: .5pt solid #999; border-radius: 2pt; font-family: var(--fuente); font-size: 7pt; }
+  .cover__subtitle .tag { padding: 0; margin: 0; border: 0; border-radius: 0; font-size: 8pt; letter-spacing: .07em; }
 
-  /* Ningún ##/### fuerza página nueva: el contenido fluye. */
+  /* El contenido fluye; solo los ## demasiado bajos cambian de página. */
   .slide { padding: 0; margin: 0 0 8pt; page-break-before: auto; break-before: auto; }
   .slide.slide--seccion { display: none !important; }
   .slide.slide--seccion--titulo-necesario {
@@ -893,10 +911,15 @@ tbody tr:nth-child(even) { background: #f8f9fb; }
     font-family: var(--fuente);
     font-size: 16pt;
     font-weight: 750;
-    margin: 17pt 0 9pt;
+    /* Esta reserva cuenta al decidir si el título cabe en la página.
+       El margen negativo la recupera: no añade un hueco bajo el título.
+       break-inside: avoid mueve el título si queda menos de un 20 % libre. */
+    margin: 17pt 0 calc(9pt - var(--print-section-reserve));
     padding-top: 8pt;
-    border-top: .7pt solid #777;
+    padding-bottom: var(--print-section-reserve);
+    border: 0;
   }
+  .content > .cover + .slide h2 { margin-top: 0; padding-top: 0; border-top: 0; }
   .slide h3, .slide > h3 {
     font-family: var(--fuente);
     font-size: 12.5pt;
@@ -977,14 +1000,13 @@ tbody tr:nth-child(even) { background: #f8f9fb; }
      centro y capítulo) lo aporta build.js en un <style> por página. */
   @page {
     size: A4;
-    margin: 22mm 18mm 21mm;
+    margin: 22mm 24mm 21mm;
     @top-left {
       font-family: "Segoe UI", Arial, sans-serif;
       font-size: 8pt;
       font-weight: 700;
       color: #444;
       vertical-align: middle;
-      border-bottom: .5pt solid #aaa;
       margin-bottom: 5mm;
     }
     @top-right {
@@ -992,7 +1014,6 @@ tbody tr:nth-child(even) { background: #f8f9fb; }
       font-size: 8pt;
       color: #555;
       vertical-align: middle;
-      border-bottom: .5pt solid #aaa;
       margin-bottom: 5mm;
     }
     @bottom-right {

@@ -4,7 +4,7 @@
 
 A veces sabemos encontrar un número que falta haciendo pruebas o pensando «¿cuánto tendría que valer?». El **álgebra** nos ayuda a escribir ese razonamiento y a resolver situaciones en las que acertar a ojo ya no resulta fácil.
 
-No hace falta saber resolver ecuaciones para empezar este tema. Vamos a avanzar desde los huecos con números hasta los despejes de fórmulas, **una dificultad cada vez**.
+No hace falta saber resolver ecuaciones para empezar este tema. Vamos a avanzar desde los huecos con números hasta los despejes de fórmulas, **paso a paso**.
 
 ::: resumen Nuestro recorrido
 Al terminar el bloque básico deberías ser capaz de:
@@ -41,7 +41,6 @@ Hacer pruebas puede servir para empezar. Después aprenderemos un procedimiento 
 ::: actividades
 1. Completa: a) $\square + 4 = 11$; b) $\square - 3 = 8$; c) $5 \times \square = 20$; d) $\square \div 3 = 6$.
 2. Explica con palabras cómo has encontrado el número del apartado a) y el del apartado c).
-3. ¿Sirve el número $6$ para completar $\square + 8 = 15$? Escribe la cuenta que permite comprobarlo.
 :::
 
 ### Las operaciones inversas
@@ -59,24 +58,6 @@ Una **operación inversa** deshace lo que ha hecho otra:
 Para deshacer una multiplicación o una división, el número que usamos no puede ser cero. **No se puede dividir entre cero.**
 :::
 
-### Recorrer el camino al revés
-
-::: ejemplo Deshacer una cadena
-A un número le multiplicamos por $2$ y después le sumamos $3$. El resultado es $13$.
-
-Para volver al principio, recorremos el camino **en orden contrario**:
-
-1. Deshacemos la última operación: $13 - 3 = 10$.
-2. Deshacemos la multiplicación: $10 \div 2 = 5$.
-
-El número inicial era $5$. Comprobación: $5 \times 2 + 3 = 13$.
-:::
-
-::: actividades
-1. ¿Qué operación deshace cada una? a) Sumar $9$; b) dividir entre $5$; c) restar $7$; d) multiplicar por $4$.
-2. Pienso un número, le sumo $6$ y obtengo $14$. ¿Qué número era?
-3. Pienso un número, lo multiplico por $3$ y le sumo $2$. Obtengo $20$. Escribe las dos operaciones necesarias para volver al principio.
-:::
 
 ## De los números a las letras
 

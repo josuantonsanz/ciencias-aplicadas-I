@@ -104,7 +104,7 @@ function paginaPrevisualizacion(markdown, capitulo) {
     + renderarEstilosImpresion(capitulo, lista, numero)
     + '<style>@media screen{body{overflow:auto}.content{max-width:1100px;margin:0 auto;padding:1rem}}.page-footer{display:none}</style>'
     + '</head><body><main class="content">'
-    + renderarPortada(capitulo, lista.serie, numero) + contenido
+    + renderarPortada(capitulo, lista.serie, numero, lista) + contenido
     + '</main><script src="lib/katex/katex.min.js"></script>'
     + '<script src="lib/katex/auto-render.min.js"></script>'
     + '<script>renderMathInElement(document.querySelector(".content"),{delimiters:[{left:"$$",right:"$$",display:true},{left:"\\\\[",right:"\\\\]",display:true},{left:"$",right:"$",display:false},{left:"\\\\(",right:"\\\\)",display:false}],throwOnError:false,strict:"warn"});</script>'

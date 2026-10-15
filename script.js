@@ -2,7 +2,7 @@
    CIENCIAS APLICADAS I · Comportamiento
    1) Índice automático con scroll-spy
    2) Menú lateral en móvil
-   3) Botón Imprimir/PDF
+   3) Acceso al editor local
    4) Temporizadores de actividades (cuenta atrás y aviso sonoro)
    5) Modo diapositivas (navegación por botones, teclado y táctil)
    ============================================================ */
@@ -134,15 +134,11 @@
   });
 
   /* ----------------------------------------------------------
-     3) IMPRESIÓN Y ACCESO AL EDITOR LOCAL
+     3) ACCESO AL EDITOR LOCAL
      El servidor editor-local.js inserta __EDITOR_LOCAL__ únicamente en
      respuestas de 127.0.0.1. En GitHub Pages el enlace permanece oculto
      y, sobre todo, no existe ningún servidor con permiso de escritura.
      ---------------------------------------------------------- */
-  document.getElementById("btn-print").addEventListener("click", function () {
-    window.print();
-  });
-
   var btnEditor = document.getElementById("btn-editor");
   if (btnEditor) {
     if (window.__EDITOR_LOCAL__) {

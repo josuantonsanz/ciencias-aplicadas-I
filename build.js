@@ -16,6 +16,7 @@ const { detectarNavegador, generarPDFs } = require("./pdf.js");
 
 const RUTA_LISTA     = "capitulos/lista.json";
 const RUTA_PLANTILLA = "plantilla.html";
+const ICONO_DESCARGA = '<svg class="btn__icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 17v3h14v-3" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>';
 
 /* Materias disponibles y su etiqueta de color */
 const MATERIAS = {
@@ -265,14 +266,19 @@ function renderarEstilosImpresion(cap, lista, num) {
 }
 
 /* Genera la portada de un capítulo */
-function renderarPortada(cap, serie, num) {
+function renderarPortada(cap, serie, num, datos) {
   const mat = MATERIAS[cap.materia] || { label: cap.materia, cls: "tag--mat" };
+  const curso = (datos && datos.curso) || "Curso 2026 – 2027";
+  const nivel = (datos && datos.nivel) || "Formación Básica";
   return [
     '<header class="cover" id="portada">',
-    '  <p class="cover__kicker">' + escaparHTML(serie) + " · Capítulo " + num + "</p>",
-    '  <h1 class="cover__title">' + escaparHTML(cap.titulo) + "</h1>",
-    '  <p class="cover__subtitle"><span class="tag ' + mat.cls + '">' + mat.label + "</span></p>",
-    '  <div class="cover__meta"><span>Curso 2026 – 2027</span><span>Formación Básica</span></div>',
+    '  <span class="cover__number" aria-hidden="true">' + escaparHTML(String(num).padStart(2, "0")) + '</span>',
+    '  <div class="cover__body">',
+    '    <p class="cover__kicker">' + escaparHTML(serie) + " · Capítulo " + num + "</p>",
+    '    <h1 class="cover__title">' + escaparHTML(cap.titulo) + "</h1>",
+    '    <p class="cover__subtitle"><span class="tag ' + mat.cls + '">' + mat.label + "</span></p>",
+    '    <div class="cover__meta"><span>' + escaparHTML(curso) + '</span><span>' + escaparHTML(nivel) + '</span></div>',
+    '  </div>',
     "</header>",
   ].join("\n");
 }
@@ -445,7 +451,7 @@ function main() {
     const archivoPDF = path.basename(cap.archivo.replace(/\.md$/, ".pdf"));
     const botonPDF = navegador
       ? '<a class="btn btn--primary" href="./' + archivoPDF
-        + '" download title="Descargar el PDF ya maquetado">⬇️ <span class="btn__label">Descargar PDF</span></a>'
+        + '" download title="Descargar el PDF ya maquetado">' + ICONO_DESCARGA + '<span class="btn__label">Descargar PDF</span></a>'
       : "";
 
     const html = plantilla
@@ -453,7 +459,7 @@ function main() {
       .split("{{TITULO}}").join(cap.titulo)
       .split("{{BOTON_PDF}}").join(botonPDF)
       .split("{{ESTILOS_IMPRESION}}").join(renderarEstilosImpresion(cap, lista, idx + 1))
-      .split("{{PORTADA}}").join(renderarPortada(cap, lista.serie, idx + 1))
+      .split("{{PORTADA}}").join(renderarPortada(cap, lista.serie, idx + 1, lista))
       .split("{{CONTENIDO}}").join(contenido)
       .split("{{VOLVER}}").join("../index.html");
 
