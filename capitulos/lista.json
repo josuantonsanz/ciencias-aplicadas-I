@@ -1,5 +1,7 @@
 {
   "serie": "Ciencias Aplicadas I",
+  "nivel": "1º FPB",
+  "centro": "Colegio San Gabriel",
   "subtitulo": "Matemáticas · Biología · Física · Química",
   "curso": "Curso 2026 – 2027",
   "capitulos": [
@@ -28,8 +30,8 @@
       "archivo": "capitulos/04-algebra-basica.md",
       "titulo": "Álgebra básica",
       "materia": "matematicas",
-      "secciones": 9,
-      "descripcion": "Despejar la incógnita en ecuaciones y fórmulas: la balanza, las operaciones inversas, el atajo «pasa al otro lado», la incógnita en el denominador (d = m/V) y la comprobación de resultados."
+      "secciones": 14,
+      "descripcion": "Álgebra desde cero: letras, igualdad y operaciones inversas; ecuaciones paso a paso con signos, paréntesis y fracciones; problemas y despejes de fórmulas variadas. Incluye práctica gradual y una ampliación de potencias y raíces."
     }
   ]
 }

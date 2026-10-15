@@ -144,10 +144,16 @@
   });
 
   var btnEditor = document.getElementById("btn-editor");
-  if (btnEditor && window.__EDITOR_LOCAL__) {
-    var archivoMarkdown = window.location.pathname.replace(/\.html$/, ".md").replace(/^\//, "");
-    btnEditor.href = "/editor?archivo=" + encodeURIComponent(archivoMarkdown);
-    btnEditor.hidden = false;
+  if (btnEditor) {
+    if (window.__EDITOR_LOCAL__) {
+      var archivoMarkdown = window.location.pathname.replace(/\.html$/, ".md").replace(/^\//, "");
+      btnEditor.href = "/editor?archivo=" + encodeURIComponent(archivoMarkdown);
+      btnEditor.hidden = false;
+    } else {
+      // En GitHub Pages el enlace no debe existir: se borra del DOM, así
+      // que no puede aparecer aunque el CSS no llegue a aplicarse.
+      btnEditor.parentNode.removeChild(btnEditor);
+    }
   }
 
   /* ----------------------------------------------------------

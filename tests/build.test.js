@@ -70,12 +70,18 @@ test("actividades mantienen una numeración independiente y el reloj tiene durac
   assert.match(render(md), /data-actividad="1"/);
 });
 
-test("cabeceras de impresión escapan cadenas CSS y cierres de style", () => {
-  const styles = renderarEstilosImpresion({ titulo: 'Un "título" </style>' }, "Serie", 4);
-  assert.match(styles, /@top-right \{ content: "Capítulo 4";/);
-  assert.match(styles, /\\"título\\"/);
-  assert.match(styles, /\\3c \/style>/);
+test("cabeceras de impresión usan asignatura, nivel, centro y capítulo", () => {
+  const lista = { serie: "Ciencias Aplicadas I", nivel: "1º FPB", centro: "Colegio San Gabriel" };
+  const styles = renderarEstilosImpresion({ titulo: 'Un "título" </style>' }, lista, 4);
+  assert.match(styles, /@top-left \{ content: "Ciencias Aplicadas I - 1º FPB";/);
+  assert.match(styles, /@top-right \{ content: "Colegio San Gabriel";/);
+  assert.match(styles, /@bottom-right \{ content: "Cap 4\. Un \\"título\\" \\3c \/style> - " counter\(page\) "\/" counter\(pages\); ?\}/);
   assert.equal((styles.match(/<\/style>/g) || []).length, 1);
+});
+
+test("el índice no numera capítulo en el pie", () => {
+  const styles = renderarEstilosImpresion(null, { serie: "Serie" }, null);
+  assert.match(styles, /@bottom-right \{ content: "" counter\(page\) "\/" counter\(pages\)/);
 });
 
 test("los HTML publicados coinciden con el conversor y no pierden actividades", () => {
@@ -86,7 +92,7 @@ test("los HTML publicados coinciden con el conversor y no pierden actividades", 
     const generated = renderarCapitulo(md, chapter, lista.serie, idx + 1);
     const page = fs.readFileSync(path.join(root, chapter.archivo.replace(/\.md$/, ".html")), "utf8");
     assert.ok(page.includes(generated), chapter.archivo + ": ejecutar node build.js");
-    assert.ok(page.includes(renderarEstilosImpresion(chapter, lista.serie, idx + 1)));
+    assert.ok(page.includes(renderarEstilosImpresion(chapter, lista, idx + 1)));
     assert.doesNotMatch(page, /\{\{[A-Z_]+\}\}/);
     const sourceActivities = (md.match(/^:::\s*actividad(?:es)?(?:\s|$)/gm) || []).length;
     const actualActivities = Array.from(generated.matchAll(/data-actividad="(\d+)"/g), m => Number(m[1]));

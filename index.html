@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ciencias Aplicadas I · Índice</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+@media print {
+  @page {
+    @top-left { content: "Ciencias Aplicadas I - 1º FPB"; }
+    @top-right { content: "Colegio San Gabriel"; }
+    @bottom-right { content: "" counter(page) "/" counter(pages); }
+  }
+}
+</style>
 </head>
 <body class="pagina-indice">
   <header class="topbar">
@@ -23,7 +32,7 @@
       <p class="cover__kicker">Formación Básica</p>
       <h1 class="cover__title">Ciencias Aplicadas I</h1>
       <p class="cover__subtitle">Matemáticas · Biología · Física · Química</p>
-      <div class="cover__meta"><span>Curso 2026 – 2027</span><span>4 capítulos · 30 secciones</span></div>
+      <div class="cover__meta"><span>Curso 2026 – 2027</span><span>4 capítulos · 35 secciones</span></div>
     </header>
 
     <nav class="chapter-grid" aria-label="Capítulos">
@@ -45,14 +54,16 @@
 <a class="chapter-card" href="capitulos/04-algebra-basica.html">
   <span class="tag tag--mat">Matemáticas</span>
   <h2><span class="heading__number">4</span> Álgebra básica</h2>
-  <p>Despejar la incógnita en ecuaciones y fórmulas: la balanza, las operaciones inversas, el atajo «pasa al otro lado», la incógnita en el denominador (d = m/V) y la comprobación de resultados.</p>
+  <p>Álgebra desde cero: letras, igualdad y operaciones inversas; ecuaciones paso a paso con signos, paréntesis y fracciones; problemas y despejes de fórmulas variadas. Incluye práctica gradual y una ampliación de potencias y raíces.</p>
 </a>
     </nav>
   </main>
 
   <script>
     document.getElementById("btn-print").addEventListener("click", function () { window.print(); });
-    if (window.__EDITOR_LOCAL__) document.getElementById("btn-editor").hidden = false;
+    var btnEditor = document.getElementById("btn-editor");
+    if (window.__EDITOR_LOCAL__) btnEditor.hidden = false;
+    else btnEditor.parentNode.removeChild(btnEditor); // en GitHub Pages no debe existir
   </script>
 </body>
 </html>

@@ -9,9 +9,9 @@
   <style>
 @media print {
   @page {
-    @top-left { content: "Ciencias Aplicadas I"; }
-    @top-right { content: "Capítulo 3"; }
-    @bottom-left { content: "Hoja resumen de los temas 1 y 2"; }
+    @top-left { content: "Ciencias Aplicadas I - 1º FPB"; }
+    @top-right { content: "Colegio San Gabriel"; }
+    @bottom-right { content: "Cap 3. Hoja resumen de los temas 1 y 2 - " counter(page) "/" counter(pages); }
   }
 }
 </style>
@@ -28,6 +28,7 @@
     </div>
     <div class="topbar__actions">
       <a class="btn btn--outline" href="../index.html" title="Volver al índice general">⌂ <span class="btn__label">Índice</span></a>
+      <a class="btn btn--primary" href="./03-hoja-resumen.pdf" download title="Descargar el PDF ya maquetado">⬇️ <span class="btn__label">Descargar PDF</span></a>
       <button class="btn btn--outline" id="btn-print" title="Imprimir o guardar como PDF (Ctrl+P)">
         🖨️ <span class="btn__label">Imprimir / PDF</span>
       </button>
@@ -71,9 +72,6 @@
 </section>
 <section class="slide" id="seccion-2" data-materia="actividades" data-seccion="Matemáticas" data-seccion-numero="1" data-numero="1.1" data-nivel="3">
   <h3><span class="heading__number">1.1</span> Números y operaciones</h3>
-<blockquote>
-<p><strong>Cheatsheet de Matemáticas · Física y Química.</strong> Solo lo esencial: definiciones, fórmulas y datos que hay que memorizar. Para practicar, usa los resúmenes y las actividades de los temas 1 y 2.</p>
-</blockquote>
 <p><strong>Conjuntos de números</strong> (cada uno incluye al anterior):</p>
 <table>
 <thead>

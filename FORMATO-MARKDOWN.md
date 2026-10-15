@@ -254,6 +254,10 @@ m<sup>2</sup> y H<sub>2</sub>O
 
 3. Ejecuta `node build.js` (o doble clic en `construir.bat`).
 
+En la parte superior de `lista.json` están los datos comunes del material:
+`serie`, `nivel`, `centro` y `curso`. Se usan en la cabecera y el pie de los
+PDF (por ejemplo, `Ciencias Aplicadas I - 1º FPB` y `Colegio San Gabriel`).
+
 Materias disponibles en `lista.json`:
 
 | Clave | Etiqueta | Color |

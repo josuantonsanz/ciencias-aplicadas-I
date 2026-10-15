@@ -101,7 +101,7 @@ function paginaPrevisualizacion(markdown, capitulo) {
     + '<base href="/">'
     + '<link rel="stylesheet" href="styles.css">'
     + '<link rel="stylesheet" href="lib/katex/katex.min.css">'
-    + renderarEstilosImpresion(capitulo, lista.serie, numero)
+    + renderarEstilosImpresion(capitulo, lista, numero)
     + '<style>@media screen{body{overflow:auto}.content{max-width:1100px;margin:0 auto;padding:1rem}}.page-footer{display:none}</style>'
     + '</head><body><main class="content">'
     + renderarPortada(capitulo, lista.serie, numero) + contenido

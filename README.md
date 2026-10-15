@@ -15,19 +15,25 @@ escribes Markdown  →  node build.js  →  HTML estático listo para usar
 ```
 
 - **Leer online:** abre `index.html` y entra en cada capítulo.
+- **PDF listo para fotocopiar:** botón **⬇️ Descargar PDF** en cada capítulo.
+  Al construir, `build.js` genera `capitulos/*.pdf` con Chrome o Edge en segundo
+  plano, **sin** el encabezado ni el pie del navegador. La cabecera muestra
+  `Ciencias Aplicadas I - 1º FPB` a la izquierda y `Colegio San Gabriel` a la
+  derecha (se configuran con `serie`, `nivel` y `centro` en
+  `capitulos/lista.json`); el pie, por ejemplo,
+  `Cap 2. Combinar la materia - 3/18`. Si no hay Chrome ni Edge, usa
+  `node build.js --sin-pdf` o define la variable `CHROME_PATH`.
 - **Imprimir / PDF:** botón **🖨️ Imprimir / PDF** o `Ctrl+P`. Diseño de libro
   de texto en A4: texto serif, títulos de distinto tamaño, cajas en gris e
   ilustraciones en escala de grises. El título de capítulo abre el contenido,
   sin portada independiente ni saltos obligatorios entre secciones. Las cajas
   y tablas largas pueden continuar en la siguiente página para reducir huecos.
   Los márgenes se repiten en todas las páginas (22 mm arriba, 18 mm a los lados
-  y 21 mm abajo). En **Chrome o Edge actuales**, aparecen cabeceras de asignatura
-  y capítulo, y un pie con el título y la página `n / total`.
-  En el diálogo de impresión usa **A4**, **escala 100 %** y **márgenes
-  predeterminados**; desactiva **Encabezados y pies de página** del navegador
-  para quitar su URL y fecha, no los del material. Activa **Gráficos de fondo**
-  para conservar los grises suaves (las cajas también se distinguen sin ellos).
-  Otros navegadores pueden omitir las cabeceras y pies propios.
+  y 21 mm abajo). Para ver la cabecera y el pie propios al imprimir, usa
+  **Chrome o Edge** y desactiva **Encabezados y pies de página** del navegador
+  (Firefox no admite esas cajas de margen y mostraría los suyos). Usa **A4**,
+  **escala 100 %**, **márgenes predeterminados** y **Gráficos de fondo**
+  activados.
 - **Diapositivas:** botón **▶ Diapositivas** dentro de cada capítulo.
   Navega con `←` `→` `Espacio` `Esc` o deslizando en pantalla táctil.
 - **Numeración de títulos:** se genera al construir, igual en HTML, índice
@@ -40,9 +46,10 @@ escribes Markdown  →  node build.js  →  HTML estático listo para usar
 | Archivo / carpeta      | Qué es                                             |
 |------------------------|----------------------------------------------------|
 | `capitulos/*.md`       | **Contenido** de cada capítulo (Markdown). Se edita. |
-| `capitulos/lista.json` | Títulos, materias y descripciones de los capítulos. |
+| `capitulos/lista.json` | Datos generales (`serie`, `nivel`, `centro`, `curso`) y títulos, materias y descripciones de los capítulos. |
 | `plantilla.html`       | Plantilla que da forma a cada capítulo.            |
-| `build.js`             | Conversor Markdown → HTML.                         |
+| `build.js`             | Conversor Markdown → HTML y generación de los PDF. |
+| `pdf.js`               | Exporta los PDF con Chrome/Edge en modo headless.  |
 | `construir.bat`        | Ejecuta el build con doble clic (Windows).         |
 | `editar-local.bat`     | Abre el editor visual de Markdown solo en este equipo. |
 | `editor-local.js`      | Servidor local del editor (se enlaza a `127.0.0.1`). |
@@ -56,7 +63,9 @@ escribes Markdown  →  node build.js  →  HTML estático listo para usar
 
 1. Edita el archivo `.md` del capítulo en `capitulos/`. Usa `##` para sus secciones.
 2. Mantén una entrada en `capitulos/lista.json` por cada capítulo (título, materia, número de secciones y descripción).
-3. Ejecuta `node build.js` o haz doble clic en **`construir.bat`**.
+3. Ejecuta `node build.js` o haz doble clic en **`construir.bat`**. Además del
+   HTML, se regeneran los PDF de `capitulos/` (usa `node build.js --sin-pdf`
+   para saltar este paso).
 4. Abre `index.html`.
 
 ### Editor visual local
@@ -126,9 +135,10 @@ fórmulas, tablas, añadir capítulos…) están detalladas en
 
 ## Comprobar el conversor
 
-Después de reconstruir, ejecuta `node --test tests/build.test.js` para comprobar
-la numeración, la jerarquía de títulos, los bloques anidados, LaTeX y que los
-HTML publicados coinciden con el Markdown. No necesita instalar dependencias.
+Después de reconstruir, ejecuta `node --test tests/build.test.js tests/pdf.test.js`
+para comprobar la numeración, la jerarquía de títulos, los bloques anidados,
+LaTeX, las cabeceras de impresión y que los HTML publicados coinciden con el
+Markdown. No necesita instalar dependencias.
 
 ## Personalizar colores
 

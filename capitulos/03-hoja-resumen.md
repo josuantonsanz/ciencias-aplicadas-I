@@ -1,7 +1,5 @@
 # Hoja resumen · Temas 1 y 2
 
-> **Cheatsheet de Matemáticas · Física y Química.** Solo lo esencial: definiciones, fórmulas y datos que hay que memorizar. Para practicar, usa los resúmenes y las actividades de los temas 1 y 2.
-
 ## Matemáticas
 
 ### Números y operaciones

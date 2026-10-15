@@ -9,9 +9,9 @@
   <style>
 @media print {
   @page {
-    @top-left { content: "Ciencias Aplicadas I"; }
-    @top-right { content: "Capítulo 1"; }
-    @bottom-left { content: "Fundamentos de las ciencias aplicadas"; }
+    @top-left { content: "Ciencias Aplicadas I - 1º FPB"; }
+    @top-right { content: "Colegio San Gabriel"; }
+    @bottom-right { content: "Cap 1. Fundamentos de las ciencias aplicadas - " counter(page) "/" counter(pages); }
   }
 }
 </style>
@@ -28,6 +28,7 @@
     </div>
     <div class="topbar__actions">
       <a class="btn btn--outline" href="../index.html" title="Volver al índice general">⌂ <span class="btn__label">Índice</span></a>
+      <a class="btn btn--primary" href="./01-fundamentos-ciencias-aplicadas.pdf" download title="Descargar el PDF ya maquetado">⬇️ <span class="btn__label">Descargar PDF</span></a>
       <button class="btn btn--outline" id="btn-print" title="Imprimir o guardar como PDF (Ctrl+P)">
         🖨️ <span class="btn__label">Imprimir / PDF</span>
       </button>

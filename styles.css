@@ -92,6 +92,9 @@ img { max-width: 100%; }
 }
 .btn:active { transform: translateY(1px); }
 
+/* El atributo hidden debe ganar a display: inline-flex de .btn. */
+.btn[hidden] { display: none !important; }
+
 .btn--primary {
   background: var(--azul);
   color: #fff;
@@ -970,11 +973,12 @@ tbody tr:nth-child(even) { background: #f8f9fb; }
   .chapter-grid { display: block; }
   .chapter-card { margin: 10pt 0; padding: 12pt; break-inside: avoid; page-break-inside: avoid; box-shadow: none; }
 
+  /* Cabeceras y pies: aquí solo el aspecto. El texto (asignatura y nivel,
+     centro y capítulo) lo aporta build.js en un <style> por página. */
   @page {
     size: A4;
     margin: 22mm 18mm 21mm;
     @top-left {
-      content: "Ciencias Aplicadas I";
       font-family: "Segoe UI", Arial, sans-serif;
       font-size: 8pt;
       font-weight: 700;
@@ -991,17 +995,7 @@ tbody tr:nth-child(even) { background: #f8f9fb; }
       border-bottom: .5pt solid #aaa;
       margin-bottom: 5mm;
     }
-    @bottom-left {
-      content: "Material de aula";
-      font-family: "Segoe UI", Arial, sans-serif;
-      font-size: 8pt;
-      color: #555;
-      vertical-align: middle;
-      border-top: .5pt solid #aaa;
-      margin-top: 4mm;
-    }
     @bottom-right {
-      content: counter(page) " / " counter(pages);
       font-family: "Segoe UI", Arial, sans-serif;
       font-size: 8pt;
       color: #444;

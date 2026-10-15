@@ -12,6 +12,7 @@
 const fs = require("fs");
 const path = require("path");
 const marked = require("./lib/marked.min.js");
+const { detectarNavegador, generarPDFs } = require("./pdf.js");
 
 const RUTA_LISTA     = "capitulos/lista.json";
 const RUTA_PLANTILLA = "plantilla.html";
@@ -241,16 +242,25 @@ function renderarBloque(md, numeracion) {
 }
 
 /* Cabeceras y pies propios, sin depender de la URL/fecha del navegador.
-   Las cadenas CSS se escapan también frente a un cierre de </style>. */
+   Las cadenas CSS se escapan también frente a un cierre de </style>.
+   El texto del pie cambia por capítulo; el resto de datos (asignatura,
+   nivel y centro) se leen de capitulos/lista.json. */
 function cadenaCSS(texto) {
   return JSON.stringify(String(texto)).replace(/</g, "\\3c ");
 }
 
-function renderarEstilosImpresion(cap, serie, num) {
+function renderarEstilosImpresion(cap, lista, num) {
+  const serie = (lista && lista.serie) || "";
+  const nivel = (lista && lista.nivel) || "";
+  const centro = (lista && lista.centro) || "";
+  const asignatura = [serie, nivel].filter(Boolean).join(" - ");
+  const pie = cap && num ? "Cap " + num + ". " + cap.titulo + " - " : "";
+
   return '<style>\n@media print {\n  @page {\n'
-    + '    @top-left { content: ' + cadenaCSS(serie) + '; }\n'
-    + '    @top-right { content: ' + cadenaCSS("Capítulo " + num) + '; }\n'
-    + '    @bottom-left { content: ' + cadenaCSS(cap.titulo) + '; }\n'
+    + '    @top-left { content: ' + cadenaCSS(asignatura) + '; }\n'
+    + '    @top-right { content: ' + cadenaCSS(centro) + '; }\n'
+    + '    @bottom-right { content: ' + cadenaCSS(pie)
+    + ' counter(page) "/" counter(pages); }\n'
     + '  }\n}\n</style>';
 }
 
@@ -379,6 +389,7 @@ function renderarIndex(lista) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${escaparHTML(lista.serie)} · Índice</title>
   <link rel="stylesheet" href="styles.css">
+  ${renderarEstilosImpresion(null, lista, null)}
 </head>
 <body class="pagina-indice">
   <header class="topbar">
@@ -407,7 +418,9 @@ ${tarjetas}
 
   <script>
     document.getElementById("btn-print").addEventListener("click", function () { window.print(); });
-    if (window.__EDITOR_LOCAL__) document.getElementById("btn-editor").hidden = false;
+    var btnEditor = document.getElementById("btn-editor");
+    if (window.__EDITOR_LOCAL__) btnEditor.hidden = false;
+    else btnEditor.parentNode.removeChild(btnEditor); // en GitHub Pages no debe existir
   </script>
 </body>
 </html>`;
@@ -416,17 +429,30 @@ ${tarjetas}
 /* ============================ MAIN ============================ */
 
 function main() {
+  const sinPDF = process.argv.indexOf("--sin-pdf") !== -1;
   const lista = JSON.parse(fs.readFileSync(RUTA_LISTA, "utf8"));
   const plantilla = fs.readFileSync(RUTA_PLANTILLA, "utf8");
+  const navegador = sinPDF ? null : detectarNavegador();
+
+  if (!sinPDF && !navegador) {
+    console.warn("⚠ No se encontró Chrome ni Edge: se generan solo los HTML.");
+    console.warn("  Define CHROME_PATH o usa node build.js --sin-pdf.");
+  }
 
   lista.capitulos.forEach(function (cap, idx) {
     const md = fs.readFileSync(cap.archivo, "utf8");
     const contenido = renderarCapitulo(md, cap, lista.serie, idx + 1);
+    const archivoPDF = path.basename(cap.archivo.replace(/\.md$/, ".pdf"));
+    const botonPDF = navegador
+      ? '<a class="btn btn--primary" href="./' + archivoPDF
+        + '" download title="Descargar el PDF ya maquetado">⬇️ <span class="btn__label">Descargar PDF</span></a>'
+      : "";
 
     const html = plantilla
       .split("{{SERIE}}").join(lista.serie)
       .split("{{TITULO}}").join(cap.titulo)
-      .split("{{ESTILOS_IMPRESION}}").join(renderarEstilosImpresion(cap, lista.serie, idx + 1))
+      .split("{{BOTON_PDF}}").join(botonPDF)
+      .split("{{ESTILOS_IMPRESION}}").join(renderarEstilosImpresion(cap, lista, idx + 1))
       .split("{{PORTADA}}").join(renderarPortada(cap, lista.serie, idx + 1))
       .split("{{CONTENIDO}}").join(contenido)
       .split("{{VOLVER}}").join("../index.html");
@@ -438,6 +464,16 @@ function main() {
 
   fs.writeFileSync("index.html", renderarIndex(lista));
   console.log("✓ index.html");
+
+  if (navegador) {
+    console.log("\nGenerando los PDF con " + path.basename(navegador) + "…");
+    try {
+      generarPDFs(lista.capitulos, navegador);
+    } catch (error) {
+      console.warn("⚠ " + error.message);
+    }
+  }
+
   console.log("\nListo. Abre index.html para ver el índice de capítulos.");
 }
 
