@@ -283,17 +283,16 @@ function renderarPortada(cap, serie, num, datos) {
   ].join("\n");
 }
 
-/* Convierte el Markdown de un capítulo en las secciones .slide.
-   Los encabezados ## marcan las secciones principales y los ### dividen
-   también el contenido en diapositivas para que no resulten demasiado largas. */
-function renderarCapitulo(md, cap, serie, num) {
-  numeroActividades = 0;
+/* Divide el Markdown en las secciones de lectura (## y ###) conservando el
+   número de línea real de cada título y de cada línea de cuerpo. Lo usan
+   tanto el renderizado publicado como el editor que trabaja en la página. */
+function dividirEnSecciones(md) {
   const lineas = md.split("\n");
   const secciones = [];
-  const contadores = [];
+  const intro = [];
+  const introLineas = [];
   let actual = null;
   let principalActual = null;
-  let intro = [];
   let cerca = null;
   let profundidadBloque = 0;
 
@@ -302,7 +301,7 @@ function renderarCapitulo(md, cap, serie, num) {
     if (actual) secciones.push(actual);
   };
 
-  lineas.forEach(function (linea) {
+  lineas.forEach(function (linea, indice) {
     const marca = linea.match(/^\s{0,3}(`{3,}|~{3,})(.*)$/);
     const dentroCodigo = Boolean(cerca);
     if (marca) {
@@ -317,10 +316,24 @@ function renderarCapitulo(md, cap, serie, num) {
       const nivel = encabezado[1].length;
       const titulo = encabezado[2].replace(/[ \t]+#+[ \t]*$/, "").trim();
       if (nivel === 2) principalActual = { titulo: titulo, subtitulos: [] };
-      actual = { titulo: titulo, principal: principalActual, nivel: nivel, cuerpo: [] };
+      actual = {
+        titulo: titulo,
+        principal: principalActual,
+        nivel: nivel,
+        cuerpo: [],
+        cuerpoLineas: [],
+        tituloInicio: indice,
+        tituloFin: indice + 1,
+      };
       if (nivel === 3 && principalActual) principalActual.subtitulos.push(actual);
     } else if (!(esTitulo && /^#\s+/.test(linea))) {
-      (actual ? actual.cuerpo : intro).push(linea);
+      if (actual) {
+        actual.cuerpo.push(linea);
+        actual.cuerpoLineas.push(indice);
+      } else {
+        intro.push(linea);
+        introLineas.push(indice);
+      }
     }
 
     if (!dentroCodigo && !marca) {
@@ -330,10 +343,142 @@ function renderarCapitulo(md, cap, serie, num) {
   });
   cerrarActual();
 
+  return { lineas: lineas, secciones: secciones, intro: intro, introLineas: introLineas };
+}
+
+/* Cuenta los saltos de línea de un fragmento. */
+function contarSaltos(texto) {
+  return (String(texto).match(/\n/g) || []).length;
+}
+
+/* Divide el cuerpo de una sección en bloques que se corresponden uno a uno
+   con los elementos del HTML. Los bloques ::: cuentan como uno solo y el
+   resto se separa siguiendo el mismo criterio que marked. Cada bloque guarda
+   la línea real del Markdown donde empieza y termina (fin excluido). */
+function analizarBloquesDeCuerpo(cuerpoLineas, lineas) {
+  const bloques = [];
+  if (!cuerpoLineas.length) return bloques;
+
+  const lineasTexto = cuerpoLineas.map(function (indice) { return lineas[indice]; });
+  const segmentos = [];
+  let buffer = [];
+  const volcar = function () {
+    if (buffer.length) {
+      segmentos.push({ lineas: buffer });
+      buffer = [];
+    }
+  };
+
+  let i = 0;
+  while (i < lineasTexto.length) {
+    const abierto = lineasTexto[i].match(/^:::\s*([^\s:]+)(?:\s+(.*))?\s*$/);
+    if (abierto) {
+      volcar();
+      const inicio = i;
+      let profundidad = 1;
+      i++;
+      while (i < lineasTexto.length && profundidad > 0) {
+        const actual = lineasTexto[i];
+        if (actual.trim() === ":::") {
+          profundidad--;
+          if (profundidad === 0) break;
+          i++;
+        } else if (/^:::\s*[^\s:]/.test(actual)) {
+          profundidad++;
+          i++;
+        } else {
+          i++;
+        }
+      }
+      const fin = Math.min(i + 1, lineasTexto.length);
+      bloques.push({
+        tipo: "contenedor",
+        subtipo: abierto[1].toLowerCase(),
+        titulo: abierto[2] ? abierto[2].trim() : null,
+        inicio: cuerpoLineas[inicio],
+        fin: cuerpoLineas[fin - 1] + 1,
+      });
+      i++;
+    } else {
+      buffer.push(i);
+      i++;
+    }
+  }
+  volcar();
+
+  segmentos.forEach(function (segmento) {
+    const texto = segmento.lineas.map(function (k) { return lineasTexto[k]; }).join("\n");
+    const tokens = marked.lexer(texto);
+    let desplazamiento = 0;
+    tokens.forEach(function (token) {
+      const inicioToken = desplazamiento;
+      desplazamiento += token.raw.length;
+      if (token.type === "space" || token.type === "def") return;
+
+      const lineaInicial = contarSaltos(texto.slice(0, inicioToken));
+      const lineaFinal = lineaInicial + contarSaltos(token.raw)
+        + (token.raw.endsWith("\n") ? 0 : 1);
+      let primera = -1;
+      let ultima = -1;
+      for (let k = lineaInicial; k < lineaFinal && k < segmento.lineas.length; k++) {
+        if (lineasTexto[segmento.lineas[k]].trim()) {
+          if (primera === -1) primera = k;
+          ultima = k;
+        }
+      }
+      if (primera === -1) return;
+
+      const bloque = {
+        tipo: token.type === "heading" ? "encabezado" : token.type,
+        inicio: cuerpoLineas[segmento.lineas[primera]],
+        fin: cuerpoLineas[segmento.lineas[ultima]] + 1,
+      };
+      if (token.type === "heading") bloque.nivel = token.depth;
+      bloques.push(bloque);
+    });
+  });
+
+  bloques.sort(function (a, b) { return a.inicio - b.inicio; });
+  return bloques;
+}
+
+/* Describe el capítulo como secciones y bloques con su línea real de
+   Markdown. Lo usa el editor que se abre dentro de la propia página. */
+function analizarEdicion(md) {
+  const dividido = dividirEnSecciones(md);
+  const secciones = dividido.secciones;
+
   // La introducción precede al primer apartado con contenido, no a su resumen.
-  if (intro.join("").trim() && secciones.length) {
+  if (dividido.intro.join("").trim() && secciones.length) {
     const primera = secciones.find(function (sec) { return sec.cuerpo.join("").trim(); }) || secciones[0];
-    primera.cuerpo = intro.concat(primera.cuerpo);
+    primera.cuerpo = dividido.intro.concat(primera.cuerpo);
+    primera.cuerpoLineas = dividido.introLineas.concat(primera.cuerpoLineas);
+  }
+
+  return secciones.map(function (sec) {
+    return {
+      nivel: sec.nivel,
+      titulo: sec.titulo,
+      tituloInicio: sec.tituloInicio,
+      tituloFin: sec.tituloFin,
+      bloques: analizarBloquesDeCuerpo(sec.cuerpoLineas, dividido.lineas),
+    };
+  });
+}
+
+/* Convierte el Markdown de un capítulo en las secciones .slide.
+   Los encabezados ## marcan las secciones principales y los ### dividen
+   también el contenido en diapositivas para que no resulten demasiado largas. */
+function renderarSeccionesCapitulo(md, cap, serie, num) {
+  numeroActividades = 0;
+  const dividido = dividirEnSecciones(md);
+  const secciones = dividido.secciones;
+  const contadores = [];
+
+  // La introducción precede al primer apartado con contenido, no a su resumen.
+  if (dividido.intro.join("").trim() && secciones.length) {
+    const primera = secciones.find(function (sec) { return sec.cuerpo.join("").trim(); }) || secciones[0];
+    primera.cuerpo = dividido.intro.concat(primera.cuerpo);
   }
 
   // Numerar en orden de lectura incluye también los títulos dentro de cajas.
@@ -365,7 +510,12 @@ function renderarCapitulo(md, cap, serie, num) {
       html += sec.cuerpoHTML;
     }
     return html + "\n</section>\n";
-  }).join("");
+  });
+}
+
+/* HTML completo de un capítulo (todas sus secciones seguidas). */
+function renderarCapitulo(md, cap, serie, num) {
+  return renderarSeccionesCapitulo(md, cap, serie, num).join("");
 }
 
 /* Genera la página índice general */
@@ -487,6 +637,8 @@ function main() {
    (incluidos los bloques :::) sin generar archivos ni ejecutar main(). */
 module.exports = {
   renderarCapitulo: renderarCapitulo,
+  renderarSeccionesCapitulo: renderarSeccionesCapitulo,
+  analizarEdicion: analizarEdicion,
   renderarPortada: renderarPortada,
   renderarEstilosImpresion: renderarEstilosImpresion
 };

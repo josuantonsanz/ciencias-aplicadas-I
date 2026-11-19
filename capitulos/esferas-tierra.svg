@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1020 520" width="1020" height="520" role="img" aria-label="Las cuatro esferas de la Tierra: atmósfera, hidrosfera, geosfera y biosfera">
+  <title>Las cuatro esferas de la Tierra</title>
+
+  <text x="510" y="42" text-anchor="middle" font-family="sans-serif" font-size="30" font-weight="700" fill="#16324f">Las cuatro esferas de la Tierra</text>
+  <text x="510" y="74" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#475569">No están separadas: se tocan e intercambian materia y energía</text>
+
+  <!-- Atmósfera -->
+  <g>
+    <rect x="30" y="100" width="460" height="150" rx="16" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+    <circle cx="96" cy="175" r="34" fill="#dbeafe"/>
+    <g fill="#2563eb">
+      <circle cx="84" cy="179" r="9"/>
+      <circle cx="98" cy="172" r="13"/>
+      <circle cx="112" cy="180" r="9"/>
+      <rect x="84" y="178" width="30" height="10" rx="5"/>
+    </g>
+    <text x="150" y="164" font-family="sans-serif" font-size="28" font-weight="700" fill="#16324f">Atmósfera</text>
+    <text x="150" y="202" font-family="sans-serif" font-size="20" fill="#334155">El aire: nubes, viento, gases.</text>
+  </g>
+
+  <!-- Hidrosfera -->
+  <g>
+    <rect x="530" y="100" width="460" height="150" rx="16" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+    <circle cx="596" cy="175" r="34" fill="#cffafe"/>
+    <path d="M596,153 C605,167 612,175 612,182 A16,16 0 0 1 580,182 C580,175 587,167 596,153 Z" fill="#0891b2"/>
+    <text x="650" y="164" font-family="sans-serif" font-size="28" font-weight="700" fill="#16324f">Hidrosfera</text>
+    <text x="650" y="202" font-family="sans-serif" font-size="20" fill="#334155">El agua: mares, ríos, hielo.</text>
+  </g>
+
+  <!-- Geosfera -->
+  <g>
+    <rect x="30" y="300" width="460" height="150" rx="16" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+    <circle cx="96" cy="375" r="34" fill="#e2e8f0"/>
+    <g>
+      <polygon points="70,387 90,353 104,371 112,361 124,387" fill="#64748b"/>
+      <line x1="66" y1="387" x2="126" y2="387" stroke="#475569" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <text x="150" y="364" font-family="sans-serif" font-size="28" font-weight="700" fill="#16324f">Geosfera</text>
+    <text x="150" y="402" font-family="sans-serif" font-size="20" fill="#334155">La roca: suelo, montañas, magma.</text>
+  </g>
+
+  <!-- Biosfera -->
+  <g>
+    <rect x="530" y="300" width="460" height="150" rx="16" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+    <circle cx="596" cy="375" r="34" fill="#dcfce7"/>
+    <g>
+      <ellipse cx="596" cy="371" rx="17" ry="10" fill="#16a34a" transform="rotate(-35 596 371)"/>
+      <line x1="590" y1="383" x2="584" y2="391" stroke="#16a34a" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <text x="650" y="364" font-family="sans-serif" font-size="28" font-weight="700" fill="#16324f">Biosfera</text>
+    <text x="650" y="402" font-family="sans-serif" font-size="20" fill="#334155">Los seres vivos y sus lugares.</text>
+  </g>
+
+  <text x="510" y="492" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#475569">Lo que le pasa a una esfera acaba notándose en las otras tres.</text>
+</svg>

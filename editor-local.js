@@ -12,7 +12,7 @@ const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
 const { spawnSync } = require("child_process");
-const { renderarCapitulo, renderarPortada, renderarEstilosImpresion } = require("./build.js");
+const { renderarCapitulo, renderarSeccionesCapitulo, analizarEdicion, renderarPortada, renderarEstilosImpresion } = require("./build.js");
 
 const ROOT = __dirname;
 const PORT = Number(process.env.PORT || 8765);
@@ -91,6 +91,33 @@ function escaparHTML(texto) {
   return String(texto).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }
 
+/* Valor seguro para insertarlo dentro de un <script> inline. */
+function valorJS(valor) {
+  return JSON.stringify(String(valor == null ? "" : valor)).replace(/</g, "\\u003c");
+}
+
+/* Datos para el editor que trabaja dentro de la propia página: cada sección
+   con su HTML ya renderizado y la lista de bloques (línea inicial y final del
+   Markdown). Ambos se calculan del mismo texto, así que cada bloque se
+   corresponde con un elemento del HTML. */
+function datosInSitu(markdown, capitulo) {
+  const lista = JSON.parse(fs.readFileSync(path.join(ROOT, "capitulos/lista.json"), "utf8"));
+  const numero = lista.capitulos.findIndex(function (item) { return item.archivo === capitulo.archivo; }) + 1;
+  const html = renderarSeccionesCapitulo(markdown, capitulo, lista.serie, numero);
+  const analisis = analizarEdicion(markdown);
+  const secciones = analisis.map(function (sec, indice) {
+    return {
+      html: html[indice] || "",
+      nivel: sec.nivel,
+      titulo: sec.titulo,
+      tituloInicio: sec.tituloInicio,
+      tituloFin: sec.tituloFin,
+      bloques: sec.bloques
+    };
+  });
+  return { archivo: capitulo.archivo, titulo: capitulo.titulo, markdown: markdown, secciones: secciones };
+}
+
 /* Devuelve una página aislada para la previsualización en vivo. Usa las mismas
    funciones de build.js que generan el HTML definitivo, pero no escribe nada. */
 function paginaPrevisualizacion(markdown, capitulo) {
@@ -121,13 +148,13 @@ function paginaEditor(archivoInicial) {
 <style>
 :root { color-scheme: light; --azul:#1769aa; --tinta:#17212b; --suave:#f4f7fa; --linea:#d5dfe8; --verde:#16784c; --rojo:#b3261e; }
 * { box-sizing:border-box; } body { margin:0; color:var(--tinta); font:16px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif; background:var(--suave); }
-header { min-height:64px; display:flex; gap:12px; align-items:center; padding:10px 18px; color:white; background:#123a59; } header strong { margin-right:auto; font-size:1.05rem; } button, select { font:inherit; } button { border:1px solid transparent; border-radius:6px; padding:.52em .8em; cursor:pointer; background:white; color:#123a59; font-weight:650; } button:hover { filter:brightness(.96); } button:focus-visible, select:focus-visible, textarea:focus-visible { outline:3px solid #ffbf47; outline-offset:2px; } #guardar { background:#6ee7b7; } #estado { font-size:.88rem; min-height:1.3em; } #estado.error { color:#ffd1cc; }
+header { min-height:64px; display:flex; gap:12px; align-items:center; padding:10px 18px; color:white; background:#123a59; } header strong { margin-right:auto; font-size:1.05rem; } button, select { font:inherit; } button { border:1px solid transparent; border-radius:6px; padding:.52em .8em; cursor:pointer; background:white; color:#123a59; font-weight:650; } button:hover { filter:brightness(.96); } button:focus-visible, select:focus-visible, textarea:focus-visible, a:focus-visible { outline:3px solid #ffbf47; outline-offset:2px; } #guardar { background:#6ee7b7; } #abrir-pagina { border-radius:6px; padding:.52em .8em; background:#6ee7b7; color:#123a59; font-weight:650; text-decoration:none; } #abrir-pagina:hover { filter:brightness(.96); } #estado { font-size:.88rem; min-height:1.3em; } #estado.error { color:#ffd1cc; }
 #principal { display:grid; grid-template-columns:250px minmax(320px,1fr) minmax(320px,1fr); height:calc(100vh - 64px); } aside { overflow:auto; padding:18px; border-right:1px solid var(--linea); background:white; } aside h2 { margin:0 0 .8rem; font-size:1rem; } #capitulos { width:100%; margin-bottom:18px; padding:.45em; } #bloques { list-style:none; margin:0; padding:0; } #bloques button { width:100%; margin:2px 0; text-align:left; border:0; border-radius:4px; padding:.38em .45em; color:var(--tinta); background:transparent; font-weight:400; } #bloques button:hover { background:#e8f1f8; } .nivel-3 { padding-left:1.3em !important; } .tipo { color:#5c6873; font-family:ui-monospace,monospace; font-size:.84em; }
 #edicion { min-width:0; display:flex; flex-direction:column; padding:14px; gap:9px; } #ayudas { display:flex; flex-wrap:wrap; gap:6px; } #ayudas button { border-color:var(--linea); padding:.35em .55em; font-size:.86rem; } textarea { flex:1; width:100%; resize:none; border:1px solid #9fadb9; border-radius:7px; padding:16px; color:#18222b; background:#fff; font:15px/1.55 ui-monospace,SFMono-Regular,Consolas,monospace; tab-size:2; } #vista { min-width:0; border-left:1px solid var(--linea); background:#fff; display:flex; flex-direction:column; } #vista p { margin:12px 14px; font-size:.9rem; color:#52606c; } iframe { flex:1; width:100%; border:0; background:#fff; }
 .aviso { padding:9px 14px; margin:0; background:#fff8d9; border-bottom:1px solid #ead789; font-size:.88rem; } @media (max-width:1000px) { #principal { grid-template-columns:210px 1fr; } #vista { grid-column:1 / -1; min-height:55vh; border-left:0; border-top:1px solid var(--linea); } } @media (max-width:640px) { header { align-items:flex-start; flex-wrap:wrap; } #principal { display:block; height:auto; } aside { border-right:0; border-bottom:1px solid var(--linea); } #bloques { max-height:180px; overflow:auto; } #edicion { height:70vh; } #vista { height:70vh; } }
 </style></head><body>
-<header><strong>✎ Editor local de Markdown</strong><span id="estado" aria-live="polite">Cargando…</span><button id="ver" type="button">Actualizar vista</button><button id="guardar" type="button">Guardar y reconstruir</button></header>
-<div class="aviso">Este editor solo está disponible en <b>este ordenador</b> (127.0.0.1). Guardar modifica el archivo <code>.md</code> y reconstruye las páginas HTML; después puedes revisarlas y subirlas con el proceso habitual.</div>
+<header><strong>✎ Editor local de Markdown</strong><span id="estado" aria-live="polite">Cargando…</span><a id="abrir-pagina" href="#" hidden>✎ Abrir en la página</a><button id="ver" type="button">Actualizar vista</button><button id="guardar" type="button">Guardar y reconstruir</button></header>
+<div class="aviso">Este editor solo está disponible en <b>este ordenador</b> (127.0.0.1). Guardar modifica el archivo <code>.md</code> y reconstruye las páginas HTML; después puedes revisarlas y subirlas con el proceso habitual. Para editar sobre la propia página (dentro del texto, con guardado automático) usa <b>Abrir en la página</b> o visita un capítulo desde <code>http://127.0.0.1:8765/</code> y pulsa <b>Editar página</b>. Si abres los HTML con doble clic (file://), esos botones no aparecen: no hay servidor.</div>
 <main id="principal"><aside><h2>Capítulo</h2><select id="capitulos" aria-label="Capítulo"></select><h2>Estructura y bloques</h2><ul id="bloques" aria-label="Bloques del Markdown"></ul></aside>
 <section id="edicion" aria-label="Edición"><div id="ayudas"><button data-inserta="## Nueva sección\n\n">+ Sección</button><button data-inserta="### Nuevo apartado\n\n">+ Apartado</button><button data-inserta="::: ejemplo Título\nExplicación.\n:::\n\n">+ Ejemplo</button><button data-inserta="::: resumen\n- Idea clave\n:::\n\n">+ Resumen</button><button data-inserta="::: dato\nTexto.\n:::\n\n">+ Dato</button><button data-inserta="::: formula\n$$\\frac{a}{b}$$\n:::\n\n">+ Fórmula</button><button data-inserta="::: actividades\n1. Actividad.\n:::\n\n">+ Actividades</button><button data-inserta="::: temporizador 3 min\nInstrucción.\n:::\n\n">+ Temporizador</button></div><textarea id="markdown" spellcheck="true" aria-label="Markdown del capítulo"></textarea></section>
 <section id="vista"><p>Vista previa instantánea: no guarda cambios hasta pulsar <b>Guardar y reconstruir</b>.</p><iframe id="preview" sandbox="allow-scripts" title="Vista previa del capítulo"></iframe></section></main>
@@ -146,7 +173,7 @@ header { min-height:64px; display:flex; gap:12px; align-items:center; padding:10
   function irALinea(linea) { var lineas = area.value.split("\\n"), inicio = 0; for (var i=0; i < linea; i++) inicio += lineas[i].length + 1; area.focus(); area.setSelectionRange(inicio, inicio + (lineas[linea] || "").length); area.scrollTop = Math.max(0, (linea - 3) * 24); }
   function estructura() { bloques.innerHTML = ""; area.value.split("\\n").forEach(function (texto, linea) { var match = texto.match(/^(##|###)\\s+(.+)$/) || texto.match(/^:::\\s*([^\\s:]+)(?:\\s+(.*))?\\s*$/); if (!match) return; var boton = document.createElement("button"), esTitulo = match[1] === "##" || match[1] === "###"; boton.type = "button"; boton.className = esTitulo ? "nivel-" + match[1].length : "bloque"; boton.innerHTML = esTitulo ? escapar(match[1] + " " + match[2]) : '<span class="tipo">::: ' + escapar(match[1]) + '</span>' + (match[2] ? " " + escapar(match[2]) : ""); boton.addEventListener("click", function () { irALinea(linea); }); var li = document.createElement("li"); li.appendChild(boton); bloques.appendChild(li); }); }
   function escapar(valor) { var nodo = document.createElement("span"); nodo.textContent = valor; return nodo.innerHTML; }
-  function cargar(archivo) { if (!archivo) return; mensaje("Cargando…"); api("/api/chapter?archivo=" + encodeURIComponent(archivo)).then(function (datos) { actual = datos.archivo; selector.value = actual; area.value = datos.markdown; estructura(); actualizarVista(); mensaje("Editando " + datos.titulo); }).catch(function (error) { mensaje(error.message, true); }); }
+  function cargar(archivo) { if (!archivo) return; mensaje("Cargando…"); api("/api/chapter?archivo=" + encodeURIComponent(archivo)).then(function (datos) { actual = datos.archivo; selector.value = actual; area.value = datos.markdown; estructura(); actualizarVista(); mensaje("Editando " + datos.titulo); var enlace = document.getElementById("abrir-pagina"); enlace.href = "/" + datos.archivo.replace(/\.md$/, ".html") + "?editar=1"; enlace.hidden = false; }).catch(function (error) { mensaje(error.message, true); }); }
   api("/api/chapters").then(function (datos) { datos.capitulos.forEach(function (cap) { var opcion = document.createElement("option"); opcion.value = cap.archivo; opcion.textContent = cap.titulo; selector.appendChild(opcion); }); cargar(datos.capitulos.some(function (cap) { return cap.archivo === INICIAL; }) ? INICIAL : datos.capitulos[0].archivo); }).catch(function (error) { mensaje(error.message, true); });
   selector.addEventListener("change", function () { cargar(selector.value); }); area.addEventListener("input", function () { estructura(); programarVista(); });
   document.querySelectorAll("[data-inserta]").forEach(function (boton) { boton.addEventListener("click", function () { var texto = boton.getAttribute("data-inserta"), desde = area.selectionStart, hasta = area.selectionEnd; area.setRangeText(texto, desde, hasta, "end"); area.focus(); estructura(); programarVista(); }); });
@@ -170,9 +197,22 @@ function servirEstatico(req, res, ruta) {
   if (!(archivo === ROOT || archivo.startsWith(ROOT + path.sep)) || !fs.existsSync(archivo) || !fs.statSync(archivo).isFile()) { enviar(res, 404, "No encontrado."); return; }
   const tipo = tipoContenido(archivo);
   if (tipo.startsWith("text/html")) {
-    const marca = "<script>window.__EDITOR_LOCAL__=true;</script>";
+    const relativaArchivo = path.relative(ROOT, archivo).replace(/\\/g, "/");
+    const capitulo = listaCapitulos().find(function (cap) {
+      return cap.archivo.replace(/\.md$/, ".html") === relativaArchivo;
+    });
+    let marca = "<script>window.__EDITOR_LOCAL__=true;</script>";
+    const cabeceras = {};
+    if (capitulo) {
+      // El editor en la página solo se activa en los capítulos servidos desde
+      // este ordenador: en GitHub Pages no hay sesión ni servidor que escriba.
+      marca += "<script>window.__EDITOR_INSITU__=true;window.__EDITOR_ARCHIVO__=" + valorJS(capitulo.archivo)
+        + ";window.__EDITOR_CSRF__=" + valorJS(CSRF) + ";</script>"
+        + '<script src="/editor-insitu.js" defer></script>';
+      cabeceras["Set-Cookie"] = "editor_session=" + SESSION + "; HttpOnly; SameSite=Strict; Path=/";
+    }
     const html = fs.readFileSync(archivo, "utf8").replace(/<\/head>/i, marca + "</head>");
-    enviar(res, 200, html, tipo);
+    enviar(res, 200, html, tipo, cabeceras);
   } else {
     enviar(res, 200, fs.readFileSync(archivo), tipo);
   }
@@ -198,6 +238,24 @@ const servidor = http.createServer(function (req, res) {
     json(res, 200, { archivo:capitulo.archivo, titulo:capitulo.titulo, markdown:fs.readFileSync(path.join(ROOT, capitulo.archivo), "utf8") });
     return;
   }
+  if (req.method === "GET" && url.pathname === "/api/in-situ") {
+    if (!accesoEditorValido(req)) { json(res, 403, { error:"Acceso al editor no autorizado." }); return; }
+    const capitulo = archivoPermitido(url.searchParams.get("archivo"));
+    if (!capitulo) { json(res, 404, { error:"Capítulo no encontrado." }); return; }
+    const markdown = fs.readFileSync(path.join(ROOT, capitulo.archivo), "utf8");
+    json(res, 200, datosInSitu(markdown, capitulo));
+    return;
+  }
+  if (req.method === "POST" && url.pathname === "/api/in-situ") {
+    if (!accesoEditorValido(req)) { json(res, 403, { error:"Acceso al editor no autorizado." }); return; }
+    leerJSON(req).then(function (datos) {
+      const capitulo = archivoPermitido(datos.archivo);
+      if (!capitulo || typeof datos.markdown !== "string") throw new Error("Capítulo o Markdown no válido.");
+      if (Buffer.byteLength(datos.markdown, "utf8") > MAX_BODY) throw new Error("El archivo es demasiado grande.");
+      json(res, 200, datosInSitu(datos.markdown, capitulo));
+    }).catch(function (error) { json(res, 400, { error:error.message || "No se pudo preparar la edición." }); });
+    return;
+  }
   if (req.method === "POST" && url.pathname === "/api/preview") {
     if (!accesoEditorValido(req)) { json(res, 403, { error:"Acceso al editor no autorizado." }); return; }
     leerJSON(req).then(function (datos) {
@@ -218,9 +276,15 @@ const servidor = http.createServer(function (req, res) {
       const temporal = destino + ".tmp-" + process.pid;
       fs.writeFileSync(temporal, datos.markdown, "utf8");
       fs.renameSync(temporal, destino);
+      // El editor en la página guarda el Markdown continuamente y deja la
+      // reconstrucción de HTML y PDF para cuando se pide expresamente.
+      if (datos.reconstruir === false) {
+        json(res, 200, { ok:true, reconstruido:false });
+        return;
+      }
       const resultado = spawnSync(process.execPath, [path.join(ROOT, "build.js")], { cwd:ROOT, encoding:"utf8", timeout:30000 });
       if (resultado.error || resultado.status !== 0) throw new Error("El Markdown se ha guardado, pero no se pudo reconstruir: " + (resultado.stderr || (resultado.error && resultado.error.message) || "error desconocido"));
-      json(res, 200, { ok:true, salida:resultado.stdout });
+      json(res, 200, { ok:true, reconstruido:true, salida:resultado.stdout });
     }).catch(function (error) { json(res, 400, { error:error.message || "No se pudo guardar." }); });
     return;
   }

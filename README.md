@@ -58,6 +58,7 @@ escribes Markdown  →  node build.js  →  HTML estático listo para usar
 | `construir.bat`        | Ejecuta el build con doble clic (Windows).         |
 | `editar-local.bat`     | Abre el editor visual de Markdown solo en este equipo. |
 | `editor-local.js`      | Servidor local del editor (se enlaza a `127.0.0.1`). |
+| `editor-insitu.js`     | Editor que se abre **dentro** de cada capítulo: se edita el texto tal y como se ve y el `.md` se guarda solo (solo en local). |
 | `subir-github.bat`     | Construye, crea un commit y sube los cambios a GitHub. |
 | `lib/marked.min.js`    | Conversor de Markdown (ya incluido, no requiere instalar nada). |
 | `lib/katex/`           | Renderizador local de fórmulas LaTeX y sus fuentes (funciona sin conexión). |
@@ -76,16 +77,41 @@ escribes Markdown  →  node build.js  →  HTML estático listo para usar
 ### Editor visual local
 
 Para editar sin abrir los `.md` directamente, haz doble clic en
-**`editar-local.bat`**. Se abrirá `http://127.0.0.1:8765/editor`; deja abierta
-la ventana de consola mientras trabajas. También puedes ejecutarlo desde una
+**`editar-local.bat`**. Se abrirá `http://127.0.0.1:8765/`; deja abierta la
+ventana de consola mientras trabajas. También puedes ejecutarlo desde una
 terminal con `node editor-local.js`.
 
-El editor permite elegir capítulo, navegar por sus `##`, `###` y bloques
-`:::`, insertar plantillas de los bloques disponibles y guardar con
-**Ctrl+S**. La vista previa se actualiza automáticamente mientras escribes,
-sin guardar nada todavía. Al guardar actualiza el `.md` y ejecuta
-automáticamente `build.js`. En las páginas de capítulo servidas por ese editor
-aparece además el botón **Editar Markdown**.
+Importante: los botones de edición **solo existen en las páginas servidas por
+ese servidor**. Si abres `index.html` o un capítulo con doble clic (dirección
+`file://`), no hay servidor y el botón no aparece; es lo correcto, porque en
+GitHub Pages nadie debe poder escribir.
+
+Hay dos formas de editar, disponibles solo en este ordenador:
+
+**1. Editar la página (recomendado).** Entra en un capítulo y pulsa
+**Editar página** (o añade `?editar=1` a la dirección). El capítulo se queda
+tal cual y se escribe directamente sobre él:
+
+- Los párrafos, títulos, listas y citas se editan **en su sitio**, como en un
+  procesador de textos. `Ctrl`+`B` negrita, `Ctrl`+`I` cursiva, `Ctrl`+`K`
+  enlace, `Intro` crea un párrafo nuevo y `Esc` cancela el bloque.
+- Las tablas, fórmulas, bloques `:::` y código se editan como **Markdown en su
+  hueco**: al pulsarlos se abre un cuadro con su Markdown (`Ctrl`+`Intro` para
+  aplicar, `Esc` para cancelar).
+- El `.md` se guarda **solo** mientras escribes (al parar un segundo y medio) y
+  el indicador avisa de que el HTML y los PDF aún no se han rehecho.
+- **Reconstruir HTML y PDF** (o `Ctrl`+`S`) escribe el `.md` y vuelve a generar
+  las páginas del proyecto. Hazlo al terminar la sesión.
+- Los enlaces no navegan mientras se edita; para seguirlos, sal del editor.
+
+**2. Editor clásico.** El enlace **Editor clásico** de la barra (o
+`http://127.0.0.1:8765/editor`) abre la pantalla de siempre: elegir capítulo,
+navegar por sus `##`, `###` y bloques `:::`, insertar plantillas y ver una
+vista previa completa. Al guardar con **Ctrl+S** actualiza el `.md` y ejecuta
+`build.js` en ese momento.
+
+Si una sección no coincide exactamente con el Markdown esperado, el editor en
+la página la deja intacta y avisa: en ese caso, usa el editor clásico.
 
 **Seguridad y GitHub:** el editor no forma parte de GitHub Pages. El servidor
 solo escucha en `127.0.0.1` (no en la red), usa una sesión temporal y solo

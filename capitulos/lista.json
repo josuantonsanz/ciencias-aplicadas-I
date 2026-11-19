@@ -9,7 +9,7 @@
       "archivo": "capitulos/01-fundamentos-ciencias-aplicadas.md",
       "titulo": "Fundamentos de las ciencias aplicadas",
       "materia": "ciencias",
-      "secciones": 5,
+      "secciones": 6,
       "descripcion": "Un único capítulo organizado en cinco secciones: matemáticas, laboratorio, medida, trabajo experimental y repaso."
     },
     {
@@ -32,6 +32,20 @@
       "materia": "matematicas",
       "secciones": 14,
       "descripcion": "Álgebra desde cero: letras, igualdad y operaciones inversas; ecuaciones paso a paso con signos, paréntesis y fracciones; problemas y despejes de fórmulas variadas. Incluye práctica gradual y una ampliación de potencias y raíces."
+    },
+    {
+      "archivo": "capitulos/05-la-tierra-como-sistema.md",
+      "titulo": "La Tierra como sistema",
+      "materia": "ciencias",
+      "secciones": 6,
+      "descripcion": "Apertura del proyecto: pregunta guía, cuatro bloques, plan de sesiones y guion de presentación. Después, las cuatro esferas y el suelo; ecosistemas, relaciones y cadenas tróficas; tiempo, clima y cambio climático con lectura de datos; placas tectónicas, procesos internos y externos y prevención de riesgos. Termina con actividades de repaso por bloques."
+    },
+    {
+      "archivo": "capitulos/06-ficha-repaso-algebra.md",
+      "titulo": "Ficha de repaso de álgebra resuelta",
+      "materia": "actividades",
+      "secciones": 4,
+      "descripcion": "La ficha de repaso del examen de álgebra, resuelta paso a paso: recordatorio del método, cuestionario razonado pregunta a pregunta, los ocho ejercicios con cada transformación explicada y las comprobaciones, y tres comprobaciones rápidas antes del examen."
     }
   ]
 }

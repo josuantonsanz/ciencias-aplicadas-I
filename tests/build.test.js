@@ -4,11 +4,35 @@ const test = require("node:test");
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
-const { renderarCapitulo, renderarPortada, renderarEstilosImpresion } = require("../build.js");
+const { renderarCapitulo, renderarSeccionesCapitulo, analizarEdicion, renderarPortada, renderarEstilosImpresion } = require("../build.js");
 
 const cap = { titulo: "Capítulo de prueba", materia: "ciencias" };
 const render = md => renderarCapitulo(md, cap, "Ciencias Aplicadas I", 4);
 const encabezados = html => Array.from(html.matchAll(/<h([2-6])><span class="heading__number">([^<]+)<\/span> ([\s\S]*?)<\/h\1>/g), m => ({ nivel: Number(m[1]), numero: m[2], titulo: m[3] }));
+
+const ETIQUETAS_VACIAS = new Set(["br", "hr", "img", "input", "meta", "link", "col", "source", "area", "base", "wbr", "embed", "track", "param"]);
+
+/* Lista los elementos HTML que están en el primer nivel del fragmento. */
+function elementosDeNivelSuperior(html) {
+  const salida = [];
+  const re = /<\/?([a-zA-Z][a-zA-Z0-9]*)\b[^>]*?(\/?)>/g;
+  let profundidad = 0;
+  let inicio = -1;
+  let m;
+  while ((m = re.exec(html))) {
+    const etiqueta = m[1].toLowerCase();
+    if (m[0][1] === "/") {
+      profundidad--;
+      if (profundidad === 0) { salida.push(html.slice(inicio, m.index + m[0].length)); inicio = -1; }
+    } else if (!ETIQUETAS_VACIAS.has(etiqueta) && m[2] !== "/") {
+      if (profundidad === 0) inicio = m.index;
+      profundidad++;
+    } else if (profundidad === 0) {
+      salida.push(m[0]);
+    }
+  }
+  return salida;
+}
 
 test("numera todos los niveles y reinicia cada contador al cambiar de apartado", () => {
   const html = render("## Principal\nTexto.\n### Apartado\nTexto.\n#### Detalle\nTexto.\n##### Más detalle\nTexto.\n###### Último nivel\nTexto.\n#### Otro detalle\nTexto.\n### Otro apartado\n#### Detalle nuevo\nTexto.\n## Otra sección\n### Apartado nuevo\nTexto.");
@@ -111,5 +135,79 @@ test("los HTML publicados coinciden con el conversor y no pierden actividades", 
     assert.deepEqual(actualActivities, Array.from({length:sourceActivities}, (_, n) => n + 1));
     assert.equal(encabezados(generated).filter(h => h.nivel === 2).length, (md.match(/^##\s/gm) || []).length);
     assert.equal(encabezados(generated).filter(h => h.nivel === 3).length, (md.match(/^###\s/gm) || []).length);
+  }
+});
+
+test("renderarSeccionesCapitulo es exactamente el capítulo completo", () => {
+  const md = "## Principal\nTexto.\n### Apartado\n::: nota\nDentro.\n:::\n\n| A | B |\n|---|---|\n| 1 | 2 |";
+  const completo = renderarCapitulo(md, cap, "Serie", 1);
+  assert.equal(renderarSeccionesCapitulo(md, cap, "Serie", 1).join(""), completo);
+});
+
+test("el editor en la página reparte el Markdown en bloques con su línea real", () => {
+  const md = [
+    "# Título",
+    "Intro.",
+    "",
+    "## Sección",
+    "Párrafo uno.",
+    "",
+    "- a",
+    "- b",
+    "",
+    "| A | B |",
+    "|---|---|",
+    "| 1 | 2 |",
+    "",
+    "::: ejemplo Título",
+    "Dentro con **negrita**.",
+    ":::",
+    "",
+    "#### Detalle",
+    "Más.",
+  ].join("\n");
+  const analisis = analizarEdicion(md);
+  assert.equal(analisis.length, 1);
+  assert.deepEqual(analisis[0].bloques.map(b => [b.tipo, b.inicio, b.fin]), [
+    ["paragraph", 1, 2],
+    ["paragraph", 4, 5],
+    ["list", 6, 8],
+    ["table", 9, 12],
+    ["contenedor", 13, 16],
+    ["encabezado", 17, 18],
+    ["paragraph", 18, 19],
+  ]);
+  assert.equal(analisis[0].bloques[5].nivel, 4);
+  assert.equal(analisis[0].bloques[4].subtipo, "ejemplo");
+  assert.equal(analisis[0].tituloInicio, 3);
+  assert.equal(analisis[0].tituloFin, 4);
+});
+
+test("cada bloque del editor se corresponde con un único elemento del HTML", () => {
+  const root = path.join(__dirname, "..");
+  const lista = JSON.parse(fs.readFileSync(path.join(root, "capitulos/lista.json"), "utf8"));
+  for (const [idx, chapter] of lista.capitulos.entries()) {
+    const md = fs.readFileSync(path.join(root, chapter.archivo), "utf8");
+    const lineas = md.split("\n");
+    const analisis = analizarEdicion(md);
+    const secciones = renderarSeccionesCapitulo(md, chapter, lista.serie, idx + 1);
+    assert.equal(analisis.length, secciones.length, chapter.archivo);
+
+    const cubiertas = new Array(lineas.length).fill(0);
+    analisis.forEach((seccion, i) => {
+      for (let linea = seccion.tituloInicio; linea < seccion.tituloFin; linea++) cubiertas[linea]++;
+      const interior = secciones[i].replace(/^<section[^>]*>/, "").replace(/<\/section>\s*$/, "");
+      const cuerpo = elementosDeNivelSuperior(interior)
+        .slice(1)
+        .filter(fragmento => !/slide__indice-seccion/.test(fragmento));
+      assert.equal(cuerpo.length, seccion.bloques.length,
+        chapter.archivo + " sección " + i + " («" + seccion.titulo + "»): bloque y elemento no coinciden");
+      seccion.bloques.forEach(b => { for (let linea = b.inicio; linea < b.fin; linea++) cubiertas[linea]++; });
+    });
+
+    lineas.forEach((linea, i) => {
+      if (!linea.trim() || /^#\s/.test(linea)) return;
+      assert.equal(cubiertas[i], 1, chapter.archivo + " línea " + (i + 1) + ": " + JSON.stringify(linea));
+    });
   }
 });

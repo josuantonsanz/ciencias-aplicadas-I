@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Tierra como sistema · Ciencias Aplicadas I</title>
+  <meta name="description" content="La Tierra como sistema — Ciencias Aplicadas I">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+@media print {
+  @page {
+    @top-left { content: "Ciencias Aplicadas I - 1º FPB"; }
+    @top-right { content: "Colegio San Gabriel"; }
+    @bottom-right { content: "Cap 5. La Tierra como sistema - " counter(page) "/" counter(pages); }
+  }
+}
+</style>
+  <!-- KaTeX se sirve localmente: el capítulo sigue funcionando sin Internet. -->
+  <link rel="stylesheet" href="../lib/katex/katex.min.css">
+</head>
+<body>
+
+  <!-- ======================= BARRA SUPERIOR ======================= -->
+  <header class="topbar">
+    <div class="topbar__title">
+      <button class="btn btn--ghost topbar__menu" id="btn-menu" aria-label="Abrir índice">☰</button>
+      <a class="topbar__brand" href="../index.html" title="Volver al índice general">Ciencias Aplicadas I</a>
+    </div>
+    <div class="topbar__actions">
+      <a class="btn btn--primary" href="./05-la-tierra-como-sistema.pdf" download title="Descargar el PDF ya maquetado"><svg class="btn__icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 17v3h14v-3" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg><span class="btn__label">Descargar PDF</span></a>
+      <button class="btn btn--primary" id="btn-slides" title="Ver el contenido como diapositivas">
+        ▶ <span class="btn__label">Diapositivas</span>
+      </button>
+      <!-- Solo se muestra cuando editor-local.js sirve la página en 127.0.0.1. -->
+      <a class="btn btn--outline" id="btn-editor" href="/editor" hidden title="Editar el Markdown en este ordenador">
+        ✎ <span class="btn__label">Editar Markdown</span>
+      </a>
+    </div>
+  </header>
+
+  <div class="layout">
+
+    <!-- ======================= ÍNDICE LATERAL ======================= -->
+    <nav class="sidebar" id="sidebar" aria-label="Índice del capítulo">
+      <p class="sidebar__title">Índice del capítulo</p>
+      <ol class="toc" id="toc"><!-- se genera con JS --></ol>
+      <p class="sidebar__hint">Pulsa <kbd>Ctrl</kbd>+<kbd>P</kbd> para imprimir / guardar como PDF.</p>
+    </nav>
+
+    <!-- ======================= CONTENIDO ======================= -->
+    <main class="content" id="content">
+
+      <header class="cover" id="portada">
+  <span class="cover__number" aria-hidden="true">05</span>
+  <div class="cover__body">
+    <p class="cover__kicker">Ciencias Aplicadas I · Capítulo 5</p>
+    <h1 class="cover__title">La Tierra como sistema</h1>
+    <p class="cover__subtitle"><span class="tag tag--mat">Ciencias aplicadas</span></p>
+    <div class="cover__meta"><span>Curso 2026 – 2027</span><span>1º FPB</span></div>
+  </div>
+</header>
+
+      <section class="slide" id="seccion-1" data-materia="ciencias" data-seccion="Qué vamos a hacer en este tema" data-seccion-numero="1" data-numero="1" data-nivel="2">
+  <h2><span class="heading__number">1</span> Qué vamos a hacer en este tema</h2>
+<p>Vivimos sobre una roca que gira alrededor de una estrella, rodeada de una capa finísima de aire y de agua. Todo eso funciona a la vez: lo que le pasa al aire afecta al agua, lo que le pasa al agua afecta al suelo, y lo que le pasa al suelo afecta a los seres vivos. Ese conjunto es lo que estudiamos en este tema.</p>
+
+<div class="box box--resumen">
+<p class="box__title">Lo esencial</p>
+<p>Al terminar el tema deberías ser capaz de:</p>
+<ul>
+<li>Explicar qué son las cuatro esferas de la Tierra y poner ejemplos de cómo se relacionan.</li>
+<li>Justificar por qué el suelo es imprescindible para la vida y de qué está hecho.</li>
+<li>Describir un ecosistema con sus elementos bióticos y abióticos y sus relaciones.</li>
+<li>Distinguir tiempo atmosférico de clima y una causa de una consecuencia.</li>
+<li>Explicar qué son las placas tectónicas, qué procesos genera su movimiento y cómo se puede reducir el riesgo.</li>
+</ul>
+
+</div>
+<p>Este tema no empieza con una lista de definiciones. Empieza con una pregunta que no se responde con una sola búsqueda ni con una sola asignatura:</p>
+<blockquote>
+<p><strong>La pregunta guía:</strong> ¿qué relación hay entre el aire, el agua, el suelo, los seres vivos, el clima y los riesgos de un lugar?</p>
+</blockquote>
+<p>Para responderla vas a investigar y a resumir lo que aprendas en <strong>una cartulina tuya</strong>. No es un trabajo en grupo y no hay que exponer delante de la clase: cada uno hace su mural y lo entrega.</p>
+
+</section>
+<section class="slide" id="seccion-2" data-materia="ciencias" data-seccion="Qué vamos a hacer en este tema" data-seccion-numero="1" data-numero="1.1" data-nivel="3">
+  <h3><span class="heading__number">1.1</span> El producto: tu cartulina</h3>
+<p>Tu cartulina tiene que tener cuatro bloques. Cada bloque se apoya en un apartado de estos apuntes:</p>
+<table>
+<thead>
+<tr>
+<th>Bloque</th>
+<th>Apartado</th>
+<th>Qué tiene que aparecer</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>La Tierra como sistema</td>
+<td>Las cuatro esferas, dos relaciones entre ellas y el suelo</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Los ecosistemas</td>
+<td>Un ecosistema concreto, bióticos, abióticos y dos relaciones</td>
+</tr>
+<tr>
+<td>3</td>
+<td>El clima y el cambio climático</td>
+<td>Tiempo y clima, causa, consecuencias, acciones y un dato</td>
+</tr>
+<tr>
+<td>4</td>
+<td>La geología y los riesgos naturales</td>
+<td>Placas, procesos internos y externos, riesgo y prevención</td>
+</tr>
+</tbody></table>
+<p>Además, la cartulina tiene que tener al menos <strong>dos flechas o frases que conecten un bloque con otro</strong> y <strong>dos fuentes</strong> escritas.</p>
+
+</section>
+<section class="slide" id="seccion-3" data-materia="ciencias" data-seccion="Qué vamos a hacer en este tema" data-seccion-numero="1" data-numero="1.2" data-nivel="3">
+  <h3><span class="heading__number">1.2</span> Cómo se trabaja: cuatro sesiones</h3>
+<table>
+<thead>
+<tr>
+<th>Sesión</th>
+<th>Parte del cuadernillo</th>
+<th>Apartado de estos apuntes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Parte 1</td>
+<td>La Tierra como sistema</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Parte 2</td>
+<td>Los ecosistemas</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Parte 3</td>
+<td>El clima y el cambio climático</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Parte 4 y boceto</td>
+<td>La geología y los riesgos naturales</td>
+</tr>
+</tbody></table>
+
+<div class="box box--dato">
+<p class="box__title">Importante</p>
+<p>En esas cuatro sesiones <strong>no se empieza a decorar la cartulina</strong>. Primero se rellena el cuadernillo y se hace el boceto. La cartulina se monta en clase, los días 3 y 4 de diciembre.</p>
+
+</div>
+</section>
+<section class="slide" id="seccion-4" data-materia="ciencias" data-seccion="Qué vamos a hacer en este tema" data-seccion-numero="1" data-numero="1.3" data-nivel="3">
+  <h3><span class="heading__number">1.3</span> Qué es una buena cartulina y qué no lo es</h3>
+<p>Una buena cartulina <strong>explica</strong>. No es un collage bonito ni un resumen copiado.</p>
+<ul>
+<li>Sí vale: frases cortas escritas por ti, esquemas con título, un dato con una frase que diga qué muestra, flechas que relacionen ideas y dos fuentes anotadas.</li>
+<li>No vale: párrafos copiados de Internet, imágenes sin explicación ni origen, cuatro apartados sueltos sin relación, mucho color y poca información.</li>
+</ul>
+
+</section>
+<section class="slide" id="seccion-5" data-materia="ciencias" data-seccion="Qué vamos a hacer en este tema" data-seccion-numero="1" data-numero="1.4" data-nivel="3">
+  <h3><span class="heading__number">1.4</span> Cómo se anota una fuente</h3>
+<p>Copia este modelo en una esquina de la cartulina o en el reverso:</p>
+
+<div class="box">
+<p class="box__title">Nota</p>
+<p><strong>1.</strong> Organismo o autor. <em>Título de la página</em>. Dirección o nombre del sitio.
+<strong>2.</strong> ¿Para qué la he usado?</p>
+<p>Ejemplo: <em>AEMET. «El tiempo en Zuera». <a href="http://www.aemet.es">www.aemet.es</a>. Lo he usado para comprobar la lluvia de un mes.</em></p>
+
+</div>
+</section>
+<section class="slide" id="seccion-6" data-materia="ciencias" data-seccion="Qué vamos a hacer en este tema" data-seccion-numero="1" data-numero="1.5" data-nivel="3">
+  <h3><span class="heading__number">1.5</span> Cómo se evalúa</h3>
+<p>Lo que más pesa es que el contenido sea correcto y esté completo, y que expliques las relaciones con tus palabras. Las fuentes anotadas y el orden también cuentan, pero el dibujo y la decoración no dan nota por sí solos. Después de la cartulina habrá una ficha de conexión y una prueba escrita breve: la nota de la unidad no depende solo del mural.</p>
+
+</section>
+<section class="slide slide--seccion slide--seccion--titulo-necesario" id="seccion-7" data-materia="ciencias" data-seccion="La Tierra como sistema" data-seccion-numero="2" data-numero="2" data-nivel="2">
+  <h2><span class="heading__number">2</span> La Tierra como sistema</h2>
+  <ul class="slide__indice-seccion">
+    <li><span class="heading__number">2.1</span> Las cuatro esferas</li>
+    <li><span class="heading__number">2.2</span> Cómo se relacionan</li>
+    <li><span class="heading__number">2.3</span> El suelo, el gran desconocido</li>
+  </ul>
+
+</section>
+<section class="slide" id="seccion-8" data-materia="ciencias" data-seccion="La Tierra como sistema" data-seccion-numero="2" data-numero="2.1" data-nivel="3">
+  <h3><span class="heading__number">2.1</span> Las cuatro esferas</h3>
+<p>La Tierra no es una cosa sola, sino un <strong>sistema</strong> formado por partes que intercambian materia y energía. Para estudiarlas, las dividimos en cuatro <strong>esferas</strong> o capas, aunque en la realidad están en contacto permanente:</p>
+<table>
+<thead>
+<tr>
+<th>Esfera</th>
+<th>Qué incluye</th>
+<th>Ejemplos</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Atmósfera</strong></td>
+<td>La capa de gases que envuelve el planeta</td>
+<td>El aire que respiras, las nubes, el viento</td>
+</tr>
+<tr>
+<td><strong>Hidrosfera</strong></td>
+<td>Toda el agua del planeta</td>
+<td>Océanos, ríos, lagos, agua subterránea, hielo</td>
+</tr>
+<tr>
+<td><strong>Geosfera</strong></td>
+<td>La parte rocosa: corteza, manto y núcleo</td>
+<td>Rocas, arena, magma, montañas</td>
+</tr>
+<tr>
+<td><strong>Biosfera</strong></td>
+<td>Todos los seres vivos y los lugares donde viven</td>
+<td>Pinos, insectos, bacterias, personas</td>
+</tr>
+</tbody></table>
+<p><img src="esferas-tierra.svg" alt="Esquema con las cuatro esferas de la Tierra: atmósfera, hidrosfera, geosfera y biosfera"></p>
+
+<div class="box">
+<p class="box__title">Nota</p>
+<p>Estas cuatro «esferas» no están separadas como las capas de una cebolla. Se tocan y se mezclan de continuo. Una gota de lluvia pertenece a la hidrosfera, pero viaja por la atmósfera, cae sobre la geosfera y la usan los seres vivos de la biosfera.</p>
+
+</div>
+</section>
+<section class="slide" id="seccion-9" data-materia="ciencias" data-seccion="La Tierra como sistema" data-seccion-numero="2" data-numero="2.2" data-nivel="3">
+  <h3><span class="heading__number">2.2</span> Cómo se relacionan</h3>
+<p>Una de las ideas más importantes del tema es que <strong>todo está conectado</strong>. Algunos ejemplos:</p>
+<ul>
+<li><strong>Lluvia y suelo</strong>: el agua de la atmósfera cae sobre la geosfera, disuelve minerales y permite que crezcan las plantas de la biosfera.</li>
+<li><strong>Volcán y clima</strong>: un volcán (geosfera) lanza cenizas y gases a la atmósfera, que pueden enfriar el clima durante meses.</li>
+<li><strong>Plantas y roca</strong>: las raíces de las plantas (biosfera) rompen la roca (geosfera) y forman suelo.</li>
+<li><strong>Océano y aire</strong>: el agua de los mares (hidrosfera) se evapora y pasa a la atmósfera; después vuelve a caer.</li>
+</ul>
+
+<div class="box box--example">
+<p class="box__title">Pensar en cadena</p>
+<p>Si un verano no llueve:</p>
+<ol>
+<li>La hidrosfera recibe menos agua.</li>
+<li>La atmósfera tiene menos humedad.</li>
+<li>El suelo pierde agua y se endurece.</li>
+<li>Las plantas crecen menos y algunos animales se marchan.</li>
+<li>Las personas pueden tener problemas de agua y de alimento.</li>
+</ol>
+<p>Eso es <strong>pensar como un sistema</strong>: no buscar una única causa, sino seguir la cadena.</p>
+
+</div>
+</section>
+<section class="slide" id="seccion-10" data-materia="ciencias" data-seccion="La Tierra como sistema" data-seccion-numero="2" data-numero="2.3" data-nivel="3">
+  <h3><span class="heading__number">2.3</span> El suelo, el gran desconocido</h3>
+<p>El <strong>suelo</strong> es la capa superficial, suelta, en la que pueden crecer las plantas. No es «tierra» sin más: es el resultado de una mezcla compleja y de un proceso muy lento.</p>
+<figure style="margin:14px 0;text-align:center">
+<img src="perfil-suelo.jpg" alt="Perfil de un suelo de 130 cm de profundidad con una cinta métrica">
+<figcaption style="font-size:0.88em;font-style:italic;color:#555;margin-top:6px;line-height:1.45">Un suelo abierto por la mitad: arriba, los restos de hojas y las raíces; abajo, las capas de roca y arcilla. La cinta mide centímetros. Foto: CWALTER, CC BY-SA 4.0, Wikimedia Commons.</figcaption>
+</figure>
+
+<p>Un suelo sano tiene cuatro componentes:</p>
+<ul>
+<li><strong>Materia mineral</strong>: fragmentos de roca de distintos tamaños (arena, limo, arcilla).</li>
+<li><strong>Materia orgánica</strong>: restos de plantas y animales en descomposición, y microorganismos. Cuando está muy descompuesta se llama <strong>humus</strong>.</li>
+<li><strong>Agua</strong>: rellena los huecos entre las partículas.</li>
+<li><strong>Aire</strong>: ocupa otros huecos; los seres vivos del suelo también respiran.</li>
+</ul>
+<pre><code>        suelo = minerales + materia orgánica + agua + aire
+                 (roca)      (restos vivos)     (huecos)
+</code></pre>
+<p>La formación del suelo (<strong>edafogénesis</strong>) es un proceso que combina dos tipos de fenómenos:</p>
+<ol>
+<li><strong>Meteorización</strong> de la roca: el agua, el viento, el hielo y los cambios de temperatura rompen la roca poco a poco.</li>
+<li><strong>Aporte de materia orgánica</strong>: los seres vivos aportan hojas, excrementos y cuerpos que se descomponen.</li>
+</ol>
+<p>Todo eso tarda muchísimo tiempo. Un centímetro de suelo puede necesitar siglos. Por eso decir «total, es solo tierra» es un error: el suelo es un recurso <strong>no renovable</strong> a escala humana.</p>
+
+<div class="box box--dato">
+<p class="box__title">¿Para qué sirve el suelo?</p>
+<ul>
+<li>Es el soporte de casi todos los alimentos que comemos.</li>
+<li>Filtra y limpia el agua que se infiltra hacia los acuíferos.</li>
+<li>Almacena enormes cantidades de carbono: si se degrada, se libera gases de efecto invernadero.</li>
+<li>Alberga una parte enorme de la biodiversidad del planeta: en un puñado de suelo sano hay millones de microorganismos.</li>
+</ul>
+
+</div>
+<div class="box box--actividades" data-actividad="1" aria-label="Actividades 1">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">1</span><span>Actividades</span></p>
+<ol>
+<li>Nombra las cuatro esferas de la Tierra y pon un ejemplo de cada una que veas en tu entorno.</li>
+<li>Escribe dos relaciones entre esferas: una que implique al suelo y otra que no.</li>
+<li>Explica con tus palabras por qué el suelo se considera un recurso no renovable.</li>
+<li>¿Qué componentes del suelo hacen posible que crezca una planta?</li>
+</ol>
+
+</div>
+</section>
+<section class="slide slide--seccion slide--seccion--titulo-necesario" id="seccion-11" data-materia="ciencias" data-seccion="Los ecosistemas" data-seccion-numero="3" data-numero="3" data-nivel="2">
+  <h2><span class="heading__number">3</span> Los ecosistemas</h2>
+  <ul class="slide__indice-seccion">
+    <li><span class="heading__number">3.1</span> Qué es un ecosistema</li>
+    <li><span class="heading__number">3.2</span> Las relaciones entre organismos</li>
+    <li><span class="heading__number">3.3</span> Cómo circula la materia y la energía</li>
+    <li><span class="heading__number">3.4</span> Cuando el ecosistema cambia</li>
+  </ul>
+
+</section>
+<section class="slide" id="seccion-12" data-materia="ciencias" data-seccion="Los ecosistemas" data-seccion-numero="3" data-numero="3.1" data-nivel="3">
+  <h3><span class="heading__number">3.1</span> Qué es un ecosistema</h3>
+<p>Un <strong>ecosistema</strong> es el conjunto formado por un lugar y todos los seres vivos que lo habitan, junto con las relaciones que se establecen entre ellos. Distinguimos dos partes:</p>
+<ul>
+<li>El <strong>biotopo</strong>: el medio físico. Incluye el <strong>agua, el aire, el suelo, la luz, la temperatura</strong> y la cantidad de precipitaciones.</li>
+<li>La <strong>biocenosis</strong> o <strong>comunidad</strong>: todos los seres vivos que viven en ese biotopo.</li>
+</ul>
+<p>Cuando hablamos de los elementos del medio físico usamos la palabra <strong>abiótico</strong> (sin vida) y, cuando hablamos de los seres vivos, <strong>biótico</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Elementos abióticos</th>
+<th>Elementos bióticos</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Luz, temperatura, agua, suelo, oxígeno, salinidad</td>
+<td>Plantas, animales, hongos, bacterias</td>
+</tr>
+</tbody></table>
+<figure style="margin:14px 0;text-align:center">
+<img src="soto-ebro.jpg" alt="Un soto del Ebro, con agua, plantas de ribera y árboles">
+<figcaption style="font-size:0.88em;font-style:italic;color:#555;margin-top:6px;line-height:1.45">Un soto del Ebro: agua, juncos, árboles y animales en el mismo lugar. Todo eso, junto con el suelo y la luz, forma un ecosistema. Foto: Kalakoricos, CC BY-SA 4.0, Wikimedia Commons.</figcaption>
+</figure>
+
+<div class="box">
+<p class="box__title">Nota</p>
+<p>Una <strong>población</strong> son los individuos de la misma especie que viven en un ecosistema (por ejemplo, todas las truchas del río). La <strong>comunidad</strong> o biocenosis es el conjunto de todas las poblaciones que viven allí.</p>
+
+</div>
+</section>
+<section class="slide" id="seccion-13" data-materia="ciencias" data-seccion="Los ecosistemas" data-seccion-numero="3" data-numero="3.2" data-nivel="3">
+  <h3><span class="heading__number">3.2</span> Las relaciones entre organismos</h3>
+<p>Los seres vivos no viven aislados. Se relacionan con los de su especie (<strong>relaciones intraespecíficas</strong>) y con los de otras especies (<strong>relaciones interespecíficas</strong>).</p>
+<table>
+<thead>
+<tr>
+<th>Relación</th>
+<th>Qué pasa</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Cooperación</strong></td>
+<td>Los dos se benefician</td>
+<td>Bandadas de aves que vigilan juntas</td>
+</tr>
+<tr>
+<td><strong>Competencia</strong></td>
+<td>Los dos compiten por lo mismo y se perjudican</td>
+<td>Dos especies que comen el mismo fruto</td>
+</tr>
+<tr>
+<td><strong>Depredación</strong></td>
+<td>Uno caza al otro</td>
+<td>Zorro y conejo</td>
+</tr>
+<tr>
+<td><strong>Parasitismo</strong></td>
+<td>Uno se beneficia y perjudica al otro</td>
+<td>Garrapata sobre un perro</td>
+</tr>
+<tr>
+<td><strong>Mutualismo</strong></td>
+<td>Ambos obtienen beneficio y no pueden vivir bien por separado</td>
+<td>Líquenes (alga + hongo)</td>
+</tr>
+</tbody></table>
+
+</section>
+<section class="slide" id="seccion-14" data-materia="ciencias" data-seccion="Los ecosistemas" data-seccion-numero="3" data-numero="3.3" data-nivel="3">
+  <h3><span class="heading__number">3.3</span> Cómo circula la materia y la energía</h3>
+<p>En los ecosistemas, la materia y la energía pasan de unos seres vivos a otros. Según el papel que desempeñan, encontramos:</p>
+<ul>
+<li><strong>Productores</strong>: fabrican su propio alimento con la <strong>fotosíntesis</strong>. Son las plantas, las algas y algunas bacterias.</li>
+<li><strong>Consumidores</strong>: se alimentan de otros seres vivos.<ul>
+<li><strong>Primarios</strong>: comen productores (herbívoros).</li>
+<li><strong>Secundarios</strong>: comen consumidores primarios.</li>
+<li><strong>Terciarios</strong>: comen consumidores secundarios.</li>
+</ul>
+</li>
+<li><strong>Descomponedores</strong>: descomponen los restos y los cuerpos sin vida y devuelven los nutrientes al suelo. Son hongos y bacterias.</li>
+</ul>
+<p>Una <strong>cadena alimentaria</strong> muestra una secuencia de quién come a quién:</p>
+<p>$$ \text{hierba} \longrightarrow \text{conejo} \longrightarrow \text{zorro} \longrightarrow \text{buitre} $$</p>
+<p>En la realidad, los seres vivos se comen de muchas maneras: no hay una sola cadena, hay una <strong>red trófica</strong>, un entramado de cadenas cruzadas.</p>
+<p><img src="red-trofica.svg" alt="Red trófica con cuatro niveles y los descomponedores"></p>
+
+<div class="box box--dato">
+<p class="box__title">Se pierde energía</p>
+<p>En cada salto de la cadena se pierde una enorme cantidad de energía, sobre todo en forma de calor. Por eso hacen falta muchas plantas para mantener pocos depredadores, y por eso las cadenas tróficas tienen pocos niveles.</p>
+
+</div>
+</section>
+<section class="slide" id="seccion-15" data-materia="ciencias" data-seccion="Los ecosistemas" data-seccion-numero="3" data-numero="3.4" data-nivel="3">
+  <h3><span class="heading__number">3.4</span> Cuando el ecosistema cambia</h3>
+<p>Los ecosistemas cambian. Un cambio puede ser natural (una sequía, un incendio provocado por un rayo) o debido a la actividad humana (contaminación, deforestación, especies invasoras).</p>
+<p>Un ecosistema es <strong>frágil pero también resistente</strong>: puede recuperarse hasta cierto punto. Si el cambio es muy fuerte o muy rápido, esa capacidad de recuperación se pierde.</p>
+
+<div class="box box--example">
+<p class="box__title">La sequía, paso a paso</p>
+<p>Si en un río llueve mucho menos:</p>
+<ol>
+<li>Baja el nivel del agua y se calienta más.</li>
+<li>Disminuye el oxígeno disuelto y los peces sufren.</li>
+<li>Las algas crecen más de la cuenta y el agua se enturbia.</li>
+<li>Los animales que dependen del río buscan otros lugares.</li>
+</ol>
+<p>Un solo cambio en un elemento abiótico afecta a todo el ecosistema.</p>
+
+</div>
+<div class="box box--actividades" data-actividad="2" aria-label="Actividades 2">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">2</span><span>Actividades</span></p>
+<ol>
+<li>Elige un ecosistema cercano. Señala tres elementos bióticos y tres abióticos.</li>
+<li>Construye una cadena alimentaria de cuatro niveles y explica qué papel tiene cada uno.</li>
+<li>¿Qué diferencia hay entre cooperación y mutualismo? Pon un ejemplo de cada uno.</li>
+<li>Explica qué pasaría en tu ecosistema si desaparecieran los descomponedores.</li>
+</ol>
+
+</div>
+</section>
+<section class="slide slide--seccion slide--seccion--titulo-necesario" id="seccion-16" data-materia="ciencias" data-seccion="El clima y el cambio climático" data-seccion-numero="4" data-numero="4" data-nivel="2">
+  <h2><span class="heading__number">4</span> El clima y el cambio climático</h2>
+  <ul class="slide__indice-seccion">
+    <li><span class="heading__number">4.1</span> Tiempo y clima no son lo mismo</li>
+    <li><span class="heading__number">4.2</span> El cambio climático: causas y consecuencias</li>
+    <li><span class="heading__number">4.3</span> Cómo frenarlo: mitigar y adaptarse</li>
+    <li><span class="heading__number">4.4</span> Leer un dato sin equivocarse</li>
+  </ul>
+
+</section>
+<section class="slide" id="seccion-17" data-materia="ciencias" data-seccion="El clima y el cambio climático" data-seccion-numero="4" data-numero="4.1" data-nivel="3">
+  <h3><span class="heading__number">4.1</span> Tiempo y clima no son lo mismo</h3>
+<p>Es un error muy común usar estas dos palabras como si fueran iguales. Vamos a diferenciarlas:</p>
+<ul>
+<li>El <strong>tiempo atmosférico</strong> es el estado de la atmósfera en un lugar y un momento concretos: hoy, esta semana. Incluye la temperatura, las precipitaciones, el viento y la humedad de ahora.</li>
+<li>El <strong>clima</strong> es el conjunto de condiciones atmosféricas <strong>habituales</strong> en un lugar, calculado con datos recogidos durante al menos 30 años.</li>
+</ul>
+<p>Dicho de otra forma: <strong>el tiempo es lo que te pones hoy para salir a la calle; el clima es la ropa que guardas para todo el año</strong>.</p>
+
+<div class="box">
+<p class="box__title">Nota</p>
+<p>«Hoy hace frío en Zuera» habla del tiempo. «Zuera tiene clima mediterráneo continentalizado» habla del clima.</p>
+
+</div>
+<p>El clima de un lugar depende de varios <strong>factores</strong>:</p>
+<ul>
+<li>La <strong>latitud</strong>: no es lo mismo el ecuador que el norte de Europa.</li>
+<li>La <strong>altitud</strong>: hace más frío en las montañas.</li>
+<li>La <strong>distancia al mar</strong>: el mar suaviza las temperaturas.</li>
+<li>El <strong>relieve</strong>: las montañas frenan las nubes y crean sombras de lluvia.</li>
+<li>Las <strong>corrientes marinas</strong>, que calientan o enfrían las costas.</li>
+</ul>
+
+</section>
+<section class="slide" id="seccion-18" data-materia="ciencias" data-seccion="El clima y el cambio climático" data-seccion-numero="4" data-numero="4.2" data-nivel="3">
+  <h3><span class="heading__number">4.2</span> El cambio climático: causas y consecuencias</h3>
+<p>El <strong>efecto invernadero</strong> natural no es malo: sin él, la Tierra sería un lugar congelado. El problema aparece cuando lo intensificamos. Al quemar combustibles fósiles y talar bosques, emitimos gases que <strong>retienen más calor</strong> del necesario.</p>
+<p><img src="efecto-invernadero.svg" alt="Esquema del efecto invernadero: la luz del Sol entra, la superficie emite calor y los gases devuelven parte de ese calor"></p>
+<p><strong>Causas principales:</strong></p>
+<ul>
+<li>Quema de <strong>combustibles fósiles</strong> (carbón, petróleo, gas) para electricidad, transporte e industria.</li>
+<li><strong>Deforestación</strong>: menos árboles que capturen $\text{CO}_2$.</li>
+<li><strong>Ganadería intensiva</strong> y agricultura con fertilizantes.</li>
+<li>Residuos y consumo: la fabricación de dispositivos también emite gases.</li>
+</ul>
+<p><strong>Consecuencias:</strong></p>
+<ul>
+<li>Aumento de la temperatura media del planeta.</li>
+<li>Cambios en las lluvias: sequías más largas en algunos lugares y lluvias torrenciales en otros.</li>
+<li>Subida del nivel del mar por el deshielo y la dilatación del agua.</li>
+<li>Olas de calor más frecuentes e intensas.</li>
+<li>Pérdida de biodiversidad y cambios en los ecosistemas.</li>
+<li>Problemas sociales: gente que tiene que abandonar su casa, conflictos por el agua.</li>
+</ul>
+
+<div class="box box--dato">
+<p class="box__title">Importante</p>
+<p>No confundas <strong>causa</strong> con <strong>consecuencia</strong>. Que suba el nivel del mar no provoca las emisiones; al revés: las emisiones (causa) provocan la subida del nivel del mar (consecuencia).</p>
+
+</div>
+</section>
+<section class="slide" id="seccion-19" data-materia="ciencias" data-seccion="El clima y el cambio climático" data-seccion-numero="4" data-numero="4.3" data-nivel="3">
+  <h3><span class="heading__number">4.3</span> Cómo frenarlo: mitigar y adaptarse</h3>
+<p>Hay dos formas de responder al cambio climático, y no son la misma:</p>
+<ul>
+<li><strong>Mitigación</strong>: reducir las causas. Disminuir emisiones, usar energías renovables, ahorrar energía, consumir menos y mejor.</li>
+<li><strong>Adaptación</strong>: prepararse para los efectos que ya no podemos evitar. Construir mejor, ordenar el territorio, avisar de inundaciones.</li>
+</ul>
+
+<div class="box box--dato">
+<p class="box__title">Lo que más pesa en un dispositivo</p>
+<p>La mayor parte de la huella de un teléfono o un ordenador no está en el día que lo usas, sino en <strong>fabricarlo</strong>: extraer minerales, fabricar piezas y transportarlas. Por eso alargar la vida útil de un dispositivo, repararlo o comprarlo de segunda mano suele ahorrar más emisiones que apagarlo cinco minutos antes.</p>
+
+</div>
+<p>Hay que desconfiar de las soluciones que suenan bien pero no cuantifican. Una empresa que anuncia un producto «100 % ecológico» no está obligada a decirte cuánto contamina fabricarlo. Por eso se pide siempre el dato.</p>
+
+</section>
+<section class="slide" id="seccion-20" data-materia="ciencias" data-seccion="El clima y el cambio climático" data-seccion-numero="4" data-numero="4.4" data-nivel="3">
+  <h3><span class="heading__number">4.4</span> Leer un dato sin equivocarse</h3>
+<p>En este tema vamos a usar datos climáticos. La matemática sirve para no creernos cualquier cosa:</p>
+<ul>
+<li>Un <strong>porcentaje</strong> siempre tiene un «de qué»: 10 % de qué cantidad.</li>
+<li>Un <strong>aumento</strong> del 20 % no es lo mismo que un aumento de 20 unidades.</li>
+<li>Una variación puede parecer enorme si se dibuja el eje del gráfico empezando muy arriba.</li>
+<li>Un dato de <strong>un día</strong> no demuestra una tendencia. La tendencia necesita muchos años.</li>
+</ul>
+<p><img src="grafico-enganoso.svg" alt="Dos gráficos con los mismos datos: uno con el eje recortado y otro con el eje completo desde cero"></p>
+
+<div class="box box--example">
+<p class="box__title">Un gráfico engañoso</p>
+<p>Imagina un gráfico donde se mide la temperatura media de una ciudad. El eje vertical no empieza en $0$, sino en $13{,}8\,^\circ\mathrm{C}$. Con ese truco, un aumento de $0{,}4\,^\circ\mathrm{C}$ parece enorme. El dato es real; la forma de dibujarlo es lo que engaña.</p>
+
+</div>
+<div class="box box--actividades" data-actividad="3" aria-label="Actividades 3">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">3</span><span>Actividades</span></p>
+<ol>
+<li>Define tiempo atmosférico y clima con tus palabras y pon un ejemplo de cada uno de tu localidad.</li>
+<li>Escribe una causa y dos consecuencias del cambio climático. No las mezcles.</li>
+<li>Escribe dos acciones justificadas: una que puedas hacer tú esta semana y otra colectiva o profesional.</li>
+<li>Busca un dato sobre residuos electrónicos o consumo de energía de un ordenador. Copia el dato y explica qué muestra y qué <strong>no</strong> permite concluir.</li>
+</ol>
+
+</div>
+</section>
+<section class="slide slide--seccion slide--seccion--titulo-necesario" id="seccion-21" data-materia="ciencias" data-seccion="La geología y los riesgos naturales" data-seccion-numero="5" data-numero="5" data-nivel="2">
+  <h2><span class="heading__number">5</span> La geología y los riesgos naturales</h2>
+  <ul class="slide__indice-seccion">
+    <li><span class="heading__number">5.1</span> El interior de la Tierra</li>
+    <li><span class="heading__number">5.2</span> Qué pasa cuando las placas se mueven</li>
+    <li><span class="heading__number">5.3</span> Procesos internos y procesos externos</li>
+    <li><span class="heading__number">5.4</span> Riesgos naturales y prevención</li>
+  </ul>
+
+</section>
+<section class="slide" id="seccion-22" data-materia="ciencias" data-seccion="La geología y los riesgos naturales" data-seccion-numero="5" data-numero="5.1" data-nivel="3">
+  <h3><span class="heading__number">5.1</span> El interior de la Tierra</h3>
+<p>La geosfera se divide en tres capas principales:</p>
+<ul>
+<li><strong>Corteza</strong>: la capa más externa, sólida y delgada. En los continentes mide entre 30 y 70 km; bajo los océanos, unos 7 km.</li>
+<li><strong>Manto</strong>: es la capa intermedia, muy gruesa. Aunque sus rocas están calientes, no forman un líquido: se deforman muy despacio.</li>
+<li><strong>Núcleo</strong>: la parte más interna, con una parte externa líquida y una interna sólida. Tiene temperaturas altísimas.</li>
+</ul>
+<p>La <strong>litosfera</strong> es la capa rígida exterior formada por la corteza más la parte más alta del manto. Está <strong>fragmentada en placas</strong> que flotan sobre el material más blando del manto y se mueven muy lentamente, unos centímetros al año.</p>
+<p><img src="interior-tierra.svg" alt="Corte esquemático del interior de la Tierra con corteza, manto y núcleo, y dos placas en la superficie"></p>
+
+</section>
+<section class="slide" id="seccion-23" data-materia="ciencias" data-seccion="La geología y los riesgos naturales" data-seccion-numero="5" data-numero="5.2" data-nivel="3">
+  <h3><span class="heading__number">5.2</span> Qué pasa cuando las placas se mueven</h3>
+<p>La <strong>tectónica de placas</strong> explica el relieve, los terremotos y los volcanes. Según cómo se muevan las placas entre sí, ocurre algo distinto:</p>
+<table>
+<thead>
+<tr>
+<th>Tipo de límite</th>
+<th>Qué hacen las placas</th>
+<th>Qué produce</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Divergente</strong></td>
+<td>Se separan</td>
+<td>Dorsales oceánicas, volcanes, nueva corteza</td>
+</tr>
+<tr>
+<td><strong>Convergente</strong></td>
+<td>Chocan: una se hunde bajo la otra</td>
+<td>Montañas, terremotos fuertes, volcanes</td>
+</tr>
+<tr>
+<td><strong>Transformante</strong></td>
+<td>Se desplazan una al lado de la otra</td>
+<td>Terremotos, fallas, sin volcanes</td>
+</tr>
+</tbody></table>
+
+<div class="box box--dato">
+<p class="box__title">España, sin ir más lejos</p>
+<ul>
+<li>Los Pirineos se formaron por la colisión entre la placa ibérica y la europea.</li>
+<li>En el Pirineo todavía hay pequeños terremotos por fallas activas.</li>
+<li>En la península hay volcanes recientes (La Garrotxa, Campo de Calatrava) además de los de Canarias.</li>
+<li>El valle del Ebro ha sufrido inundaciones históricas por el río y sus afluentes.</li>
+</ul>
+
+</div>
+</section>
+<section class="slide" id="seccion-24" data-materia="ciencias" data-seccion="La geología y los riesgos naturales" data-seccion-numero="5" data-numero="5.3" data-nivel="3">
+  <h3><span class="heading__number">5.3</span> Procesos internos y procesos externos</h3>
+<p>El relieve cambia por dos tipos de fuerzas opuestas:</p>
+<ul>
+<li><strong>Procesos internos</strong>: vienen de la energía del interior de la Tierra. <strong>Forman</strong> relieve. Son los volcanes, los terremotos y la formación de montañas.</li>
+<li><strong>Procesos externos</strong>: vienen de la energía del Sol y de la gravedad. <strong>Destruyen</strong> y modelan el relieve. Son la meteorización, la erosión, el transporte y la sedimentación.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Proceso</th>
+<th>Ejemplo</th>
+<th>Tipo</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Erupción volcánica</td>
+<td>Colada de lava en La Palma</td>
+<td>Interno</td>
+</tr>
+<tr>
+<td>Formación de una cordillera</td>
+<td>Pirineos</td>
+<td>Interno</td>
+</tr>
+<tr>
+<td>Erosión de un barranco por un río</td>
+<td>Barrancos de la zona</td>
+<td>Externo</td>
+</tr>
+<tr>
+<td>Acumulación de arena en una playa</td>
+<td>Sedimentación en el delta del Ebro</td>
+<td>Externo</td>
+</tr>
+</tbody></table>
+
+</section>
+<section class="slide" id="seccion-25" data-materia="ciencias" data-seccion="La geología y los riesgos naturales" data-seccion-numero="5" data-numero="5.4" data-nivel="3">
+  <h3><span class="heading__number">5.4</span> Riesgos naturales y prevención</h3>
+<p>Un <strong>riesgo natural</strong> es la posibilidad de que un fenómeno natural cause daños. Es importante entender que el peligro es natural, pero <strong>el daño depende también de las personas</strong>:</p>
+<p>$$
+\text{riesgo} = \text{peligrosidad} \times \text{exposición} \times \text{vulnerabilidad}
+$$</p>
+<ul>
+<li><strong>Peligrosidad</strong>: la probabilidad de que ocurra el fenómeno.</li>
+<li><strong>Exposición</strong>: qué hay y quién está en la zona (casas, personas, cultivos).</li>
+<li><strong>Vulnerabilidad</strong>: lo frágil que es lo expuesto.</li>
+</ul>
+<figure style="margin:14px 0;text-align:center">
+<img src="crecida-ebro.jpg" alt="El río Ebro desbordado a su paso por Zaragoza, con los árboles de la ribera dentro del agua">
+<figcaption style="font-size:0.88em;font-style:italic;color:#555;margin-top:6px;line-height:1.45">Crecida del Ebro a su paso por Zaragoza, el 28 de marzo de 2015. El agua ocupa la ribera, donde normalmente hay un paseo. Foto: Olybrius, CC BY-SA 4.0, Wikimedia Commons.</figcaption>
+</figure>
+
+<p>Por eso un terremoto en un desierto casi no causa daños y uno en una ciudad con edificios mal construidos es catastrófico.</p>
+<p><strong>Medidas de prevención:</strong></p>
+<ul>
+<li><strong>Ordenación del territorio</strong>: no construir en zonas inundables o en laderas inestables.</li>
+<li><strong>Construcción sismorresistente</strong>: edificios que aguantan el movimiento y evitan derrumbes.</li>
+<li><strong>Sistemas de alerta temprana</strong>: avisar de una inundación, una riada o una erupción con tiempo.</li>
+<li><strong>Planes de evacuación y educación</strong>: saber qué hacer y por dónde salir.</li>
+<li><strong>Recuperación natural</strong>: mantener vegetación en las laderas, recuperar riberas.</li>
+</ul>
+
+<div class="box">
+<p class="box__title">Predicción no es prevención</p>
+<p>Predecir es decir cuándo pasará (casi imposible en terremotos). Prevenir es reducir el daño aunque el fenómeno no se pueda evitar. La prevención es lo que está en nuestra mano.</p>
+
+</div>
+<div class="box box--actividades" data-actividad="4" aria-label="Actividades 4">
+  <p class="box__title box__title--actividades"><span class="box__numero" aria-hidden="true">4</span><span>Actividades</span></p>
+<ol>
+<li>Explica con un esquema qué son las placas tectónicas y qué tres tipos de límites existen.</li>
+<li>Pon un ejemplo de proceso interno y otro de externo. Indica qué efecto tienen sobre el relieve.</li>
+<li>Elige un riesgo natural de tu entorno. Identifica la peligrosidad, la exposición y la vulnerabilidad.</li>
+<li>Propón dos medidas de prevención para ese riesgo y justifica cada una: ¿por qué reduce el daño?</li>
+</ol>
+
+</div>
+</section>
+<section class="slide slide--seccion slide--seccion--titulo-necesario" id="seccion-26" data-materia="ciencias" data-seccion="Actividades de repaso" data-seccion-numero="6" data-numero="6" data-nivel="2">
+  <h2><span class="heading__number">6</span> Actividades de repaso</h2>
+  <ul class="slide__indice-seccion">
+    <li><span class="heading__number">6.1</span> Bloque 1: la Tierra como sistema</li>
+    <li><span class="heading__number">6.2</span> Bloque 2: los ecosistemas</li>
+    <li><span class="heading__number">6.3</span> Bloque 3: clima y datos</li>
+    <li><span class="heading__number">6.4</span> Bloque 4: geología y riesgos</li>
+  </ul>
+
+</section>
+<section class="slide" id="seccion-27" data-materia="ciencias" data-seccion="Actividades de repaso" data-seccion-numero="6" data-numero="6.1" data-nivel="3">
+  <h3><span class="heading__number">6.1</span> Bloque 1: la Tierra como sistema</h3>
+<ol>
+<li>Completa: la capa de gases es la ______, el agua forma la ______, la roca forma la ______ y los seres vivos, la ______.</li>
+<li>Explica tres relaciones entre esferas, una de ellas protagonizada por el suelo.</li>
+<li>Nombra los cuatro componentes del suelo y di para qué sirve la materia orgánica.</li>
+<li>¿Por qué el suelo tarda tanto en formarse? ¿Qué consecuencia tiene eso?</li>
+</ol>
+
+</section>
+<section class="slide" id="seccion-28" data-materia="ciencias" data-seccion="Actividades de repaso" data-seccion-numero="6" data-numero="6.2" data-nivel="3">
+  <h3><span class="heading__number">6.2</span> Bloque 2: los ecosistemas</h3>
+<ol>
+<li>Define ecosistema, biotopo y biocenosis. Pon un ejemplo concreto.</li>
+<li>Ordena de productor a descomponedor: búho, hierba, saltamontes, bacteria, ratón.</li>
+<li>Indica qué tipo de relación es: dos leones que luchan por el mismo territorio; un pájaro que se alimenta de insectos; un hongo que crece sobre un tronco muerto; una garrapata en un perro.</li>
+<li>Explica qué le ocurriría a una cadena trófica si desaparecieran los productores.</li>
+</ol>
+
+</section>
+<section class="slide" id="seccion-29" data-materia="ciencias" data-seccion="Actividades de repaso" data-seccion-numero="6" data-numero="6.3" data-nivel="3">
+  <h3><span class="heading__number">6.3</span> Bloque 3: clima y datos</h3>
+<ol>
+<li>Ordena estos enunciados en «tiempo» o «clima»: «mañana llueve», «el verano es seco», «hoy hace 30 grados», «en los últimos 30 años la temperatura media ha subido un grado».</li>
+<li>Escribe dos causas de cambio climático y dos consecuencias. Indica cuál es cada una.</li>
+<li>En una ciudad, la temperatura ha pasado de $14{,}2\,^\circ\mathrm{C}$ a $14{,}6\,^\circ\mathrm{C}$ de media. Calcula el porcentaje de aumento respecto al valor inicial. Después explica por qué un gráfico con el eje desde $14$ exagera el cambio.</li>
+<li>¿Qué diferencia hay entre mitigación y adaptación? Pon un ejemplo de cada una.</li>
+</ol>
+
+</section>
+<section class="slide" id="seccion-30" data-materia="ciencias" data-seccion="Actividades de repaso" data-seccion-numero="6" data-numero="6.4" data-nivel="3">
+  <h3><span class="heading__number">6.4</span> Bloque 4: geología y riesgos</h3>
+<ol>
+<li>Ordena las capas de la Tierra de fuera hacia dentro y di cuál es sólida, cuál es líquida y cuál se deforma despacio.</li>
+<li>Explica qué ocurre cuando dos placas convergen y qué relieve producen.</li>
+<li>Clasifica como interno o externo: erupción, erosión de un río, formación de una montaña, sedimentación en un delta.</li>
+<li>Un pueblo se construye en el cauce antiguo de un río. ¿Aumenta la peligrosidad, la exposición o la vulnerabilidad? ¿Qué medida de prevención propondrías?</li>
+</ol>
+
+<div class="box box--resumen">
+<p class="box__title">Antes de entregar</p>
+<p>Comprueba que puedes explicar, sin mirar los apuntes:</p>
+<ul>
+<li>Qué son las cuatro esferas y cómo se relacionan con el suelo.</li>
+<li>Qué elementos forman un ecosistema y cómo se relacionan los organismos.</li>
+<li>La diferencia entre tiempo y clima, y entre causa y consecuencia.</li>
+<li>Qué son las placas tectónicas y cómo se previene el daño de un riesgo natural.</li>
+</ul>
+
+</div>
+</section>
+
+
+      <footer class="page-footer">
+        <p><a href="../index.html">← Volver al índice</a> · Ciencias Aplicadas I · Material de aula</p>
+      </footer>
+    </main>
+  </div>
+
+  <!-- ======================= VISOR DE DIAPOSITIVAS ======================= -->
+  <div class="slideshow" id="slideshow" hidden>
+    <div class="slideshow__progress"><div class="slideshow__bar" id="slides-bar"></div></div>
+    <button class="slideshow__close" id="slides-close" title="Salir (Esc)">✕</button>
+    <div class="slideshow__stage" id="slides-stage"></div>
+    <div class="slideshow__controls">
+      <button class="slideshow__nav" id="slides-prev" title="Anterior (←)">←</button>
+      <span class="slideshow__counter" id="slides-counter">1 / 1</span>
+      <button class="slideshow__nav" id="slides-next" title="Siguiente (→)">→</button>
+    </div>
+  </div>
+
+  <script src="../lib/katex/katex.min.js"></script>
+  <script src="../lib/katex/auto-render.min.js"></script>
+  <script>
+    // $...$ para expresiones en línea y $$...$$ para fórmulas centradas.
+    renderMathInElement(document.getElementById("content"), {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "\\[", right: "\\]", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false }
+      ],
+      throwOnError: false,
+      strict: "warn"
+    });
+  </script>
+  <script src="../script.js"></script>
+</body>
+</html>

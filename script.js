@@ -14,12 +14,8 @@
      1) ÍNDICE AUTOMÁTICO
      ---------------------------------------------------------- */
   var tocList = document.getElementById("toc");
-  var sections = Array.prototype.slice.call(document.querySelectorAll(".slide"));
-
-  // Asigna un id automático a las secciones que no lo tengan
-  sections.forEach(function (section, i) {
-    if (!section.id) section.id = "seccion-" + (i + 1);
-  });
+  var sections = [];
+  var enlacesToc = [];
 
   var MATERIAS = {
     ciencias:     "Ciencias aplicadas",
@@ -30,76 +26,91 @@
     actividades: "Repaso"
   };
 
-  var materiaActual = null;
-  var seccionActual = null;
-  var sublistaActual = null;
+  /* Construye (o reconstruye) el índice lateral a partir de las secciones que
+     hay ahora en la página. El editor que trabaja dentro de la propia página
+     lo vuelve a llamar cuando rehace el capítulo, para que el índice siga
+     coincidiendo con el contenido. */
+  function construirIndice() {
+    tocList.innerHTML = "";
+    sections = Array.prototype.slice.call(document.querySelectorAll(".slide"));
 
-  sections.forEach(function (section) {
-    var heading = section.querySelector(":scope > h2, :scope > h3");
-    if (!heading) return;
+    // Asigna un id automático a las secciones que no lo tengan
+    sections.forEach(function (section, i) {
+      if (!section.id) section.id = "seccion-" + (i + 1);
+    });
 
-    var materia = section.getAttribute("data-materia") || "";
-    var numeroSeccion = section.getAttribute("data-seccion-numero") || "";
-    var seccion = section.getAttribute("data-seccion") || "";
-    var claveSeccion = numeroSeccion || seccion;
-    var textoTitulo = heading.textContent.trim();
+    var materiaActual = null;
+    var seccionActual = null;
+    var sublistaActual = null;
 
-    // Añade separador de materia cuando cambia
-    if (materia && materia !== materiaActual) {
-      materiaActual = materia;
-      seccionActual = null;
-      var cabecera = document.createElement("li");
-      cabecera.className = "toc__materia";
-      cabecera.textContent = MATERIAS[materia] || materia;
-      tocList.appendChild(cabecera);
-    }
+    sections.forEach(function (section) {
+      var heading = section.querySelector(":scope > h2, :scope > h3");
+      if (!heading) return;
 
-    // Los encabezados ## forman el primer nivel del índice; las
-    // diapositivas creadas desde ### se añaden dentro de esa sección.
-    if (seccion && claveSeccion !== seccionActual) {
-      seccionActual = claveSeccion;
-      var grupo = document.createElement("li");
-      grupo.className = "toc__seccion";
+      var materia = section.getAttribute("data-materia") || "";
+      var numeroSeccion = section.getAttribute("data-seccion-numero") || "";
+      var seccion = section.getAttribute("data-seccion") || "";
+      var claveSeccion = numeroSeccion || seccion;
+      var textoTitulo = heading.textContent.trim();
 
-      var tituloSeccion = document.createElement("a");
-      tituloSeccion.className = "toc__seccion-titulo";
-
-      // Las portadas-resumen solo se muestran en el visor de diapositivas.
-      // En la lectura normal, el título del índice enlaza al primer apartado
-      // visible de la sección en vez de al resumen oculto.
-      var destino = section;
-      if (section.classList.contains("slide--seccion")
-          && !section.classList.contains("slide--seccion--titulo-necesario")) {
-        var posicion = sections.indexOf(section);
-        destino = sections.slice(posicion + 1).find(function (candidata) {
-          return (candidata.getAttribute("data-seccion-numero") || candidata.getAttribute("data-seccion")) === claveSeccion
-            && !candidata.classList.contains("slide--seccion");
-        }) || section;
+      // Añade separador de materia cuando cambia
+      if (materia && materia !== materiaActual) {
+        materiaActual = materia;
+        seccionActual = null;
+        var cabecera = document.createElement("li");
+        cabecera.className = "toc__materia";
+        cabecera.textContent = MATERIAS[materia] || materia;
+        tocList.appendChild(cabecera);
       }
-      tituloSeccion.href = "#" + destino.id;
-      tituloSeccion.textContent = (numeroSeccion ? numeroSeccion + " " : "") + seccion;
-      grupo.appendChild(tituloSeccion);
 
-      sublistaActual = document.createElement("ol");
-      sublistaActual.className = "toc__sublista";
-      grupo.appendChild(sublistaActual);
-      tocList.appendChild(grupo);
-    }
+      // Los encabezados ## forman el primer nivel del índice; las
+      // diapositivas creadas desde ### se añaden dentro de esa sección.
+      if (seccion && claveSeccion !== seccionActual) {
+        seccionActual = claveSeccion;
+        var grupo = document.createElement("li");
+        grupo.className = "toc__seccion";
 
-    // La diapositiva de sección ya está enlazada en su encabezado de grupo.
-    if (section.getAttribute("data-nivel") === "2") return;
+        var tituloSeccion = document.createElement("a");
+        tituloSeccion.className = "toc__seccion-titulo";
 
-    var li = document.createElement("li");
-    var a = document.createElement("a");
-    a.href = "#" + section.id;
-    a.textContent = textoTitulo;
-    li.appendChild(a);
-    (sublistaActual || tocList).appendChild(li);
-  });
+        // Las portadas-resumen solo se muestran en el visor de diapositivas.
+        // En la lectura normal, el título del índice enlaza al primer apartado
+        // visible de la sección en vez de al resumen oculto.
+        var destino = section;
+        if (section.classList.contains("slide--seccion")
+            && !section.classList.contains("slide--seccion--titulo-necesario")) {
+          var posicion = sections.indexOf(section);
+          destino = sections.slice(posicion + 1).find(function (candidata) {
+            return (candidata.getAttribute("data-seccion-numero") || candidata.getAttribute("data-seccion")) === claveSeccion
+              && !candidata.classList.contains("slide--seccion");
+          }) || section;
+        }
+        tituloSeccion.href = "#" + destino.id;
+        tituloSeccion.textContent = (numeroSeccion ? numeroSeccion + " " : "") + seccion;
+        grupo.appendChild(tituloSeccion);
+
+        sublistaActual = document.createElement("ol");
+        sublistaActual.className = "toc__sublista";
+        grupo.appendChild(sublistaActual);
+        tocList.appendChild(grupo);
+      }
+
+      // La diapositiva de sección ya está enlazada en su encabezado de grupo.
+      if (section.getAttribute("data-nivel") === "2") return;
+
+      var li = document.createElement("li");
+      var a = document.createElement("a");
+      a.href = "#" + section.id;
+      a.textContent = textoTitulo;
+      li.appendChild(a);
+      (sublistaActual || tocList).appendChild(li);
+    });
+
+    enlacesToc = Array.prototype.slice.call(tocList.querySelectorAll("a"));
+    resaltarIndice();
+  }
 
   /* Scroll-spy: resalta la sección visible */
-  var enlacesToc = Array.prototype.slice.call(tocList.querySelectorAll("a"));
-
   function resaltarIndice() {
     var posicion = window.scrollY + 110;
     var activo = null;
@@ -114,7 +125,12 @@
   }
 
   window.addEventListener("scroll", resaltarIndice, { passive: true });
-  resaltarIndice();
+  construirIndice();
+
+  // El editor que trabaja dentro de la propia página reutiliza esta función
+  // cuando rehace el capítulo: así el índice, el scroll-spy y el visor de
+  // diapositivas siguen usando las secciones nuevas.
+  window.__reconstruirIndice = construirIndice;
 
   /* ----------------------------------------------------------
      2) MENÚ LATERAL EN MÓVIL
@@ -126,11 +142,10 @@
     sidebar.classList.toggle("is-open");
   });
 
-  // Cerrar el menú al pulsar un enlace (en móvil)
-  enlacesToc.forEach(function (a) {
-    a.addEventListener("click", function () {
-      sidebar.classList.remove("is-open");
-    });
+  // Cerrar el menú al pulsar un enlace (en móvil). Se usa delegación para que
+  // siga funcionando aunque el índice se reconstruya al editar.
+  tocList.addEventListener("click", function (evento) {
+    if (evento.target.closest("a")) sidebar.classList.remove("is-open");
   });
 
   /* ----------------------------------------------------------

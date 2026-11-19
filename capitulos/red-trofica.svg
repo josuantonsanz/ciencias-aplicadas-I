@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1155 600" width="1155" height="600" role="img" aria-label="Red trófica con cuatro niveles y descomponedores">
+  <title>Quién come a quién: una red trófica</title>
+  <defs>
+    <marker id="flecha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#475569"/>
+    </marker>
+    <marker id="flecha-suave" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <text x="577" y="40" text-anchor="middle" font-family="sans-serif" font-size="27" font-weight="700" fill="#16324f">Quién come a quién: una red trófica</text>
+  <text x="577" y="70" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#475569">Cada flecha significa «sirve de alimento a»</text>
+
+  <!-- Cabeceras de nivel -->
+  <g font-family="sans-serif" font-size="17" font-weight="700" fill="#475569" text-anchor="middle">
+    <text x="142" y="110">PRODUCTORES</text>
+    <text x="432" y="110">CONSUMIDORES</text>
+    <text x="432" y="130">PRIMARIOS</text>
+    <text x="722" y="110">CONSUMIDORES</text>
+    <text x="722" y="130">SECUNDARIOS</text>
+    <text x="1012" y="110">CONSUMIDORES</text>
+    <text x="1012" y="130">TERCIARIOS</text>
+  </g>
+
+  <!-- Productores -->
+  <g>
+    <rect x="30" y="150" width="225" height="50" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="142" y="181" text-anchor="middle" font-family="sans-serif" font-size="21" fill="#16324f">Hierba</text>
+    <rect x="30" y="215" width="225" height="50" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="142" y="246" text-anchor="middle" font-family="sans-serif" font-size="21" fill="#16324f">Hojas de los árboles</text>
+    <rect x="30" y="280" width="225" height="50" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="142" y="311" text-anchor="middle" font-family="sans-serif" font-size="21" fill="#16324f">Algas y plancton</text>
+  </g>
+
+  <!-- Consumidores primarios -->
+  <g>
+    <rect x="320" y="150" width="225" height="50" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="432" y="181" text-anchor="middle" font-family="sans-serif" font-size="21" fill="#16324f">Conejo</text>
+    <rect x="320" y="215" width="225" height="50" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="432" y="246" text-anchor="middle" font-family="sans-serif" font-size="21" fill="#16324f">Oruga</text>
+    <rect x="320" y="280" width="225" height="50" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="432" y="311" text-anchor="middle" font-family="sans-serif" font-size="21" fill="#16324f">Rata de agua</text>
+  </g>
+
+  <!-- Consumidores secundarios -->
+  <g>
+    <rect x="610" y="150" width="225" height="50" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="722" y="181" text-anchor="middle" font-family="sans-serif" font-size="21" fill="#16324f">Zorro</text>
+    <rect x="610" y="215" width="225" height="50" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="722" y="246" text-anchor="middle" font-family="sans-serif" font-size="21" fill="#16324f">Pájaro insectívoro</text>
+    <rect x="610" y="280" width="225" height="50" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="722" y="311" text-anchor="middle" font-family="sans-serif" font-size="21" fill="#16324f">Garza</text>
+  </g>
+
+  <!-- Consumidores terciarios -->
+  <g>
+    <rect x="900" y="150" width="225" height="50" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="1012" y="181" text-anchor="middle" font-family="sans-serif" font-size="21" fill="#16324f">Buitre</text>
+    <text x="1012" y="232" text-anchor="middle" font-family="sans-serif" font-size="17" fill="#64748b">(también come</text>
+    <text x="1012" y="252" text-anchor="middle" font-family="sans-serif" font-size="17" fill="#64748b">animales muertos)</text>
+  </g>
+
+  <!-- Flechas entre niveles -->
+  <g stroke="#475569" stroke-width="2" marker-end="url(#flecha)">
+    <line x1="257" y1="175" x2="314" y2="175"/>
+    <line x1="257" y1="240" x2="314" y2="240"/>
+    <line x1="257" y1="305" x2="314" y2="305"/>
+    <line x1="547" y1="175" x2="604" y2="175"/>
+    <line x1="547" y1="240" x2="604" y2="240"/>
+    <line x1="547" y1="305" x2="604" y2="305"/>
+    <line x1="837" y1="175" x2="894" y2="175"/>
+    <line x1="837" y1="240" x2="884" y2="200"/>
+  </g>
+
+  <!-- Descomponedores -->
+  <g stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#flecha-suave)">
+    <line x1="400" y1="332" x2="430" y2="392"/>
+    <line x1="700" y1="332" x2="676" y2="392"/>
+  </g>
+  <rect x="320" y="396" width="470" height="58" rx="10" fill="#e2e8f0" stroke="#94a3b8" stroke-width="2"/>
+  <text x="555" y="421" text-anchor="middle" font-family="sans-serif" font-size="21" font-weight="700" fill="#16324f">Hongos y bacterias: descomponedores</text>
+  <text x="555" y="443" text-anchor="middle" font-family="sans-serif" font-size="17" fill="#334155">convierten los restos en nutrientes</text>
+
+  <g stroke="#475569" stroke-width="2" marker-end="url(#flecha)">
+    <line x1="318" y1="425" x2="262" y2="425"/>
+  </g>
+  <rect x="30" y="396" width="225" height="58" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="142" y="421" text-anchor="middle" font-family="sans-serif" font-size="21" fill="#16324f">Nutrientes</text>
+  <text x="142" y="441" text-anchor="middle" font-family="sans-serif" font-size="21" fill="#16324f">en el suelo</text>
+
+  <!-- Retorno a los productores -->
+  <path d="M42,396 C-2,340 2,240 26,196" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#flecha)"/>
+  <text x="52" y="360" font-family="sans-serif" font-size="17" fill="#475569">vuelven</text>
+  <text x="52" y="380" font-family="sans-serif" font-size="17" fill="#475569">a las plantas</text>
+
+  <text x="577" y="505" text-anchor="middle" font-family="sans-serif" font-size="19" fill="#475569">En cada salto se pierde mucha energía en forma de calor: hacen falta muchas plantas</text>
+  <text x="577" y="530" text-anchor="middle" font-family="sans-serif" font-size="19" fill="#475569">para mantener a pocos depredadores. Por eso las cadenas tienen pocos niveles.</text>
+</svg>
